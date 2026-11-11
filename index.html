@@ -328,6 +328,9 @@ details.block summary{cursor:pointer;font-weight:700;color:var(--blue);padding:.
 .ai-code{margin:.5rem 0 .8rem}
 .ai-code .btn-small{margin-top:.35rem}
 .ai-foot{margin-top:1rem}
+.ai-caret{display:inline-block;width:.55rem;height:1.05em;background:var(--blue);vertical-align:-3px;margin-left:2px;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.ai-caret{animation:none}}
 
 footer{margin-top:4.5rem;background:var(--hero);color:var(--hero-muted);padding:2rem 0 2.75rem;font-size:.95rem}
 footer strong{color:var(--hero-ink)}
@@ -652,17 +655,41 @@ const IA = {
     const btn = sec.querySelector(".ai-btn"), out = sec.querySelector(".ai-out");
     btn.addEventListener("click", async () => {
       btn.disabled = true; btn.textContent = "Analizando…";
-      out.innerHTML = `<div class="loading"><span class="spin" aria-hidden="true"></span>La IA está revisando tus resultados. Puede tardar unos segundos…</div>`;
-      const ctl = new AbortController(); const tm = setTimeout(() => ctl.abort(), 60000);
+      out.innerHTML = `<div class="loading"><span class="spin" aria-hidden="true"></span>La IA está revisando tus resultados. Empezará a escribir en unos segundos…</div>`;
+      const ctl = new AbortController();
+      let tm = setTimeout(() => ctl.abort(), 45000);
+      const bump = () => { clearTimeout(tm); tm = setTimeout(() => ctl.abort(), 45000); };
+      let full = "";
+      const show = (done) => {
+        out.innerHTML = `<div class="ai-answer">${md(full)}${done ? "" : `<span class="ai-caret" aria-hidden="true"></span>`}</div>` +
+          (done ? `<p class="minor ai-foot">Respuesta generada por ${esc(IA.proveedor)}. La IA puede equivocarse: revisa los cambios antes de aplicarlos.</p>
+          <div class="actions"><button class="btn-small" type="button" data-copy="${esc(full)}">Copiar respuesta</button></div>` : "");
+      };
       try {
         const r = await fetch(IA.url, {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({tool, data:getData()}), signal:ctl.signal});
-        const j = await r.json().catch(() => ({}));
-        if (!r.ok || !j.text) throw new Error(j.error || "No se ha podido obtener respuesta de la IA.");
-        out.innerHTML = `<div class="ai-answer">${md(j.text)}</div><p class="minor ai-foot">Respuesta generada por ${esc(IA.proveedor)}. La IA puede equivocarse: revisa los cambios antes de aplicarlos.</p>
-          <div class="actions"><button class="btn-small" type="button" data-copy="${esc(j.text)}">Copiar respuesta</button></div>`;
+        const ct = r.headers.get("content-type") || "";
+        if (!r.ok || ct.includes("application/json")){
+          const j = await r.json().catch(() => ({}));
+          if (!r.ok || !j.text) throw new Error(j.error || "No se ha podido obtener respuesta de la IA.");
+          full = j.text;
+        } else {
+          const reader = r.body.getReader(), dec = new TextDecoder();
+          let pending = false;
+          for (;;){
+            const {value, done} = await reader.read();
+            if (done) break;
+            bump();
+            full += dec.decode(value, {stream:true});
+            if (!pending){ pending = true; requestAnimationFrame(() => { pending = false; show(false); }); }
+          }
+          full += dec.decode();
+          if (!full.trim()) throw new Error("La IA no ha devuelto respuesta. Inténtalo de nuevo.");
+        }
+        show(true);
         btn.textContent = "Volver a preguntar";
       } catch(e){
-        out.innerHTML = `<div class="alert"><strong>No hemos podido consultar a la IA</strong><p>${esc(e.name === "AbortError" ? "La IA ha tardado demasiado. Inténtalo de nuevo." : e.message)}</p></div>`;
+        if (full.trim()){ show(true); out.insertAdjacentHTML("beforeend", `<p class="minor">La respuesta se ha cortado antes de terminar. Puedes volver a preguntar.</p>`); }
+        else out.innerHTML = `<div class="alert"><strong>No hemos podido consultar a la IA</strong><p>${esc(e.name === "AbortError" ? "La IA está tardando más de lo normal, probablemente por saturación. Inténtalo de nuevo en un momento." : e.message)}</p></div>`;
         btn.textContent = "Intentarlo de nuevo";
       } finally { clearTimeout(tm); btn.disabled = false; }
     });
