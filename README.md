@@ -1,0 +1,130 @@
+# Email Seguro
+
+Herramientas gratuitas para proteger tu dominio, reconocer emails de estafa, probar tus campañas antes de enviarlas y mantener sana tu base de datos. Creadas por una profesional de la entregabilidad del email.
+
+👉 **Pruébalas aquí:** [mlduque.github.io](https://mlduque.github.io/)
+
+La web tiene cuatro herramientas, cada una en su pestaña:
+
+- **Mi dominio:** [mlduque.github.io](https://mlduque.github.io/)
+- **Analizar un email:** [mlduque.github.io/#email](https://mlduque.github.io/#email)
+- **Probar mi campaña:** [mlduque.github.io/#campana](https://mlduque.github.io/#campana)
+- **Mi base de datos:** [mlduque.github.io/#bbdd](https://mlduque.github.io/#bbdd)
+
+---
+
+## 1. ¿Está protegido tu dominio?
+
+Desde 2024, Gmail y Yahoo exigen que los dominios que envían emails estén autenticados, y Microsoft se sumó en 2025. Si tu dominio no lo está, tus correos pueden acabar en spam o ser rechazados, y cualquiera podría enviar emails falsos en tu nombre.
+
+Esta herramienta está pensada para pymes, autónomos y freelancers que no tienen un equipo técnico detrás: te dice qué está bien, qué falta y exactamente qué registro añadir.
+
+### Cómo se usa
+
+1. Escribe tu dominio (por ejemplo, *tuempresa.com*). También puedes pegar tu email o la dirección de tu web.
+2. Pulsa **Comprobar dominio**.
+3. Verás un resultado general (**Protegido**, **Mejorable** o **Expuesto**), si cumples los requisitos de Gmail, Yahoo y Microsoft, y un semáforo para cada comprobación.
+4. Donde haya algo en amarillo o rojo, encontrarás los pasos para arreglarlo y el registro DNS listo para copiar.
+
+### Qué revisa
+
+**Autenticación del email**
+- **MX (recepción de correo):** si tu dominio puede recibir emails y con qué proveedor.
+- **SPF (remitentes autorizados):** si existe, si es único, si termina correctamente y si supera el límite de 10 consultas DNS.
+- **DKIM (firma digital):** busca la firma con los selectores más habituales y, para cada clave, muestra su tamaño exacto en bits y si es segura según las buenas prácticas: insegura (menos de 1024), débil (1024), segura (2048) o muy segura (3072 o más). También reconoce claves Ed25519.
+- **DMARC (política anti-suplantación):** si existe, qué nivel de protección aplica y si recibes informes.
+- **BIMI (logo de marca):** si tu logo puede aparecer junto a tus emails. Es opcional.
+
+**Reputación y web**
+- **Listas negras:** revisa tu dominio en 5 listas de dominios (Spamhaus DBL, SURBL, URIBL…) y las IPs asociadas en 9 listas de IPs (Spamhaus ZEN, SpamCop, Barracuda…). Si apareces en alguna, te explica cómo salir.
+- **Certificado SSL:** indica si el dominio tiene web asociada y si esa web tiene certificado SSL. Si lo tiene, muestra quién lo emitió, sus fechas de validez, cuántos días le quedan, qué dominios cubre (incluido www) y qué autoridades pueden emitir certificados para tu dominio (registro CAA).
+
+---
+
+## 2. ¿Este email es de fiar?
+
+Pega un email sospechoso y en segundos te dice si tiene pinta de estafa, y por qué.
+
+### Cómo se usa
+
+1. Copia el email sospechoso (si puedes, incluye la línea del remitente).
+2. Pégalo y pulsa **Analizar email**.
+3. Recibirás un veredicto (**Peligroso**, **Sospechoso** o **Sin alertas**), un nivel de riesgo de 0 a 100 y la explicación de cada señal.
+
+Para un análisis más preciso, usa la pestaña **Cabeceras**. En la propia web tienes una guía para copiarlas desde Gmail, Outlook, Apple Mail y Yahoo.
+
+### Qué revisa
+
+- **El remitente:** si el nombre dice ser una empresa conocida pero la dirección no es suya, si escribe desde una cuenta gratuita haciéndose pasar por una empresa y si las respuestas irían a otra dirección.
+- **Los enlaces:** webs que imitan marcas (incluso cambiando letras por números), enlaces acortados, direcciones IP, terminaciones de riesgo y enlaces cuyo texto no coincide con el destino.
+- **El mensaje:** prisa o amenazas, peticiones de contraseñas o datos de tarjeta, premios o reembolsos, el timo del paquete retenido, saludos genéricos y adjuntos peligrosos.
+- **La autenticación (modo cabeceras):** SPF, DKIM y DMARC, igual que lo haría un profesional.
+
+---
+
+## 3. ¿Tu campaña llegará a la bandeja?
+
+Para marketers y cualquiera que envíe newsletters. Escribe el remitente, el asunto y el preheader, y pega el HTML de tu email.
+
+### Qué hace
+
+- **Vista previa en la bandeja:** muestra cómo se verá tu email en un móvil, en Gmail escritorio y en Outlook escritorio, e indica si el asunto o el preheader se cortan. Si no has escrito preheader, muestra lo que verán tus lectores (el inicio del HTML).
+- **Revisión del asunto y el preheader:** longitud, mayúsculas, exclamaciones, emojis, palabras típicas de spam, falsos RE: o FW: y palabras disfrazadas.
+- **Revisión del HTML:** peso (Gmail recorta a partir de 102 KB), proporción de texto e imágenes, imágenes sin texto alternativo, enlace de baja, texto oculto o invisible, enlaces acortados, a IPs o engañosos, scripts y formularios, y frases de spam.
+- **Test tipo SpamAssassin:** suma puntos con reglas equivalentes a las de SpamAssassin y los compara con el umbral habitual de 5.
+- **Puntuación de 0 a 100 con semáforo.**
+- **Arreglos de un clic:** asunto sugerido, preheader sugerido, añadir texto alternativo a las imágenes, añadir enlace de baja y acceso directo para excluir inactivos de tu lista.
+- **Vista previa del HTML** en tamaño móvil y escritorio.
+
+---
+
+## 4. ¿Está sana tu base de datos?
+
+Sube tu lista de contactos en CSV o Excel, pégala desde una hoja de cálculo o comprueba un solo contacto.
+
+### Qué hace
+
+- Detecta **emails inválidos, duplicados, errores de escritura** (gmial.com, hotmial.com…), **desechables**, **genéricos** (info@, ventas@…), **de prueba** y **dominios que no reciben correo**.
+- Si el archivo tiene fechas de última apertura o clic, clasifica a los contactos en **activos** (90 días o menos), **en riesgo** (91 a 180 días), **inactivos** (más de 180 días) y **sin actividad**.
+- Si tiene una columna de estado, detecta **bajas, rebotes y quejas**.
+- Da una **puntuación de salud de 0 a 100 con semáforo** y muestra los dominios más frecuentes.
+- **Limpieza de un clic:** eliges qué excluir y descargas la lista limpia (con los errores de escritura corregidos), los contactos excluidos con el motivo, o los inactivos para una campaña de reactivación.
+
+---
+
+## Asistente con inteligencia artificial
+
+Cada herramienta incluye el botón **«Explícamelo y dime cómo arreglarlo»**. La IA revisa los resultados del análisis y te explica, en lenguaje sencillo:
+
+- **qué está mal** y **por qué** importa,
+- **qué tienes que cambiar exactamente**, con los textos, registros DNS o fragmentos de HTML corregidos listos para copiar,
+- y por dónde empezar.
+
+En el probador de campañas, además, propone asuntos y preheaders alternativos; en la base de datos, un plan de limpieza y una campaña de reactivación.
+
+La IA funciona a través de un pequeño intermediario seguro (un Cloudflare Worker) que guarda la clave de la API, de modo que nunca queda expuesta en la web. Por defecto usa **Gemini de Google**, que tiene un plan gratuito.
+
+---
+
+## Tu privacidad
+
+- **Analizar un email:** el email no sale de tu dispositivo. Todo se analiza en tu navegador.
+- **Comprobar un dominio:** solo se consulta información pública: el DNS (Google Public DNS, con Cloudflare como respaldo), los registros públicos de certificados (Cert Spotter y crt.sh) y las listas negras.
+- **Probar una campaña:** el asunto, el preheader y el HTML se analizan en tu navegador.
+- **Analizar una base de datos:** la lista no sale de tu dispositivo. Solo se consulta en el DNS público si los dominios de empresa reciben correo, nunca las direcciones.
+
+- **Explicación con IA (opcional):** solo se envía algo cuando pulsas el botón. En el detector de phishing y en el probador de campañas se envía el contenido analizado; en la base de datos, solo estadísticas, nunca los contactos. En el plan gratuito de Gemini, Google puede usar el contenido para mejorar sus productos.
+
+No se guarda nada.
+
+## Ten en cuenta
+
+Son herramientas orientativas: ningún análisis automático es infalible. El test tipo SpamAssassin es una estimación del contenido: el filtro real también tiene en cuenta la reputación, el dominio y las cabeceras. Algunas listas negras, como Spamhaus, no responden a consultas desde servicios DNS públicos; en ese caso aparecen como «No disponible» y puedes comprobarlas en su web oficial. Antes de cambiar registros DNS, confirma los valores con tu proveedor de correo.
+
+## Sobre la autora
+
+Creado por **María Luisa Duque**, Email Deliverability Manager.
+
+Trabajo cada día para que los emails legítimos lleguen a la bandeja de entrada. Con estas herramientas quiero que cualquier persona pueda reconocer los que no lo son, y que cualquier negocio, por pequeño que sea, pueda proteger su dominio, cuidar su lista y enviar mejores campañas sin necesidad de ser experto.
+
+[Conecta conmigo en LinkedIn](https://www.linkedin.com/in/marialuisaduque/)
