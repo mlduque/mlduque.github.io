@@ -1887,6 +1887,62 @@ for (const l of ["en","it","fr","pt"]) Object.assign(I18N[l], ABT[l]);
     });
   };
 
+  /* ---------- Traducción de los resultados ----------
+     Los informes se generan en español y se traducen al vuelo con diccionarios por idioma.
+     Italiano, francés y portugués usan el inglés mientras no tengan traducción propia. */
+  window.ES_TR = (() => {
+    const D = {};
+    const reEsc = x => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    function add(lang, pairs){
+      const d = D[lang] || (D[lang] = {exact:new Map(), re:[]});
+      for (const [es, tx] of pairs){
+        if (/\{\d\}/.test(es)) d.re.push([new RegExp("^" + reEsc(es).replace(/\\\{(\d)\\\}/g, "([\\s\\S]+?)") + "$"), tx]);
+        else d.exact.set(es, tx);
+      }
+    }
+    function look(L, s, depth){
+      const d = D[L]; if (!d) return null;
+      if (d.exact.has(s)) return d.exact.get(s);
+      for (const [re, tx] of d.re){
+        const m = s.match(re);
+        if (m) return tx.replace(/\{(\d)\}/g, (x, i) => { const v = m[+i + 1] ?? ""; return depth < 3 ? (look(L, v, depth + 1) ?? v) : v; });
+      }
+      return null;
+    }
+    function tr(s){
+      const L = lang; if (L === "es" || s == null) return null;
+      const t = String(s).trim(); if (!t) return null;
+      let r = look(L, t, 0); if (r == null && L !== "en") r = look("en", t, 0);
+      if (r == null) return null;
+      return String(s).match(/^\s*/)[0] + r + String(s).match(/\s*$/)[0];
+    }
+    const orig = new WeakMap();
+    function walk(root){
+      if (!root) return;
+      const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode: n => n.parentElement && n.parentElement.closest(".ai, script, style, code, pre, textarea") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+      let n;
+      while ((n = w.nextNode())){
+        if (!orig.has(n)) orig.set(n, n.nodeValue);
+        const o = orig.get(n);
+        const v = lang === "es" ? o : (tr(o) ?? o);
+        if (n.nodeValue !== v) n.nodeValue = v;
+      }
+      root.querySelectorAll && root.querySelectorAll("[aria-label]").forEach(el => {
+        if (el.dataset.srcAria === undefined) el.dataset.srcAria = el.getAttribute("aria-label");
+        const o = el.dataset.srcAria; el.setAttribute("aria-label", lang === "es" ? o : (tr(o) ?? o));
+      });
+    }
+    return {add, tr, walk};
+  })();
+  const TR_IDS = ["dmResult","emResult","emHint","cpPreviews","cpResult","dbResult","spResult","auResult","auHistory","wuResult"];
+  let trPending = false;
+  const trAll = () => { trPending = false; TR_IDS.forEach(id => ES_TR.walk(document.getElementById(id))); };
+  const trSoon = () => { if (!trPending){ trPending = true; (window.requestAnimationFrame || setTimeout)(trAll); } };
+  if (window.MutationObserver) TR_IDS.forEach(id => { const el = document.getElementById(id); if (el) new MutationObserver(trSoon).observe(el, {childList:true, subtree:true}); });
+  window.addEventListener("langchange", trAll);
+  const toastRaw = window.toast;
+  window.toast = msg => toastRaw(ES_TR.tr(msg) ?? msg);
+
   /* ---------- Contacto ---------- */
   $("#ctForm").addEventListener("submit", e => {
     e.preventDefault();
@@ -1901,6 +1957,128 @@ for (const l of ["en","it","fr","pt"]) Object.assign(I18N[l], ABT[l]);
   applyI18n();
   showView(viewFromHash());
 })();
+
+/* ===== Resultados en inglés (1/3): auditoría y analizador de emails ===== */
+ES_TR.add("en", [
+/* ---- Comunes ---- */
+["sin datos","no data"],["sin resultado","no result"],["sin firma","not signed"],["el dominio","the domain"],["desconocido","unknown"],["desconocida","unknown"],["ningún dominio","no domain"],
+["alineado (estricto)","aligned (strict)"],["alineado (relajado)","aligned (relaxed)"],["no alineado","not aligned"],
+["Alineado (estricto)","Aligned (strict)"],["Alineado (relajado)","Aligned (relaxed)"],["No alineado","Not aligned"],
+["Riesgo alto","High risk"],["Riesgo medio","Medium risk"],["Detalle menor","Minor detail"],["Descargar informe (PDF)","Download report (PDF)"],["No aparece","Not present"],
+["alta","high"],["media","medium"],["baja","low"],
+
+/* ---- Auditoría: veredicto e informe ---- */
+["Apto","Pass"],["Mejorable","Needs work"],["No apto","Fail"],
+["Resultado: Apto","Result: Pass"],["Resultado: Mejorable","Result: Needs work"],["Resultado: No apto","Result: Fail"],["Semáforo","Traffic light"],
+["Listo para enviar","Ready to send"],["Se puede enviar, pero conviene corregir algunos puntos","It can be sent, but a few points should be fixed"],["Corrige los fallos antes de enviar","Fix the failures before sending"],
+["✓ {0} correctos","✓ {0} passed"],["! {0} a mejorar","! {0} to improve"],["✗ {0} fallos","✗ {0} failed"],
+["Email Seguro · Informe de auditoría","Email Seguro · Audit report"],["(sin asunto)","(no subject)"],
+["Auditoría orientativa realizada en tu navegador con las cabeceras y el contenido del email, y consultas públicas de DNS, listas negras y reputación. Las reglas tipo SpamAssassin y Rspamd son una estimación.","Indicative audit run in your browser using the email's headers and content, plus public DNS, blacklist and reputation lookups. SpamAssassin- and Rspamd-style rules are an estimate."],
+["Analizando el email…","Analysing the email…"],["Comprobando el dominio, las listas negras y la reputación…","Checking the domain, blacklists and reputation…"],
+["Sube un email","Upload an email"],["Sube el archivo .eml o pega el email original completo.","Upload the .eml file or paste the full original email."],
+["No hemos podido completar la auditoría","We couldn't complete the audit"],["Revisa que el email esté completo e inténtalo de nuevo.","Check that the email is complete and try again."],
+["No encontramos un email completo","We couldn't find a complete email"],["Sube el archivo .eml o pega el email original con todas sus cabeceras (en Gmail: tres puntos y «Mostrar original»).","Upload the .eml file or paste the original email with all its headers (in Gmail: three dots and \"Show original\")."],
+["Dominio","Domain"],["Auditoría","Audit"],["Protegido","Protected"],["Expuesto","Exposed"],
+
+/* ---- Auditoría: secciones ---- */
+["Autenticación del envío","Sending authentication"],["Infraestructura y reputación","Infrastructure and reputation"],["Registros DNS de {0}","DNS records for {0}"],["Registros DNS del dominio","Domain DNS records"],
+["Cabeceras (estilo Rspamd)","Headers (Rspamd-style)"],["Contenido","Content"],["Cumplimiento legal y marketing","Legal compliance and marketing"],["Requisitos de Gmail y Yahoo para envíos masivos","Gmail and Yahoo bulk sender requirements"],["Plataforma de envío","Sending platform"],
+["Sin resultados de autenticación","No authentication results"],["El email no incluye la cabecera Authentication-Results. Pega el email original completo tal como lo recibiste.","The email doesn't include the Authentication-Results header. Paste the full original email exactly as you received it."],
+["SPF: {0}","SPF: {0}"],["DKIM: {0}","DKIM: {0}"],["DMARC: {0}","DMARC: {0}"],
+["El servidor de envío está autorizado por {0}.","The sending server is authorised by {0}."],["El servidor de envío no está autorizado por el SPF del dominio de rebote.","The sending server isn't authorised by the bounce domain's SPF."],
+["Firmado por {0}.","Signed by {0}."],["El email no lleva una firma DKIM válida.","The email doesn't carry a valid DKIM signature."],
+["El dominio del remitente respalda este envío.","The sender's domain backs this email."],["El envío no supera la política DMARC del dominio.","The email fails the domain's DMARC policy."],["El dominio no tiene DMARC o el receptor no lo evaluó.","The domain has no DMARC or the receiver didn't evaluate it."],
+["Alineación SPF: {0}","SPF alignment: {0}"],["Alineación DKIM: {0}","DKIM alignment: {0}"],
+["El Return-Path ({0}) pertenece al dominio del remitente.","The Return-Path ({0}) belongs to the sender's domain."],["El Return-Path ({0}) es de otro dominio. Configura un dominio de rebotes propio.","The Return-Path ({0}) belongs to another domain. Set up your own bounce domain."],
+["La firma DKIM es del dominio del remitente.","The DKIM signature belongs to the sender's domain."],["La firma DKIM es de {0}. Firma con tu propio dominio.","The DKIM signature belongs to {0}. Sign with your own domain."],
+["IP de envío: {0}","Sending IP: {0}"],["Servidor de origen: {0}","Origin server: {0}"],["No hemos encontrado la IP de envío","We couldn't find the sending IP"],["Pega el email original completo, con todas sus líneas Received.","Paste the full original email, with all its Received lines."],
+["DNS inverso (PTR): no disponible","Reverse DNS (PTR): not available"],["No se pudo consultar.","It couldn't be checked."],["La IP no tiene DNS inverso (PTR)","The IP has no reverse DNS (PTR)"],["Muchos servidores rechazan el correo de IPs sin PTR. Pide a tu proveedor que lo configure.","Many servers reject mail from IPs without PTR. Ask your provider to set it up."],
+["DNS inverso (PTR): {0}","Reverse DNS (PTR): {0}"],["El nombre apunta de vuelta a la misma IP (FCrDNS correcto).","The name points back to the same IP (valid FCrDNS)."],["El nombre del PTR no apunta de vuelta a la misma IP (FCrDNS). Conviene que coincidan.","The PTR name doesn't point back to the same IP (FCrDNS). They should match."],
+["El nombre de presentación (HELO) no coincide con el PTR","The HELO name doesn't match the PTR"],["HELO: {0} · PTR: {1}. No es grave, pero lo ideal es que coincidan.","HELO: {0} · PTR: {1}. Not serious, but ideally they should match."],
+["Entregado con cifrado (TLS)","Delivered with encryption (TLS)"],["Entregado sin cifrado","Delivered without encryption"],["La conexión con el servidor receptor estaba cifrada, como exigen Gmail y Yahoo.","The connection to the receiving server was encrypted, as Gmail and Yahoo require."],["El último salto no usó TLS. Gmail y Yahoo exigen conexiones cifradas.","The last hop didn't use TLS. Gmail and Yahoo require encrypted connections."],
+["IP en listas negras: {0}","IP on blacklists: {0}"],["La IP no aparece en las listas negras consultadas","The IP isn't on the blacklists checked"],["Mientras siga listada, muchos servidores rechazarán o filtrarán tus emails.","While it remains listed, many servers will reject or filter your emails."],["Revisada en las principales listas de IPs que han respondido.","Checked against the main IP lists that responded."],
+["Dominio en listas negras: {0}","Domain on blacklists: {0}"],["El dominio no aparece en las listas negras consultadas","The domain isn't on the blacklists checked"],["Los enlaces y el remitente de este dominio están marcados como spam.","Links and senders from this domain are flagged as spam."],["Revisado en las principales listas de dominios que han respondido.","Checked against the main domain lists that responded."],
+["Sender Score: {0}/100","Sender Score: {0}/100"],["Por encima de 80 es buena; por debajo de 70, preocupante.","Above 80 is good; below 70 is worrying."],["HostKarma: lista negra","HostKarma: blacklist"],["La IP figura en la lista negra de HostKarma.","The IP is on HostKarma's blacklist."],
+["MX: {0}","MX: {0}"],["Web y SSL: {0}","Website and SSL: {0}"],["Seguridad avanzada: {0}","Advanced security: {0}"],
+["Clave DKIM usada ({0}): {1} {2} bits","DKIM key used ({0}): {1} {2} bits"],
+["No hemos podido revisar el dominio {0}","We couldn't check the domain {0}"],["No hemos podido revisar el dominio","We couldn't check the domain"],["El dominio del remitente no existe o no responde. Si es un ejemplo ficticio, es normal.","The sender's domain doesn't exist or isn't responding. If it's a fictitious example, that's expected."],
+["Puntuación tipo SpamAssassin: {0} (umbral 5,0)","SpamAssassin-style score: {0} (threshold 5.0)"],["Por encima del umbral: muchos servidores lo marcarían como spam por contenido.","Above the threshold: many servers would mark it as spam because of its content."],["Por debajo del umbral, pero con poco margen.","Below the threshold, but with little margin."],["El contenido no debería activar los filtros.","The content shouldn't trigger filters."],
+["Peso del HTML: {0} KB","HTML size: {0} KB"],["Gmail recortará el email (límite de 102 KB).","Gmail will clip the email (102 KB limit)."],["Dentro del límite de recorte de Gmail.","Within Gmail's clipping limit."],["No hemos encontrado contenido HTML","We couldn't find any HTML content"],["El email no tiene versión HTML o no se ha podido leer.","The email has no HTML version or it couldn't be read."],
+["Baja en un clic (one-click unsubscribe)","One-click unsubscribe"],["Tiene List-Unsubscribe, pero sin baja en un clic","Has List-Unsubscribe, but no one-click unsubscribe"],["Sin cabecera List-Unsubscribe","No List-Unsubscribe header"],["Cumple el requisito de Gmail y Yahoo (RFC 8058).","Meets the Gmail and Yahoo requirement (RFC 8058)."],["Gmail y Yahoo exigen la baja en un clic a quien envía más de 5.000 emails al día. Actívala en tu plataforma.","Gmail and Yahoo require one-click unsubscribe from anyone sending more than 5,000 emails a day. Enable it in your platform."],
+["Llamada a la acción: {0}/100","Call to action: {0}/100"],["Capacidad de enganche: {0}/100","Engagement: {0}/100"],["CTA clara y bien situada.","Clear, well-placed CTA."],["Buen equilibrio de elementos para enganchar.","A good balance of engaging elements."],
+["SPF y DKIM superados","SPF and DKIM passed"],["Ambos son obligatorios para quien envía más de 5.000 emails al día.","Both are mandatory for anyone sending more than 5,000 emails a day."],["El dominio tiene DMARC","The domain has DMARC"],["Basta con p=none, aunque lo recomendable es llegar a quarantine o reject.","p=none is enough, although it's best to reach quarantine or reject."],
+["Remitente alineado","Aligned sender"],["El dominio del From debe coincidir con el de SPF o el de DKIM.","The From domain must match the SPF or DKIM domain."],["Baja en un clic","One-click unsubscribe"],["Cabeceras List-Unsubscribe y List-Unsubscribe-Post.","List-Unsubscribe and List-Unsubscribe-Post headers."],
+["Enlace de baja visible en el email","Visible unsubscribe link in the email"],["Debe ser fácil de encontrar en el cuerpo del mensaje.","It must be easy to find in the body of the message."],["Conexión cifrada (TLS)","Encrypted connection (TLS)"],["La entrega debe hacerse con TLS.","Delivery must use TLS."],
+["DNS inverso válido en la IP de envío","Valid reverse DNS on the sending IP"],["La IP debe tener PTR y este debe apuntar de vuelta a la IP.","The IP must have a PTR that points back to the IP."],["Tasa de quejas por debajo del 0,3 %","Complaint rate below 0.3%"],["No se puede ver en un email: consúltala en Google Postmaster Tools y mantenla por debajo del 0,1 %.","It can't be seen in an email: check it in Google Postmaster Tools and keep it below 0.1%."],
+["Enviado con {0}","Sent with {0}"],["Confianza {0}. {1}","Confidence: {0}. {1}"],["Confianza {0}.","Confidence: {0}."],
+
+/* ---- Auditoría: cabeceras ---- */
+["Falta el Message-ID","Missing Message-ID"],["Todo email debe llevar un identificador único. Su ausencia es típica del spam.","Every email must carry a unique identifier. Its absence is typical of spam."],["Message-ID con formato no estándar","Non-standard Message-ID format"],["«{0}» no sigue el formato <identificador@dominio>.","\"{0}\" doesn't follow the <identifier@domain> format."],
+["Message-ID correcto","Valid Message-ID"],["El email tiene un identificador único con formato estándar.","The email has a unique, standard-format identifier."],["Falta la fecha (Date)","Missing date (Date)"],["La cabecera Date es obligatoria según el estándar.","The Date header is mandatory under the standard."],
+["Fecha con formato no válido","Invalid date format"],["No se puede interpretar «{0}».","\"{0}\" can't be parsed."],["Fecha en el futuro","Date in the future"],["La fecha del email es posterior a la de su recepción. Revisa el reloj del servidor de envío.","The email's date is later than when it was received. Check the sending server's clock."],
+["Fecha muy antigua","Date too old"],["El email se fechó varios días antes de recibirse. Puede indicar envíos retenidos o un reloj mal configurado.","The email was dated several days before it was received. This may indicate delayed sending or a misconfigured clock."],["Fecha correcta","Valid date"],["La cabecera Date es coherente con la recepción.","The Date header is consistent with when it was received."],
+["Falta MIME-Version","Missing MIME-Version"],["Los emails con contenido HTML o adjuntos deben declarar MIME-Version: 1.0.","Emails with HTML content or attachments must declare MIME-Version: 1.0."],["Falta el destinatario (To)","Missing recipient (To)"],["Un email sin cabecera To resulta sospechoso para muchos filtros.","An email without a To header looks suspicious to many filters."],
+["Falta el asunto","Missing subject"],["Los emails sin asunto suelen ir a spam.","Emails without a subject often end up in spam."],["Asunto sin codificar","Unencoded subject"],["El asunto lleva caracteres especiales sin codificar (RFC 2047). Algunos clientes lo mostrarán mal.","The subject contains special characters that aren't encoded (RFC 2047). Some clients will display it incorrectly."],
+["El nombre del remitente contiene otra dirección","The sender name contains another address"],["El nombre visible muestra {0}, pero el email sale de {1}. Es una técnica de suplantación.","The display name shows {0}, but the email comes from {1}. This is a spoofing technique."],
+["Responder a otro dominio","Reply-To another domain"],["Las respuestas irían a {0}, distinto del remitente. Es legítimo a veces, pero los filtros lo vigilan.","Replies would go to {0}, which differs from the sender. It's sometimes legitimate, but filters watch for it."],
+["Incluye versión de texto","Includes a text version"],["El email tiene una versión HTML y otra de texto plano, como recomiendan los filtros.","The email has both an HTML and a plain-text version, as filters recommend."],["Solo versión HTML","HTML version only"],["No incluye una versión de texto plano. SpamAssassin y Rspamd lo penalizan (MIME_HTML_ONLY).","It doesn't include a plain-text version. SpamAssassin and Rspamd penalise this (MIME_HTML_ONLY)."],
+["Demasiados saltos de servidor","Too many server hops"],["El email pasó por {0} servidores. Puede indicar reenvíos o una configuración compleja.","The email passed through {0} servers. This may indicate forwarding or a complex setup."],
+["Enviado con un script genérico","Sent with a generic script"],["X-Mailer: {0}. Muchos filtros desconfían de los envíos directos desde scripts PHP.","X-Mailer: {0}. Many filters distrust emails sent directly from PHP scripts."],
+["Falta Return-Path","Missing Return-Path"],["El servidor receptor no añadió la dirección de rebote. Asegúrate de pegar el email original completo.","The receiving server didn't add the bounce address. Make sure you paste the full original email."],
+
+/* ---- Analizador de emails: veredicto y estructura ---- */
+["Peligroso","Dangerous"],["Sospechoso","Suspicious"],["Sin alertas","No alerts"],
+["Veredicto: Peligroso","Verdict: Dangerous"],["Veredicto: Sospechoso","Verdict: Suspicious"],["Veredicto: Sin alertas","Verdict: No alerts"],
+["Tiene toda la pinta de ser una estafa","It looks very much like a scam"],["Hay varias señales claras de engaño. No hagas clic en sus enlaces ni respondas.","There are several clear signs of deception. Don't click its links or reply."],
+["Hay señales que no cuadran","Some signals don't add up"],["No es seguro que sea una estafa, pero trátalo con cuidado hasta confirmarlo por otra vía.","It isn't certain it's a scam, but treat it with care until you confirm it another way."],
+["No vemos señales de estafa","We see no signs of a scam"],["No encontramos trucos habituales de phishing en este email.","We found no common phishing tricks in this email."],["No encontramos trucos habituales de phishing en este email. Para más certeza, analiza también sus cabeceras.","We found no common phishing tricks in this email. For more certainty, also check its headers."],
+["Nivel de riesgo:","Risk level:"],["de 100","out of 100"],["Señales encontradas","Signals found"],["Lo que está bien","What's good"],["Qué hacer ahora","What to do now"],["Ver ficha técnica","View technical details"],
+["No hagas clic en los enlaces ni descargues adjuntos.","Don't click the links or download attachments."],["Si dice ser de una empresa, entra en su web o app escribiendo tú la dirección, o llama a su teléfono oficial.","If it claims to be from a company, go to its website or app by typing the address yourself, or call its official phone number."],
+["Márcalo como phishing o spam en tu correo: así ayudas a proteger a otras personas.","Mark it as phishing or spam in your mailbox: it helps protect other people."],["Si ya escribiste una contraseña o datos de tarjeta, cámbiala ya y avisa a tu banco.","If you've already entered a password or card details, change it now and tell your bank."],
+["Aun así, si te piden dinero o contraseñas, confírmalo por otra vía.","Even so, if you're asked for money or passwords, confirm it another way."],["Antes de abrir un enlace, pasa el ratón por encima o mantén el dedo pulsado para ver adónde lleva.","Before opening a link, hover over it or press and hold to see where it goes."],
+["Remitente visible","Display sender"],["Dirección de envío real","Actual sending address"],["Responder a","Reply-To"],["Servidores atravesados","Servers passed through"],["IP de origen","Origin IP"],["Alineación SPF (Return-Path)","SPF alignment (Return-Path)"],["Alineación DKIM (d=)","DKIM alignment (d=)"],["{0} · {1}","{0} · {1}"],
+["Copia el email entero, con el remitente si puedes, y pégalo aquí.","Copy the whole email, including the sender if you can, and paste it here."],["Pega las cabeceras completas del email.","Paste the email's full headers."],["¿Cómo las consigo?","How do I get them?"],
+["Pega el contenido del email para analizarlo.","Paste the email's content to analyse it."],["O prueba con uno de los ejemplos.","Or try one of the examples."],["No encontramos cabeceras en el texto","We couldn't find any headers in the text"],
+["Las cabeceras empiezan con líneas como Received: o From:.","Headers start with lines such as Received: or From:."],["Mira cómo copiarlas","See how to copy them"],["o usa la pestaña «Texto del email».","or use the \"Email text\" tab."],
+
+/* ---- Analizador de emails: señales ---- */
+["Mete prisa o amenaza","Creates urgency or threatens"],["Las estafas buscan que actúes rápido y sin pensar: plazos de horas, bloqueos o últimos avisos.","Scams want you to act fast without thinking: deadlines of hours, account blocks or final notices."],
+["Pide datos personales o contraseñas","Asks for personal data or passwords"],["Ninguna empresa seria te pide contraseñas, códigos o datos de tarjeta por email.","No serious company asks for passwords, codes or card details by email."],
+["Habla de dinero, premios o reembolsos","Talks about money, prizes or refunds"],["Premios inesperados, devoluciones o pagos pendientes son el gancho más común.","Unexpected prizes, refunds or pending payments are the most common bait."],
+["Usa el truco del paquete retenido","Uses the parcel-on-hold trick"],["Las falsas empresas de mensajería piden un pequeño pago para quedarse con los datos de tu tarjeta.","Fake delivery companies ask for a small payment to steal your card details."],
+["Saludo genérico","Generic greeting"],["Si de verdad fueras su cliente, lo normal es que usaran tu nombre.","If you really were their customer, they would normally use your name."],
+["No hay resultados de autenticación","No authentication results"],["Las cabeceras no incluyen la comprobación que hace tu proveedor de correo. Asegúrate de copiarlas completas.","The headers don't include your mail provider's check. Make sure you copy them in full."],
+["El dominio del remitente no reconoce este envío","The sender's domain doesn't recognise this email"],["La comprobación DMARC ha fallado: el correo dice venir de {0}, pero ese dominio no lo autorizó. Es la señal técnica más clara de suplantación.","The DMARC check failed: the email claims to come from {0}, but that domain didn't authorise it. It's the clearest technical sign of spoofing."],
+["DMARC correcto","DMARC passed"],["El dominio {0} respalda este envío. Ojo: esto confirma quién lo envía, no que tenga buenas intenciones.","The domain {0} backs this email. Note: this confirms who sent it, not that their intentions are good."],
+["El dominio no tiene protección anti-suplantación","The domain has no anti-spoofing protection"],["{0} no publica una política DMARC, así que es más fácil hacerse pasar por él.","{0} doesn't publish a DMARC policy, so it's easier to impersonate."],
+["El servidor que lo envió no estaba autorizado","The sending server wasn't authorised"],["La comprobación SPF ha fallado: el correo salió de un servidor que el dominio no reconoce.","The SPF check failed: the email came from a server the domain doesn't recognise."],
+["El servidor de envío no está del todo autorizado","The sending server isn't fully authorised"],["SPF da un resultado dudoso (softfail): el dominio no reconoce ese servidor como propio.","SPF gives a doubtful result (softfail): the domain doesn't recognise that server as its own."],
+["SPF correcto","SPF passed"],["El servidor que envió el correo está autorizado por su dominio.","The server that sent the email is authorised by its domain."],["SPF sin resultado claro","No clear SPF result"],["La comprobación SPF dio «{0}».","The SPF check returned \"{0}\"."],
+["Firma digital válida (DKIM)","Valid digital signature (DKIM)"],["Está firmado por el propio dominio {0}, así que no se ha modificado por el camino.","It's signed by the domain {0} itself, so it hasn't been altered along the way."],["El mensaje tiene una firma digital válida, aunque de otro dominio (habitual en plataformas de envío).","The message has a valid digital signature, although from another domain (common with sending platforms)."],
+["La firma digital (DKIM) no es válida","The digital signature (DKIM) isn't valid"],["La firma no coincide: el mensaje pudo modificarse o la firma es falsa.","The signature doesn't match: the message may have been altered or the signature is fake."],["Sin firma digital (DKIM)","No digital signature (DKIM)"],["Los envíos de empresas legítimas casi siempre van firmados.","Emails from legitimate companies are almost always signed."],
+["Las respuestas irían a otra dirección","Replies would go to another address"],["Si respondes, tu mensaje llegaría a {0} y no a {1}. Además es una cuenta gratuita, algo impropio de una empresa.","If you reply, your message would go to {0} and not to {1}. It's also a free account, which is unusual for a company."],["Si respondes, tu mensaje llegaría a {0} y no a {1}.","If you reply, your message would go to {0} and not to {1}."],
+["La dirección técnica de envío es de otro dominio","The technical sending address belongs to another domain"],["Sale desde {0}. Es habitual en plataformas de email marketing, pero junto a otras señales suma sospecha.","It's sent from {0}. This is common with email marketing platforms, but combined with other signals it adds suspicion."],
+["SPF y DKIM alineados","SPF and DKIM aligned"],["Tanto la dirección de envío real ({0}) como la firma DKIM coinciden con el dominio del remitente ({1}). Es la configuración ideal.","Both the actual sending address ({0}) and the DKIM signature match the sender's domain ({1}). This is the ideal setup."],
+["Ni SPF ni DKIM están alineados con el remitente","Neither SPF nor DKIM is aligned with the sender"],["El correo dice venir de {0}, pero la dirección de envío real es {1} y la firma DKIM es de {2}. Sin alineación, DMARC no puede validar el email.","The email claims to come from {0}, but the actual sending address is {1} and the DKIM signature belongs to {2}. Without alignment, DMARC can't validate the email."],
+["SPF no está alineado (DKIM sí)","SPF isn't aligned (DKIM is)"],["La dirección de envío real (Return-Path: {0}) es de otro dominio. DMARC pasa gracias a DKIM, pero conviene configurar un Return-Path propio (por ejemplo, rebotes.{1}) en la plataforma de envío.","The actual sending address (Return-Path: {0}) belongs to another domain. DMARC passes thanks to DKIM, but you should set up your own Return-Path (for example, bounces.{1}) in your sending platform."],
+["DKIM no está alineado (SPF sí)","DKIM isn't aligned (SPF is)"],["La firma DKIM es de {0} y no del dominio del remitente. Configura en tu plataforma de envío una firma DKIM con tu propio dominio ({1}).","The DKIM signature belongs to {0}, not the sender's domain. Set up a DKIM signature with your own domain ({1}) in your sending platform."],
+["Incluye opción de baja estándar","Includes a standard unsubscribe option"],["Tiene la cabecera de baja que usan los envíos legítimos de marketing.","It has the unsubscribe header used by legitimate marketing emails."],
+["La dirección del remitente imita a {0}","The sender address imitates {0}"],["El email llega desde {0}, que no es un dominio oficial de {1}. Usa números o letras parecidas para engañar a la vista.","The email comes from {0}, which isn't an official {1} domain. It uses look-alike numbers or letters to fool the eye."],["El email llega desde {0}, que no es un dominio oficial de {1}.","The email comes from {0}, which isn't an official {1} domain."],
+["Firma como {0}, pero escribe desde una cuenta gratuita","Signs as {0}, but writes from a free account"],["Cualquiera puede ponerse el nombre que quiera. Lo que cuenta es la dirección: {0}.","Anyone can use whatever name they like. What counts is the address: {0}."],["El nombre dice {0}, pero la dirección no es suya","The name says {0}, but the address isn't theirs"],
+["Un enlace se hace pasar por {0}","A link impersonates {0}"],["Lleva a una web que usa el nombre de {0} pero no es la oficial. Cambia letras por números para que no lo notes.","It leads to a website that uses the {0} name but isn't the official one. It swaps letters for numbers so you don't notice."],["Lleva a una web que usa el nombre de {0} pero no es la oficial.","It leads to a website that uses the {0} name but isn't the official one."],
+["Enlace con letras disfrazadas","Link with disguised letters"],["El dominio usa caracteres de otros alfabetos que se ven iguales que los normales.","The domain uses characters from other alphabets that look the same as normal ones."],
+["Enlace a una dirección numérica","Link to a numeric address"],["Las empresas reales enlazan a su web con nombre, no a una dirección IP.","Real companies link to their named website, not to an IP address."],
+["Enlace con un truco de arroba","Link with an @ trick"],["Todo lo que va antes de la @ en un enlace se ignora: la web real es la que va después.","Everything before the @ in a link is ignored: the real website is the one after it."],
+["Dominio con terminación poco fiable","Domain with an unreliable extension"],["Terminaciones como estas son baratas y muy usadas en estafas.","Extensions like these are cheap and widely used in scams."],
+["Enlace acortado","Shortened link"],["Los acortadores esconden la web de destino real.","Link shorteners hide the real destination."],["Dirección web enrevesada","Convoluted web address"],["Muchos subdominios encadenados suelen servir para colar un nombre conocido al principio.","Many chained subdomains are often used to sneak a well-known name in at the start."],
+["Enlace sin conexión segura","Link without a secure connection"],["Usa http en lugar de https. Ninguna web de pagos o bancos lo haría.","It uses http instead of https. No payment or banking website would do that."],
+["El enlace muestra una web pero lleva a otra","The link shows one website but leads to another"],["El texto que ves no coincide con el destino real del enlace.","The text you see doesn't match the link's real destination."],
+["Dice ser de {0}, pero sus enlaces llevan a otra web","Claims to be from {0}, but its links lead elsewhere"],["Ningún enlace va a la web oficial ({0}). Las empresas reales enlazan a su propio dominio.","No link goes to the official website ({0}). Real companies link to their own domain."],
+["Menciona un adjunto peligroso","Mentions a dangerous attachment"],["Este tipo de archivos puede instalar programas maliciosos al abrirlos.","Files like this can install malware when opened."],
+["Exceso de mayúsculas o exclamaciones","Too many capitals or exclamation marks"],["Es un recurso típico para crear alarma.","It's a typical way to create alarm."],
+["No pide datos ni dinero","Doesn't ask for data or money"],["No encontramos peticiones de contraseñas, tarjetas ni pagos.","We found no requests for passwords, cards or payments."],["No contiene enlaces","Contains no links"],["Sin enlaces, el riesgo de acabar en una web falsa es menor.","Without links, the risk of ending up on a fake website is lower."],
+["Enlaces sin trucos","Links without tricks"],["No vemos acortadores, direcciones IP ni dominios que imiten a otros.","We see no shorteners, IP addresses or domains imitating others."]
+]);
 
 </script>
 <script>
