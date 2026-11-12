@@ -1,15 +1,20 @@
 # Email Seguro
 
+> **Versión beta.** Proyecto en desarrollo: algunas funciones aún no están terminadas y pueden cambiar. Por ejemplo, los resultados de los análisis todavía se muestran solo en español.
+
 Herramientas gratuitas para proteger tu dominio, reconocer emails de estafa, probar tus campañas antes de enviarlas y mantener sana tu base de datos. Creadas por una profesional de la entregabilidad del email.
 
 👉 **Pruébalas aquí:** [mlduque.github.io](https://mlduque.github.io/)
 
-La web tiene cuatro herramientas, cada una en su pestaña:
+La web tiene siete herramientas, cada una en su pestaña:
 
 - **Mi dominio:** [mlduque.github.io](https://mlduque.github.io/)
 - **Analizar un email:** [mlduque.github.io/#email](https://mlduque.github.io/#email)
 - **Probar mi campaña:** [mlduque.github.io/#campana](https://mlduque.github.io/#campana)
 - **Mi base de datos:** [mlduque.github.io/#bbdd](https://mlduque.github.io/#bbdd)
+- **Calculadora de warm-up:** [mlduque.github.io/#warmup](https://mlduque.github.io/#warmup)
+- **Test de bandeja:** [mlduque.github.io/#bandeja](https://mlduque.github.io/#bandeja)
+- **¿Qué plataforma lo envió?:** [mlduque.github.io/#plataforma](https://mlduque.github.io/#plataforma)
 
 ---
 
@@ -36,6 +41,7 @@ Esta herramienta está pensada para pymes, autónomos y freelancers que no tiene
 - **BIMI (logo de marca):** si tu logo puede aparecer junto a tus emails. Es opcional.
 
 **Reputación y web**
+- **Reputación del remitente:** consulta la reputación de las IPs de envío (las que encuentra y la que tú indiques) en Sender Score, HostKarma y DNSWL, con enlaces a Sender Score, Cisco Talos, Google Postmaster Tools y Microsoft SNDS.
 - **Listas negras:** revisa tu dominio en 5 listas de dominios (Spamhaus DBL, SURBL, URIBL…) y las IPs asociadas en 9 listas de IPs (Spamhaus ZEN, SpamCop, Barracuda…). Si apareces en alguna, te explica cómo salir.
 - **Certificado SSL:** indica si el dominio tiene web asociada y si esa web tiene certificado SSL. Si lo tiene, muestra quién lo emitió, sus fechas de validez, cuántos días le quedan, qué dominios cubre (incluido www) y qué autoridades pueden emitir certificados para tu dominio (registro CAA).
 
@@ -58,7 +64,7 @@ Para un análisis más preciso, usa la pestaña **Cabeceras**. En la propia web 
 - **El remitente:** si el nombre dice ser una empresa conocida pero la dirección no es suya, si escribe desde una cuenta gratuita haciéndose pasar por una empresa y si las respuestas irían a otra dirección.
 - **Los enlaces:** webs que imitan marcas (incluso cambiando letras por números), enlaces acortados, direcciones IP, terminaciones de riesgo y enlaces cuyo texto no coincide con el destino.
 - **El mensaje:** prisa o amenazas, peticiones de contraseñas o datos de tarjeta, premios o reembolsos, el timo del paquete retenido, saludos genéricos y adjuntos peligrosos.
-- **La autenticación (modo cabeceras):** SPF, DKIM y DMARC, igual que lo haría un profesional.
+- **La autenticación (modo cabeceras):** SPF, DKIM y DMARC, y la **alineación** del Return-Path (SPF) y de la firma DKIM con el dominio del remitente.
 
 ---
 
@@ -71,9 +77,11 @@ Para marketers y cualquiera que envíe newsletters. Escribe el remitente, el asu
 - **Vista previa en la bandeja:** muestra cómo se verá tu email en un móvil, en Gmail escritorio y en Outlook escritorio, e indica si el asunto o el preheader se cortan. Si no has escrito preheader, muestra lo que verán tus lectores (el inicio del HTML).
 - **Revisión del asunto y el preheader:** longitud, mayúsculas, exclamaciones, emojis, palabras típicas de spam, falsos RE: o FW: y palabras disfrazadas.
 - **Revisión del HTML:** peso (Gmail recorta a partir de 102 KB), proporción de texto e imágenes, imágenes sin texto alternativo, enlace de baja, texto oculto o invisible, enlaces acortados, a IPs o engañosos, scripts y formularios, y frases de spam.
+- **Análisis de email marketing:** puntúa la llamada a la acción (CTA), la capacidad de enganche y el cumplimiento legal europeo del pie (baja, remitente, privacidad, motivo de recepción).
+- **Email completo (.eml):** si subes el email completo, revisa además la baja en un clic (List-Unsubscribe y List-Unsubscribe-Post) y la alineación SPF/DKIM del envío real.
 - **Test tipo SpamAssassin:** suma puntos con reglas equivalentes a las de SpamAssassin y los compara con el umbral habitual de 5.
 - **Puntuación de 0 a 100 con semáforo.**
-- **Arreglos de un clic:** asunto sugerido, preheader sugerido, añadir texto alternativo a las imágenes, añadir enlace de baja y acceso directo para excluir inactivos de tu lista.
+- **Arreglos de un clic:** asunto sugerido, preheader sugerido, añadir texto alternativo, añadir enlace de baja, añadir un botón CTA, añadir un pie legal completo y acceso directo para excluir inactivos de tu lista.
 - **Vista previa del HTML** en tamaño móvil y escritorio.
 
 ---
@@ -89,6 +97,30 @@ Sube tu lista de contactos en CSV o Excel, pégala desde una hoja de cálculo o 
 - Si tiene una columna de estado, detecta **bajas, rebotes y quejas**.
 - Da una **puntuación de salud de 0 a 100 con semáforo** y muestra los dominios más frecuentes.
 - **Limpieza de un clic:** eliges qué excluir y descargas la lista limpia (con los errores de escritura corregidos), los contactos excluidos con el motivo, o los inactivos para una campaña de reactivación.
+
+---
+
+## 5. Calculadora de warm-up
+
+Indica si el dominio o la IP son nuevos o tienen historial, el volumen diario al que quieres llegar y, si quieres, una fecha objetivo. Obtendrás un plan día a día con los emails por día y por hora, avisos si el plazo es demasiado corto y el plan descargable en CSV.
+
+---
+
+## 6. Test de bandeja
+
+Explica cómo funciona un test de bandeja (inbox placement) y recomienda herramientas gratuitas para hacerlo: Warmy, Mail-tester, GlockApps, MXToolbox, Google Postmaster Tools y Microsoft SNDS. También explica cómo montar tu propia lista de semillas.
+
+---
+
+## 7. ¿Qué plataforma lo envió?
+
+Pega el email original (o sus cabeceras) o sube el archivo .eml y la web identifica con qué plataforma se envió, entre **86 plataformas**: Mailchimp, Klaviyo, SendGrid, Amazon SES, Brevo, HubSpot, Salesforce Marketing Cloud, ActiveCampaign, Acumbamail, Mailrelay, emBlue, MDirector, Doppler, MailerLite, Substack y muchas más. Muestra las pruebas (Return-Path, firmas DKIM, servidores, cabeceras propias y enlaces de seguimiento), el nivel de confianza y si el remitente usa dominios propios (marca blanca).
+
+---
+
+## Idiomas
+
+La web está disponible en **español, inglés, italiano, francés y portugués**. Detecta el idioma de tu navegador y puedes cambiarlo en el selector de la barra superior. El asistente de IA responde en el idioma elegido.
 
 ---
 
@@ -108,12 +140,15 @@ La IA funciona a través de un pequeño intermediario seguro (un Cloudflare Work
 
 ## Tu privacidad
 
+Esta web no usa cookies, ni analítica, ni publicidad, y las tipografías se sirven desde la propia web (sin conexión a Google Fonts). Tienes todos los detalles en la [política de privacidad](https://mlduque.github.io/#privacidad) y el [aviso legal](https://mlduque.github.io/#aviso-legal).
+
+
 - **Analizar un email:** el email no sale de tu dispositivo. Todo se analiza en tu navegador.
 - **Comprobar un dominio:** solo se consulta información pública: el DNS (Google Public DNS, con Cloudflare como respaldo), los registros públicos de certificados (Cert Spotter y crt.sh) y las listas negras.
 - **Probar una campaña:** el asunto, el preheader y el HTML se analizan en tu navegador.
 - **Analizar una base de datos:** la lista no sale de tu dispositivo. Solo se consulta en el DNS público si los dominios de empresa reciben correo, nunca las direcciones.
 
-- **Explicación con IA (opcional):** solo se envía algo cuando pulsas el botón. En el detector de phishing y en el probador de campañas se envía el contenido analizado; en la base de datos, solo estadísticas, nunca los contactos. En el plan gratuito de Gemini, Google puede usar el contenido para mejorar sus productos.
+- **Explicación con IA (opcional):** solo se envía algo cuando marcas la casilla de consentimiento y pulsas el botón. Antes de enviarlo se oculta la parte personal de las direcciones de email. En el detector de phishing y en el probador de campañas se envía el contenido analizado; en la base de datos, solo estadísticas, nunca los contactos. En el plan gratuito de Gemini, Google puede usar el contenido para mejorar sus productos.
 
 No se guarda nada.
 
