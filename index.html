@@ -5,8 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Email Seguro · Herramientas gratuitas de entregabilidad</title>
 <meta name="description" content="Herramientas gratuitas de María Luisa Duque para que tus emails lleguen a la bandeja de entrada: comprueba tu dominio, detecta phishing, prueba tus campañas y limpia tu base de datos.">
+<link rel="canonical" href="https://mlduque.github.io/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/?lang=en">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/?lang=it">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/?lang=fr">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/?lang=pt">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/">
+<meta name="author" content="María Luisa Duque">
+<meta name="keywords" content="entregabilidad email, email deliverability, SPF, DKIM, DMARC, BIMI, listas negras, blacklist, spam, phishing, warm-up, auditoría de email, email marketing">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/">
 <meta property="og:title" content="Email Seguro · Herramientas gratuitas de entregabilidad">
-<meta property="og:description" content="Comprueba tu dominio, detecta phishing, prueba tus campañas y limpia tu base de datos. Gratis y sin registro.">
+<meta property="og:description" content="Audita tus emails, comprueba tu dominio, detecta phishing, prueba tus campañas y limpia tu base de datos. Gratis, sin registro y con IA.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Email Seguro: herramientas gratuitas de entregabilidad del email">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_GB"><meta property="og:locale:alternate" content="it_IT"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="pt_PT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Email Seguro · Herramientas gratuitas de entregabilidad">
+<meta name="twitter:description" content="Audita tus emails, comprueba tu dominio y limpia tu base de datos. Gratis y con IA.">
+<meta name="twitter:image" content="https://mlduque.github.io/og-image.png">
+<!-- Google Search Console: pega aquí la etiqueta de verificación si eliges ese método -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"WebApplication","name":"Email Seguro","url":"https://mlduque.github.io/","applicationCategory":"BusinessApplication","operatingSystem":"Any","inLanguage":["es","en","it","fr","pt"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},
+  "description":"Herramientas gratuitas de entregabilidad del email: auditoría de emails, SPF, DKIM, DMARC, BIMI, listas negras, reputación, detector de phishing, probador de campañas, limpieza de bases de datos, warm-up y detector de plataformas de envío.",
+  "author":{"@id":"https://mlduque.github.io/#maria-luisa-duque"}},
+ {"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","image":"https://mlduque.github.io/img/maria-luisa-duque.jpg","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"],"knowsAbout":["Email deliverability","SPF","DKIM","DMARC","BIMI","PowerMTA","Email marketing"]}
+]}
+</script>
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
 <link rel="preload" href="fonts/bricolage-grotesque-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -503,6 +535,35 @@ details.block summary{cursor:pointer;font-weight:700;color:var(--blue);padding:.
   a{color:#000;text-decoration:none}
 }
 
+@media (max-width:88rem){.share-txt{display:none}.share-ico{margin-left:0 !important}}
+/* Sobre mí y contacto */
+.nav-me{display:inline-flex;border-radius:50%;outline-offset:2px}
+.nav-me img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid var(--yellow)}
+.ab-hero{padding-bottom:3rem}
+.ab-grid{display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:center}
+@media (max-width:44rem){.ab-grid{grid-template-columns:1fr}}
+.ab-photo{width:240px;height:240px;border-radius:28px;object-fit:cover;box-shadow:16px 16px 0 var(--yellow),var(--shadow)}
+.ab-hero h1{max-width:none;margin:.8rem 0 .3rem}
+.ab-role{font-weight:700;color:var(--blue);margin:0 0 .8rem}
+.ab-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:1rem;background:linear-gradient(135deg,var(--blue-deep),#1D4ED8);color:#fff;border-radius:20px;padding:1.6rem;margin-top:-1rem}
+.ab-stats strong{display:block;font:800 2rem/1.1 "Bricolage Grotesque",system-ui,sans-serif;color:#FFD24A}
+.ab-stats span{color:#DCE6FF}
+.ab-cols{display:grid;grid-template-columns:1.5fr 1fr;gap:3rem;margin-top:3rem}
+@media (max-width:52rem){.ab-cols{grid-template-columns:1fr}}
+.ab-cols h2{font-size:1.4rem;margin:0 0 .6rem}
+.ab-cols section > div,.ab-cols aside > div{margin-bottom:2rem}
+.ab-cols p{color:var(--muted)}
+.ab-tags{list-style:none;padding:0;margin:0 0 2rem;display:flex;flex-wrap:wrap;gap:.45rem}
+.ab-tags li{background:var(--blue-soft);color:var(--blue);font-weight:700;font-size:.9rem;border-radius:999px;padding:.25rem .75rem}
+.creator{display:grid;grid-template-columns:auto 1fr;gap:1.75rem;align-items:center;background:var(--soft);border:1px solid var(--line);border-radius:20px;padding:1.75rem;text-decoration:none}
+.creator img{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid var(--yellow)}
+.creator h2{font-size:clamp(1.4rem,3vw,1.9rem);margin:.6rem 0 .4rem}
+.creator p{margin:0 0 .6rem;color:var(--muted)}
+.creator .go{font-weight:700;color:var(--blue)}
+@media (max-width:36rem){.creator{grid-template-columns:1fr}}
+.ct-select{width:100%;font:1.05rem "Atkinson Hyperlegible",system-ui,sans-serif;padding:.75rem .9rem;border:1px solid var(--line);border-radius:10px;background:var(--field);color:var(--ink)}
+.ct-msg{min-height:10rem;font-family:"Atkinson Hyperlegible",system-ui,sans-serif;font-size:1rem}
+
 /* Pie */
 footer{margin-top:5rem;background:var(--blue-deep);color:#C9D6F5;font-size:.95rem}
 .foot{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:2rem;padding:3rem 0 2rem}
@@ -541,6 +602,7 @@ footer{margin-top:5rem;background:var(--blue-deep);color:#C9D6F5;font-size:.95re
       <a href="#plataforma" data-i18n="navs.esp">Plataforma</a>
     </nav>
     <div class="nav-tools">
+      <a class="nav-me" href="#sobre-mi" title="María Luisa Duque"><img src="img/maria-luisa-duque.jpg" width="34" height="34" alt="" loading="lazy"><span class="vh" data-i18n="ab.nav">Sobre mí</span></a>
       <label class="vh" for="langSel" data-i18n="nav.lang">Idioma</label>
       <select class="lang" id="langSel">
         <option value="es">ES</option><option value="en">EN</option><option value="it">IT</option><option value="fr">FR</option><option value="pt">PT</option>
@@ -617,6 +679,16 @@ footer{margin-top:5rem;background:var(--blue-deep);color:#C9D6F5;font-size:.95re
           <div><strong>102 KB</strong><p data-i18n="band.3">A partir de ese peso, Gmail recorta tu email y muestra «Mensaje recortado».</p></div>
         </div>
       </div>
+    </section>
+
+    <section class="section">
+      <div class="wide"><a class="creator" href="#sobre-mi">
+        <img src="img/maria-luisa-duque.jpg" width="96" height="96" alt="María Luisa Duque" loading="lazy">
+        <div><span class="kicker"><i></i><span data-i18n="cr.k">Creado por una profesional</span></span>
+          <h2 data-i18n="cr.h">Hecho por quien entrega 80 millones de emails al día</h2>
+          <p data-i18n="cr.p">Soy María Luisa Duque, Email Deliverability Manager. He creado estas herramientas con lo que aplico cada día para que tus emails lleguen a la bandeja de entrada.</p>
+          <span class="go" data-i18n="cr.go">Conóceme →</span></div>
+      </a></div>
     </section>
 
     <section class="section cta">
@@ -980,6 +1052,73 @@ footer{margin-top:5rem;background:var(--blue-deep);color:#C9D6F5;font-size:.95re
     </div>
   </div>
 
+  <!-- ===================== SOBRE MÍ ===================== -->
+  <div id="abView" data-view="sobre-mi" hidden>
+    <section class="phero ab-hero"><div class="wide ab-grid">
+      <img class="ab-photo" src="img/maria-luisa-duque.jpg" width="240" height="240" alt="María Luisa Duque">
+      <div>
+        <span class="kicker"><i></i><span data-i18n="ab.kicker">Quién está detrás</span></span>
+        <h1>María Luisa Duque</h1>
+        <p class="ab-role" data-i18n="ab.role">Email Deliverability Manager · Infraestructura y analítica</p>
+        <p class="lead" data-i18n="ab.lead">Llevo cinco años haciendo que miles de millones de emails lleguen a la bandeja de entrada. He creado Email Seguro para que ese conocimiento esté al alcance de cualquiera, gratis.</p>
+        <div class="actions"><a class="btn btn-primary" href="https://www.linkedin.com/in/marialuisaduque/" target="_blank" rel="noopener" data-i18n="ab.linkedin">Conecta en LinkedIn</a><a class="btn btn-ghost" href="#contacto" data-i18n="ab.contact">Escríbeme</a><a class="btn btn-ghost" href="https://github.com/mlduque" target="_blank" rel="noopener">GitHub</a></div>
+      </div>
+    </div></section>
+    <div class="wide">
+      <div class="ab-stats">
+        <div><strong>80M</strong><span data-i18n="ab.s1">emails enviados al día</span></div>
+        <div><strong>2.000</strong><span data-i18n="ab.s2">IPs de envío gestionadas</span></div>
+        <div><strong data-i18n="ab.s3n">5 años</strong><span data-i18n="ab.s3">en plataformas de alto volumen</span></div>
+        <div><strong>EU · LATAM</strong><span data-i18n="ab.s4">mercados internacionales</span></div>
+      </div>
+      <div class="ab-cols">
+        <section>
+          <h2 data-i18n="ab.h1">Qué hago</h2>
+          <div data-i18n="ab.p1"><p>Soy Email Deliverability Manager en plataformas de email marketing de alto volumen para Europa y Latinoamérica. Gestiono la infraestructura PowerMTA que entrega 80 millones de emails al día a través de 2.000 IPs: enrutamiento, MTAs virtuales, reglas de throttling, clasificación de rebotes y procesamiento de feedback loops.</p>
+          <p>Cada día resuelvo inclusiones en listas negras, recupero la reputación de remitentes con problemas y ayudo a clientes a volver a la bandeja de entrada con cambios en el servidor y acompañamiento práctico. Trabajo directamente con Gmail, Microsoft, Yahoo y proveedores regionales, e implanto SPF, DKIM, DMARC y BIMI en los dominios de envío.</p></div>
+          <h2 data-i18n="ab.h2">Por qué Email Seguro</h2>
+          <div data-i18n="ab.p2"><p>La mayoría de problemas de entregabilidad que veo tienen solución, pero las herramientas para detectarlos suelen ser técnicas, de pago o en inglés. Email Seguro reúne en un solo sitio lo que reviso a diario, explicado en lenguaje sencillo y en cinco idiomas, para que cualquier negocio pueda llegar a la bandeja de entrada.</p>
+          <p>Es un proyecto personal e independiente: no está vinculado a ninguna empresa y las opiniones son mías.</p></div>
+        </section>
+        <aside>
+          <h2 data-i18n="ab.h3">Especialidades</h2>
+          <ul class="ab-tags"><li>PowerMTA</li><li>SPF · DKIM · DMARC · BIMI</li><li data-i18n="ab.t1">Reputación de IP y dominio</li><li data-i18n="ab.t2">Warm-up de IPs y dominios</li><li data-i18n="ab.t3">Gestión de listas negras</li><li>Gmail · Microsoft · Yahoo</li><li>Postmaster Tools · SNDS</li><li data-i18n="ab.t4">Clasificación de rebotes</li><li>Python · SQL · R</li><li>Kibana · Grafana · Datadog</li><li data-i18n="ab.t5">RGPD y CAN-SPAM</li></ul>
+          <h2 data-i18n="ab.h4">Formación</h2>
+          <div data-i18n="ab.p4"><p><strong>Máster en Big Data y Data Science</strong> · Universidad Complutense de Madrid · 9,5/10. Tercer premio al proyecto final por Minerva News, una plataforma de machine learning que detecta noticias falsas.</p><p><strong>Máster en Planificación y Asesoramiento Financiero</strong> · Universidad Rey Juan Carlos.</p><p><strong>Grado en Economía</strong> · Universidad Carlos III de Madrid.</p></div>
+          <h2 data-i18n="ab.h5">Idiomas</h2>
+          <p class="ab-lang" data-i18n="ab.p5">Español (nativo) · Inglés (profesional, título oficial)</p>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <div id="ctView" data-view="contacto" hidden>
+    <section class="phero"><div class="wrap">
+      <span class="kicker"><i></i><span data-i18n="ct.kicker">Contacto</span></span>
+      <h1 data-i18n="ct.h1">¿Hablamos? <span class="hl">Escríbeme</span></h1>
+      <p class="lead" data-i18n="ct.lead">Sugerencias, errores que hayas encontrado, ideas de nuevas herramientas o propuestas profesionales: todo es bienvenido.</p>
+    </div></section>
+    <div class="wrap">
+      <section class="tool"><form class="tool-body" id="ctForm" novalidate>
+        <div class="fields">
+          <div class="field"><label class="lbl" for="ctType" data-i18n="ct.type">Motivo</label>
+            <select id="ctType" class="ct-select">
+              <option value="sug" data-i18n="ct.o1">Sugerencia o idea</option>
+              <option value="bug" data-i18n="ct.o2">He encontrado un error</option>
+              <option value="pro" data-i18n="ct.o3">Propuesta profesional o colaboración</option>
+              <option value="other" data-i18n="ct.o4">Otro</option>
+            </select></div>
+          <div class="field"><label class="lbl" for="ctName" data-i18n="ct.name">Tu nombre</label><input id="ctName" type="text" autocomplete="name"></div>
+          <div class="field"><label class="lbl" for="ctMsg" data-i18n="ct.msg">Mensaje</label><textarea id="ctMsg" class="ct-msg"></textarea></div>
+        </div>
+        <div class="actions"><button class="btn btn-primary" type="submit" data-i18n="ct.btn">Enviar por email</button><button class="btn btn-ghost" type="button" id="ctCopy" data-i18n="ct.copy">Copiar mi dirección</button></div>
+        <p class="privacy"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          <span data-i18n="ct.priv">Al pulsar el botón se abrirá tu programa de correo con el mensaje preparado. Esta web no guarda ni envía nada: el email lo envías tú, y solo usaré tus datos para responderte.</span></p>
+      </form></section>
+    </div>
+  </div>
+
   <!-- ===================== PRIVACIDAD ===================== -->
   <div data-view="privacidad" hidden>
     <article class="wrap legal" id="privacyDoc"></article>
@@ -1007,6 +1146,7 @@ footer{margin-top:5rem;background:var(--blue-deep);color:#C9D6F5;font-size:.95re
     <div>
       <h4 data-i18n="foot.author">Autora</h4>
       <p id="footAuthor" style="margin:0"></p>
+      <ul style="margin-top:.6rem"><li><a href="#sobre-mi" data-i18n="ab.nav">Sobre mí</a></li><li><a href="#contacto" data-i18n="ct.nav">Contacto y sugerencias</a></li></ul>
     </div>
   </div>
   <div class="wide foot-bottom"><span>© <span id="year"></span> <span id="footName"></span></span><span id="footLinkedin"></span></div>
@@ -1504,6 +1644,59 @@ Object.assign(TX.it, {"ai.consent.auditoria":"Accetto di inviare i risultati del
 Object.assign(TX.fr, {"ai.consent.auditoria":"J'accepte d'envoyer les résultats de l'audit (sans le contenu complet de l'email) à {provider} pour obtenir l'explication.","ai.consent.plataforma":"J'accepte d'envoyer le résultat de la détection et les données techniques de l'envoi à {provider} pour obtenir l'explication. Les adresses email sont masquées."});
 Object.assign(TX.pt, {"ai.consent.auditoria":"Aceito enviar os resultados da auditoria (sem o conteúdo completo do email) para {provider} para receber a explicação.","ai.consent.plataforma":"Aceito enviar o resultado da deteção e os dados técnicos do envio para {provider} para receber a explicação. Os endereços de email são ocultados."});
 
+/* ===== Sobre mí, contacto y portada ===== */
+Object.assign(TX.es, {"title.sobre-mi":"Sobre mí · María Luisa Duque · Email Seguro","title.contacto":"Contacto y sugerencias · Email Seguro","ct.empty":"Escribe tu mensaje","ct.copied":"Dirección copiada"});
+Object.assign(TX.en, {"title.sobre-mi":"About me · María Luisa Duque · Email Seguro","title.contacto":"Contact and suggestions · Email Seguro","ct.empty":"Write your message","ct.copied":"Address copied"});
+Object.assign(TX.it, {"title.sobre-mi":"Chi sono · María Luisa Duque · Email Seguro","title.contacto":"Contatti e suggerimenti · Email Seguro","ct.empty":"Scrivi il tuo messaggio","ct.copied":"Indirizzo copiato"});
+Object.assign(TX.fr, {"title.sobre-mi":"À propos · María Luisa Duque · Email Seguro","title.contacto":"Contact et suggestions · Email Seguro","ct.empty":"Écrivez votre message","ct.copied":"Adresse copiée"});
+Object.assign(TX.pt, {"title.sobre-mi":"Sobre mim · María Luisa Duque · Email Seguro","title.contacto":"Contacto e sugestões · Email Seguro","ct.empty":"Escreva a sua mensagem","ct.copied":"Endereço copiado"});
+const ABT = {
+en:{"ab.nav":"About me","ct.nav":"Contact and suggestions","ab.kicker":"Who's behind it","ab.role":"Email Deliverability Manager · Infrastructure & Analytics","ab.lead":"For five years I've been getting billions of emails into the inbox. I built Email Seguro so that this know-how is available to anyone, for free.","ab.linkedin":"Connect on LinkedIn","ab.contact":"Write to me",
+  "ab.s1":"emails sent per day","ab.s2":"sending IPs managed","ab.s3n":"5 years","ab.s3":"at high-volume ESPs","ab.s4":"international markets",
+  "ab.h1":"What I do","ab.p1":"<p>I'm an Email Deliverability Manager at high-volume email marketing platforms serving Europe and Latin America. I run the PowerMTA infrastructure that delivers 80 million emails a day across 2,000 IPs: routing, virtual MTAs, throttling rules, bounce classification and feedback loop processing.</p><p>Every day I resolve blocklistings, restore the reputation of struggling senders and help clients get back to the inbox through server-side fixes and hands-on guidance. I work directly with Gmail, Microsoft, Yahoo and regional providers, and implement SPF, DKIM, DMARC and BIMI across sending domains.</p>",
+  "ab.h2":"Why Email Seguro","ab.p2":"<p>Most deliverability problems I see can be fixed, but the tools to detect them are usually technical, paid or English-only. Email Seguro brings together what I check every day, explained in plain language and in five languages, so any business can reach the inbox.</p><p>It's a personal, independent project: it isn't linked to any company and the opinions are my own.</p>",
+  "ab.h3":"Expertise","ab.t1":"IP and domain reputation","ab.t2":"IP and domain warm-up","ab.t3":"Blocklist management","ab.t4":"Bounce classification","ab.t5":"GDPR and CAN-SPAM",
+  "ab.h4":"Education","ab.p4":"<p><strong>MSc in Big Data & Data Science</strong> · Complutense University of Madrid · 9.5/10. Third award for the final project, Minerva News, a machine learning platform that detects fake news.</p><p><strong>MSc in Financial Planning & Consulting</strong> · Rey Juan Carlos University.</p><p><strong>BSc in Economics</strong> · Carlos III University of Madrid.</p>","ab.h5":"Languages","ab.p5":"Spanish (native) · English (full professional proficiency, official certificate)",
+  "ct.kicker":"Contact","ct.h1":"Let's talk. <span class=\"hl\">Write to me</span>","ct.lead":"Suggestions, bugs you've found, ideas for new tools or professional proposals: everything is welcome.","ct.type":"Reason","ct.o1":"Suggestion or idea","ct.o2":"I found a bug","ct.o3":"Professional proposal or collaboration","ct.o4":"Other","ct.name":"Your name","ct.msg":"Message","ct.btn":"Send by email","ct.copy":"Copy my address","ct.priv":"When you click the button, your email app will open with the message ready. This website doesn't store or send anything: you send the email yourself, and I'll only use your details to reply.",
+  "cr.k":"Built by a professional","cr.h":"Made by someone who delivers 80 million emails a day","cr.p":"I'm María Luisa Duque, Email Deliverability Manager. I built these tools with what I apply every day so your emails reach the inbox.","cr.go":"Meet me →"},
+it:{"ab.nav":"Chi sono","ct.nav":"Contatti e suggerimenti","ab.kicker":"Chi c'è dietro","ab.role":"Email Deliverability Manager · Infrastruttura e analisi","ab.lead":"Da cinque anni faccio arrivare miliardi di email nella posta in arrivo. Ho creato Email Seguro perché queste competenze siano alla portata di tutti, gratis.","ab.linkedin":"Collegati su LinkedIn","ab.contact":"Scrivimi",
+  "ab.s1":"email inviate al giorno","ab.s2":"IP di invio gestiti","ab.s3n":"5 anni","ab.s3":"in piattaforme ad alto volume","ab.s4":"mercati internazionali",
+  "ab.h1":"Cosa faccio","ab.p1":"<p>Sono Email Deliverability Manager in piattaforme di email marketing ad alto volume per Europa e America Latina. Gestisco l'infrastruttura PowerMTA che consegna 80 milioni di email al giorno tramite 2.000 IP: instradamento, MTA virtuali, regole di throttling, classificazione dei bounce ed elaborazione dei feedback loop.</p><p>Ogni giorno risolvo inserimenti in blacklist, recupero la reputazione dei mittenti in difficoltà e aiuto i clienti a tornare in inbox con modifiche lato server e supporto pratico. Lavoro direttamente con Gmail, Microsoft, Yahoo e provider regionali, e implemento SPF, DKIM, DMARC e BIMI sui domini di invio.</p>",
+  "ab.h2":"Perché Email Seguro","ab.p2":"<p>La maggior parte dei problemi di deliverability che vedo si possono risolvere, ma gli strumenti per individuarli sono spesso tecnici, a pagamento o solo in inglese. Email Seguro riunisce ciò che controllo ogni giorno, spiegato in modo semplice e in cinque lingue, perché qualsiasi attività possa arrivare in inbox.</p><p>È un progetto personale e indipendente: non è legato ad alcuna azienda e le opinioni sono mie.</p>",
+  "ab.h3":"Specializzazioni","ab.t1":"Reputazione di IP e dominio","ab.t2":"Warm-up di IP e domini","ab.t3":"Gestione delle blacklist","ab.t4":"Classificazione dei bounce","ab.t5":"GDPR e CAN-SPAM",
+  "ab.h4":"Formazione","ab.p4":"<p><strong>Master in Big Data e Data Science</strong> · Università Complutense di Madrid · 9,5/10. Terzo premio per il progetto finale Minerva News, una piattaforma di machine learning che rileva le fake news.</p><p><strong>Master in Pianificazione e Consulenza Finanziaria</strong> · Università Rey Juan Carlos.</p><p><strong>Laurea in Economia</strong> · Università Carlos III di Madrid.</p>","ab.h5":"Lingue","ab.p5":"Spagnolo (madrelingua) · Inglese (livello professionale, certificato ufficiale)",
+  "ct.kicker":"Contatti","ct.h1":"Parliamone. <span class=\"hl\">Scrivimi</span>","ct.lead":"Suggerimenti, errori che hai trovato, idee per nuovi strumenti o proposte professionali: tutto è benvenuto.","ct.type":"Motivo","ct.o1":"Suggerimento o idea","ct.o2":"Ho trovato un errore","ct.o3":"Proposta professionale o collaborazione","ct.o4":"Altro","ct.name":"Il tuo nome","ct.msg":"Messaggio","ct.btn":"Invia per email","ct.copy":"Copia il mio indirizzo","ct.priv":"Premendo il pulsante si aprirà il tuo programma di posta con il messaggio pronto. Questo sito non salva né invia nulla: l'email la invii tu e userò i tuoi dati solo per risponderti.",
+  "cr.k":"Creato da una professionista","cr.h":"Realizzato da chi consegna 80 milioni di email al giorno","cr.p":"Sono María Luisa Duque, Email Deliverability Manager. Ho creato questi strumenti con ciò che applico ogni giorno perché le tue email arrivino in inbox.","cr.go":"Conoscimi →"},
+fr:{"ab.nav":"À propos","ct.nav":"Contact et suggestions","ab.kicker":"Qui est derrière","ab.role":"Email Deliverability Manager · Infrastructure et analytique","ab.lead":"Depuis cinq ans, je fais arriver des milliards d'emails en boîte de réception. J'ai créé Email Seguro pour que ce savoir-faire soit accessible à tous, gratuitement.","ab.linkedin":"Me suivre sur LinkedIn","ab.contact":"M'écrire",
+  "ab.s1":"emails envoyés par jour","ab.s2":"IP d'envoi gérées","ab.s3n":"5 ans","ab.s3":"sur des plateformes à fort volume","ab.s4":"marchés internationaux",
+  "ab.h1":"Ce que je fais","ab.p1":"<p>Je suis Email Deliverability Manager sur des plateformes d'emailing à fort volume pour l'Europe et l'Amérique latine. Je gère l'infrastructure PowerMTA qui délivre 80 millions d'emails par jour via 2 000 IP : routage, MTA virtuels, règles de throttling, classification des rebonds et traitement des feedback loops.</p><p>Chaque jour, je résous des inscriptions sur listes noires, je restaure la réputation d'expéditeurs en difficulté et j'aide les clients à revenir en boîte de réception grâce à des réglages serveur et un accompagnement concret. Je travaille directement avec Gmail, Microsoft, Yahoo et des fournisseurs régionaux, et je mets en place SPF, DKIM, DMARC et BIMI sur les domaines d'envoi.</p>",
+  "ab.h2":"Pourquoi Email Seguro","ab.p2":"<p>La plupart des problèmes de délivrabilité que je vois ont une solution, mais les outils pour les détecter sont souvent techniques, payants ou uniquement en anglais. Email Seguro rassemble ce que je vérifie chaque jour, expliqué simplement et en cinq langues, pour que toute entreprise puisse atteindre la boîte de réception.</p><p>C'est un projet personnel et indépendant : il n'est lié à aucune entreprise et les opinions exprimées sont les miennes.</p>",
+  "ab.h3":"Spécialités","ab.t1":"Réputation d'IP et de domaine","ab.t2":"Warm-up d'IP et de domaines","ab.t3":"Gestion des listes noires","ab.t4":"Classification des rebonds","ab.t5":"RGPD et CAN-SPAM",
+  "ab.h4":"Formation","ab.p4":"<p><strong>Master en Big Data et Data Science</strong> · Université Complutense de Madrid · 9,5/10. Troisième prix du projet de fin d'études pour Minerva News, une plateforme de machine learning qui détecte les fausses informations.</p><p><strong>Master en Planification et Conseil Financier</strong> · Université Rey Juan Carlos.</p><p><strong>Licence en Économie</strong> · Université Carlos III de Madrid.</p>","ab.h5":"Langues","ab.p5":"Espagnol (langue maternelle) · Anglais (niveau professionnel, diplôme officiel)",
+  "ct.kicker":"Contact","ct.h1":"On en parle ? <span class=\"hl\">Écrivez-moi</span>","ct.lead":"Suggestions, bugs repérés, idées de nouveaux outils ou propositions professionnelles : tout est bienvenu.","ct.type":"Objet","ct.o1":"Suggestion ou idée","ct.o2":"J'ai trouvé un bug","ct.o3":"Proposition professionnelle ou collaboration","ct.o4":"Autre","ct.name":"Votre nom","ct.msg":"Message","ct.btn":"Envoyer par email","ct.copy":"Copier mon adresse","ct.priv":"En cliquant sur le bouton, votre messagerie s'ouvrira avec le message prêt. Ce site ne conserve ni n'envoie rien : c'est vous qui envoyez l'email, et je n'utiliserai vos données que pour vous répondre.",
+  "cr.k":"Créé par une professionnelle","cr.h":"Conçu par quelqu'un qui délivre 80 millions d'emails par jour","cr.p":"Je suis María Luisa Duque, Email Deliverability Manager. J'ai créé ces outils avec ce que j'applique chaque jour pour que vos emails arrivent en boîte de réception.","cr.go":"Me découvrir →"},
+pt:{"ab.nav":"Sobre mim","ct.nav":"Contacto e sugestões","ab.kicker":"Quem está por trás","ab.role":"Email Deliverability Manager · Infraestrutura e análise","ab.lead":"Há cinco anos que faço chegar milhares de milhões de emails à caixa de entrada. Criei o Email Seguro para que este conhecimento esteja ao alcance de todos, gratuitamente.","ab.linkedin":"Ligue-se no LinkedIn","ab.contact":"Escreva-me",
+  "ab.s1":"emails enviados por dia","ab.s2":"IPs de envio geridos","ab.s3n":"5 anos","ab.s3":"em plataformas de grande volume","ab.s4":"mercados internacionais",
+  "ab.h1":"O que faço","ab.p1":"<p>Sou Email Deliverability Manager em plataformas de email marketing de grande volume para a Europa e a América Latina. Giro a infraestrutura PowerMTA que entrega 80 milhões de emails por dia através de 2000 IPs: encaminhamento, MTAs virtuais, regras de throttling, classificação de devoluções e processamento de feedback loops.</p><p>Todos os dias resolvo inclusões em listas negras, recupero a reputação de remetentes com problemas e ajudo clientes a voltar à caixa de entrada com alterações no servidor e acompanhamento prático. Trabalho diretamente com o Gmail, a Microsoft, o Yahoo e fornecedores regionais, e implemento SPF, DKIM, DMARC e BIMI nos domínios de envio.</p>",
+  "ab.h2":"Porquê o Email Seguro","ab.p2":"<p>A maioria dos problemas de entregabilidade que vejo tem solução, mas as ferramentas para os detetar costumam ser técnicas, pagas ou apenas em inglês. O Email Seguro reúne o que verifico todos os dias, explicado de forma simples e em cinco idiomas, para que qualquer negócio chegue à caixa de entrada.</p><p>É um projeto pessoal e independente: não está ligado a nenhuma empresa e as opiniões são minhas.</p>",
+  "ab.h3":"Especialidades","ab.t1":"Reputação de IP e domínio","ab.t2":"Warm-up de IPs e domínios","ab.t3":"Gestão de listas negras","ab.t4":"Classificação de devoluções","ab.t5":"RGPD e CAN-SPAM",
+  "ab.h4":"Formação","ab.p4":"<p><strong>Mestrado em Big Data e Data Science</strong> · Universidade Complutense de Madrid · 9,5/10. Terceiro prémio do projeto final, Minerva News, uma plataforma de machine learning que deteta notícias falsas.</p><p><strong>Mestrado em Planeamento e Consultoria Financeira</strong> · Universidade Rey Juan Carlos.</p><p><strong>Licenciatura em Economia</strong> · Universidade Carlos III de Madrid.</p>","ab.h5":"Idiomas","ab.p5":"Espanhol (nativo) · Inglês (nível profissional, certificado oficial)",
+  "ct.kicker":"Contacto","ct.h1":"Falamos? <span class=\"hl\">Escreva-me</span>","ct.lead":"Sugestões, erros que tenha encontrado, ideias de novas ferramentas ou propostas profissionais: tudo é bem-vindo.","ct.type":"Motivo","ct.o1":"Sugestão ou ideia","ct.o2":"Encontrei um erro","ct.o3":"Proposta profissional ou colaboração","ct.o4":"Outro","ct.name":"O seu nome","ct.msg":"Mensagem","ct.btn":"Enviar por email","ct.copy":"Copiar o meu endereço","ct.priv":"Ao carregar no botão, abre-se o seu programa de email com a mensagem preparada. Este website não guarda nem envia nada: é você que envia o email, e só usarei os seus dados para responder.",
+  "cr.k":"Criado por uma profissional","cr.h":"Feito por quem entrega 80 milhões de emails por dia","cr.p":"Sou María Luisa Duque, Email Deliverability Manager. Criei estas ferramentas com o que aplico todos os dias para que os seus emails cheguem à caixa de entrada.","cr.go":"Conheça-me →"}
+};
+for (const l of ["en","it","fr","pt"]) Object.assign(I18N[l], ABT[l]);
+
+(function(){
+  const c = {
+    es:"<h2>Contacto</h2><p>Si me escribes desde la página de contacto, el mensaje lo envías tú desde tu propio correo. Usaré tu dirección y lo que me cuentes solo para responderte, y no lo compartiré con nadie (base jurídica: tu consentimiento y el interés legítimo en atender tu consulta).</p>",
+    en:"<h2>Contact</h2><p>If you write to me from the contact page, you send the message yourself from your own email. I'll use your address and what you tell me only to reply, and won't share it with anyone (legal basis: your consent and the legitimate interest in answering your enquiry).</p>",
+    it:"<h2>Contatti</h2><p>Se mi scrivi dalla pagina dei contatti, il messaggio lo invii tu dal tuo indirizzo email. Userò il tuo indirizzo e ciò che mi racconti solo per risponderti e non lo condividerò con nessuno (base giuridica: il tuo consenso e il legittimo interesse a rispondere alla tua richiesta).</p>",
+    fr:"<h2>Contact</h2><p>Si vous m'écrivez depuis la page de contact, c'est vous qui envoyez le message depuis votre propre messagerie. J'utiliserai votre adresse et ce que vous me dites uniquement pour vous répondre, sans le partager avec quiconque (base légale : votre consentement et l'intérêt légitime à répondre à votre demande).</p>",
+    pt:"<h2>Contacto</h2><p>Se me escrever a partir da página de contacto, é você que envia a mensagem a partir do seu próprio email. Usarei o seu endereço e o que me disser apenas para responder, e não o partilharei com ninguém (fundamento jurídico: o seu consentimento e o interesse legítimo em responder ao seu pedido).</p>"
+  };
+  for (const l in c){ const orig = LEGAL[l].privacy; LEGAL[l].privacy = v => orig(v).replace("<h2>4.", c[l] + "<h2>4."); }
+})();
+
 (function(){
   const $ = s => document.querySelector(s);
   const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -1511,7 +1704,8 @@ Object.assign(TX.pt, {"ai.consent.auditoria":"Aceito enviar os resultados da aud
 
   /* ---------- Idioma ---------- */
   let lang = "es";
-  try { lang = localStorage.getItem("es-lang") || ""; } catch(e){}
+  const urlLang = new URLSearchParams(location.search).get("lang");
+  try { lang = (LANGS.includes(urlLang) ? urlLang : "") || localStorage.getItem("es-lang") || ""; } catch(e){ lang = LANGS.includes(urlLang) ? urlLang : ""; }
   if (!LANGS.includes(lang)){ const n = (navigator.language || "es").slice(0, 2).toLowerCase(); lang = LANGS.includes(n) ? n : "es"; }
   window.getLang = () => lang;
   window.t = (key, vars) => {
@@ -1559,7 +1753,7 @@ Object.assign(TX.pt, {"ai.consent.auditoria":"Aceito enviar os resultados da aud
   }
 
   /* ---------- Navegación ---------- */
-  const VIEWS = ["inicio","dominio","email","campana","bbdd","auditoria","warmup","bandeja","plataforma","privacidad","aviso-legal"];
+  const VIEWS = ["inicio","dominio","email","campana","bbdd","auditoria","warmup","bandeja","plataforma","sobre-mi","contacto","privacidad","aviso-legal"];
   function viewFromHash(){
     const h = location.hash.slice(1);
     if (VIEWS.includes(h)) return h;
@@ -1694,6 +1888,17 @@ Object.assign(TX.pt, {"ai.consent.auditoria":"Aceito enviar os resultados da aud
       } finally { clearTimeout(tm); btn.disabled = !ok.checked; }
     });
   };
+
+  /* ---------- Contacto ---------- */
+  $("#ctForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const type = $("#ctType"), name = $("#ctName").value.trim(), msg = $("#ctMsg").value.trim();
+    if (!msg){ toast(t("ct.empty")); $("#ctMsg").focus(); return; }
+    const subj = `[Email Seguro] ${type.options[type.selectedIndex].text}`;
+    const body = `${msg}\n\n— ${name || ""}\n(${location.href.split("#")[0]} · ${lang.toUpperCase()})`;
+    location.href = `mailto:${AUTOR.email}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+  });
+  $("#ctCopy").addEventListener("click", async () => { try { await navigator.clipboard.writeText(AUTOR.email); toast(t("ct.copied")); } catch(e){ toast(AUTOR.email); } });
 
   applyI18n();
   showView(viewFromHash());
@@ -2859,7 +3064,7 @@ async function checkReputation(ips){
   const ptrTxt = r => r.ptr === null ? `<span class="bl bl-n">No disponible</span>` : r.ptr === "" ? `<span class="bl ${r.origin === "web" ? "bl-n" : "bl-r"}">Sin PTR</span>` : `<span class="bl ${r.fcr ? "bl-g" : "bl-y"}">${r.fcr ? "Correcto" : "No confirma"}</span><br><span class="minor">${esc(r.ptr)}</span>`;
   const table = `<div class="dns-wrap"><table class="dns"><thead><tr><th>IP</th><th>Sender Score</th><th>HostKarma</th><th>DNSWL</th><th>DNS inverso (PTR)</th></tr></thead><tbody>${rows.map(r => `<tr><th scope="row"><code>${esc(r.ip)}</code><br><span class="minor">${esc(r.origin)}</span></th><td>${scoreTxt(r)}</td><td>${karmaTxt(r)}</td><td>${wlTxt(r)}</td><td>${ptrTxt(r)}</td></tr>`).join("")}</tbody></table></div>${links}`;
   const notes = ["Sender Score puntúa de 0 a 100: por encima de 80 es buena, entre 70 y 80 mejorable y por debajo de 70 preocupante. Solo puntúa IPs con un volumen de envío relevante.",
-    "Si envías desde una plataforma de email (Mailchimp, Brevo, emBlue…), tus IPs suelen ser compartidas: su reputación depende también de otros remitentes."];
+    "Si envías desde una plataforma de email (Mailchimp, Brevo, Acumbamail…), tus IPs suelen ser compartidas: su reputación depende también de otros remitentes."];
   if (rows.some(r => r.ptr === "" && r.origin !== "web")) notes.push("Alguna IP de envío no tiene DNS inverso (PTR). Muchos servidores rechazan el correo de IPs sin PTR: pide a tu proveedor de hosting o de envío que lo configure.");
   else if (rows.some(r => r.ptr && !r.fcr && r.origin !== "web")) notes.push("El nombre del DNS inverso (PTR) no apunta de vuelta a la misma IP (FCrDNS). Conviene que coincidan en ambos sentidos.");
   if (rows.some(r => r.score === "na" || r.karma === "na" || r.wl === "na")) notes.push("Algunas bases de datos no responden a consultas desde DNS públicos. Para confirmarlo, usa sus webs oficiales.");

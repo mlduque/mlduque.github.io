@@ -180,6 +180,9 @@ Son herramientas orientativas: ningún análisis automático es infalible. El te
 
 ## Sobre la autora
 
+Más información en la página [Sobre mí](https://mlduque.github.io/#sobre-mi). ¿Sugerencias, errores o propuestas? Escríbeme desde la página de [contacto](https://mlduque.github.io/#contacto).
+
+
 Creado por **María Luisa Duque**, Email Deliverability Manager.
 
 Trabajo cada día para que los emails legítimos lleguen a la bandeja de entrada. Con estas herramientas quiero que cualquier persona pueda reconocer los que no lo son, y que cualquier negocio, por pequeño que sea, pueda proteger su dominio, cuidar su lista y enviar mejores campañas sin necesidad de ser experto.
