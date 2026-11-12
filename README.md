@@ -6,15 +6,33 @@ Herramientas gratuitas para proteger tu dominio, reconocer emails de estafa, pro
 
 👉 **Pruébalas aquí:** [mlduque.github.io](https://mlduque.github.io/)
 
-La web tiene siete herramientas, cada una en su pestaña:
+La web tiene ocho herramientas, cada una en su pestaña:
 
-- **Mi dominio:** [mlduque.github.io](https://mlduque.github.io/)
+- **Auditoría completa:** [mlduque.github.io/#auditoria](https://mlduque.github.io/#auditoria)
+- **Mi dominio:** [mlduque.github.io/#dominio](https://mlduque.github.io/#dominio)
 - **Analizar un email:** [mlduque.github.io/#email](https://mlduque.github.io/#email)
 - **Probar mi campaña:** [mlduque.github.io/#campana](https://mlduque.github.io/#campana)
 - **Mi base de datos:** [mlduque.github.io/#bbdd](https://mlduque.github.io/#bbdd)
 - **Calculadora de warm-up:** [mlduque.github.io/#warmup](https://mlduque.github.io/#warmup)
 - **Test de bandeja:** [mlduque.github.io/#bandeja](https://mlduque.github.io/#bandeja)
 - **¿Qué plataforma lo envió?:** [mlduque.github.io/#plataforma](https://mlduque.github.io/#plataforma)
+
+---
+
+## Auditoría completa de un email (nuevo)
+
+Envíate una prueba de tu campaña, sube el email (.eml) y la web ejecuta más de 40 comprobaciones a la vez, con un único informe de **apto, mejorable o no apto**, descargable en **PDF**:
+
+- **Autenticación del envío:** SPF, DKIM, DMARC y alineación del Return-Path y de la firma DKIM.
+- **Infraestructura y reputación:** IP de envío, DNS inverso (PTR y FCrDNS), cifrado TLS, listas negras de IP y dominio, y Sender Score.
+- **Registros DNS del dominio,** validados según los estándares RFC, incluida la clave DKIM usada en el envío.
+- **Cabeceras al estilo Rspamd:** Message-ID, fecha, MIME, destinatario, asunto codificado, versión de texto, Reply-To y más.
+- **Contenido:** puntuación tipo SpamAssassin y peso del email.
+- **Cumplimiento legal y marketing:** baja en un clic, pie legal, CTA y enganche.
+- **Requisitos de Gmail y Yahoo** para envíos masivos.
+- **Plataforma de envío** detectada.
+
+Incluye un **historial** de auditorías y dominios comprobados que se guarda solo en tu navegador (sin el contenido de los emails).
 
 ---
 
@@ -39,11 +57,15 @@ Esta herramienta está pensada para pymes, autónomos y freelancers que no tiene
 - **DKIM (firma digital):** busca la firma con los selectores más habituales y, para cada clave, muestra su tamaño exacto en bits y si es segura según las buenas prácticas: insegura (menos de 1024), débil (1024), segura (2048) o muy segura (3072 o más). También reconoce claves Ed25519.
 - **DMARC (política anti-suplantación):** si existe, qué nivel de protección aplica y si recibes informes.
 - **BIMI (logo de marca):** si tu logo puede aparecer junto a tus emails. Es opcional.
+- **Validación de sintaxis según los RFC:** detecta errores en SPF (RFC 7208), DMARC (RFC 7489) y claves DKIM, y comprueba la autorización de los informes DMARC enviados a dominios externos.
+- **Seguridad avanzada:** DNSSEC, MTA-STS y TLS-RPT.
 
 **Reputación y web**
-- **Reputación del remitente:** consulta la reputación de las IPs de envío (las que encuentra y la que tú indiques) en Sender Score, HostKarma y DNSWL, con enlaces a Sender Score, Cisco Talos, Google Postmaster Tools y Microsoft SNDS.
+- **Reputación del remitente:** consulta la reputación de las IPs de envío (las que encuentra y la que tú indiques) en Sender Score, HostKarma y DNSWL, y su DNS inverso (PTR y FCrDNS), con enlaces a Sender Score, Cisco Talos, Google Postmaster Tools y Microsoft SNDS.
 - **Listas negras:** revisa tu dominio en 5 listas de dominios (Spamhaus DBL, SURBL, URIBL…) y las IPs asociadas en 9 listas de IPs (Spamhaus ZEN, SpamCop, Barracuda…). Si apareces en alguna, te explica cómo salir.
 - **Certificado SSL:** indica si el dominio tiene web asociada y si esa web tiene certificado SSL. Si lo tiene, muestra quién lo emitió, sus fechas de validez, cuántos días le quedan, qué dominios cubre (incluido www) y qué autoridades pueden emitir certificados para tu dominio (registro CAA).
+
+El informe del dominio también se puede **descargar en PDF**.
 
 ---
 

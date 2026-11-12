@@ -68,14 +68,14 @@ code,pre,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
 .brand-ico{width:34px;height:34px;border-radius:10px;background:var(--blue);display:grid;place-items:center;color:#fff;flex:none}
 .brand-ico svg{color:var(--yellow)}
 .nav-links{display:flex;gap:.25rem;margin-left:auto;align-items:center}
-.nav-links a{padding:.5rem .8rem;border-radius:8px;text-decoration:none;font-weight:700;color:var(--muted);white-space:nowrap}
+.nav-links a{padding:.45rem .6rem;font-size:.97rem;border-radius:8px;text-decoration:none;font-weight:700;color:var(--muted);white-space:nowrap}
 .nav-links a:hover{color:var(--ink);background:var(--soft)}
 .nav-links a[aria-current="page"]{color:var(--blue);background:var(--blue-soft)}
 .nav-tools{display:flex;gap:.5rem;align-items:center}
 .lang{font:inherit;font-weight:700;font-size:.92rem;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.4rem .5rem;cursor:pointer}
 .share{background:var(--blue);color:var(--blue-ink);border:0;border-radius:8px;padding:.5rem .9rem;font:inherit;font-weight:700;font-size:.92rem;cursor:pointer;white-space:nowrap}
 .burger{display:none;background:none;border:1px solid var(--line);border-radius:8px;width:40px;height:38px;cursor:pointer;color:var(--ink)}
-@media (max-width:78rem){
+@media (max-width:79rem){
   .burger{display:grid;place-items:center;margin-left:auto}
   .nav-links{position:absolute;left:0;right:0;top:4rem;flex-direction:column;align-items:stretch;background:var(--bg);border-bottom:1px solid var(--line);padding:.5rem 1.25rem 1rem;margin:0;display:none}
   .nav.open .nav-links{display:flex}
@@ -463,6 +463,46 @@ details.block summary{cursor:pointer;font-weight:700;color:var(--blue);padding:.
 .sp-others{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
 .sp-others li{padding:.6rem .8rem;border:1px solid var(--line);border-radius:10px;background:var(--card)}
 
+/* Auditoría */
+.tfeat{display:grid;grid-template-columns:auto 1fr auto;gap:1.25rem;align-items:center;background:linear-gradient(135deg,var(--blue-deep),#1D4ED8);color:#fff;border-radius:18px;padding:1.5rem 1.6rem;text-decoration:none;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.tfeat .tico{background:rgba(255,255,255,.12);color:#FFD24A}
+.tfeat h3{font-size:1.35rem;margin:.4rem 0 .35rem;color:#fff}
+.tfeat p{margin:0;color:#DCE6FF}
+.tfeat .go{font-weight:700;color:#FFD24A;white-space:nowrap}
+@media (max-width:44rem){.tfeat{grid-template-columns:1fr}}
+.au-counts{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem !important}
+.au-c{font-weight:700;font-size:.9rem;border-radius:999px;padding:.15rem .65rem}
+.au-pass{background:#E3F4EA;color:#14653E} .au-warn{background:#FFF3CC;color:#7A5200} .au-fail{background:#FDE4E4;color:#9B1C1C}
+.au-sec{margin-top:1.5rem;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--sc);border-radius:14px;padding:1.1rem 1.25rem;break-inside:avoid}
+.au-sec h3{font-size:1.15rem;display:flex;align-items:center;gap:.6rem;margin-bottom:.75rem}
+.au-sec h3 .light{flex-direction:row;padding:4px}
+.au-sec h3 .light i{width:10px;height:10px}
+.au-list{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.au-list li{display:grid;grid-template-columns:1.6rem 1fr;gap:.5rem;align-items:start}
+.au-list strong{display:block;font-size:1rem}
+.au-list p{margin:.1rem 0 0;color:var(--muted);font-size:.93rem}
+.au-i{width:1.4rem;height:1.4rem;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.8rem;margin-top:.1rem}
+.aul-pass .au-i{background:var(--safe);color:#fff} .aul-warn .au-i{background:var(--yellow);color:#0B0B0F} .aul-fail .au-i{background:var(--danger);color:#fff} .aul-info .au-i{background:var(--blue-soft);color:var(--blue)}
+.hist{list-style:none;margin:0 0 1rem;padding:0;display:grid;gap:.4rem}
+.hist li{display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:center;padding:.55rem .8rem;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.hist-tool{font-size:.8rem;font-weight:700;color:var(--blue);background:var(--blue-soft);border-radius:999px;padding:.05rem .55rem}
+.hist strong{flex:1}
+.hist a{color:var(--blue)}
+.print-head{display:none}
+
+/* Impresión y PDF */
+@media print{
+  @page{margin:14mm}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:#fff !important;color:#000;font-size:11pt}
+  body::before,.nav,.betabar,footer,.phero,.tool,.info,.ai,.noprint,.toast,.examples,.privacy,details:not([open]) > :not(summary){display:none !important}
+  .result{margin-top:0 !important}
+  .print-head{display:flex;justify-content:space-between;border-bottom:2px solid #1D4ED8;padding-bottom:6pt;margin-bottom:12pt;font-size:10pt}
+  .stamp{animation:none}
+  .check,.au-sec,.mk,.key{break-inside:avoid}
+  a{color:#000;text-decoration:none}
+}
+
 /* Pie */
 footer{margin-top:5rem;background:var(--blue-deep);color:#C9D6F5;font-size:.95rem}
 .foot{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:2rem;padding:3rem 0 2rem}
@@ -491,12 +531,13 @@ footer{margin-top:5rem;background:var(--blue-deep);color:#C9D6F5;font-size:.95re
     </a>
     <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="navLinks"><span class="vh" data-i18n="nav.menu">Menú</span><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
     <nav class="nav-links" id="navLinks" aria-label="Herramientas">
+      <a href="#auditoria" data-i18n="navs.audit">Auditoría</a>
       <a href="#dominio" data-i18n="navs.domain">Dominio</a>
       <a href="#email" data-i18n="navs.email">Email</a>
       <a href="#campana" data-i18n="navs.campaign">Campaña</a>
       <a href="#bbdd" data-i18n="navs.db">Base de datos</a>
       <a href="#warmup" data-i18n="navs.warmup">Warm-up</a>
-      <a href="#bandeja" data-i18n="navs.inbox">Test de bandeja</a>
+      <a href="#bandeja" data-i18n="navs.inbox">Bandeja</a>
       <a href="#plataforma" data-i18n="navs.esp">Plataforma</a>
     </nav>
     <div class="nav-tools">
@@ -539,7 +580,12 @@ footer{margin-top:5rem;background:var(--blue-deep);color:#C9D6F5;font-size:.95re
 
     <section class="section">
       <div class="wide">
-        <div class="sec-head"><h2 data-i18n="home.toolsTitle">Todo lo que necesitas para llegar a la bandeja</h2><p data-i18n="home.toolsLead">Siete herramientas profesionales, explicadas para que las entienda cualquiera.</p></div>
+        <div class="sec-head"><h2 data-i18n="home.toolsTitle">Todo lo que necesitas para llegar a la bandeja</h2><p data-i18n="home.toolsLead">Ocho herramientas profesionales, explicadas para que las entienda cualquiera.</p></div>
+        <a class="tfeat" href="#auditoria">
+          <span class="tico"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l2 2 4-4M5 4h14v16H5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></span>
+          <div><span class="beta" data-i18n="t8.badge">Nuevo</span><h3 data-i18n="t8.h">Auditoría completa de un email</h3><p data-i18n="t8.p">Sube un email y revisamos todo a la vez: autenticación, alineación, DNS, listas negras, reputación, DNS inverso, cabeceras, contenido, cumplimiento legal y requisitos de Gmail y Yahoo. Un único informe de apto o no apto, descargable en PDF.</p></div>
+          <span class="go" data-i18n="t8.go">Auditar un email →</span>
+        </a>
         <div class="tools">
           <a class="tcard" href="#dominio"><span class="tico"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v5.5c0 5-3.4 8.7-8 9.9-4.6-1.2-8-4.9-8-9.9V6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><h3 data-i18n="t1.h">Mi dominio</h3><p data-i18n="t1.p">SPF, DKIM, DMARC, BIMI, SSL y listas negras, con los registros listos para copiar.</p><span class="go" data-i18n="go">Probar gratis →</span></a>
           <a class="tcard" href="#email"><span class="tico"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><h3 data-i18n="t2.h">Analizar un email</h3><p data-i18n="t2.p">Descubre si un email sospechoso es phishing y qué hacer, en segundos.</p><span class="go" data-i18n="go">Probar gratis →</span></a>
@@ -580,6 +626,46 @@ footer{margin-top:5rem;background:var(--blue-deep);color:#C9D6F5;font-size:.95re
         <a class="btn btn-yellow" href="#dominio" data-i18n="cta.btn">Comprobar mi dominio gratis</a>
       </div>
     </section>
+  </div>
+
+  <!-- ===================== AUDITORÍA ===================== -->
+  <div id="auView" data-view="auditoria" hidden>
+    <section class="phero"><div class="wrap">
+      <span class="kicker"><i></i><span data-i18n="au.kicker">Comprobación previa al envío</span></span>
+      <h1 data-i18n="au.h1">Auditoría completa de tu <span class="hl">email</span></h1>
+      <p class="lead" data-i18n="au.lead">Envíate una prueba de tu campaña, sube el email y revisamos todo a la vez. Recibirás un único informe de apto o no apto, descargable en PDF.</p>
+    </div></section>
+    <div class="wrap">
+      <section class="tool" aria-label="Auditoría completa">
+        <div class="tool-body">
+          <label class="drop" id="auDrop">
+            <input id="auFile" type="file" accept=".eml,.txt,message/rfc822" hidden>
+            <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0l-4.5 4.5M12 4l4.5 4.5M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <strong data-i18n="au.drop">Sube tu email (.eml)</strong>
+            <span class="minor" data-i18n="au.dropHint">Arrastra aquí el archivo o pulsa para elegirlo. En Gmail: tres puntos y «Descargar mensaje».</span>
+            <span class="minor" id="auFileName"></span>
+          </label>
+          <p class="or"><span data-i18n="au.or">o pega el email original completo</span></p>
+          <textarea id="auInput" spellcheck="false" aria-label="Email original" placeholder="Delivered-To: ...&#10;Received: from ...&#10;Authentication-Results: ...&#10;From: ..."></textarea>
+          <div class="actions"><button class="btn btn-primary" id="auAnalyze" type="button" data-i18n="au.btn">Auditar email</button></div>
+          <div class="examples"><span data-i18n="tryExample">Probar con un ejemplo:</span><button class="chip" type="button" data-i18n="au.ex">Newsletter de ejemplo</button></div>
+          <p class="privacy"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            <span data-i18n="au.priv">El email se analiza en tu navegador y no se guarda. Solo consultamos información pública del dominio y de la IP de envío (DNS, listas negras y reputación).</span></p>
+        </div>
+      </section>
+      <section class="result" id="auResult" aria-live="polite"></section>
+      <section class="info">
+        <h2 data-i18n="au.histT">Tu historial</h2>
+        <p data-i18n="au.histP">Se guarda solo en este navegador, con el dominio, el resultado y la fecha. Nunca guardamos el contenido de los emails.</p>
+        <div id="auHistory"></div>
+      </section>
+      <section class="info">
+        <h2 data-i18n="au.i.h">Qué revisa la auditoría</h2>
+        <p data-i18n="au.i.p">Más de 40 comprobaciones agrupadas en ocho bloques: autenticación del envío (SPF, DKIM, DMARC y alineación), infraestructura y reputación (IP, DNS inverso, cifrado TLS, listas negras y Sender Score), registros DNS del dominio con validación según los estándares RFC, cabeceras al estilo Rspamd, contenido tipo SpamAssassin, cumplimiento legal y marketing, requisitos de Gmail y Yahoo, y plataforma de envío.</p>
+        <details><summary data-i18n="au.q1">¿Cómo consigo el archivo .eml?</summary><div data-i18n="au.a1"><p>Envía una prueba de tu campaña a tu propia dirección. <strong>Gmail:</strong> abre el email, pulsa los tres puntos y elige «Descargar mensaje». <strong>Outlook:</strong> arrastra el email al escritorio o usa «Guardar como». <strong>Apple Mail:</strong> menú «Archivo» y «Guardar como», con formato «Fuente original».</p></div></details>
+        <details><summary data-i18n="au.q2">¿Por qué no puedo enviar el email directamente a una dirección de la web?</summary><div data-i18n="au.a2"><p>Para recibir emails haría falta un servidor de correo, y esta web funciona gratis y sin servidor para no guardar ningún dato. El email original contiene exactamente la misma información.</p></div></details>
+      </section>
+    </div>
   </div>
 
   <!-- ===================== DOMINIO ===================== -->
@@ -912,7 +998,7 @@ footer{margin-top:5rem;background:var(--blue-deep);color:#C9D6F5;font-size:.95re
     </div>
     <div>
       <h4 data-i18n="foot.tools">Herramientas</h4>
-      <ul><li><a href="#dominio" data-i18n="nav.domain">Mi dominio</a></li><li><a href="#email" data-i18n="nav.email">Analizar un email</a></li><li><a href="#campana" data-i18n="nav.campaign">Probar mi campaña</a></li><li><a href="#bbdd" data-i18n="nav.db">Mi base de datos</a></li><li><a href="#warmup" data-i18n="t5.h">Calculadora de warm-up</a></li><li><a href="#bandeja" data-i18n="t6.h">Test de bandeja</a></li><li><a href="#plataforma" data-i18n="t7.h">¿Qué plataforma lo envió?</a></li></ul>
+      <ul><li><a href="#auditoria" data-i18n="t8.h">Auditoría completa de un email</a></li><li><a href="#dominio" data-i18n="nav.domain">Mi dominio</a></li><li><a href="#email" data-i18n="nav.email">Analizar un email</a></li><li><a href="#campana" data-i18n="nav.campaign">Probar mi campaña</a></li><li><a href="#bbdd" data-i18n="nav.db">Mi base de datos</a></li><li><a href="#warmup" data-i18n="t5.h">Calculadora de warm-up</a></li><li><a href="#bandeja" data-i18n="t6.h">Test de bandeja</a></li><li><a href="#plataforma" data-i18n="t7.h">¿Qué plataforma lo envió?</a></li></ul>
     </div>
     <div>
       <h4 data-i18n="foot.legal">Legal</h4>
@@ -1370,6 +1456,54 @@ Object.assign(I18N.pt, {"navs.esp":"Plataforma","home.toolsLead":"Sete ferrament
   "sp.q2":"Como copio o email original?","sp.a2":"<p><strong>Gmail:</strong> abra o email, clique nos três pontos junto a Responder e escolha «Mostrar original»; copie tudo ou clique em «Descarregar original».</p><p><strong>Outlook.com:</strong> três pontos, «Ver» e «Ver detalhes da mensagem».</p><p><strong>Apple Mail:</strong> menu «Visualização», «Mensagem» e «Fonte original».</p><p><strong>Yahoo:</strong> três pontos e «Ver mensagem em bruto».</p>",
   "sp.q3":"O que significa «marca branca»?","sp.a3":"<p>É quando a plataforma envia com os domínios da marca (devoluções, assinatura DKIM e links de seguimento) em vez dos seus. Melhora o alinhamento DMARC, transmite mais confiança ao destinatário e faz com que a reputação seja sua e não partilhada com outros remetentes.</p>"});
 
+/* ===== Auditoría completa e historial ===== */
+Object.assign(TX.es, {"title.auditoria":"Auditoría completa de un email · Email Seguro","share.auditoria":"Audita gratis un email antes de enviarlo: autenticación, DNS, reputación, contenido y requisitos de Gmail y Yahoo.","toast.histCleared":"Historial borrado"});
+Object.assign(TX.en, {"title.auditoria":"Full email audit · Email Seguro","share.auditoria":"Audit an email for free before sending: authentication, DNS, reputation, content and Gmail/Yahoo requirements.","toast.histCleared":"History cleared"});
+Object.assign(TX.it, {"title.auditoria":"Audit completo di un'email · Email Seguro","share.auditoria":"Fai un audit gratuito di un'email prima di inviarla: autenticazione, DNS, reputazione, contenuto e requisiti di Gmail e Yahoo.","toast.histCleared":"Cronologia cancellata"});
+Object.assign(TX.fr, {"title.auditoria":"Audit complet d'un email · Email Seguro","share.auditoria":"Auditez gratuitement un email avant l'envoi : authentification, DNS, réputation, contenu et exigences de Gmail et Yahoo.","toast.histCleared":"Historique effacé"});
+Object.assign(TX.pt, {"title.auditoria":"Auditoria completa de um email · Email Seguro","share.auditoria":"Audite gratuitamente um email antes de o enviar: autenticação, DNS, reputação, conteúdo e requisitos do Gmail e do Yahoo.","toast.histCleared":"Histórico apagado"});
+const AU = {
+en:{"navs.audit":"Audit","navs.inbox":"Inbox","home.toolsLead":"Eight professional tools, explained so anyone can understand them.","t8.badge":"New","t8.h":"Full email audit","t8.p":"Upload an email and we check everything at once: authentication, alignment, DNS, blacklists, reputation, reverse DNS, headers, content, legal compliance and Gmail/Yahoo requirements. One pass/fail report, downloadable as PDF.","t8.go":"Audit an email →",
+  "au.kicker":"Pre-send check","au.h1":"Full audit of your <span class=\"hl\">email</span>","au.lead":"Send yourself a test of your campaign, upload the email and we check everything at once. You'll get a single pass/fail report, downloadable as PDF.","au.drop":"Upload your email (.eml)","au.dropHint":"Drag the file here or click to choose it. In Gmail: three dots and \"Download message\".","au.or":"or paste the full original email","au.btn":"Audit email","au.ex":"Sample newsletter","au.priv":"The email is analysed in your browser and isn't stored. We only check public information about the domain and the sending IP (DNS, blacklists and reputation).",
+  "au.histT":"Your history","au.histP":"Saved only in this browser, with the domain, the result and the date. We never store the content of emails.","au.histClear":"Clear history","au.histEmpty":"No saved tests yet. The audits and domains you check will appear here.",
+  "au.i.h":"What the audit checks","au.i.p":"More than 40 checks grouped into eight blocks: sending authentication (SPF, DKIM, DMARC and alignment), infrastructure and reputation (IP, reverse DNS, TLS encryption, blacklists and Sender Score), domain DNS records validated against RFC standards, Rspamd-style headers, SpamAssassin-style content, legal compliance and marketing, Gmail and Yahoo requirements, and sending platform.",
+  "au.q1":"How do I get the .eml file?","au.a1":"<p>Send a test of your campaign to your own address. <strong>Gmail:</strong> open the email, click the three dots and choose \"Download message\". <strong>Outlook:</strong> drag the email to your desktop or use \"Save as\". <strong>Apple Mail:</strong> \"File\" menu and \"Save as\", with \"Raw Message Source\" format.</p>","au.q2":"Why can't I send the email straight to an address on the website?","au.a2":"<p>Receiving emails would require a mail server, and this website works for free and without a server so it never stores any data. The original email contains exactly the same information.</p>"},
+it:{"navs.audit":"Audit","navs.inbox":"Inbox","home.toolsLead":"Otto strumenti professionali, spiegati in modo che chiunque li capisca.","t8.badge":"Novità","t8.h":"Audit completo di un'email","t8.p":"Carica un'email e controlliamo tutto insieme: autenticazione, allineamento, DNS, blacklist, reputazione, DNS inverso, intestazioni, contenuto, conformità legale e requisiti di Gmail e Yahoo. Un unico report idoneo/non idoneo, scaricabile in PDF.","t8.go":"Fai l'audit di un'email →",
+  "au.kicker":"Controllo prima dell'invio","au.h1":"Audit completo della tua <span class=\"hl\">email</span>","au.lead":"Inviati una prova della campagna, carica l'email e controlliamo tutto insieme. Riceverai un unico report idoneo/non idoneo, scaricabile in PDF.","au.drop":"Carica la tua email (.eml)","au.dropHint":"Trascina qui il file o clicca per sceglierlo. In Gmail: tre puntini e «Scarica messaggio».","au.or":"oppure incolla l'email originale completa","au.btn":"Avvia audit","au.ex":"Newsletter di esempio","au.priv":"L'email viene analizzata nel browser e non viene salvata. Consultiamo solo informazioni pubbliche sul dominio e sull'IP di invio (DNS, blacklist e reputazione).",
+  "au.histT":"La tua cronologia","au.histP":"Viene salvata solo in questo browser, con dominio, risultato e data. Non salviamo mai il contenuto delle email.","au.histClear":"Cancella cronologia","au.histEmpty":"Nessun test salvato. Qui appariranno gli audit e i domini che verifichi.",
+  "au.i.h":"Cosa controlla l'audit","au.i.p":"Oltre 40 controlli raggruppati in otto blocchi: autenticazione dell'invio (SPF, DKIM, DMARC e allineamento), infrastruttura e reputazione (IP, DNS inverso, cifratura TLS, blacklist e Sender Score), record DNS del dominio validati secondo gli standard RFC, intestazioni in stile Rspamd, contenuto in stile SpamAssassin, conformità legale e marketing, requisiti di Gmail e Yahoo e piattaforma di invio.",
+  "au.q1":"Come ottengo il file .eml?","au.a1":"<p>Invia una prova della campagna al tuo indirizzo. <strong>Gmail:</strong> apri l'email, clicca sui tre puntini e scegli «Scarica messaggio». <strong>Outlook:</strong> trascina l'email sul desktop o usa «Salva con nome». <strong>Apple Mail:</strong> menu «Archivio» e «Salva come», con formato «Sorgente originale».</p>","au.q2":"Perché non posso inviare l'email direttamente a un indirizzo del sito?","au.a2":"<p>Per ricevere email servirebbe un server di posta, mentre questo sito funziona gratis e senza server per non conservare alcun dato. L'email originale contiene esattamente le stesse informazioni.</p>"},
+fr:{"navs.audit":"Audit","navs.inbox":"Boîte","home.toolsLead":"Huit outils professionnels, expliqués pour que tout le monde les comprenne.","t8.badge":"Nouveau","t8.h":"Audit complet d'un email","t8.p":"Importez un email et nous vérifions tout d'un coup : authentification, alignement, DNS, listes noires, réputation, DNS inverse, en-têtes, contenu, conformité légale et exigences de Gmail et Yahoo. Un seul rapport conforme/non conforme, téléchargeable en PDF.","t8.go":"Auditer un email →",
+  "au.kicker":"Vérification avant envoi","au.h1":"Audit complet de votre <span class=\"hl\">email</span>","au.lead":"Envoyez-vous un test de votre campagne, importez l'email et nous vérifions tout d'un coup. Vous obtiendrez un seul rapport conforme/non conforme, téléchargeable en PDF.","au.drop":"Importez votre email (.eml)","au.dropHint":"Glissez le fichier ici ou cliquez pour le choisir. Dans Gmail : trois points puis « Télécharger le message ».","au.or":"ou collez l'email original complet","au.btn":"Auditer l'email","au.ex":"Newsletter d'exemple","au.priv":"L'email est analysé dans votre navigateur et n'est pas conservé. Nous consultons uniquement des informations publiques sur le domaine et l'IP d'envoi (DNS, listes noires et réputation).",
+  "au.histT":"Votre historique","au.histP":"Enregistré uniquement dans ce navigateur, avec le domaine, le résultat et la date. Nous ne conservons jamais le contenu des emails.","au.histClear":"Effacer l'historique","au.histEmpty":"Aucun test enregistré pour l'instant. Les audits et les domaines que vous vérifiez apparaîtront ici.",
+  "au.i.h":"Ce que vérifie l'audit","au.i.p":"Plus de 40 contrôles regroupés en huit blocs : authentification de l'envoi (SPF, DKIM, DMARC et alignement), infrastructure et réputation (IP, DNS inverse, chiffrement TLS, listes noires et Sender Score), enregistrements DNS du domaine validés selon les normes RFC, en-têtes façon Rspamd, contenu façon SpamAssassin, conformité légale et marketing, exigences de Gmail et Yahoo, et plateforme d'envoi.",
+  "au.q1":"Comment obtenir le fichier .eml ?","au.a1":"<p>Envoyez un test de votre campagne à votre propre adresse. <strong>Gmail :</strong> ouvrez l'email, cliquez sur les trois points et choisissez « Télécharger le message ». <strong>Outlook :</strong> faites glisser l'email sur le bureau ou utilisez « Enregistrer sous ». <strong>Apple Mail :</strong> menu « Fichier » puis « Enregistrer sous », au format « Source brute ».</p>","au.q2":"Pourquoi ne puis-je pas envoyer l'email directement à une adresse du site ?","au.a2":"<p>Recevoir des emails nécessiterait un serveur de messagerie ; or ce site fonctionne gratuitement et sans serveur afin de ne conserver aucune donnée. L'email original contient exactement les mêmes informations.</p>"},
+pt:{"navs.audit":"Auditoria","navs.inbox":"Caixa","home.toolsLead":"Oito ferramentas profissionais, explicadas para que qualquer pessoa as entenda.","t8.badge":"Novo","t8.h":"Auditoria completa de um email","t8.p":"Carregue um email e verificamos tudo de uma vez: autenticação, alinhamento, DNS, listas negras, reputação, DNS inverso, cabeçalhos, conteúdo, cumprimento legal e requisitos do Gmail e do Yahoo. Um único relatório apto/não apto, descarregável em PDF.","t8.go":"Auditar um email →",
+  "au.kicker":"Verificação antes do envio","au.h1":"Auditoria completa do seu <span class=\"hl\">email</span>","au.lead":"Envie para si um teste da sua campanha, carregue o email e verificamos tudo de uma vez. Recebe um único relatório apto/não apto, descarregável em PDF.","au.drop":"Carregue o seu email (.eml)","au.dropHint":"Arraste o ficheiro para aqui ou clique para o escolher. No Gmail: três pontos e «Transferir mensagem».","au.or":"ou cole o email original completo","au.btn":"Auditar email","au.ex":"Newsletter de exemplo","au.priv":"O email é analisado no navegador e não é guardado. Só consultamos informação pública sobre o domínio e o IP de envio (DNS, listas negras e reputação).",
+  "au.histT":"O seu histórico","au.histP":"Fica guardado apenas neste navegador, com o domínio, o resultado e a data. Nunca guardamos o conteúdo dos emails.","au.histClear":"Apagar histórico","au.histEmpty":"Ainda não há testes guardados. Aqui vão aparecer as auditorias e os domínios que verificar.",
+  "au.i.h":"O que verifica a auditoria","au.i.p":"Mais de 40 verificações agrupadas em oito blocos: autenticação do envio (SPF, DKIM, DMARC e alinhamento), infraestrutura e reputação (IP, DNS inverso, cifra TLS, listas negras e Sender Score), registos DNS do domínio validados segundo as normas RFC, cabeçalhos ao estilo Rspamd, conteúdo ao estilo SpamAssassin, cumprimento legal e marketing, requisitos do Gmail e do Yahoo, e plataforma de envio.",
+  "au.q1":"Como obtenho o ficheiro .eml?","au.a1":"<p>Envie um teste da campanha para o seu endereço. <strong>Gmail:</strong> abra o email, clique nos três pontos e escolha «Transferir mensagem». <strong>Outlook:</strong> arraste o email para o ambiente de trabalho ou use «Guardar como». <strong>Apple Mail:</strong> menu «Ficheiro» e «Guardar como», no formato «Fonte original».</p>","au.q2":"Porque não posso enviar o email diretamente para um endereço do website?","au.a2":"<p>Para receber emails seria necessário um servidor de correio, e este website funciona de forma gratuita e sem servidor para não guardar quaisquer dados. O email original contém exatamente a mesma informação.</p>"}
+};
+for (const l of ["en","it","fr","pt"]) Object.assign(I18N[l], AU[l]);
+
+/* Política de privacidad: historial local */
+(function(){
+  const add = {
+    es:["Tu idioma preferido se guarda en tu propio navegador (almacenamiento local) solo para recordarlo; puedes borrarlo desde la configuración del navegador.","Tu idioma preferido y, si usas las herramientas de auditoría o de dominio, un historial resumido (dominio, resultado y fecha, nunca el contenido de los emails) se guardan solo en tu propio navegador (almacenamiento local). Puedes borrar el historial con el botón «Borrar historial» o desde la configuración del navegador."],
+    en:["Your preferred language is saved in your own browser (local storage) only to remember it; you can delete it in your browser settings.","Your preferred language and, if you use the audit or domain tools, a short history (domain, result and date, never the content of emails) are saved only in your own browser (local storage). You can delete the history with the \"Clear history\" button or in your browser settings."],
+    it:["La lingua preferita viene salvata nel tuo browser (archiviazione locale) solo per ricordarla; puoi cancellarla dalle impostazioni del browser.","La lingua preferita e, se usi gli strumenti di audit o di dominio, una breve cronologia (dominio, risultato e data, mai il contenuto delle email) vengono salvate solo nel tuo browser (archiviazione locale). Puoi cancellare la cronologia con il pulsante «Cancella cronologia» o dalle impostazioni del browser."],
+    fr:["Votre langue préférée est enregistrée dans votre propre navigateur (stockage local) uniquement pour la mémoriser ; vous pouvez la supprimer dans les réglages du navigateur.","Votre langue préférée et, si vous utilisez les outils d'audit ou de domaine, un court historique (domaine, résultat et date, jamais le contenu des emails) sont enregistrés uniquement dans votre propre navigateur (stockage local). Vous pouvez effacer l'historique avec le bouton « Effacer l'historique » ou dans les réglages du navigateur."],
+    pt:["O seu idioma preferido fica guardado no seu próprio navegador (armazenamento local) apenas para o recordar; pode apagá-lo nas definições do navegador.","O seu idioma preferido e, se usar as ferramentas de auditoria ou de domínio, um histórico resumido (domínio, resultado e data, nunca o conteúdo dos emails) ficam guardados apenas no seu próprio navegador (armazenamento local). Pode apagar o histórico com o botão «Apagar histórico» ou nas definições do navegador."]
+  };
+  for (const l in add){ const orig = LEGAL[l].privacy; LEGAL[l].privacy = v => orig(v).replace(add[l][0], add[l][1]); }
+})();
+
+Object.assign(TX.es, {"ai.consent.auditoria":"Acepto enviar los resultados de la auditoría (sin el contenido completo del email) a {provider} para recibir la explicación.","ai.consent.plataforma":"Acepto enviar el resultado de la detección y los datos técnicos del envío a {provider} para recibir la explicación. Ocultamos las direcciones de email."});
+Object.assign(TX.en, {"ai.consent.auditoria":"I agree to send the audit results (without the full email content) to {provider} to get the explanation.","ai.consent.plataforma":"I agree to send the detection result and the technical sending data to {provider} to get the explanation. Email addresses are masked."});
+Object.assign(TX.it, {"ai.consent.auditoria":"Accetto di inviare i risultati dell'audit (senza il contenuto completo dell'email) a {provider} per ricevere la spiegazione.","ai.consent.plataforma":"Accetto di inviare il risultato del rilevamento e i dati tecnici dell'invio a {provider} per ricevere la spiegazione. Gli indirizzi email vengono oscurati."});
+Object.assign(TX.fr, {"ai.consent.auditoria":"J'accepte d'envoyer les résultats de l'audit (sans le contenu complet de l'email) à {provider} pour obtenir l'explication.","ai.consent.plataforma":"J'accepte d'envoyer le résultat de la détection et les données techniques de l'envoi à {provider} pour obtenir l'explication. Les adresses email sont masquées."});
+Object.assign(TX.pt, {"ai.consent.auditoria":"Aceito enviar os resultados da auditoria (sem o conteúdo completo do email) para {provider} para receber a explicação.","ai.consent.plataforma":"Aceito enviar o resultado da deteção e os dados técnicos do envio para {provider} para receber a explicação. Os endereços de email são ocultados."});
+
 (function(){
   const $ = s => document.querySelector(s);
   const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -1425,7 +1559,7 @@ Object.assign(I18N.pt, {"navs.esp":"Plataforma","home.toolsLead":"Sete ferrament
   }
 
   /* ---------- Navegación ---------- */
-  const VIEWS = ["inicio","dominio","email","campana","bbdd","warmup","bandeja","plataforma","privacidad","aviso-legal"];
+  const VIEWS = ["inicio","dominio","email","campana","bbdd","auditoria","warmup","bandeja","plataforma","privacidad","aviso-legal"];
   function viewFromHash(){
     const h = location.hash.slice(1);
     if (VIEWS.includes(h)) return h;
@@ -1455,12 +1589,19 @@ Object.assign(I18N.pt, {"navs.esp":"Plataforma","home.toolsLead":"Sete ferrament
     if (el) el.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"start"});
   });
 
+  /* ---------- Historial (solo en este navegador) ---------- */
+  window.EShistory = {
+    list(){ try { return JSON.parse(localStorage.getItem("es-history") || "[]"); } catch(e){ return []; } },
+    add(e){ try { const l = this.list().filter(x => !(x.tool === e.tool && x.target === e.target)); l.unshift({...e, date:Date.now()}); localStorage.setItem("es-history", JSON.stringify(l.slice(0, 20))); } catch(err){} },
+    clear(){ try { localStorage.removeItem("es-history"); } catch(e){} }
+  };
+
   window.toast = msg => { const el = $("#toast"); el.textContent = msg; el.classList.add("show"); clearTimeout(window.__tt); window.__tt = setTimeout(() => el.classList.remove("show"), 2200); };
 
   $("#shareBtn").addEventListener("click", async () => {
     const view = viewFromHash();
     const base = location.href.split(/[?#]/)[0];
-    const TOOLS = ["dominio","email","campana","bbdd","warmup","bandeja","plataforma"];
+    const TOOLS = ["auditoria","dominio","email","campana","bbdd","warmup","bandeja","plataforma"];
     const url = TOOLS.includes(view) ? base + "#" + view : base;
     const data = {title: t("title." + view), text: t("share." + (TOOLS.includes(view) ? view : "inicio")), url};
     try {
@@ -2106,7 +2247,7 @@ function dns(name, type){
       () => fetchJson(`https://cloudflare-dns.com/dns-query?name=${n}&type=${type}`, {headers:{accept:"application/dns-json"}}, 7000)
     ];
     for (const s of sources){
-      try { const j = await s(); return {status:j.Status, answers:j.Answer || []}; } catch(e){}
+      try { const j = await s(); return {status:j.Status, answers:j.Answer || [], ad:!!j.AD}; } catch(e){}
     }
     throw new Error("dns");
   })();
@@ -2241,9 +2382,68 @@ async function checkSPF(d, mx){
       ? {h:"Cómo arreglarlo", steps:["Revisa los include: y elimina los de herramientas que ya no uses.","Si sigues pasando de 10, pide a tus proveedores sus rangos de IP (ip4:) o usa un servicio de SPF flattening."]}
       : {h:"Cómo arreglarlo", steps:["Edita tu registro SPF para que termine en ~all (o -all si lo tienes todo controlado):"], record:{type:"TXT", host:"@", value:`${base} ~all`}};
   }
+  /* Validación de sintaxis (RFC 7208) */
+  const syn = spfSyntax(rec);
+  if (syn.errors.length){ s = "r"; label = "SPF con errores de sintaxis"; summary = "El registro tiene errores que hacen que los servidores lo consideren no válido (permerror)."; syn.errors.forEach(e => notes.push("Error: " + e)); }
+  syn.warns.forEach(w => { notes.push("Aviso: " + w); if (s === "g") s = "y"; });
+  if (!syn.errors.length && !syn.warns.length) notes.push("Sintaxis correcta según el estándar SPF (RFC 7208).");
   return {...res, s, label, summary, notes, fix};
 }
+function spfSyntax(rec){
+  const errors = [], warns = [];
+  const terms = rec.trim().split(/\s+/);
+  if (terms[0].toLowerCase() !== "v=spf1") errors.push("El registro debe empezar exactamente por v=spf1.");
+  if (rec.length > 450) warns.push(`El registro mide ${rec.length} caracteres. Por encima de unos 450 puede dar problemas en algunas consultas DNS.`);
+  const seen = new Set(); let allIdx = -1, redirect = false;
+  terms.slice(1).forEach((raw, i) => {
+    const t = raw.toLowerCase();
+    const m = t.match(/^([+\-~?]?)([a-z0-9]+)(?:([:=\/])(.*))?$/);
+    if (!m){ errors.push(`Término no válido: «${raw}».`); return; }
+    const [, q, name, sep, val] = m;
+    if (seen.has(t)) warns.push(`El término «${raw}» está repetido.`);
+    seen.add(t);
+    if (name === "all"){ if (sep) errors.push(`«${raw}» no admite valor.`); allIdx = i; return; }
+    if (sep === "="){
+      if (q) errors.push(`El modificador «${raw}» no admite calificador (+, -, ~, ?).`);
+      if (name === "redirect"){ redirect = true; if (!val) errors.push("redirect= necesita un dominio."); }
+      else if (name !== "exp") warns.push(`Modificador desconocido: «${raw}». Los servidores lo ignoran.`);
+      return;
+    }
+    if (name === "include" || name === "exists"){ if (sep !== ":" || !val) errors.push(`«${raw}» necesita un dominio (por ejemplo, include:_spf.google.com).`); else if (!/^[a-z0-9%{}._-]+\.[a-z0-9%{}._-]+$/i.test(val)) errors.push(`«${raw}» contiene un dominio no válido.`); return; }
+    if (name === "ip4"){ const ok = val && /^(\d{1,3}\.){3}\d{1,3}(\/(\d|[12]\d|3[0-2]))?$/.test(val) && val.split("/")[0].split(".").every(n => +n <= 255); if (!ok) errors.push(`Dirección IPv4 no válida: «${raw}».`); else if (/\/(\d|1[0-5])$/.test(val)) warns.push(`«${raw}» autoriza un rango enorme de IPs. Limítalo a las que de verdad envían.`); return; }
+    if (name === "ip6"){ if (!val || !/^[0-9a-f:]+(\/\d{1,3})?$/i.test(val) || !val.includes(":")) errors.push(`Dirección IPv6 no válida: «${raw}».`); return; }
+    if (name === "a" || name === "mx" || name === "ptr") return;
+    errors.push(`Mecanismo desconocido: «${raw}». ¿Quizá un error de escritura?`);
+  });
+  if (allIdx >= 0 && allIdx < terms.length - 2) warns.push("Hay términos después de «all»: los servidores los ignoran. «all» debe ir al final.");
+  if (allIdx >= 0 && redirect) warns.push("Si hay «all», el modificador redirect= se ignora.");
+  return {errors, warns};
+}
 
+function dmarcSyntax(rec){
+  const errors = [], warns = [];
+  const parts = rec.split(";").map(x => x.trim()).filter(Boolean);
+  const keys = parts.map(p => (p.split("=")[0] || "").trim().toLowerCase());
+  if (keys[0] !== "v" || !/^v\s*=\s*DMARC1$/i.test(parts[0])) errors.push("El registro debe empezar por v=DMARC1.");
+  if (!keys.includes("p")) errors.push("Falta la etiqueta obligatoria p= (none, quarantine o reject).");
+  else if (keys[1] !== "p") warns.push("La etiqueta p= debería ir justo después de v=DMARC1.");
+  const KNOWN = ["v","p","sp","np","pct","rua","ruf","adkim","aspf","fo","rf","ri","psd","t"];
+  const seen = new Set();
+  parts.forEach(p => {
+    const i = p.indexOf("="); if (i < 0){ errors.push(`Fragmento no válido: «${p}».`); return; }
+    const k = p.slice(0, i).trim().toLowerCase(), v = p.slice(i + 1).trim();
+    if (seen.has(k)) errors.push(`La etiqueta ${k}= está repetida.`); seen.add(k);
+    if (!KNOWN.includes(k)){ warns.push(`Etiqueta desconocida: «${k}=». Los servidores la ignoran.`); return; }
+    if (["p","sp","np"].includes(k) && !/^(none|quarantine|reject)$/i.test(v)) errors.push(`${k}=${v} no es válido: usa none, quarantine o reject.`);
+    if (["adkim","aspf"].includes(k) && !/^[rs]$/i.test(v)) errors.push(`${k}=${v} no es válido: usa r (relajado) o s (estricto).`);
+    if (k === "pct" && !(/^\d{1,3}$/.test(v) && +v <= 100)) errors.push(`pct=${v} no es válido: debe ser un número entre 0 y 100.`);
+    if (k === "ri" && !/^\d+$/.test(v)) errors.push(`ri=${v} no es válido: debe ser un número de segundos.`);
+    if (k === "fo" && !/^[01ds](:[01ds])*$/i.test(v)) errors.push(`fo=${v} no es válido: usa 0, 1, d o s.`);
+    if ((k === "rua" || k === "ruf") && v.split(",").some(u => !/^mailto:[^@\s]+@[^@\s]+\.[a-z]{2,}(!\d+[kmgt]?)?$/i.test(u.trim()))) errors.push(`${k}= debe contener direcciones con el formato mailto:buzon@dominio.com.`);
+    if (k === "ruf") warns.push("ruf= (informes forenses) apenas lo usan ya los grandes proveedores y puede enviar datos personales. Valora quitarlo.");
+  });
+  return {errors, warns};
+}
 async function checkDMARC(d){
   const res = {key:"dmarc", title:"Política anti-suplantación", tag:"DMARC"};
   let host = "_dmarc." + d, inherited = false;
@@ -2277,6 +2477,19 @@ async function checkDMARC(d){
     fix = {h:"Cómo arreglarlo", steps:["Sustituye el registro por este y ajusta la dirección de informes:"], record:{type:"TXT", host:"_dmarc", value:suggested}}; }
   if (pct < 100 && p !== "none"){ s = worst(s, "y"); notes.push(`Solo se aplica al ${pct} % de los emails (pct=${pct}). Súbelo a 100 cuando puedas.`); }
   if (!t.rua) notes.push("No tiene dirección de informes (rua), así que no sabrás quién envía emails con tu dominio. Añade rua=mailto:tu-buzón.");
+  /* Validación de sintaxis (RFC 7489) */
+  const dsyn = dmarcSyntax(recs[0]);
+  dsyn.errors.forEach(e => { notes.push("Error: " + e); s = "r"; });
+  dsyn.warns.forEach(w => { notes.push("Aviso: " + w); if (s === "g") s = "y"; });
+  const ext = (t.rua || "").split(",").map(x => (x.trim().match(/^mailto:[^@]+@([^!,\s]+)/i) || [])[1]).filter(Boolean).map(x => x.toLowerCase()).filter(x => orgDomain(x) !== org);
+  for (const ed of [...new Set(ext)]){
+    try {
+      const auth = (await txt(`${org}._report._dmarc.${ed}`)).records.some(x => /^v=DMARC1/i.test(x));
+      notes.push(auth ? `El dominio externo ${ed} autoriza recibir tus informes DMARC.` : `Los informes van a un dominio externo (${ed}) que no publica la autorización ${org}._report._dmarc.${ed}. Sin ella, muchos proveedores no enviarán los informes.`);
+      if (!auth && s === "g") s = "y";
+    } catch(e){}
+  }
+  if (!dsyn.errors.length && !dsyn.warns.length) notes.push("Sintaxis correcta según el estándar DMARC (RFC 7489).");
   else notes.push(`Los informes se envían a ${t.rua.replace(/mailto:/gi,"")}.`);
   return {...res, s, label, summary, notes, fix, policy:p, records:recs};
 }
@@ -2304,6 +2517,18 @@ function rsaBits(b64){
     if (!len) return 0;
     return (len - 1) * 8 + (32 - Math.clz32(b[start]));
   } catch(e){ return 0; }
+}
+function dkimSyntax(rec){
+  const t = tags(rec), out = [];
+  const first = (rec.split(";")[0] || "").trim().toLowerCase();
+  if (/^v\s*=/.test(first) === false && "v" in t) out.push("v=DKIM1 debe ir al principio del registro.");
+  if (t.v && !/^DKIM1$/i.test(t.v)) out.push(`v=${t.v} no es válido: debe ser DKIM1.`);
+  if (t.k && !/^(rsa|ed25519)$/i.test(t.k)) out.push(`k=${t.k} no es un algoritmo válido.`);
+  if (t.p && !/^[A-Za-z0-9+\/=\s]+$/.test(t.p)) out.push("La clave pública (p=) contiene caracteres no válidos: probablemente se cortó o se copió mal.");
+  if (t.p){ try { atob(t.p.replace(/\s+/g, "")); } catch(e){ out.push("La clave pública (p=) no es un base64 válido: probablemente está incompleta."); } }
+  if (/(^|:)sha1($|:)/i.test(t.h || "")) out.push("h= permite sha1, un algoritmo obsoleto. Usa solo sha256.");
+  if (/(^|:)y($|:)/i.test(t.t || "")) out.push("t=y indica modo de pruebas: algunos servidores no tienen en cuenta la firma. Quítalo cuando todo funcione.");
+  return out;
 }
 function keyInfo(rec){
   const t = tags(rec);
@@ -2347,7 +2572,8 @@ async function checkDKIM(d, mx, extra){
       ? "Tus emails salen firmados con una clave del tamaño recomendado, así que se puede comprobar que son tuyos y que nadie los ha modificado."
       : `Tus emails van firmados, pero ${weakOnes.length === valid.length ? (valid.length > 1 ? "las claves son" : "la clave es") : "alguna clave es"} más corta de lo que recomiendan las buenas prácticas (2048 bits).`;
     const revoked = found.filter(f => f.revoked).map(f => `Selector «${f.sel}»: clave revocada (vacía). No se usa para firmar.`);
-    return {...res, s, found:true, label, summary, keys:valid, notes:revoked,
+    const synNotes = valid.flatMap(f => dkimSyntax(f.rec).map(x => `Selector «${f.sel}»: ${x}`));
+    return {...res, s: synNotes.length && s === "g" ? "y" : s, found:true, label, summary, keys:valid, notes:[...revoked, ...synNotes],
       fix: s !== "g" ? {h:"Cómo mejorarlo", steps:[
         `Entra en el panel del proveedor que usa ${weakOnes.length > 1 ? "los selectores" : "el selector"} ${weakOnes.map(f => "«" + f.sel + "»").join(", ")} y genera una nueva clave de 2048 bits.`,
         "Publica el nuevo registro DKIM en tu DNS, preferiblemente con un selector nuevo, y activa la firma con él.",
@@ -2575,7 +2801,7 @@ async function checkBlacklists(d, mx, spf, manualIp){
   }
   const notes = [];
   if (na.length) notes.push(`${na.length} consulta${na.length > 1 ? "s" : ""} sin respuesta. Algunas listas, como Spamhaus, no atienden consultas desde servicios DNS públicos. Para una comprobación oficial, usa check.spamhaus.org.`);
-  return {...res, s, label, summary, table, notes, fix, ips};
+  return {...res, s, label, summary, table, notes, fix, ips, listed: listed.map(x => ({kind:x.kind, ip:x.ip, name:x.list.name, major:x.list.major})), checkedIps: ips.length};
 }
 
 /* ---------- Reputación del remitente (IPs) ---------- */
@@ -2590,7 +2816,15 @@ async function repLookup(ip){
   if (hk){ const v = vals(hk) || []; if (hk.status === 3 || !v.length) karma = "none"; else karma = v.includes("127.0.0.2") ? "black" : v.includes("127.0.0.4") ? "brown" : v.includes("127.0.0.3") ? "yellow" : v.includes("127.0.0.1") ? "white" : v.includes("127.0.0.5") ? "nobl" : "none"; }
   let wl = "na";
   if (dw){ const v = (vals(dw) || []); if (dw.status === 3 || !v.length) wl = "none"; else if (v.some(x => x.endsWith(".255"))) wl = "na"; else { const t = Math.max(...v.map(x => +x.split(".")[3] || 0)); wl = t; } }
-  return {ip, score, karma, wl};
+  /* DNS inverso (PTR) y confirmación directa (FCrDNS) */
+  let ptr = null, fcr = false;
+  try {
+    const pr = await dns(`${rev}.in-addr.arpa`, "PTR");
+    const name = (pr.answers.find(a => a.type === 12) || {}).data;
+    if (name){ ptr = String(name).replace(/\.$/, "").toLowerCase(); const fa = await dns(ptr, "A"); fcr = fa.answers.some(a => a.type === 1 && a.data === ip); }
+    else ptr = "";
+  } catch(e){ ptr = null; }
+  return {ip, score, karma, wl, ptr, fcr};
 }
 async function checkReputation(ips){
   const res = {key:"rep", title:"Reputación del remitente", tag:"Reputación"};
@@ -2603,6 +2837,8 @@ async function checkReputation(ips){
   const rows = await Promise.all(ips.map(x => repLookup(x.ip).then(r => ({...r, origin:x.origin}))));
   const tone = r => {
     if (typeof r.score === "number" && r.score < 70) return "r";
+    if (r.ptr === "" && r.origin !== "web") return "r";
+    if (r.ptr && !r.fcr && r.origin !== "web") return "y";
     if (r.karma === "black") return "r";
     if ((typeof r.score === "number" && r.score < 80) || r.karma === "brown" || r.karma === "yellow") return "y";
     if ((typeof r.score === "number") || r.karma === "white" || (typeof r.wl === "number")) return "g";
@@ -2620,27 +2856,54 @@ async function checkReputation(ips){
   const scoreTxt = r => r.score === "na" ? `<span class="bl bl-n">No disponible</span>` : r.score === null ? `<span class="bl bl-n">Sin puntuación</span>` : `<span class="bl ${r.score >= 80 ? "bl-g" : r.score >= 70 ? "bl-y" : "bl-r"}">${r.score}/100</span>`;
   const karmaTxt = r => ({na:`<span class="bl bl-n">No disponible</span>`, none:`<span class="bl bl-n">Sin datos</span>`, white:`<span class="bl bl-g">Lista blanca</span>`, nobl:`<span class="bl bl-g">Limpia</span>`, yellow:`<span class="bl bl-y">Lista amarilla</span>`, brown:`<span class="bl bl-y">Lista marrón</span>`, black:`<span class="bl bl-r">Lista negra</span>`})[r.karma];
   const wlTxt = r => r.wl === "na" ? `<span class="bl bl-n">No disponible</span>` : r.wl === "none" ? `<span class="bl bl-n">No incluida</span>` : `<span class="bl bl-g">Confianza ${["ninguna","baja","media","alta"][r.wl] || r.wl}</span>`;
-  const table = `<div class="dns-wrap"><table class="dns"><thead><tr><th>IP</th><th>Sender Score</th><th>HostKarma</th><th>DNSWL</th></tr></thead><tbody>${rows.map(r => `<tr><th scope="row"><code>${esc(r.ip)}</code><br><span class="minor">${esc(r.origin)}</span></th><td>${scoreTxt(r)}</td><td>${karmaTxt(r)}</td><td>${wlTxt(r)}</td></tr>`).join("")}</tbody></table></div>${links}`;
+  const ptrTxt = r => r.ptr === null ? `<span class="bl bl-n">No disponible</span>` : r.ptr === "" ? `<span class="bl ${r.origin === "web" ? "bl-n" : "bl-r"}">Sin PTR</span>` : `<span class="bl ${r.fcr ? "bl-g" : "bl-y"}">${r.fcr ? "Correcto" : "No confirma"}</span><br><span class="minor">${esc(r.ptr)}</span>`;
+  const table = `<div class="dns-wrap"><table class="dns"><thead><tr><th>IP</th><th>Sender Score</th><th>HostKarma</th><th>DNSWL</th><th>DNS inverso (PTR)</th></tr></thead><tbody>${rows.map(r => `<tr><th scope="row"><code>${esc(r.ip)}</code><br><span class="minor">${esc(r.origin)}</span></th><td>${scoreTxt(r)}</td><td>${karmaTxt(r)}</td><td>${wlTxt(r)}</td><td>${ptrTxt(r)}</td></tr>`).join("")}</tbody></table></div>${links}`;
   const notes = ["Sender Score puntúa de 0 a 100: por encima de 80 es buena, entre 70 y 80 mejorable y por debajo de 70 preocupante. Solo puntúa IPs con un volumen de envío relevante.",
     "Si envías desde una plataforma de email (Mailchimp, Brevo, emBlue…), tus IPs suelen ser compartidas: su reputación depende también de otros remitentes."];
+  if (rows.some(r => r.ptr === "" && r.origin !== "web")) notes.push("Alguna IP de envío no tiene DNS inverso (PTR). Muchos servidores rechazan el correo de IPs sin PTR: pide a tu proveedor de hosting o de envío que lo configure.");
+  else if (rows.some(r => r.ptr && !r.fcr && r.origin !== "web")) notes.push("El nombre del DNS inverso (PTR) no apunta de vuelta a la misma IP (FCrDNS). Conviene que coincidan en ambos sentidos.");
   if (rows.some(r => r.score === "na" || r.karma === "na" || r.wl === "na")) notes.push("Algunas bases de datos no responden a consultas desde DNS públicos. Para confirmarlo, usa sus webs oficiales.");
   return {...res, s, neutral, label, summary, table, notes};
 }
 
+async function checkAdvanced(d){
+  const res = {key:"adv", title:"Seguridad avanzada del dominio", tag:"MTA-STS · TLS-RPT · DNSSEC"};
+  const [sts, rpt, sec] = await Promise.all([txt("_mta-sts." + d).catch(() => ({records:[]})), txt("_smtp._tls." + d).catch(() => ({records:[]})), dns(d, "SOA").catch(() => null)]);
+  const stsRec = sts.records.find(x => /^v=STSv1/i.test(x)), rptRec = rpt.records.find(x => /^v=TLSRPTv1/i.test(x));
+  const dnssec = sec ? sec.ad : null;
+  const notes = [], facts = [];
+  facts.push(["DNSSEC", dnssec === true ? "Activado" : dnssec === false ? "No activado" : "No disponible"]);
+  facts.push(["MTA-STS", stsRec ? "Publicado" : "No publicado"]);
+  facts.push(["TLS-RPT", rptRec ? "Publicado" : "No publicado"]);
+  if (stsRec){ if (!/;\s*id=[A-Za-z0-9]{1,32}/i.test(stsRec + ";") && !/\bid=/i.test(stsRec)) notes.push("El registro MTA-STS no tiene un id= válido."); notes.push(`Comprueba también que la política esté publicada en https://mta-sts.${d}/.well-known/mta-sts.txt (desde el navegador no podemos leerla).`); }
+  if (rptRec && !/rua=(mailto:|https:)/i.test(rptRec)) notes.push("El registro TLS-RPT no tiene una dirección de informes (rua=) válida.");
+  const good = [dnssec === true, !!stsRec, !!rptRec].filter(Boolean).length;
+  const s = good === 3 ? "g" : good >= 1 ? "y" : "y";
+  const label = good === 3 ? "Protección avanzada completa" : good ? "Protección avanzada parcial" : "Sin protecciones avanzadas";
+  const summary = "Son medidas opcionales que refuerzan la seguridad: DNSSEC protege tus registros DNS contra falsificaciones, MTA-STS obliga a cifrar el correo que recibes y TLS-RPT te avisa si falla el cifrado. No afectan al resultado general.";
+  const fix = good < 3 ? {h:"Cómo activarlas", steps:[
+    dnssec === true ? "DNSSEC ya está activo." : "DNSSEC: actívalo desde el panel de tu registrador o de tu proveedor DNS (suele ser un interruptor).",
+    stsRec ? "MTA-STS ya está publicado." : "MTA-STS: publica una política en https://mta-sts." + d + "/.well-known/mta-sts.txt y el registro TXT de abajo. Empieza en modo testing.",
+    rptRec ? "TLS-RPT ya está publicado." : "TLS-RPT: añade un registro TXT en _smtp._tls con la dirección donde quieres recibir los informes."],
+    record: !rptRec ? {type:"TXT", host:"_smtp._tls", value:`v=TLSRPTv1; rua=mailto:tls-reports@${orgDomain(d)}`} : (!stsRec ? {type:"TXT", host:"_mta-sts", value:`v=STSv1; id=${new Date().toISOString().slice(0,10).replace(/-/g,"")}01`} : null)} : null;
+  if (fix && !fix.record) delete fix.record;
+  return {...res, s, neutral:true, label, summary, facts, notes, fix, records:[stsRec, rptRec].filter(Boolean)};
+}
 async function run(d, extra, manualIp){
   const probe = await Promise.all([dns(d, "MX"), dns(d, "TXT"), dns(d, "A")]);
   if (probe.every(r => r.status === 3)) return {error:"nxdomain"};
   const mx = await checkMX(d);
   const [spf, dmarc, dkim, ssl] = await Promise.all([checkSPF(d, mx), checkDMARC(d), checkDKIM(d, mx, extra), checkSSL(d).catch(() => null)]);
   const [bimi, bl] = await Promise.all([checkBIMI(d, dmarc), checkBlacklists(d, mx, spf, manualIp).catch(() => null)]);
-  const rep = await checkReputation(bl ? bl.ips : (manualIp ? [{ip:manualIp, origin:"IP indicada"}] : [])).catch(() => null);
+  const [rep, adv] = await Promise.all([checkReputation(bl ? bl.ips : (manualIp ? [{ip:manualIp, origin:"IP indicada"}] : [])).catch(() => null), checkAdvanced(d).catch(() => null)]);
   const core = [mx, spf, dkim, dmarc, bl, ssl && !ssl.neutral ? ssl : null, rep && !rep.neutral ? rep : null].filter(Boolean);
   const reds = core.filter(c => c.s === "r").length, yellows = core.filter(c => c.s === "y").length;
   const level = reds ? "expuesto" : yellows ? "mejorable" : "protegido";
   const req = {spf: spf.s !== "r", dkim: dkim.found ? true : null, dmarc: !!dmarc.policy && ["none","quarantine","reject"].includes(dmarc.policy)};
-  return {domain:d, level, groups:[["Autenticación del email", [mx, spf, dkim, dmarc, bimi]], ["Reputación y web", [bl, rep, ssl].filter(Boolean)]], req, reds, yellows};
+  return {mx, spf, dkim, dmarc, bl, rep, ssl, adv, domain:d, level, groups:[["Autenticación del email", [mx, spf, dkim, dmarc, bimi]], ["Reputación y web", [bl, rep, ssl].filter(Boolean)], ["Seguridad avanzada", [adv].filter(Boolean)]], req, reds, yellows};
 }
 
+window.ES_DOMAIN = {run: (...a) => run(...a), repLookup: (...a) => repLookup(...a), cleanDomain: x => cleanDomain(x)};
 /* ---------- Render ---------- */
 const COPY = {
   expuesto:{stamp:"Expuesto", h:"Tu dominio tiene huecos importantes", p:"Tus emails pueden acabar en spam y otros podrían hacerse pasar por ti. Abajo te explicamos cómo arreglarlo, paso a paso."},
@@ -2734,6 +2997,9 @@ function render(r){
       arreglo_propuesto: c.fix ? {pasos: c.fix.steps, registro: c.fix.record} : undefined
     }))
   }));
+  out.insertAdjacentHTML("afterbegin", `<div class="print-head"><strong>Email Seguro · Informe del dominio ${esc(r.domain)}</strong><span>${new Date().toLocaleString()} · mlduque.github.io</span></div>`);
+  out.insertAdjacentHTML("beforeend", `<div class="actions noprint" style="margin-top:1.5rem"><button class="btn btn-ghost" type="button" onclick="window.print()">Descargar informe (PDF)</button></div>`);
+  window.EShistory && EShistory.add({tool:"dominio", target:r.domain, level:r.level});
   const selForm = out.querySelector("[data-sel]");
   if (selForm) selForm.addEventListener("submit", e => {
     e.preventDefault();
@@ -3378,6 +3644,292 @@ document.querySelectorAll("#cpView .chip").forEach(c => c.addEventListener("clic
 updatePreviews();
 window.addEventListener("hashchange", () => { if (location.hash === "#campana") requestAnimationFrame(markCuts); });
 window.addEventListener("resize", () => requestAnimationFrame(markCuts));
+window.ES_CAMPAIGN = {analyzeHtml, analyzeTexts, marketing, parseEml, authFromHeaders};
+
+})();
+</script>
+<script>
+/* ===================== Auditoría completa ===================== */
+(function(){
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+const orgOf = h => { const p = (h || "").toLowerCase().split("."); if (p.length <= 2) return p.join("."); return (/^(co|com|org|gob|gov|net|ac)\.[a-z]{2}$/.test(p.slice(-2).join(".")) ? p.slice(-3) : p.slice(-2)).join("."); };
+const domOf = s => ((String(s).match(/@([A-Za-z0-9.-]+\.[A-Za-z]{2,})/) || [])[1] || "").toLowerCase();
+const S3 = {g:"pass", y:"warn", r:"fail"};
+
+/* ---------- Comprobaciones de cabeceras al estilo Rspamd ---------- */
+function headerChecks(H, raw){
+  const out = [];
+  const it = (s, t, d, rule) => out.push({s, t, d, rule});
+  const mid = H.get("message-id");
+  if (!mid) it("fail", "Falta el Message-ID", "Todo email debe llevar un identificador único. Su ausencia es típica del spam.", "MISSING_MID");
+  else if (!/^\s*<[^<>@\s]+@[^<>@\s]+>\s*$/.test(mid)) it("warn", "Message-ID con formato no estándar", `«${mid.slice(0, 60)}» no sigue el formato <identificador@dominio>.`, "INVALID_MSGID");
+  else it("pass", "Message-ID correcto", "El email tiene un identificador único con formato estándar.", "MID");
+  const date = H.get("date");
+  if (!date) it("fail", "Falta la fecha (Date)", "La cabecera Date es obligatoria según el estándar.", "MISSING_DATE");
+  else {
+    const dt = Date.parse(date.replace(/\s*\([^)]*\)\s*$/, ""));
+    const rec = H.all("received")[0] || "";
+    const recDate = Date.parse(((rec.split(";").pop()) || "").replace(/\s*\([^)]*\)\s*$/, "").trim());
+    const ref = isNaN(recDate) ? Date.now() : recDate;
+    if (isNaN(dt)) it("warn", "Fecha con formato no válido", `No se puede interpretar «${date.slice(0, 60)}».`, "INVALID_DATE");
+    else if (dt - ref > 6 * 3600e3) it("warn", "Fecha en el futuro", "La fecha del email es posterior a la de su recepción. Revisa el reloj del servidor de envío.", "DATE_IN_FUTURE");
+    else if (ref - dt > 4 * 86400e3) it("warn", "Fecha muy antigua", "El email se fechó varios días antes de recibirse. Puede indicar envíos retenidos o un reloj mal configurado.", "DATE_IN_PAST");
+    else it("pass", "Fecha correcta", "La cabecera Date es coherente con la recepción.", "DATE");
+  }
+  const ct = H.get("content-type").toLowerCase();
+  if (!H.get("mime-version") && ct) it("warn", "Falta MIME-Version", "Los emails con contenido HTML o adjuntos deben declarar MIME-Version: 1.0.", "MISSING_MIME_VERSION");
+  if (!H.get("to")) it("warn", "Falta el destinatario (To)", "Un email sin cabecera To resulta sospechoso para muchos filtros.", "MISSING_TO");
+  if (!H.get("subject")) it("fail", "Falta el asunto", "Los emails sin asunto suelen ir a spam.", "MISSING_SUBJECT");
+  else {
+    const rawSubj = (raw.match(/^subject:\s?(.*)$/im) || [])[1] || "";
+    if (/[^\x00-\x7F]/.test(rawSubj) && !/=\?[^?]+\?[BQbq]\?/.test(rawSubj)) it("warn", "Asunto sin codificar", "El asunto lleva caracteres especiales sin codificar (RFC 2047). Algunos clientes lo mostrarán mal.", "SUBJECT_NEEDS_ENCODING");
+  }
+  const from = H.get("from");
+  const nameMail = (from.match(/^\s*"?([^"<]*)"?\s*</) || [])[1] || "";
+  if (/[^\s@]+@[^\s@]+\.[a-z]{2,}/i.test(nameMail) && domOf(nameMail) !== domOf(from)) it("fail", "El nombre del remitente contiene otra dirección", `El nombre visible muestra ${nameMail.trim()}, pero el email sale de ${domOf(from)}. Es una técnica de suplantación.`, "FROM_NAME_HAS_EMAIL");
+  const rt = domOf(H.get("reply-to"));
+  if (rt && orgOf(rt) !== orgOf(domOf(from))) it("warn", "Responder a otro dominio", `Las respuestas irían a ${rt}, distinto del remitente. Es legítimo a veces, pero los filtros lo vigilan.`, "REPLYTO_DOM_NEQ_FROM_DOM");
+  if (/multipart\/alternative/.test(ct) || /multipart\//.test(ct) && /text\/plain/i.test(raw) && /text\/html/i.test(raw)) it("pass", "Incluye versión de texto", "El email tiene una versión HTML y otra de texto plano, como recomiendan los filtros.", "MIME_ALT");
+  else if (/text\/html/.test(ct) || (/multipart\//.test(ct) && !/text\/plain/i.test(raw))) it("warn", "Solo versión HTML", "No incluye una versión de texto plano. SpamAssassin y Rspamd lo penalizan (MIME_HTML_ONLY).", "MIME_HTML_ONLY");
+  const rcv = H.all("received");
+  if (rcv.length > 12) it("warn", "Demasiados saltos de servidor", `El email pasó por ${rcv.length} servidores. Puede indicar reenvíos o una configuración compleja.`, "RCVD_COUNT");
+  const xm = H.get("x-mailer");
+  if (/phpmailer|php\/|swiftmailer/i.test(xm)) it("warn", "Enviado con un script genérico", `X-Mailer: ${xm.slice(0, 60)}. Muchos filtros desconfían de los envíos directos desde scripts PHP.`, "XM_PHPMAILER");
+  if (!H.get("return-path")) it("warn", "Falta Return-Path", "El servidor receptor no añadió la dirección de rebote. Asegúrate de pegar el email original completo.", "MISSING_RETURN_PATH");
+  return out;
+}
+
+/* ---------- Auditoría ---------- */
+async function audit(raw){
+  const C = window.ES_CAMPAIGN, D = window.ES_DOMAIN, E = window.ES_ESP;
+  const p = C.parseEml(raw.replace(/\r\n?/g, "\n"));
+  if (!p) return {error:"noheaders"};
+  const H = p.headers;
+  const fromDom = domOf(p.from), org = orgOf(fromDom);
+  const sender = ((p.from.match(/^\s*"?([^"<]*?)"?\s*</) || [])[1] || "").trim();
+  const rcv = H.all("received");
+  /* La IP de envío es la primera IP pública (desde arriba) que entregó el email al servidor receptor */
+  const isPrivate = x => /^(10\.|127\.|192\.168\.|169\.254\.|172\.(1[6-9]|2\d|3[01])\.)/.test(x);
+  const hops = rcv.map(r => ({text:r, ip:(r.match(/\[(\d{1,3}(?:\.\d{1,3}){3})\]/) || [])[1] || "", host:((r.match(/^\s*from\s+([A-Za-z0-9.-]+)/i) || [])[1] || "").toLowerCase()}));
+  const inbound = hops.find(h => h.ip && !isPrivate(h.ip)) || null;
+  const ip = inbound ? inbound.ip : "";
+  const helo = inbound ? inbound.host : "";
+  const tlsTxt = inbound ? inbound.text : (rcv[0] || "");
+  const tls = /with\s+(e?smtps|esmtpsa|utf8smtps)|\btls(v?1[._]?[23])?\b|version=tls/i.test(tlsTxt) ? true : /with\s+e?smtp\b/i.test(tlsTxt) ? false : null;
+  const A = C.authFromHeaders(H) || {};
+  const sels = H.all("dkim-signature").map(v => ({d:((v.match(/\bd=([^;\s]+)/i) || [])[1] || "").toLowerCase(), s:((v.match(/\bs=([^;\s]+)/i) || [])[1] || "")})).filter(x => x.d && x.s);
+  const ownSel = sels.filter(x => orgOf(x.d) === org).map(x => x.s);
+
+  $("#auProgress") && ($("#auProgress").textContent = "Comprobando el dominio, las listas negras y la reputación…");
+  let dom = null;
+  try { const r = await D.run(fromDom, ownSel, ip); dom = r.error ? null : r; } catch(e){ dom = null; }
+  let repIp = null;
+  if (ip) { try { repIp = await D.repLookup(ip); } catch(e){} }
+
+  const html = p.html || "";
+  const Hc = C.analyzeHtml(html);
+  const T = C.analyzeTexts(sender, p.subject, "", Hc.preview || "");
+  const M = C.marketing(html, p.subject, "", H);
+  const content = [...T.issues, ...Hc.issues];
+  const sa = Math.round(content.reduce((a, i) => a + (i.pts || 0), 0) * 10) / 10;
+  const esp = E.analyze(raw);
+
+  const sections = [];
+  const sec = (title, items) => sections.push({title, items: items.filter(Boolean)});
+  const I = (s, t, d) => ({s, t, d});
+  const AL = {strict:"alineado (estricto)", relaxed:"alineado (relajado)", no:"no alineado", none:"sin datos"};
+  const okAl = x => x === "strict" || x === "relaxed";
+
+  /* 1. Autenticación del envío */
+  const noAR = !A.hasAR;
+  sec("Autenticación del envío", [
+    noAR ? I("warn", "Sin resultados de autenticación", "El email no incluye la cabecera Authentication-Results. Pega el email original completo tal como lo recibiste.") : null,
+    !noAR && I(A.spf === "pass" ? "pass" : /softfail|neutral/.test(A.spf) ? "warn" : "fail", `SPF: ${A.spf || "sin resultado"}`, A.spf === "pass" ? `El servidor de envío está autorizado por ${A.mailfrom || "el dominio"}.` : "El servidor de envío no está autorizado por el SPF del dominio de rebote."),
+    !noAR && I(A.dkim === "pass" ? "pass" : "fail", `DKIM: ${A.dkim || "sin firma"}`, A.dkim === "pass" ? `Firmado por ${(A.dkimDoms || []).join(", ")}.` : "El email no lleva una firma DKIM válida."),
+    !noAR && I(A.dmarc === "pass" ? "pass" : A.dmarc === "fail" ? "fail" : "warn", `DMARC: ${A.dmarc || "sin resultado"}`, A.dmarc === "pass" ? "El dominio del remitente respalda este envío." : A.dmarc === "fail" ? "El envío no supera la política DMARC del dominio." : "El dominio no tiene DMARC o el receptor no lo evaluó."),
+    !noAR && I(okAl(A.spfAlign) ? "pass" : okAl(A.dkimAlign) ? "warn" : "fail", `Alineación SPF: ${AL[A.spfAlign || "none"]}`, okAl(A.spfAlign) ? `El Return-Path (${A.mailfrom}) pertenece al dominio del remitente.` : `El Return-Path (${A.mailfrom || "desconocido"}) es de otro dominio. Configura un dominio de rebotes propio.`),
+    !noAR && I(okAl(A.dkimAlign) ? "pass" : okAl(A.spfAlign) ? "warn" : "fail", `Alineación DKIM: ${AL[A.dkimAlign || "none"]}`, okAl(A.dkimAlign) ? "La firma DKIM es del dominio del remitente." : `La firma DKIM es de ${(A.dkimDoms || []).join(", ") || "ningún dominio"}. Firma con tu propio dominio.`)
+  ]);
+
+  /* 2. Infraestructura y reputación */
+  const listedIp = dom && dom.bl ? dom.bl.listed.filter(x => x.kind === "ip" && x.ip === ip) : [];
+  const listedDom = dom && dom.bl ? dom.bl.listed.filter(x => x.kind === "d") : [];
+  sec("Infraestructura y reputación", [
+    ip ? I("info", `IP de envío: ${ip}`, helo ? `Servidor de origen: ${helo}` : "") : I("warn", "No hemos encontrado la IP de envío", "Pega el email original completo, con todas sus líneas Received."),
+    repIp && (repIp.ptr === null ? I("warn", "DNS inverso (PTR): no disponible", "No se pudo consultar.") : repIp.ptr === "" ? I("fail", "La IP no tiene DNS inverso (PTR)", "Muchos servidores rechazan el correo de IPs sin PTR. Pide a tu proveedor que lo configure.") : I(repIp.fcr ? "pass" : "warn", `DNS inverso (PTR): ${repIp.ptr}`, repIp.fcr ? "El nombre apunta de vuelta a la misma IP (FCrDNS correcto)." : "El nombre del PTR no apunta de vuelta a la misma IP (FCrDNS). Conviene que coincidan.")),
+    repIp && repIp.ptr && helo && helo !== repIp.ptr ? I("info", "El nombre de presentación (HELO) no coincide con el PTR", `HELO: ${helo} · PTR: ${repIp.ptr}. No es grave, pero lo ideal es que coincidan.`) : null,
+    tls === null ? null : I(tls ? "pass" : "warn", tls ? "Entregado con cifrado (TLS)" : "Entregado sin cifrado", tls ? "La conexión con el servidor receptor estaba cifrada, como exigen Gmail y Yahoo." : "El último salto no usó TLS. Gmail y Yahoo exigen conexiones cifradas."),
+    ip && dom && dom.bl ? I(listedIp.some(x => x.major) ? "fail" : listedIp.length ? "warn" : "pass", listedIp.length ? `IP en listas negras: ${listedIp.map(x => x.name).join(", ")}` : "La IP no aparece en las listas negras consultadas", listedIp.length ? "Mientras siga listada, muchos servidores rechazarán o filtrarán tus emails." : "Revisada en las principales listas de IPs que han respondido.") : null,
+    dom && dom.bl ? I(listedDom.some(x => x.major) ? "fail" : listedDom.length ? "warn" : "pass", listedDom.length ? `Dominio en listas negras: ${listedDom.map(x => x.name).join(", ")}` : "El dominio no aparece en las listas negras consultadas", listedDom.length ? "Los enlaces y el remitente de este dominio están marcados como spam." : "Revisado en las principales listas de dominios que han respondido.") : null,
+    repIp && typeof repIp.score === "number" ? I(repIp.score >= 80 ? "pass" : repIp.score >= 70 ? "warn" : "fail", `Sender Score: ${repIp.score}/100`, "Por encima de 80 es buena; por debajo de 70, preocupante.") : null,
+    repIp && repIp.karma === "black" ? I("fail", "HostKarma: lista negra", "La IP figura en la lista negra de HostKarma.") : null
+  ]);
+
+  /* 3. Registros DNS del dominio */
+  if (dom){
+    const card = (c, name) => c ? I(c.neutral ? "info" : S3[c.s], `${name}: ${c.label}`, c.summary) : null;
+    const usedKey = dom.dkim && dom.dkim.keys ? dom.dkim.keys.find(k => ownSel.includes(k.sel)) : null;
+    sec(`Registros DNS de ${fromDom}`, [
+      card(dom.mx, "MX"), card(dom.spf, "SPF"), card(dom.dmarc, "DMARC"),
+      usedKey ? I(S3[usedKey.level], `Clave DKIM usada (${usedKey.sel}): ${usedKey.algo} ${usedKey.bits} bits`, usedKey.verdict + ". " + usedKey.advice) : card(dom.dkim, "DKIM"),
+      card(dom.ssl, "Web y SSL"), card(dom.adv, "Seguridad avanzada")
+    ]);
+  } else sec("Registros DNS del dominio", [I("warn", `No hemos podido revisar el dominio ${fromDom || ""}`, "El dominio del remitente no existe o no responde. Si es un ejemplo ficticio, es normal.")]);
+
+  /* 4. Cabeceras */
+  sec("Cabeceras (estilo Rspamd)", headerChecks(H, raw));
+
+  /* 5. Contenido */
+  const kb = new Blob([html]).size / 1024;
+  sec("Contenido", [
+    I(sa >= 5 ? "fail" : sa >= 2.5 ? "warn" : "pass", `Puntuación tipo SpamAssassin: ${sa.toFixed(1)} (umbral 5,0)`, sa >= 5 ? "Por encima del umbral: muchos servidores lo marcarían como spam por contenido." : sa >= 2.5 ? "Por debajo del umbral, pero con poco margen." : "El contenido no debería activar los filtros."),
+    html ? I(kb > 102 ? "fail" : kb > 85 ? "warn" : "pass", `Peso del HTML: ${kb.toFixed(0)} KB`, kb > 102 ? "Gmail recortará el email (límite de 102 KB)." : "Dentro del límite de recorte de Gmail.") : I("warn", "No hemos encontrado contenido HTML", "El email no tiene versión HTML o no se ha podido leer."),
+    ...content.filter(i => i.sev === "r").slice(0, 5).map(i => I("fail", i.t, i.d)),
+    ...content.filter(i => i.sev === "y").slice(0, 5).map(i => I("warn", i.t, i.d))
+  ]);
+
+  /* 6. Cumplimiento y marketing */
+  const lu = H.get("list-unsubscribe"), lup = H.get("list-unsubscribe-post");
+  const oneClick = /<https:\/\//i.test(lu) && /list-unsubscribe=one-click/i.test(lup);
+  sec("Cumplimiento legal y marketing", [
+    I(oneClick ? "pass" : lu ? "warn" : "fail", oneClick ? "Baja en un clic (one-click unsubscribe)" : lu ? "Tiene List-Unsubscribe, pero sin baja en un clic" : "Sin cabecera List-Unsubscribe", oneClick ? "Cumple el requisito de Gmail y Yahoo (RFC 8058)." : "Gmail y Yahoo exigen la baja en un clic a quien envía más de 5.000 emails al día. Actívala en tu plataforma."),
+    ...M.legal.items.filter(x => x[0] !== "i" && !/clic \(one-click|List-Unsubscribe/.test(x[1])).map(([tn, x]) => I(S3[tn], x, "")),
+    I(S3[M.cta.s], `Llamada a la acción: ${M.cta.score}/100`, M.cta.items.filter(x => x[0] !== "g").map(x => x[1]).slice(0, 2).join(" ") || "CTA clara y bien situada."),
+    I(S3[M.engage.s], `Capacidad de enganche: ${M.engage.score}/100`, M.engage.items.filter(x => x[0] !== "g").map(x => x[1]).slice(0, 2).join(" ") || "Buen equilibrio de elementos para enganchar.")
+  ]);
+
+  /* 7. Requisitos de Gmail y Yahoo */
+  const unsubVisible = M.legal.items.some(x => x[0] === "g" && /baja/i.test(x[1]));
+  sec("Requisitos de Gmail y Yahoo para envíos masivos", [
+    I(A.spf === "pass" && A.dkim === "pass" ? "pass" : "fail", "SPF y DKIM superados", "Ambos son obligatorios para quien envía más de 5.000 emails al día."),
+    I(dom && dom.dmarc && dom.dmarc.policy ? "pass" : "fail", "El dominio tiene DMARC", "Basta con p=none, aunque lo recomendable es llegar a quarantine o reject."),
+    I(okAl(A.spfAlign) || okAl(A.dkimAlign) ? "pass" : "fail", "Remitente alineado", "El dominio del From debe coincidir con el de SPF o el de DKIM."),
+    I(oneClick ? "pass" : "fail", "Baja en un clic", "Cabeceras List-Unsubscribe y List-Unsubscribe-Post."),
+    I(unsubVisible ? "pass" : "fail", "Enlace de baja visible en el email", "Debe ser fácil de encontrar en el cuerpo del mensaje."),
+    tls === null ? null : I(tls ? "pass" : "fail", "Conexión cifrada (TLS)", "La entrega debe hacerse con TLS."),
+    repIp && repIp.ptr !== null ? I(repIp.ptr && repIp.fcr ? "pass" : "fail", "DNS inverso válido en la IP de envío", "La IP debe tener PTR y este debe apuntar de vuelta a la IP.") : null,
+    I("info", "Tasa de quejas por debajo del 0,3 %", "No se puede ver en un email: consúltala en Google Postmaster Tools y mantenla por debajo del 0,1 %.")
+  ]);
+
+  /* 8. Plataforma */
+  if (esp && esp.best) sec("Plataforma de envío", [I("info", `Enviado con ${esp.best.esp.n}`, `Confianza ${esp.conf}. ${esp.tips.join(" ")}`)]);
+
+  const all = sections.flatMap(s => s.items).filter(i => i.s !== "info");
+  const pass = all.filter(i => i.s === "pass").length, warn = all.filter(i => i.s === "warn").length, fail = all.filter(i => i.s === "fail").length;
+  const score = all.length ? Math.round((pass + warn * 0.5) / all.length * 100) : 0;
+  const level = score >= 85 && fail <= 1 ? "g" : score >= 60 ? "y" : "r";
+  return {sections, score, level, pass, warn, fail, from:p.from, fromDom, subject:p.subject, ip, esp: esp && esp.best ? esp.best.esp.n : ""};
+}
+
+/* ---------- Render ---------- */
+const ICON = {pass:"✓", warn:"!", fail:"✗", info:"i"};
+function render(r){
+  const out = $("#auResult");
+  if (r.error){ out.innerHTML = `<div class="alert"><strong>No encontramos un email completo</strong><p>Sube el archivo .eml o pega el email original con todas sus cabeceras (en Gmail: tres puntos y «Mostrar original»).</p></div>`; return; }
+  const V = {g:["v-seguro","Apto","Listo para enviar"], y:["v-sospechoso","Mejorable","Se puede enviar, pero conviene corregir algunos puntos"], r:["v-peligroso","No apto","Corrige los fallos antes de enviar"]}[r.level];
+  const now = new Date();
+  out.innerHTML = `
+    <div class="print-head"><strong>Email Seguro · Informe de auditoría</strong><span>${esc(now.toLocaleString())} · mlduque.github.io</span></div>
+    <div class="verdict ${V[0]}">
+      <div class="stamp" role="img" aria-label="Resultado: ${V[1]}">${V[1]}</div>
+      <div class="verdict-text"><p class="domain-name">${esc(r.subject || "(sin asunto)")} · ${esc(r.fromDom)}</p><h2>${V[2]}</h2>
+        <div class="score-row"><span class="light" data-s="${r.level}" role="img" aria-label="Semáforo"><i></i><i></i><i></i></span><span class="big">${r.score}<small>/100</small></span></div>
+        <p class="au-counts"><span class="au-c au-pass">✓ ${r.pass} correctos</span><span class="au-c au-warn">! ${r.warn} a mejorar</span><span class="au-c au-fail">✗ ${r.fail} fallos</span></p>
+      </div>
+    </div>
+    <div class="actions noprint"><button class="btn btn-primary" type="button" id="auPdf">Descargar informe (PDF)</button></div>
+    ${r.sections.map(s => {
+      const f = s.items.filter(i => i.s === "fail").length, w = s.items.filter(i => i.s === "warn").length;
+      const st = f ? "r" : w ? "y" : "g";
+      return `<section class="au-sec s-${st}"><h3><span class="light" data-s="${st}" aria-hidden="true"><i></i><i></i><i></i></span>${esc(s.title)}</h3>
+        <ul class="au-list">${s.items.map(i => `<li class="aul-${i.s}"><span class="au-i" aria-hidden="true">${ICON[i.s]}</span><div><strong>${esc(i.t)}</strong>${i.d ? `<p>${esc(i.d)}</p>` : ""}</div></li>`).join("")}</ul></section>`;
+    }).join("")}
+    <p class="minor">Auditoría orientativa realizada en tu navegador con las cabeceras y el contenido del email, y consultas públicas de DNS, listas negras y reputación. Las reglas tipo SpamAssassin y Rspamd son una estimación.</p>`;
+  window.mountAI && mountAI(out, "auditoria", () => ({
+    puntuacion: r.score, veredicto: V[1], correctos: r.pass, a_mejorar: r.warn, fallos: r.fail, plataforma: r.esp, dominio: r.fromDom,
+    secciones: r.sections.map(s => ({seccion: s.title, puntos: s.items.filter(i => i.s !== "pass").map(i => `${i.s === "fail" ? "FALLO" : i.s === "warn" ? "MEJORAR" : "INFO"}: ${i.t}${i.d ? " — " + i.d : ""}`)}))
+  }));
+  window.EShistory && EShistory.add({tool:"auditoria", target:r.fromDom || "(email)", score:r.score, level:r.level});
+  renderHistory();
+  out.scrollIntoView({behavior: reduced() ? "auto" : "smooth", block:"start"});
+}
+
+/* ---------- Historial (solo en este navegador) ---------- */
+function renderHistory(){
+  const box = $("#auHistory"); if (!box || !window.EShistory) return;
+  const list = EShistory.list();
+  const lv = {g:"bl-g", y:"bl-y", r:"bl-r"};
+  box.innerHTML = list.length ? `<ul class="hist">${list.map((h, i) => `<li><span class="minor">${esc(new Date(h.date).toLocaleString())}</span><span class="hist-tool">${h.tool === "dominio" ? "Dominio" : "Auditoría"}</span><strong>${h.tool === "dominio" ? `<a href="#dominio" data-hist="${esc(h.target)}">${esc(h.target)}</a>` : esc(h.target)}</strong><span class="bl ${lv[h.level] || "bl-n"}">${h.score != null ? h.score + "/100" : ({g:"Protegido", y:"Mejorable", r:"Expuesto"})[h.level] || ""}</span></li>`).join("")}</ul>
+    <button class="btn-small" type="button" id="auHistClear" data-i18n="au.histClear">Borrar historial</button>` : `<p class="minor" data-i18n="au.histEmpty">Aún no hay pruebas guardadas. Aparecerán aquí las auditorías y los dominios que compruebes.</p>`;
+}
+
+/* ---------- Interacción ---------- */
+async function go(raw){
+  if (!raw.trim()){ $("#auResult").innerHTML = `<div class="alert"><strong>Sube un email</strong><p>Sube el archivo .eml o pega el email original completo.</p></div>`; return; }
+  const btn = $("#auAnalyze"); btn.disabled = true;
+  $("#auResult").innerHTML = `<div class="loading"><span class="spin" aria-hidden="true"></span><span id="auProgress">Analizando el email…</span></div>`;
+  $("#auResult").scrollIntoView({behavior: reduced() ? "auto" : "smooth", block:"start"});
+  try { render(await audit(raw)); }
+  catch(e){ $("#auResult").innerHTML = `<div class="alert"><strong>No hemos podido completar la auditoría</strong><p>Revisa que el email esté completo e inténtalo de nuevo.</p></div>`; }
+  finally { btn.disabled = false; }
+}
+$("#auAnalyze").addEventListener("click", () => go($("#auInput").value));
+$("#auFile").addEventListener("change", async e => { const f = e.target.files[0]; if (!f) return; $("#auInput").value = await f.text(); $("#auFileName").textContent = f.name; e.target.value = ""; go($("#auInput").value); });
+const drop = $("#auDrop");
+["dragenter","dragover"].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.add("over"); }));
+["dragleave","drop"].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.remove("over"); }));
+drop.addEventListener("drop", async e => { const f = e.dataTransfer.files[0]; if (!f) return; $("#auInput").value = await f.text(); $("#auFileName").textContent = f.name; go($("#auInput").value); });
+document.addEventListener("click", e => {
+  if (e.target.id === "auPdf") window.print();
+  if (e.target.id === "auHistClear"){ EShistory.clear(); renderHistory(); toast(t("toast.histCleared")); }
+  const h = e.target.closest("[data-hist]");
+  if (h){ e.preventDefault(); location.hash = "dominio"; setTimeout(() => { $("#dmDomain").value = h.dataset.hist; $("#dmForm").requestSubmit(); }, 30); }
+});
+document.querySelector("#auView .chip").addEventListener("click", () => { $("#auInput").value = EXAMPLE; go(EXAMPLE); });
+window.addEventListener("hashchange", () => { if (location.hash === "#auditoria") renderHistory(); });
+window.addEventListener("langchange", renderHistory);
+renderHistory();
+
+const EXAMPLE = `Delivered-To: laura.gomez@gmail.com
+Received: by 2002:a05:6400:1b8f with SMTP id r15csp812334pxb; Thu, 12 Nov 2026 10:02:12 -0800 (PST)
+Received: from mta12.libreriaalba.com (mta12.libreriaalba.com. [203.0.113.25])
+        by mx.google.com with ESMTPS id k7si2201933qkb.88.2026.11.12.10.02.11
+        for <laura.gomez@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Nov 2026 10:02:11 -0800 (PST)
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@libreriaalba.com header.s=s1;
+       spf=pass smtp.mailfrom=rebote@envios.libreriaalba.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=libreriaalba.com
+Return-Path: <rebote@envios.libreriaalba.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=libreriaalba.com; s=s1; h=from:to:subject:date; bh=abc=; b=xyz=
+From: =?UTF-8?Q?Librer=C3=ADa_Alba?= <novedades@libreriaalba.com>
+To: laura.gomez@gmail.com
+Subject: =?UTF-8?Q?Las_novedades_de_noviembre_ya_est=C3=A1n_aqu=C3=AD?=
+Date: Thu, 12 Nov 2026 19:02:09 +0100
+Message-ID: <a81c2f.20261112@libreriaalba.com>
+List-Unsubscribe: <https://libreriaalba.com/baja?u=8f2a>, <mailto:baja@libreriaalba.com>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="ALBA"
+
+--ALBA
+Content-Type: text/plain; charset=utf-8
+
+Hola, Laura. Este mes llegan 12 títulos nuevos: https://libreriaalba.com/novedades
+--ALBA
+Content-Type: text/html; charset=utf-8
+
+<!DOCTYPE html><html lang="es"><head><meta name="viewport" content="width=device-width, initial-scale=1"></head><body>
+<h1>Hola, Laura</h1>
+<p>Este mes llegan a la librería 12 títulos nuevos, entre ellos la última novela de nuestra autora del mes y una selección de libros ilustrados para regalar. Te hemos preparado una lista con nuestras recomendaciones favoritas.</p>
+<p><a href="https://libreriaalba.com/novedades" style="background:#1D4ED8;color:#ffffff;padding:12px 20px;border-radius:6px;display:inline-block">Ver las novedades</a></p>
+<p style="font-size:12px;color:#666666">Librería Alba · Calle Mayor 12, 28013 Madrid<br>Recibes este email porque te suscribiste en libreriaalba.com. Consulta nuestra <a href="https://libreriaalba.com/privacidad">política de privacidad</a>.<br>Si no quieres recibir más correos, <a href="https://libreriaalba.com/baja">date de baja aquí</a>.</p>
+</body></html>
+--ALBA--
+`;
 
 })();
 </script>
@@ -3669,6 +4221,7 @@ $("#spClear").addEventListener("click", () => { $("#spInput").value = ""; $("#sp
 $("#spFile").addEventListener("change", async e => { const f = e.target.files[0]; if (!f) return; $("#spInput").value = await f.text(); e.target.value = ""; render(analyze($("#spInput").value)); toast(`Email cargado: ${f.name}`); });
 document.querySelectorAll("#spView .chip").forEach(c => c.addEventListener("click", () => { $("#spInput").value = EX[c.dataset.ex]; render(analyze(EX[c.dataset.ex])); }));
 $("#spCount").textContent = ESP.length;
+window.ES_ESP = {analyze};
 
 })();
 </script>
