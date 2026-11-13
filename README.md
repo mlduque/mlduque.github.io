@@ -1,6 +1,6 @@
 # Email Seguro
 
-> **Versión beta.** Proyecto en desarrollo: algunas funciones aún no están terminadas y pueden cambiar. Por ejemplo, los resultados de los análisis todavía se muestran solo en español.
+> **Versión beta.** Proyecto en desarrollo: estamos añadiendo nuevas herramientas y algunas funciones pueden cambiar.
 
 Herramientas gratuitas para proteger tu dominio, reconocer emails de estafa, probar tus campañas antes de enviarlas y mantener sana tu base de datos. Creadas por una profesional de la entregabilidad del email.
 
@@ -142,7 +142,7 @@ Pega el email original (o sus cabeceras) o sube el archivo .eml y la web identif
 
 ## Idiomas
 
-La web está disponible en **español, inglés, italiano, francés y portugués**. Detecta el idioma de tu navegador y puedes cambiarlo en el selector de la barra superior. El asistente de IA responde en el idioma elegido.
+La web está disponible en **español, inglés, italiano, francés y portugués**, incluidos todos los resultados de los análisis y los informes en PDF. Detecta el idioma de tu navegador y puedes cambiarlo en el selector de la barra superior. El asistente de IA responde en el idioma elegido.
 
 ---
 
