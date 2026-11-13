@@ -6,13 +6,14 @@ Herramientas gratuitas para proteger tu dominio, reconocer emails de estafa, pro
 
 👉 **Pruébalas aquí:** [mlduque.github.io](https://mlduque.github.io/)
 
-La web tiene ocho herramientas, cada una en su pestaña:
+La web tiene nueve herramientas, cada una en su pestaña:
 
 - **Auditoría completa:** [mlduque.github.io/#auditoria](https://mlduque.github.io/#auditoria)
 - **Mi dominio:** [mlduque.github.io/#dominio](https://mlduque.github.io/#dominio)
 - **Analizar un email:** [mlduque.github.io/#email](https://mlduque.github.io/#email)
 - **Probar mi campaña:** [mlduque.github.io/#campana](https://mlduque.github.io/#campana)
 - **Mi base de datos:** [mlduque.github.io/#bbdd](https://mlduque.github.io/#bbdd)
+- **Analizador de informes DMARC:** [mlduque.github.io/#dmarc](https://mlduque.github.io/#dmarc)
 - **Calculadora de warm-up:** [mlduque.github.io/#warmup](https://mlduque.github.io/#warmup)
 - **Test de bandeja:** [mlduque.github.io/#bandeja](https://mlduque.github.io/#bandeja)
 - **¿Qué plataforma lo envió?:** [mlduque.github.io/#plataforma](https://mlduque.github.io/#plataforma)
@@ -119,6 +120,19 @@ Sube tu lista de contactos en CSV o Excel, pégala desde una hoja de cálculo o 
 - Si tiene una columna de estado, detecta **bajas, rebotes y quejas**.
 - Da una **puntuación de salud de 0 a 100 con semáforo** y muestra los dominios más frecuentes.
 - **Limpieza de un clic:** eliges qué excluir y descargas la lista limpia (con los errores de escritura corregidos), los contactos excluidos con el motivo, o los inactivos para una campaña de reactivación.
+
+---
+
+## Analizador de informes DMARC (nuevo)
+
+Sube los informes DMARC agregados que te envían Google, Microsoft o Yahoo (.xml, .zip o .gz, tal como llegan, uno o varios a la vez) y verás:
+
+- el **porcentaje de emails que pasan DMARC**, DKIM y SPF alineados;
+- cada **fuente de envío** con su IP, su nombre de servidor y la **plataforma detectada** (SendGrid, Mailchimp, Google…);
+- qué fuentes **pasan**, cuáles son **legítimas pero fallan** y cuáles son **posibles suplantaciones**;
+- **qué hacer**: configurar DKIM en las herramientas que fallan y cuándo subir la política a quarantine o reject.
+
+Los informes se descomprimen y analizan en el navegador: no salen de tu ordenador. El informe se puede descargar en PDF y la IA puede explicarlo.
 
 ---
 
