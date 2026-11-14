@@ -665,6 +665,16 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
 .gd-next{margin-top:2rem;border-top:1px solid var(--line);padding-top:1.2rem}
 /* Cabecera en móviles estrechos: evita el desplazamiento horizontal */
 @media (max-width:30rem){.nav-in{gap:.45rem}.brand{font-size:1.02rem;gap:.4rem}.brand .beta{display:none}.nav-tools{gap:.35rem}.share{padding:.5rem .6rem}.burger{width:36px}}
+
+/* Alertas por Telegram */
+.tg-band{display:grid;grid-template-columns:auto 1fr auto;gap:1.25rem;align-items:center;background:var(--blue-deep);color:#fff;border-radius:18px;padding:1.5rem 1.75rem}
+.tg-band h2{color:#fff;font-size:1.45rem;margin:.4rem 0 .3rem}
+.tg-band p{color:#C9D6F5;margin:0;max-width:40rem}
+.tg-ico{width:3.2rem;height:3.2rem;border-radius:14px;background:#229ED9;color:#fff;display:grid;place-items:center;flex:none}
+.tg-card{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;background:var(--soft);border:1px solid var(--line);border-left:5px solid #229ED9;border-radius:12px;padding:1rem 1.25rem}
+.tg-card h3{font-size:1.1rem;margin:0 0 .2rem}
+.tg-card p{margin:0;color:var(--muted);font-size:.95rem}
+@media (max-width:44rem){.tg-band,.tg-card{grid-template-columns:1fr}.tg-band .btn,.tg-card .btn{width:100%}}
 </style>
 </head>
 <body>
@@ -775,6 +785,14 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
           <div><strong>102 KB</strong><p data-i18n="band.3">A partir de ese peso, Gmail recorta tu email y muestra «Mensaje recortado».</p></div>
         </div>
       </div>
+    </section>
+
+    <section class="section" id="tgHome" hidden>
+      <div class="wide"><div class="tg-band">
+        <div class="tg-ico" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M21 4L3 11l6 2 2 6 3-4 5 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 13l8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div><span class="beta" data-i18n="t8.badge">Nuevo</span><h2 data-i18n="tg.h">Alertas gratis por Telegram</h2><p data-i18n="tg.p">Nuestro bot vigila tus dominios cada 6 horas y te avisa al móvil si se rompe el SPF, el DKIM o el DMARC, si entras en una lista negra o si va a caducar tu certificado SSL.</p></div>
+        <a class="btn btn-yellow" id="tgHomeBtn" href="https://t.me/" target="_blank" rel="noopener" data-i18n="tg.btn">Abrir el bot</a>
+      </div></div>
     </section>
 
     <section class="section">
@@ -1301,6 +1319,9 @@ const IA = {
   url: "https://email-seguro-ia.duque-marialuisa.workers.dev",
   proveedor: "Gemini (Google)"
 };
+/* ===== Alertas por Telegram =====
+   Nombre de usuario de tu bot, sin @ (por ejemplo: EmailSeguroBot). Si lo dejas vacío, no aparece en la web. */
+const TELEGRAM = { bot: "EmailSeguroAlertasBot" };
 /* ================================ */
 /* ===== Textos de la interfaz en JavaScript ===== */
 const TX = {
@@ -1877,6 +1898,10 @@ Object.assign(I18N.it, {"gl.foot":"Glossario della deliverability","navs.bounce"
 Object.assign(I18N.fr, {"gl.foot":"Glossaire de la délivrabilité","navs.bounce":"Rebonds","navs.gen":"SPF · DMARC · BIMI","navs.guides":"Guides","home.toolsLead":"Onze outils professionnels et des guides pratiques, expliqués pour que tout le monde les comprenne.","t10.h":"Traducteur de rebonds","t10.p":"Collez une erreur comme « 550 5.7.1 » et découvrez ce qu'elle signifie, pourquoi elle s'est produite et quoi faire.","t11.h":"Générateur SPF, DMARC et BIMI","t11.p":"Des assistants pas à pas pour créer des enregistrements corrects et les vérifier en direct dans vos DNS.","t12.h":"Guides et glossaire","t12.p":"La délivrabilité expliquée simplement : authentification, spam, listes noires, rebonds et plus.","t12.go":"Lire les guides →"});
 Object.assign(I18N.pt, {"gl.foot":"Glossário de entregabilidade","navs.bounce":"Bounces","navs.gen":"SPF · DMARC · BIMI","navs.guides":"Guias","home.toolsLead":"Onze ferramentas profissionais e guias práticos, explicados para que qualquer pessoa os entenda.","t10.h":"Tradutor de bounces","t10.p":"Cole um erro como «550 5.7.1» e descubra o que significa, porque aconteceu e o que fazer.","t11.h":"Gerador de SPF, DMARC e BIMI","t11.p":"Assistentes passo a passo para criar registos corretos e verificá-los em direto nos seus DNS.","t12.h":"Guias e glossário","t12.p":"A entregabilidade explicada de forma simples: autenticação, spam, listas negras, bounces e mais.","t12.go":"Ler os guias →"});
 
+Object.assign(I18N.en, {"tg.h": "Free Telegram alerts", "tg.p": "Our bot monitors your domains every 6 hours and alerts you on your phone if SPF, DKIM or DMARC breaks, if you land on a blocklist or if your SSL certificate is about to expire.", "tg.btn": "Open the bot"});
+Object.assign(I18N.it, {"tg.h": "Avvisi gratis su Telegram", "tg.p": "Il nostro bot controlla i tuoi domini ogni 6 ore e ti avvisa sul telefono se si rompono SPF, DKIM o DMARC, se finisci in una blacklist o se il certificato SSL sta per scadere.", "tg.btn": "Apri il bot"});
+Object.assign(I18N.fr, {"tg.h": "Alertes gratuites sur Telegram", "tg.p": "Notre bot surveille vos domaines toutes les 6 heures et vous prévient sur votre téléphone si SPF, DKIM ou DMARC casse, si vous arrivez sur une liste noire ou si votre certificat SSL va expirer.", "tg.btn": "Ouvrir le bot"});
+Object.assign(I18N.pt, {"tg.h": "Alertas grátis no Telegram", "tg.p": "O nosso bot vigia os seus domínios a cada 6 horas e avisa-o no telemóvel se o SPF, DKIM ou DMARC falhar, se entrar numa lista negra ou se o certificado SSL estiver a expirar.", "tg.btn": "Abrir o bot"});
 
 (function(){
   const $ = s => document.querySelector(s);
@@ -5977,6 +6002,10 @@ headers:["Invalid email headers or format","The receiving server rejects the ema
 
 </script>
 <script>
+NT.add("en", {ui:{"tg.cardT": "Monitor {d} on Telegram", "tg.cardP": "We'll alert you on your phone for free if its SPF, DKIM or DMARC changes, if it lands on a blocklist or if its certificate is about to expire. Checked every 6 hours.", "tg.btn": "Turn on Telegram alerts", "tg.privH": "Telegram alerts", "tg.privP": "<p>If you use the alerts bot (@{bot}), we store your Telegram ID, your chosen language and the domains you monitor, solely to send you alerts. The data is stored on Cloudflare (Workers KV). We don't store your name, phone number or the content of your conversations, and we don't share the data with anyone.</p><p>You can delete all your data at any time by sending /stop to the bot. If you block the bot, we automatically stop monitoring your domains.</p>"}});
+
+</script>
+<script>
 
 NT.add("en", {ui:{
 "c.copy":"Copy","c.clear":"Clear","c.try":"Try an example:",
@@ -6255,6 +6284,10 @@ server_temp:["Problema temporal del servidor de destino","El servidor de destino
 bad_syntax:["Dirección mal escrita","La dirección del destinatario no tiene un formato válido.","Faltan caracteres, sobran espacios o símbolos, falta el dominio o hay caracteres no permitidos.",["Corrige la dirección si ves el error; si no, elimínala.","Valida el formato de tus direcciones en <a href=\"#bbdd\">Mi base de datos</a> y en tus formularios."]],
 headers:["Cabeceras o formato del email no válidos","El servidor de destino rechaza el email porque sus cabeceras o su formato no cumplen los estándares.","Falta la cabecera From o está mal escrita, hay cabeceras duplicadas o mal codificadas, o el servidor que envía comete errores de protocolo.",["Revisa el remitente: debe ser una dirección completa, por ejemplo «Tu Marca &lt;hola@tuempresa.com&gt;».","Sube un email de prueba a la <a href=\"#auditoria\">Auditoría completa</a>, que revisa las cabeceras.","Si usas un servidor o una integración propia, revisa cómo construye el mensaje."]]
 }});
+
+</script>
+<script>
+NT.add("es", {ui:{"tg.cardT": "Vigila {d} por Telegram", "tg.cardP": "Te avisamos gratis al móvil si cambian su SPF, DKIM o DMARC, si entra en una lista negra o si va a caducar su certificado. Revisamos cada 6 horas.", "tg.btn": "Activar alertas en Telegram", "tg.privH": "Alertas por Telegram", "tg.privP": "<p>Si usas el bot de alertas (@{bot}), guardamos tu identificador de Telegram, el idioma elegido y los dominios que vigilas, con el único fin de enviarte los avisos. Los datos se guardan en Cloudflare (Workers KV). No guardamos tu nombre, tu número de teléfono ni el contenido de tus conversaciones, y no compartimos los datos con nadie.</p><p>Puedes borrar todos tus datos cuando quieras escribiendo /baja en el bot. Si bloqueas el bot, dejamos de vigilar tus dominios automáticamente.</p>"}});
 
 </script>
 <script>
@@ -6542,6 +6575,10 @@ headers:["En-têtes ou format de l'email non valides","Le serveur de destination
 
 </script>
 <script>
+NT.add("fr", {ui:{"tg.cardT": "Surveillez {d} sur Telegram", "tg.cardP": "Nous vous prévenons gratuitement sur votre téléphone si son SPF, DKIM ou DMARC change, s'il arrive sur une liste noire ou si son certificat va expirer. Vérification toutes les 6 heures.", "tg.btn": "Activer les alertes Telegram", "tg.privH": "Alertes Telegram", "tg.privP": "<p>Si vous utilisez le bot d'alertes (@{bot}), nous conservons votre identifiant Telegram, la langue choisie et les domaines surveillés, dans le seul but de vous envoyer les alertes. Les données sont stockées chez Cloudflare (Workers KV). Nous ne conservons ni votre nom, ni votre numéro de téléphone, ni le contenu de vos conversations, et nous ne partageons les données avec personne.</p><p>Vous pouvez supprimer toutes vos données à tout moment en envoyant /stop au bot. Si vous bloquez le bot, nous arrêtons automatiquement de surveiller vos domaines.</p>"}});
+
+</script>
+<script>
 
 NT.add("fr", {ui:{
 "c.copy":"Copier","c.clear":"Effacer","c.try":"Essayer avec un exemple :",
@@ -6823,6 +6860,10 @@ headers:["Intestazioni o formato dell'email non validi","Il server di destinazio
 
 </script>
 <script>
+NT.add("it", {ui:{"tg.cardT": "Controlla {d} su Telegram", "tg.cardP": "Ti avvisiamo gratis sul telefono se cambiano SPF, DKIM o DMARC, se finisce in una blacklist o se il certificato sta per scadere. Controllo ogni 6 ore.", "tg.btn": "Attiva gli avvisi su Telegram", "tg.privH": "Avvisi su Telegram", "tg.privP": "<p>Se usi il bot di avvisi (@{bot}), salviamo il tuo ID Telegram, la lingua scelta e i domini che controlli, al solo scopo di inviarti gli avvisi. I dati sono conservati su Cloudflare (Workers KV). Non salviamo il tuo nome, il tuo numero di telefono né il contenuto delle conversazioni, e non condividiamo i dati con nessuno.</p><p>Puoi cancellare tutti i tuoi dati in qualsiasi momento scrivendo /stop al bot. Se blocchi il bot, smettiamo automaticamente di controllare i tuoi domini.</p>"}});
+
+</script>
+<script>
 
 NT.add("it", {ui:{
 "c.copy":"Copia","c.clear":"Cancella","c.try":"Prova con un esempio:",
@@ -7101,6 +7142,10 @@ server_temp:["Problema temporário do servidor de destino","O servidor de destin
 bad_syntax:["Endereço mal escrito","O endereço do destinatário não tem um formato válido.","Faltam caracteres, há espaços ou símbolos a mais, falta o domínio ou há caracteres não permitidos.",["Corrija o endereço se vir o erro; caso contrário, apague-o.","Valide o formato dos seus endereços em <a href=\"#bbdd\">A minha base de dados</a> e nos seus formulários."]],
 headers:["Cabeçalhos ou formato do email inválidos","O servidor de destino rejeita o email porque os cabeçalhos ou o formato não cumprem as normas.","O cabeçalho From falta ou está mal escrito, há cabeçalhos duplicados ou mal codificados, ou o servidor de envio comete erros de protocolo.",["Reveja o remetente: deve ser um endereço completo, por exemplo «A Sua Marca &lt;ola@asuaempresa.pt&gt;».","Carregue um email de teste na <a href=\"#auditoria\">Auditoria completa</a>, que verifica os cabeçalhos.","Se usa um servidor ou integração próprios, reveja como constroem a mensagem."]]
 }});
+
+</script>
+<script>
+NT.add("pt", {ui:{"tg.cardT": "Vigie {d} no Telegram", "tg.cardP": "Avisamos gratuitamente no telemóvel se o SPF, DKIM ou DMARC mudar, se entrar numa lista negra ou se o certificado estiver a expirar. Verificamos a cada 6 horas.", "tg.btn": "Ativar alertas no Telegram", "tg.privH": "Alertas no Telegram", "tg.privP": "<p>Se usar o bot de alertas (@{bot}), guardamos o seu identificador do Telegram, o idioma escolhido e os domínios que vigia, com o único fim de lhe enviar os alertas. Os dados são guardados na Cloudflare (Workers KV). Não guardamos o seu nome, o seu número de telefone nem o conteúdo das conversas, e não partilhamos os dados com ninguém.</p><p>Pode apagar todos os seus dados quando quiser escrevendo /parar ao bot. Se bloquear o bot, deixamos automaticamente de vigiar os seus domínios.</p>"}});
 
 </script>
 <script>
@@ -7888,6 +7933,34 @@ window.addEventListener("langchange", () => { for (const k in built) built[k] = 
 window.addEventListener("hashchange", () => { const p = location.hash.slice(1).split("/"); if (p[0] === "generador" && ["spf","dmarc","bimi"].includes(p[1]) && GS.tab !== p[1]){ GS.tab = p[1]; genView(); } });
 { const p = location.hash.slice(1).split("/"); if (p[0] === "generador" && ["spf","dmarc","bimi"].includes(p[1])) GS.tab = p[1]; }
 route(true);
+/* ---------- Alertas por Telegram ---------- */
+const TGB = (typeof TELEGRAM !== "undefined" && TELEGRAM && TELEGRAM.bot) ? String(TELEGRAM.bot).trim().replace(/^@/, "") : "";
+const tgLink = d => `https://t.me/${encodeURIComponent(TGB)}` + (d && d.length <= 45 ? "?start=d_" + btoa(d).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "") : "");
+function tgCard(){
+  const out = $("#dmResult"); if (!out || !TGB) return;
+  const old = out.querySelector(".tg-card");
+  const dEl = out.querySelector(".verdict .domain-name");
+  if (!dEl){ if (old) old.remove(); return; }
+  const d = cleanDom(dEl.textContent);
+  const html = `<div class="tg-ico" aria-hidden="true">${TG_SVG}</div><div><h3>${esc(L("tg.cardT", {d}))}</h3><p>${esc(L("tg.cardP"))}</p></div><a class="btn btn-primary" href="${tgLink(d)}" target="_blank" rel="noopener">${esc(L("tg.btn"))}</a>`;
+  if (old){ if (old.dataset.k !== d + NT.cur()){ old.innerHTML = html; old.dataset.k = d + NT.cur(); } return; }
+  const card = document.createElement("div"); card.className = "tg-card block"; card.dataset.k = d + NT.cur(); card.innerHTML = html;
+  const anchor = out.querySelector(".req") || out.querySelector(".verdict");
+  anchor.insertAdjacentElement("afterend", card);
+}
+const TG_SVG = `<svg width="28" height="28" viewBox="0 0 24 24"><path d="M21 4L3 11l6 2 2 6 3-4 5 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 13l8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+if (TGB){
+  const h = $("#tgHome"); if (h){ h.hidden = false; const b = $("#tgHomeBtn"); if (b) b.href = tgLink(""); }
+  const r = $("#dmResult"); if (r && window.MutationObserver){ let busy = false; new MutationObserver(() => { if (busy) return; busy = true; requestAnimationFrame(() => { tgCard(); busy = false; }); }).observe(r, {childList:true}); }
+  window.addEventListener("langchange", () => setTimeout(tgCard, 0));
+}
+/* Política de privacidad: apartado sobre las alertas */
+function tgPrivacy(){
+  const doc = $("#privacyDoc"); if (!doc || !TGB || doc.querySelector(".tg-priv")) return;
+  doc.insertAdjacentHTML("beforeend", `<section class="tg-priv"><h2>${esc(L("tg.privH"))}</h2>${L("tg.privP", {bot:esc(TGB)})}</section>`);
+}
+tgPrivacy(); window.addEventListener("langchange", () => setTimeout(tgPrivacy, 0));
+
 /* Enlaces a las guías publicadas como páginas propias, en el idioma activo */
 const fixStatic = () => document.querySelectorAll("[data-static]").forEach(a => { a.href = (NT.cur() === "es" ? "" : "/" + NT.cur()) + "/" + a.dataset.static + "/"; });
 fixStatic(); window.addEventListener("langchange", fixStatic);

@@ -191,6 +191,14 @@ Además de la sección de guías dentro de la web, cada guía y el glosario tien
 
 Cada página incluye título y descripción propios, enlaces entre idiomas (hreflang), datos estructurados para Google (artículo, migas de pan y glosario) y enlaces a las herramientas. El archivo `sitemap.xml` reúne todas las direcciones y `robots.txt` indica a los buscadores dónde encontrarlo.
 
+## Alertas gratis por Telegram (nuevo)
+
+Un bot de Telegram vigila los dominios cada 6 horas y avisa al móvil si algo cambia o falla: registros **MX, SPF, DKIM y DMARC**, **listas negras** (dominio e IPs del SPF) y **certificado SSL** a punto de caducar. Cada lunes envía un resumen. Cualquiera puede usarlo, con un máximo de 3 dominios por persona.
+
+Comandos: `/vigilar dominio.com`, `/lista`, `/revisar dominio.com`, `/quitar dominio.com`, `/idioma` y `/baja` (borra todos los datos). El bot habla los cinco idiomas de la web. Desde el resultado de «Mi dominio» se puede activar la vigilancia del dominio con un solo toque.
+
+Funciona en el mismo Cloudflare Worker que la IA, con Workers KV para guardar los dominios y una tarea programada cada minuto que revisa una pequeña tanda de dominios.
+
 ## Idiomas
 
 La web está disponible en **español, inglés, italiano, francés y portugués**, incluidos todos los resultados de los análisis y los informes en PDF. Detecta el idioma de tu navegador y puedes cambiarlo en el selector de la barra superior. El asistente de IA responde en el idioma elegido.
