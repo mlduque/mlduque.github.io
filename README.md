@@ -182,6 +182,15 @@ Asistentes paso a paso para crear registros correctos, listos para copiar en tu 
 
 Seis guías prácticas (SPF, DKIM y DMARC; requisitos de Gmail, Yahoo y Microsoft; por qué los emails van a spam; listas negras; rebotes; BIMI) y un glosario con buscador de 40 términos de entregabilidad, en los cinco idiomas. Cada guía tiene su propio enlace, por ejemplo [mlduque.github.io/#guias/autenticacion](https://mlduque.github.io/#guias/autenticacion).
 
+## Guías en Google (páginas propias)
+
+Además de la sección de guías dentro de la web, cada guía y el glosario tienen su propia página, en los cinco idiomas, para que Google pueda indexarlas:
+
+- Guías: [mlduque.github.io/guias/](https://mlduque.github.io/guias/) (en otros idiomas: `/en/guias/`, `/it/guias/`, `/fr/guias/`, `/pt/guias/`)
+- Glosario: [mlduque.github.io/glosario/](https://mlduque.github.io/glosario/)
+
+Cada página incluye título y descripción propios, enlaces entre idiomas (hreflang), datos estructurados para Google (artículo, migas de pan y glosario) y enlaces a las herramientas. El archivo `sitemap.xml` reúne todas las direcciones y `robots.txt` indica a los buscadores dónde encontrarlo.
+
 ## Idiomas
 
 La web está disponible en **español, inglés, italiano, francés y portugués**, incluidos todos los resultados de los análisis y los informes en PDF. Detecta el idioma de tu navegador y puedes cambiarlo en el selector de la barra superior. El asistente de IA responde en el idioma elegido.
