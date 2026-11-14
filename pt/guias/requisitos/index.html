@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Requisitos do Gmail, Yahoo e Microsoft para envios em massa · Email Seguro</title>
+<meta name="description" content="As regras que deve cumprir desde 2024 se envia muitos emails, e como verificar que as cumpre.">
+<link rel="canonical" href="https://mlduque.github.io/pt/guias/requisitos/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/requisitos/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/requisitos/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/requisitos/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/requisitos/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/requisitos/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/requisitos/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/pt/guias/requisitos/">
+<meta property="og:title" content="Requisitos do Gmail, Yahoo e Microsoft para envios em massa · Email Seguro">
+<meta property="og:description" content="As regras que deve cumprir desde 2024 se envia muitos emails, e como verificar que as cumpre.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="pt_PT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Requisitos do Gmail, Yahoo e Microsoft para envios em massa","description":"As regras que deve cumprir desde 2024 se envia muitos emails, e como verificar que as cumpre.","inLanguage":"pt","datePublished":"2026-11-14","dateModified":"2026-11-14","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/pt/guias/requisitos/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://mlduque.github.io/?lang=pt"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://mlduque.github.io/pt/guias/"},{"@type":"ListItem","position":3,"name":"Requisitos do Gmail, Yahoo e Microsoft para envios em massa","item":"https://mlduque.github.io/pt/guias/requisitos/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar para o conteúdo</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/?lang=pt"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Ferramentas">
+    <a href="/pt/guias/" aria-current="page">Guias</a>
+    <a href="/pt/glosario/">Glossário</a>
+    <a href="/?lang=pt#sobre-mi">Sobre mim</a>
+    <a class="btn btn-primary" href="/?lang=pt">Ferramentas</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/?lang=pt">Início</a> › <a href="/pt/guias/">Guias</a></p>
+  <span class="kicker"><i></i><span>Guias de entregabilidade · 2 min de leitura</span></span>
+  <h1>Requisitos do Gmail, Yahoo e Microsoft para envios em massa</h1>
+  <p class="lead">As regras que deve cumprir desde 2024 se envia muitos emails, e como verificar que as cumpre.</p>
+  <p class="gd-by">Por <a href="/?lang=pt#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-14">Atualizado 2026-11-14</time></p>
+  <nav class="toc" aria-label="Neste guia"><strong>Neste guia</strong><ol><li><a href="#quem-e-considerado-remetente-em-massa">Quem é considerado remetente em massa</a></li><li><a href="#autenticacao-obrigatoria">Autenticação obrigatória</a></li><li><a href="#cancelamento-com-um-clique">Cancelamento com um clique</a></li><li><a href="#taxa-de-queixas-de-spam">Taxa de queixas de spam</a></li><li><a href="#o-que-acontece-se-nao-os-cumprir">O que acontece se não os cumprir</a></li></ol></nav>
+  <section id="quem-e-considerado-remetente-em-massa"><h2>Quem é considerado remetente em massa</h2><p>O Gmail e o Yahoo aplicam requisitos mais rigorosos a quem envia <strong>mais de 5.000 emails por dia</strong> para os seus utilizadores. A Microsoft (Outlook.com, Hotmail e Live) aplica o mesmo limiar desde maio de 2025. Depois de o ultrapassar, passa a ser considerado remetente em massa de forma permanente.</p><p>Mesmo que envie menos, cumprir estes requisitos é a melhor forma de chegar à caixa de entrada: os filtros premeiam quem os cumpre.</p></section>
+  <section id="autenticacao-obrigatoria"><h2>Autenticação obrigatória</h2><ul><li><strong>SPF e DKIM</strong> configurados para o seu domínio.</li><li><strong>DMARC</strong> publicado, pelo menos com <code>p=none</code>.</li><li><strong>Alinhamento</strong>: o domínio do «De» tem de coincidir com o do SPF ou com o do DKIM.</li><li><strong>DNS inverso (PTR)</strong> válido nos IPs de envio.</li><li>Ligação cifrada com <strong>TLS</strong>.</li></ul><p>Para todos os remetentes, mesmo os pequenos, o Gmail exige pelo menos SPF ou DKIM.</p></section>
+  <section id="cancelamento-com-um-clique"><h2>Cancelamento com um clique</h2><p>Os emails comerciais têm de incluir os cabeçalhos <code>List-Unsubscribe</code> e <code>List-Unsubscribe-Post: List-Unsubscribe=One-Click</code>, que permitem cancelar a subscrição com um só clique a partir da interface do fornecedor, além de uma ligação de cancelamento visível no email. Os cancelamentos têm de ser processados no máximo em 2 dias.</p><p>A maioria das plataformas de email marketing já acrescenta estes cabeçalhos: confirme-o com a auditoria completa.</p></section>
+  <section id="taxa-de-queixas-de-spam"><h2>Taxa de queixas de spam</h2><p>O Gmail pede para manter a taxa de queixas abaixo de <strong>0,1%</strong> e nunca chegar a <strong>0,3%</strong>, ou seja, menos de 1 queixa por cada 1.000 emails entregues. Pode vê-la no Google Postmaster Tools.</p><p>Para a manter baixa: envie apenas a quem lhe deu autorização, deixe de enviar aos inativos, facilite o cancelamento e cumpra o que prometeu na subscrição.</p></section>
+  <section id="o-que-acontece-se-nao-os-cumprir"><h2>O que acontece se não os cumprir</h2><p>Os emails que não cumprem a autenticação são rejeitados com erros como <code>550 5.7.26</code> (Gmail) ou <code>550 5.7.515</code> (Microsoft), ou adiados com avisos temporários. Se a sua taxa de queixas for alta, os seus emails vão para spam mesmo que tudo o resto esteja bem. Use o tradutor de bounces para interpretar qualquer erro que receba.</p></section>
+  <div class="todo gd-tools"><h3>Ponha em prática</h3><div class="actions"><a class="btn btn-primary" href="/?lang=pt#auditoria">Auditar um email</a><a class="btn btn-primary" href="/?lang=pt#dominio">Verificar o meu domínio</a></div></div>
+  <div class="gd-next"><span class="minor">Mais guias</span><ul><li><a href="/pt/guias/autenticacion/"><strong>SPF, DKIM e DMARC explicados sem tecnicismos</strong></a></li><li><a href="/pt/guias/spam/"><strong>Porque é que os seus emails vão para spam: 10 causas e como corrigi-las</strong></a></li><li><a href="/pt/guias/listas-negras/"><strong>Listas negras: como saber se está numa e como sair</strong></a></li><li><a href="/pt/glosario/">Ver o glossário completo →</a></li></ul></div>
+  <div class="gd-cta"><h2>Experimente as ferramentas grátis</h2><p>Verifique o seu domínio, audite um email, traduza um bounce ou gere os seus registos SPF, DMARC e BIMI. Grátis e sem registo.</p><a class="btn btn-yellow" href="/?lang=pt">Ferramentas →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Ferramentas gratuitas e indicativas de entregabilidade de email. Nenhuma análise automática é infalível.</p>
+      <p class="langs" aria-label="Idioma"><a href="/guias/requisitos/" hreflang="es" lang="es">ES</a><a href="/en/guias/requisitos/" hreflang="en" lang="en">EN</a><a href="/it/guias/requisitos/" hreflang="it" lang="it">IT</a><a href="/fr/guias/requisitos/" hreflang="fr" lang="fr">FR</a><a href="/pt/guias/requisitos/" hreflang="pt" lang="pt" aria-current="true">PT</a></p></div>
+    <div><h4>Guias</h4><ul><li><a href="/pt/guias/autenticacion/">SPF, DKIM e DMARC explicados sem tecnicismos</a></li><li><a href="/pt/guias/requisitos/">Requisitos do Gmail, Yahoo e Microsoft para envios em massa</a></li><li><a href="/pt/guias/spam/">Porque é que os seus emails vão para spam: 10 causas e como corrigi-las</a></li><li><a href="/pt/guias/listas-negras/">Listas negras: como saber se está numa e como sair</a></li><li><a href="/pt/guias/rebotes/">Bounces: hard, soft e o que fazer com cada um</a></li><li><a href="/pt/guias/bimi/">BIMI: como mostrar o seu logótipo na caixa de entrada</a></li><li><a href="/pt/glosario/">Glossário</a></li></ul></div>
+    <div><h4>Ferramentas</h4><ul><li><a href="/?lang=pt#auditoria">Auditar um email</a></li><li><a href="/?lang=pt#dominio">Verificar o meu domínio</a></li><li><a href="/?lang=pt#rebotes">Traduzir um bounce</a></li><li><a href="/?lang=pt#generador">Gerar os meus registos</a></li><li><a href="/?lang=pt#campana">Testar a minha campanha</a></li><li><a href="/?lang=pt#bbdd">Limpar a minha base de dados</a></li><li><a href="/?lang=pt#dmarc">Analisar relatórios DMARC</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/?lang=pt#sobre-mi">Sobre mim</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Atualizado: 2026-11-14</span></div>
+</footer>
+</body>
+</html>

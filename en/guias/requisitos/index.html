@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gmail, Yahoo and Microsoft requirements for bulk senders · Email Seguro</title>
+<meta name="description" content="The rules you must follow since 2024 if you send a lot of email, and how to check you meet them.">
+<link rel="canonical" href="https://mlduque.github.io/en/guias/requisitos/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/requisitos/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/requisitos/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/requisitos/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/requisitos/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/requisitos/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/requisitos/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/en/guias/requisitos/">
+<meta property="og:title" content="Gmail, Yahoo and Microsoft requirements for bulk senders · Email Seguro">
+<meta property="og:description" content="The rules you must follow since 2024 if you send a lot of email, and how to check you meet them.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Gmail, Yahoo and Microsoft requirements for bulk senders","description":"The rules you must follow since 2024 if you send a lot of email, and how to check you meet them.","inLanguage":"en","datePublished":"2026-11-14","dateModified":"2026-11-14","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/en/guias/requisitos/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mlduque.github.io/?lang=en"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mlduque.github.io/en/guias/"},{"@type":"ListItem","position":3,"name":"Gmail, Yahoo and Microsoft requirements for bulk senders","item":"https://mlduque.github.io/en/guias/requisitos/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/?lang=en"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Tools">
+    <a href="/en/guias/" aria-current="page">Guides</a>
+    <a href="/en/glosario/">Glossary</a>
+    <a href="/?lang=en#sobre-mi">About me</a>
+    <a class="btn btn-primary" href="/?lang=en">Tools</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/?lang=en">Home</a> › <a href="/en/guias/">Guides</a></p>
+  <span class="kicker"><i></i><span>Deliverability guides · 2 min read</span></span>
+  <h1>Gmail, Yahoo and Microsoft requirements for bulk senders</h1>
+  <p class="lead">The rules you must follow since 2024 if you send a lot of email, and how to check you meet them.</p>
+  <p class="gd-by">By <a href="/?lang=en#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-14">Updated 2026-11-14</time></p>
+  <nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#who-counts-as-a-bulk-sender">Who counts as a bulk sender</a></li><li><a href="#mandatory-authentication">Mandatory authentication</a></li><li><a href="#one-click-unsubscribe">One-click unsubscribe</a></li><li><a href="#spam-complaint-rate">Spam complaint rate</a></li><li><a href="#what-happens-if-you-don-t-comply">What happens if you don&#39;t comply</a></li></ol></nav>
+  <section id="who-counts-as-a-bulk-sender"><h2>Who counts as a bulk sender</h2><p>Gmail and Yahoo apply stricter requirements to anyone sending <strong>more than 5,000 emails a day</strong> to their users. Microsoft (Outlook.com, Hotmail and Live) has applied the same threshold since May 2025. Once you cross it, you're considered a bulk sender permanently.</p><p>Even if you send less, meeting these requirements is the best way to reach the inbox: filters reward those who do.</p></section>
+  <section id="mandatory-authentication"><h2>Mandatory authentication</h2><ul><li><strong>SPF and DKIM</strong> set up for your domain.</li><li><strong>DMARC</strong> published, with at least <code>p=none</code>.</li><li><strong>Alignment</strong>: the «From» domain must match the SPF or the DKIM domain.</li><li>Valid <strong>reverse DNS (PTR)</strong> on the sending IPs.</li><li>An encrypted <strong>TLS</strong> connection.</li></ul><p>For all senders, even small ones, Gmail requires at least SPF or DKIM.</p></section>
+  <section id="one-click-unsubscribe"><h2>One-click unsubscribe</h2><p>Commercial emails must include the <code>List-Unsubscribe</code> and <code>List-Unsubscribe-Post: List-Unsubscribe=One-Click</code> headers, which allow unsubscribing with one click from the provider's interface, plus a visible unsubscribe link in the email. Unsubscribes must be processed within 2 days.</p><p>Most email marketing platforms already add these headers: check it with the full audit.</p></section>
+  <section id="spam-complaint-rate"><h2>Spam complaint rate</h2><p>Gmail asks you to keep the complaint rate below <strong>0.1%</strong> and never reach <strong>0.3%</strong>. That is, fewer than 1 complaint per 1,000 delivered emails. You can see it in Google Postmaster Tools.</p><p>To keep it low: only send to people who gave you permission, stop mailing inactive contacts, make unsubscribing easy and deliver what you promised at sign-up.</p></section>
+  <section id="what-happens-if-you-don-t-comply"><h2>What happens if you don&#39;t comply</h2><p>Emails that don't meet the authentication rules are rejected with errors such as <code>550 5.7.26</code> (Gmail) or <code>550 5.7.515</code> (Microsoft), or deferred with temporary errors. If your complaint rate is high, your emails will go to spam even if everything else is right. Use the bounce translator to interpret any error you receive.</p></section>
+  <div class="todo gd-tools"><h3>Put it into practice</h3><div class="actions"><a class="btn btn-primary" href="/?lang=en#auditoria">Audit an email</a><a class="btn btn-primary" href="/?lang=en#dominio">Check my domain</a></div></div>
+  <div class="gd-next"><span class="minor">More guides</span><ul><li><a href="/en/guias/autenticacion/"><strong>SPF, DKIM and DMARC explained without jargon</strong></a></li><li><a href="/en/guias/spam/"><strong>Why your emails go to spam: 10 causes and how to fix them</strong></a></li><li><a href="/en/guias/listas-negras/"><strong>Blocklists: how to know if you&#39;re on one and how to get off</strong></a></li><li><a href="/en/glosario/">See the full glossary →</a></li></ul></div>
+  <div class="gd-cta"><h2>Try the tools for free</h2><p>Check your domain, audit an email, translate a bounce or generate your SPF, DMARC and BIMI records. Free and with no sign-up.</p><a class="btn btn-yellow" href="/?lang=en">Tools →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Free, indicative email deliverability tools. No automated analysis is infallible.</p>
+      <p class="langs" aria-label="Language"><a href="/guias/requisitos/" hreflang="es" lang="es">ES</a><a href="/en/guias/requisitos/" hreflang="en" lang="en" aria-current="true">EN</a><a href="/it/guias/requisitos/" hreflang="it" lang="it">IT</a><a href="/fr/guias/requisitos/" hreflang="fr" lang="fr">FR</a><a href="/pt/guias/requisitos/" hreflang="pt" lang="pt">PT</a></p></div>
+    <div><h4>Guides</h4><ul><li><a href="/en/guias/autenticacion/">SPF, DKIM and DMARC explained without jargon</a></li><li><a href="/en/guias/requisitos/">Gmail, Yahoo and Microsoft requirements for bulk senders</a></li><li><a href="/en/guias/spam/">Why your emails go to spam: 10 causes and how to fix them</a></li><li><a href="/en/guias/listas-negras/">Blocklists: how to know if you&#39;re on one and how to get off</a></li><li><a href="/en/guias/rebotes/">Bounces: hard, soft and what to do with each</a></li><li><a href="/en/guias/bimi/">BIMI: how to show your logo in the inbox</a></li><li><a href="/en/glosario/">Glossary</a></li></ul></div>
+    <div><h4>Tools</h4><ul><li><a href="/?lang=en#auditoria">Audit an email</a></li><li><a href="/?lang=en#dominio">Check my domain</a></li><li><a href="/?lang=en#rebotes">Translate a bounce</a></li><li><a href="/?lang=en#generador">Generate my records</a></li><li><a href="/?lang=en#campana">Test my campaign</a></li><li><a href="/?lang=en#bbdd">Clean my database</a></li><li><a href="/?lang=en#dmarc">Analyse DMARC reports</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/?lang=en#sobre-mi">About me</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Updated: 2026-11-14</span></div>
+</footer>
+</body>
+</html>

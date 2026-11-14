@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SPF, DKIM e DMARC spiegati senza tecnicismi · Email Seguro</title>
+<meta name="description" content="Cosa sono i tre record che decidono se le tue email sono affidabili, come funzionano insieme e in che ordine configurarli.">
+<link rel="canonical" href="https://mlduque.github.io/it/guias/autenticacion/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/autenticacion/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/autenticacion/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/autenticacion/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/autenticacion/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/autenticacion/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/autenticacion/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/it/guias/autenticacion/">
+<meta property="og:title" content="SPF, DKIM e DMARC spiegati senza tecnicismi · Email Seguro">
+<meta property="og:description" content="Cosa sono i tre record che decidono se le tue email sono affidabili, come funzionano insieme e in che ordine configurarli.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"SPF, DKIM e DMARC spiegati senza tecnicismi","description":"Cosa sono i tre record che decidono se le tue email sono affidabili, come funzionano insieme e in che ordine configurarli.","inLanguage":"it","datePublished":"2026-11-14","dateModified":"2026-11-14","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/it/guias/autenticacion/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mlduque.github.io/?lang=it"},{"@type":"ListItem","position":2,"name":"Guide","item":"https://mlduque.github.io/it/guias/"},{"@type":"ListItem","position":3,"name":"SPF, DKIM e DMARC spiegati senza tecnicismi","item":"https://mlduque.github.io/it/guias/autenticacion/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/?lang=it"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Strumenti">
+    <a href="/it/guias/" aria-current="page">Guide</a>
+    <a href="/it/glosario/">Glossario</a>
+    <a href="/?lang=it#sobre-mi">Chi sono</a>
+    <a class="btn btn-primary" href="/?lang=it">Strumenti</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/?lang=it">Home</a> › <a href="/it/guias/">Guide</a></p>
+  <span class="kicker"><i></i><span>Guide alla deliverability · 2 min di lettura</span></span>
+  <h1>SPF, DKIM e DMARC spiegati senza tecnicismi</h1>
+  <p class="lead">Cosa sono i tre record che decidono se le tue email sono affidabili, come funzionano insieme e in che ordine configurarli.</p>
+  <p class="gd-by">Di <a href="/?lang=it#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-14">Aggiornato 2026-11-14</time></p>
+  <nav class="toc" aria-label="In questa guida"><strong>In questa guida</strong><ol><li><a href="#il-problema-che-risolvono">Il problema che risolvono</a></li><li><a href="#spf-la-lista-degli-invitati">SPF: la lista degli invitati</a></li><li><a href="#dkim-la-firma-dell-email">DKIM: la firma dell&#39;email</a></li><li><a href="#dmarc-quello-che-detta-le-regole">DMARC: quello che detta le regole</a></li><li><a href="#in-che-ordine-configurarli">In che ordine configurarli</a></li></ol></nav>
+  <section id="il-problema-che-risolvono"><h2>Il problema che risolvono</h2><p>L'email è nata senza alcun sistema per verificare chi invia ogni messaggio: chiunque può scrivere il tuo indirizzo nel campo «Da». SPF, DKIM e DMARC sono tre record che pubblichi nei DNS del tuo dominio perché Gmail, Outlook o Yahoo possano verificare che un'email che dice di venire da te l'hai inviata davvero tu.</p><p>Dal 2024 Gmail e Yahoo li richiedono a chi invia email in modo massivo, e Microsoft si è aggiunta nel 2025. Senza di essi, le tue email finiscono in spam o vengono rifiutate.</p></section>
+  <section id="spf-la-lista-degli-invitati"><h2>SPF: la lista degli invitati</h2><p>SPF (Sender Policy Framework) è l'elenco dei server autorizzati a inviare email con il tuo dominio. Quando arriva un'email, il server di destinazione guarda da quale IP è stata inviata e verifica se è nell'elenco.</p><p>Un esempio: <code>v=spf1 include:_spf.google.com include:sendgrid.net ~all</code> significa «possono inviare Google e SendGrid; tutti gli altri sono sospetti».</p><p>Due regole d'oro: un dominio può avere <strong>un solo</strong> record SPF, e non può richiedere più di <strong>10 ricerche DNS</strong>. Se le superi, SPF fallisce.</p></section>
+  <section id="dkim-la-firma-dell-email"><h2>DKIM: la firma dell&#39;email</h2><p>DKIM (DomainKeys Identified Mail) aggiunge una firma digitale a ogni email. La piattaforma firma con una chiave privata e tu pubblichi la chiave pubblica nei DNS. Il destinatario verifica la firma e sa due cose: che l'email l'ha inviata qualcuno autorizzato dal tuo dominio e che nessuno l'ha modificata lungo il percorso.</p><p>A differenza di SPF, DKIM sopravvive agli inoltri: per questo è il più affidabile dei tre. Usa chiavi da 2048 bit e assicurati che ogni strumento firmi con il <strong>tuo</strong> dominio, non con il suo.</p></section>
+  <section id="dmarc-quello-che-detta-le-regole"><h2>DMARC: quello che detta le regole</h2><p>DMARC unisce gli altri due e aggiunge il pezzo chiave: l'<strong>allineamento</strong>. Un'email supera DMARC se SPF o DKIM passano <em>con lo stesso dominio che compare nel «Da»</em>. Inoltre, DMARC dice cosa fare con quelle che falliscono:</p><ul><li><code>p=none</code>: solo osservare e inviarti report.</li><li><code>p=quarantine</code>: mandarle in spam.</li><li><code>p=reject</code>: rifiutarle.</li></ul><p>E la parte più utile: con il tag <code>rua</code> ricevi ogni giorno i report di tutti i server che inviano con il tuo dominio.</p></section>
+  <section id="in-che-ordine-configurarli"><h2>In che ordine configurarli</h2><ol><li>Elenca tutto ciò che invia email con il tuo dominio: posta aziendale, newsletter, e-commerce, CRM, fatturazione, sito.</li><li>Crea un unico SPF che li includa tutti.</li><li>Attiva DKIM con il tuo dominio in ogni strumento.</li><li>Pubblica DMARC con <code>p=none</code> e un indirizzo <code>rua</code>.</li><li>Rivedi i report per 2-4 settimane e correggi ciò che fallisce.</li><li>Passa a <code>p=quarantine</code> e, più avanti, a <code>p=reject</code>.</li></ol><p>Puoi creare i tre record con i nostri generatori e verificare il risultato in «Il mio dominio».</p></section>
+  <div class="todo gd-tools"><h3>Mettilo in pratica</h3><div class="actions"><a class="btn btn-primary" href="/?lang=it#generador">Genera i miei record</a><a class="btn btn-primary" href="/?lang=it#dominio">Verifica il mio dominio</a></div></div>
+  <div class="gd-next"><span class="minor">Altre guide</span><ul><li><a href="/it/guias/requisitos/"><strong>Requisiti di Gmail, Yahoo e Microsoft per gli invii massivi</strong></a></li><li><a href="/it/guias/spam/"><strong>Perché le tue email finiscono in spam: 10 cause e come risolverle</strong></a></li><li><a href="/it/guias/listas-negras/"><strong>Blacklist: come sapere se ci sei e come uscirne</strong></a></li><li><a href="/it/glosario/">Vedi il glossario completo →</a></li></ul></div>
+  <div class="gd-cta"><h2>Prova gli strumenti gratis</h2><p>Verifica il tuo dominio, fai l&#39;audit di un&#39;email, traduci un bounce o genera i tuoi record SPF, DMARC e BIMI. Gratis e senza registrazione.</p><a class="btn btn-yellow" href="/?lang=it">Strumenti →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Strumenti gratuiti e indicativi di email deliverability. Nessuna analisi automatica è infallibile.</p>
+      <p class="langs" aria-label="Lingua"><a href="/guias/autenticacion/" hreflang="es" lang="es">ES</a><a href="/en/guias/autenticacion/" hreflang="en" lang="en">EN</a><a href="/it/guias/autenticacion/" hreflang="it" lang="it" aria-current="true">IT</a><a href="/fr/guias/autenticacion/" hreflang="fr" lang="fr">FR</a><a href="/pt/guias/autenticacion/" hreflang="pt" lang="pt">PT</a></p></div>
+    <div><h4>Guide</h4><ul><li><a href="/it/guias/autenticacion/">SPF, DKIM e DMARC spiegati senza tecnicismi</a></li><li><a href="/it/guias/requisitos/">Requisiti di Gmail, Yahoo e Microsoft per gli invii massivi</a></li><li><a href="/it/guias/spam/">Perché le tue email finiscono in spam: 10 cause e come risolverle</a></li><li><a href="/it/guias/listas-negras/">Blacklist: come sapere se ci sei e come uscirne</a></li><li><a href="/it/guias/rebotes/">Bounce: hard, soft e cosa fare con ciascuno</a></li><li><a href="/it/guias/bimi/">BIMI: come mostrare il tuo logo nella posta in arrivo</a></li><li><a href="/it/glosario/">Glossario</a></li></ul></div>
+    <div><h4>Strumenti</h4><ul><li><a href="/?lang=it#auditoria">Fai l&#39;audit di un&#39;email</a></li><li><a href="/?lang=it#dominio">Verifica il mio dominio</a></li><li><a href="/?lang=it#rebotes">Traduci un bounce</a></li><li><a href="/?lang=it#generador">Genera i miei record</a></li><li><a href="/?lang=it#campana">Prova la campagna</a></li><li><a href="/?lang=it#bbdd">Pulisci il mio database</a></li><li><a href="/?lang=it#dmarc">Analizza report DMARC</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/?lang=it#sobre-mi">Chi sono</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Aggiornato: 2026-11-14</span></div>
+</footer>
+</body>
+</html>

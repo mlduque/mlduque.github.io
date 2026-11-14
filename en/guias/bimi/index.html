@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BIMI: how to show your logo in the inbox · Email Seguro</title>
+<meta name="description" content="What BIMI is, what you need for your logo to appear in Gmail, Yahoo and Apple Mail, and how much it costs.">
+<link rel="canonical" href="https://mlduque.github.io/en/guias/bimi/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/bimi/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/bimi/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/bimi/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/bimi/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/bimi/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/bimi/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/en/guias/bimi/">
+<meta property="og:title" content="BIMI: how to show your logo in the inbox · Email Seguro">
+<meta property="og:description" content="What BIMI is, what you need for your logo to appear in Gmail, Yahoo and Apple Mail, and how much it costs.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"BIMI: how to show your logo in the inbox","description":"What BIMI is, what you need for your logo to appear in Gmail, Yahoo and Apple Mail, and how much it costs.","inLanguage":"en","datePublished":"2026-11-14","dateModified":"2026-11-14","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/en/guias/bimi/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mlduque.github.io/?lang=en"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mlduque.github.io/en/guias/"},{"@type":"ListItem","position":3,"name":"BIMI: how to show your logo in the inbox","item":"https://mlduque.github.io/en/guias/bimi/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/?lang=en"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Tools">
+    <a href="/en/guias/" aria-current="page">Guides</a>
+    <a href="/en/glosario/">Glossary</a>
+    <a href="/?lang=en#sobre-mi">About me</a>
+    <a class="btn btn-primary" href="/?lang=en">Tools</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/?lang=en">Home</a> › <a href="/en/guias/">Guides</a></p>
+  <span class="kicker"><i></i><span>Deliverability guides · 2 min read</span></span>
+  <h1>BIMI: how to show your logo in the inbox</h1>
+  <p class="lead">What BIMI is, what you need for your logo to appear in Gmail, Yahoo and Apple Mail, and how much it costs.</p>
+  <p class="gd-by">By <a href="/?lang=en#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-14">Updated 2026-11-14</time></p>
+  <nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#what-bimi-is">What BIMI is</a></li><li><a href="#requirements">Requirements</a></li><li><a href="#the-record">The record</a></li><li><a href="#is-it-worth-it">Is it worth it?</a></li></ol></nav>
+  <section id="what-bimi-is"><h2>What BIMI is</h2><p>BIMI (Brand Indicators for Message Identification) lets your brand logo appear next to your emails in the inbox. Besides visibility, it conveys trust: only domains well protected against spoofing can show it. In Gmail, with a certificate, a blue verified checkmark also appears.</p></section>
+  <section id="requirements"><h2>Requirements</h2><ol><li><strong>DMARC in enforcement mode</strong>: <code>p=quarantine</code> or <code>p=reject</code>, applied at 100% and without <code>sp=none</code>.</li><li><strong>Logo in SVG Tiny PS</strong>: a restricted, square SVG format with no scripts or external links, published at an https address.</li><li><strong>Certificate</strong>: Gmail and Apple Mail require a VMC (Verified Mark Certificate), which needs a registered trademark, or in Gmail also a CMC (Common Mark Certificate), which requires having used the logo for at least a year.</li><li><strong>Good reputation</strong>: even if you meet everything, providers only show the logo for trusted senders.</li></ol></section>
+  <section id="the-record"><h2>The record</h2><p>It's published as a TXT at <code>default._bimi.yourdomain.com</code>:</p><p><code>v=BIMI1; l=https://yourdomain.com/logo.svg; a=https://yourdomain.com/vmc.pem;</code></p><p><code>l</code> is the logo address and <code>a</code> the certificate's. Without a certificate, leave <code>a=</code> empty.</p></section>
+  <section id="is-it-worth-it"><h2>Is it worth it?</h2><p>If you already have DMARC at <code>reject</code>, BIMI is the natural next step and improves brand recognition. If you're still on <code>p=none</code>, focus on protecting your domain first: BIMI is the reward, not the starting point.</p></section>
+  <div class="todo gd-tools"><h3>Put it into practice</h3><div class="actions"><a class="btn btn-primary" href="/?lang=en#generador">Generate my records</a><a class="btn btn-primary" href="/?lang=en#dominio">Check my domain</a></div></div>
+  <div class="gd-next"><span class="minor">More guides</span><ul><li><a href="/en/guias/autenticacion/"><strong>SPF, DKIM and DMARC explained without jargon</strong></a></li><li><a href="/en/guias/requisitos/"><strong>Gmail, Yahoo and Microsoft requirements for bulk senders</strong></a></li><li><a href="/en/guias/spam/"><strong>Why your emails go to spam: 10 causes and how to fix them</strong></a></li><li><a href="/en/glosario/">See the full glossary →</a></li></ul></div>
+  <div class="gd-cta"><h2>Try the tools for free</h2><p>Check your domain, audit an email, translate a bounce or generate your SPF, DMARC and BIMI records. Free and with no sign-up.</p><a class="btn btn-yellow" href="/?lang=en">Tools →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Free, indicative email deliverability tools. No automated analysis is infallible.</p>
+      <p class="langs" aria-label="Language"><a href="/guias/bimi/" hreflang="es" lang="es">ES</a><a href="/en/guias/bimi/" hreflang="en" lang="en" aria-current="true">EN</a><a href="/it/guias/bimi/" hreflang="it" lang="it">IT</a><a href="/fr/guias/bimi/" hreflang="fr" lang="fr">FR</a><a href="/pt/guias/bimi/" hreflang="pt" lang="pt">PT</a></p></div>
+    <div><h4>Guides</h4><ul><li><a href="/en/guias/autenticacion/">SPF, DKIM and DMARC explained without jargon</a></li><li><a href="/en/guias/requisitos/">Gmail, Yahoo and Microsoft requirements for bulk senders</a></li><li><a href="/en/guias/spam/">Why your emails go to spam: 10 causes and how to fix them</a></li><li><a href="/en/guias/listas-negras/">Blocklists: how to know if you&#39;re on one and how to get off</a></li><li><a href="/en/guias/rebotes/">Bounces: hard, soft and what to do with each</a></li><li><a href="/en/guias/bimi/">BIMI: how to show your logo in the inbox</a></li><li><a href="/en/glosario/">Glossary</a></li></ul></div>
+    <div><h4>Tools</h4><ul><li><a href="/?lang=en#auditoria">Audit an email</a></li><li><a href="/?lang=en#dominio">Check my domain</a></li><li><a href="/?lang=en#rebotes">Translate a bounce</a></li><li><a href="/?lang=en#generador">Generate my records</a></li><li><a href="/?lang=en#campana">Test my campaign</a></li><li><a href="/?lang=en#bbdd">Clean my database</a></li><li><a href="/?lang=en#dmarc">Analyse DMARC reports</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/?lang=en#sobre-mi">About me</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Updated: 2026-11-14</span></div>
+</footer>
+</body>
+</html>

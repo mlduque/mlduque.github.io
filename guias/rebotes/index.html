@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rebotes: duros, blandos y qué hacer con cada uno · Email Seguro</title>
+<meta name="description" content="Cómo leer un rebote, qué diferencia hay entre los tipos y cuándo debes eliminar un contacto de tu lista.">
+<link rel="canonical" href="https://mlduque.github.io/guias/rebotes/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/rebotes/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/rebotes/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/rebotes/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/rebotes/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/rebotes/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/rebotes/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/guias/rebotes/">
+<meta property="og:title" content="Rebotes: duros, blandos y qué hacer con cada uno · Email Seguro">
+<meta property="og:description" content="Cómo leer un rebote, qué diferencia hay entre los tipos y cuándo debes eliminar un contacto de tu lista.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Rebotes: duros, blandos y qué hacer con cada uno","description":"Cómo leer un rebote, qué diferencia hay entre los tipos y cuándo debes eliminar un contacto de tu lista.","inLanguage":"es","datePublished":"2026-11-14","dateModified":"2026-11-14","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/guias/rebotes/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://mlduque.github.io/"},{"@type":"ListItem","position":2,"name":"Guías","item":"https://mlduque.github.io/guias/"},{"@type":"ListItem","position":3,"name":"Rebotes: duros, blandos y qué hacer con cada uno","item":"https://mlduque.github.io/guias/rebotes/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Herramientas">
+    <a href="/guias/" aria-current="page">Guías</a>
+    <a href="/glosario/">Glosario</a>
+    <a href="/#sobre-mi">Sobre mí</a>
+    <a class="btn btn-primary" href="/">Herramientas</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/">Inicio</a> › <a href="/guias/">Guías</a></p>
+  <span class="kicker"><i></i><span>Guías de entregabilidad · 2 min de lectura</span></span>
+  <h1>Rebotes: duros, blandos y qué hacer con cada uno</h1>
+  <p class="lead">Cómo leer un rebote, qué diferencia hay entre los tipos y cuándo debes eliminar un contacto de tu lista.</p>
+  <p class="gd-by">Por <a href="/#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-14">Actualizado 2026-11-14</time></p>
+  <nav class="toc" aria-label="En esta guía"><strong>En esta guía</strong><ol><li><a href="#que-es-un-rebote">Qué es un rebote</a></li><li><a href="#rebotes-duros">Rebotes duros</a></li><li><a href="#rebotes-blandos">Rebotes blandos</a></li><li><a href="#bloqueos-el-tercer-tipo">Bloqueos: el tercer tipo</a></li><li><a href="#cifras-de-referencia">Cifras de referencia</a></li></ol></nav>
+  <section id="que-es-un-rebote"><h2>Qué es un rebote</h2><p>Un rebote es la respuesta de un servidor que no ha podido entregar tu email. Siempre trae un código: uno básico de tres cifras (como <code>550</code>) y, normalmente, uno ampliado (como <code>5.1.1</code>). La primera cifra lo dice casi todo: <strong>4</strong> es temporal y <strong>5</strong> es permanente.</p></section>
+  <section id="rebotes-duros"><h2>Rebotes duros</h2><p>Son permanentes: el buzón no existe (<code>5.1.1</code>), el dominio no existe (<code>5.1.2</code>) o la cuenta está desactivada (<code>5.2.1</code>). La única respuesta correcta es <strong>eliminar la dirección</strong> de inmediato. Seguir enviando a direcciones inexistentes es una de las señales que más daña tu reputación.</p></section>
+  <section id="rebotes-blandos"><h2>Rebotes blandos</h2><p>Son temporales: buzón lleno (<code>4.2.2</code>), servidor saturado, greylisting o límites de velocidad (<code>4.7.0</code>). Tu plataforma los reintenta. Si una dirección rebota de forma blanda en 3 a 5 envíos seguidos, trátala como dura.</p></section>
+  <section id="bloqueos-el-tercer-tipo"><h2>Bloqueos: el tercer tipo</h2><p>Muchos rebotes con <code>5.7.x</code> no tienen que ver con el destinatario: el servidor te rechaza por tu reputación, por una lista negra o por no autenticar tu dominio. Aquí <strong>no debes borrar el contacto</strong>, sino arreglar el problema. Si los clasificas como rebotes duros, acabarás eliminando direcciones buenas.</p></section>
+  <section id="cifras-de-referencia"><h2>Cifras de referencia</h2><ul><li>Tasa de rebote total por envío: por debajo del <strong>2 %</strong>.</li><li>Rebotes duros: idealmente por debajo del <strong>0,5 %</strong>.</li><li>Si un envío supera el 5 %, para y revisa la lista antes de continuar.</li></ul><p>Pega cualquier mensaje de error en el traductor de rebotes para saber de qué tipo es y qué hacer.</p></section>
+  <div class="todo gd-tools"><h3>Ponlo en práctica</h3><div class="actions"><a class="btn btn-primary" href="/#rebotes">Traducir un rebote</a><a class="btn btn-primary" href="/#bbdd">Limpiar mi base de datos</a></div></div>
+  <div class="gd-next"><span class="minor">Más guías</span><ul><li><a href="/guias/autenticacion/"><strong>SPF, DKIM y DMARC explicados sin tecnicismos</strong></a></li><li><a href="/guias/requisitos/"><strong>Requisitos de Gmail, Yahoo y Microsoft para envíos masivos</strong></a></li><li><a href="/guias/spam/"><strong>Por qué tus emails van a spam: 10 causas y cómo arreglarlas</strong></a></li><li><a href="/glosario/">Ver el glosario completo →</a></li></ul></div>
+  <div class="gd-cta"><h2>Prueba las herramientas gratis</h2><p>Comprueba tu dominio, audita un email, traduce un rebote o genera tus registros SPF, DMARC y BIMI. Gratis y sin registro.</p><a class="btn btn-yellow" href="/">Herramientas →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Herramientas gratuitas y orientativas de entregabilidad del email. Ningún análisis automático es infalible.</p>
+      <p class="langs" aria-label="Idioma"><a href="/guias/rebotes/" hreflang="es" lang="es" aria-current="true">ES</a><a href="/en/guias/rebotes/" hreflang="en" lang="en">EN</a><a href="/it/guias/rebotes/" hreflang="it" lang="it">IT</a><a href="/fr/guias/rebotes/" hreflang="fr" lang="fr">FR</a><a href="/pt/guias/rebotes/" hreflang="pt" lang="pt">PT</a></p></div>
+    <div><h4>Guías</h4><ul><li><a href="/guias/autenticacion/">SPF, DKIM y DMARC explicados sin tecnicismos</a></li><li><a href="/guias/requisitos/">Requisitos de Gmail, Yahoo y Microsoft para envíos masivos</a></li><li><a href="/guias/spam/">Por qué tus emails van a spam: 10 causas y cómo arreglarlas</a></li><li><a href="/guias/listas-negras/">Listas negras: cómo saber si estás en una y cómo salir</a></li><li><a href="/guias/rebotes/">Rebotes: duros, blandos y qué hacer con cada uno</a></li><li><a href="/guias/bimi/">BIMI: cómo mostrar tu logo en la bandeja de entrada</a></li><li><a href="/glosario/">Glosario</a></li></ul></div>
+    <div><h4>Herramientas</h4><ul><li><a href="/#auditoria">Auditar un email</a></li><li><a href="/#dominio">Comprobar mi dominio</a></li><li><a href="/#rebotes">Traducir un rebote</a></li><li><a href="/#generador">Generar mis registros</a></li><li><a href="/#campana">Probar mi campaña</a></li><li><a href="/#bbdd">Limpiar mi base de datos</a></li><li><a href="/#dmarc">Analizar informes DMARC</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/#sobre-mi">Sobre mí</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Actualizado: 2026-11-14</span></div>
+</footer>
+</body>
+</html>

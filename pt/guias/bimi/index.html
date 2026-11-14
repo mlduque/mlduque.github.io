@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BIMI: como mostrar o seu logótipo na caixa de entrada · Email Seguro</title>
+<meta name="description" content="O que é o BIMI, o que precisa para que o seu logótipo apareça no Gmail, Yahoo e Apple Mail, e quanto custa.">
+<link rel="canonical" href="https://mlduque.github.io/pt/guias/bimi/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/bimi/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/bimi/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/bimi/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/bimi/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/bimi/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/bimi/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/pt/guias/bimi/">
+<meta property="og:title" content="BIMI: como mostrar o seu logótipo na caixa de entrada · Email Seguro">
+<meta property="og:description" content="O que é o BIMI, o que precisa para que o seu logótipo apareça no Gmail, Yahoo e Apple Mail, e quanto custa.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="pt_PT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"BIMI: como mostrar o seu logótipo na caixa de entrada","description":"O que é o BIMI, o que precisa para que o seu logótipo apareça no Gmail, Yahoo e Apple Mail, e quanto custa.","inLanguage":"pt","datePublished":"2026-11-14","dateModified":"2026-11-14","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/pt/guias/bimi/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://mlduque.github.io/?lang=pt"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://mlduque.github.io/pt/guias/"},{"@type":"ListItem","position":3,"name":"BIMI: como mostrar o seu logótipo na caixa de entrada","item":"https://mlduque.github.io/pt/guias/bimi/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar para o conteúdo</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/?lang=pt"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Ferramentas">
+    <a href="/pt/guias/" aria-current="page">Guias</a>
+    <a href="/pt/glosario/">Glossário</a>
+    <a href="/?lang=pt#sobre-mi">Sobre mim</a>
+    <a class="btn btn-primary" href="/?lang=pt">Ferramentas</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/?lang=pt">Início</a> › <a href="/pt/guias/">Guias</a></p>
+  <span class="kicker"><i></i><span>Guias de entregabilidade · 2 min de leitura</span></span>
+  <h1>BIMI: como mostrar o seu logótipo na caixa de entrada</h1>
+  <p class="lead">O que é o BIMI, o que precisa para que o seu logótipo apareça no Gmail, Yahoo e Apple Mail, e quanto custa.</p>
+  <p class="gd-by">Por <a href="/?lang=pt#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-14">Atualizado 2026-11-14</time></p>
+  <nav class="toc" aria-label="Neste guia"><strong>Neste guia</strong><ol><li><a href="#o-que-e-o-bimi">O que é o BIMI</a></li><li><a href="#requisitos">Requisitos</a></li><li><a href="#o-registo">O registo</a></li><li><a href="#vale-a-pena">Vale a pena?</a></li></ol></nav>
+  <section id="o-que-e-o-bimi"><h2>O que é o BIMI</h2><p>O BIMI (Brand Indicators for Message Identification) permite que o logótipo da sua marca apareça junto dos seus emails na caixa de entrada. Além de dar visibilidade, transmite confiança: só os domínios bem protegidos contra falsificação o podem mostrar. No Gmail, com certificado, aparece também um visto azul de verificação.</p></section>
+  <section id="requisitos"><h2>Requisitos</h2><ol><li><strong>DMARC em modo de proteção</strong>: <code>p=quarantine</code> ou <code>p=reject</code>, aplicado a 100% e sem <code>sp=none</code>.</li><li><strong>Logótipo em SVG Tiny PS</strong>: um formato SVG restrito, quadrado, sem scripts nem ligações externas, publicado num endereço https.</li><li><strong>Certificado</strong>: o Gmail e o Apple Mail exigem um VMC (Verified Mark Certificate), que requer uma marca registada, ou no Gmail também um CMC (Common Mark Certificate), que exige ter usado o logótipo durante pelo menos um ano.</li><li><strong>Boa reputação</strong>: mesmo cumprindo tudo, os fornecedores só mostram o logótipo a remetentes de confiança.</li></ol></section>
+  <section id="o-registo"><h2>O registo</h2><p>Publica-se como TXT em <code>default._bimi.oseudominio.pt</code>:</p><p><code>v=BIMI1; l=https://oseudominio.pt/logo.svg; a=https://oseudominio.pt/vmc.pem;</code></p><p><code>l</code> é o endereço do logótipo e <code>a</code> o do certificado. Sem certificado, deixe <code>a=</code> vazio.</p></section>
+  <section id="vale-a-pena"><h2>Vale a pena?</h2><p>Se já tem o DMARC em <code>reject</code>, o BIMI é o passo seguinte natural e melhora o reconhecimento da marca. Se ainda está em <code>p=none</code>, concentre-se primeiro em proteger o seu domínio: o BIMI é a recompensa, não o ponto de partida.</p></section>
+  <div class="todo gd-tools"><h3>Ponha em prática</h3><div class="actions"><a class="btn btn-primary" href="/?lang=pt#generador">Gerar os meus registos</a><a class="btn btn-primary" href="/?lang=pt#dominio">Verificar o meu domínio</a></div></div>
+  <div class="gd-next"><span class="minor">Mais guias</span><ul><li><a href="/pt/guias/autenticacion/"><strong>SPF, DKIM e DMARC explicados sem tecnicismos</strong></a></li><li><a href="/pt/guias/requisitos/"><strong>Requisitos do Gmail, Yahoo e Microsoft para envios em massa</strong></a></li><li><a href="/pt/guias/spam/"><strong>Porque é que os seus emails vão para spam: 10 causas e como corrigi-las</strong></a></li><li><a href="/pt/glosario/">Ver o glossário completo →</a></li></ul></div>
+  <div class="gd-cta"><h2>Experimente as ferramentas grátis</h2><p>Verifique o seu domínio, audite um email, traduza um bounce ou gere os seus registos SPF, DMARC e BIMI. Grátis e sem registo.</p><a class="btn btn-yellow" href="/?lang=pt">Ferramentas →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Ferramentas gratuitas e indicativas de entregabilidade de email. Nenhuma análise automática é infalível.</p>
+      <p class="langs" aria-label="Idioma"><a href="/guias/bimi/" hreflang="es" lang="es">ES</a><a href="/en/guias/bimi/" hreflang="en" lang="en">EN</a><a href="/it/guias/bimi/" hreflang="it" lang="it">IT</a><a href="/fr/guias/bimi/" hreflang="fr" lang="fr">FR</a><a href="/pt/guias/bimi/" hreflang="pt" lang="pt" aria-current="true">PT</a></p></div>
+    <div><h4>Guias</h4><ul><li><a href="/pt/guias/autenticacion/">SPF, DKIM e DMARC explicados sem tecnicismos</a></li><li><a href="/pt/guias/requisitos/">Requisitos do Gmail, Yahoo e Microsoft para envios em massa</a></li><li><a href="/pt/guias/spam/">Porque é que os seus emails vão para spam: 10 causas e como corrigi-las</a></li><li><a href="/pt/guias/listas-negras/">Listas negras: como saber se está numa e como sair</a></li><li><a href="/pt/guias/rebotes/">Bounces: hard, soft e o que fazer com cada um</a></li><li><a href="/pt/guias/bimi/">BIMI: como mostrar o seu logótipo na caixa de entrada</a></li><li><a href="/pt/glosario/">Glossário</a></li></ul></div>
+    <div><h4>Ferramentas</h4><ul><li><a href="/?lang=pt#auditoria">Auditar um email</a></li><li><a href="/?lang=pt#dominio">Verificar o meu domínio</a></li><li><a href="/?lang=pt#rebotes">Traduzir um bounce</a></li><li><a href="/?lang=pt#generador">Gerar os meus registos</a></li><li><a href="/?lang=pt#campana">Testar a minha campanha</a></li><li><a href="/?lang=pt#bbdd">Limpar a minha base de dados</a></li><li><a href="/?lang=pt#dmarc">Analisar relatórios DMARC</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/?lang=pt#sobre-mi">Sobre mim</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Atualizado: 2026-11-14</span></div>
+</footer>
+</body>
+</html>

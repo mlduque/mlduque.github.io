@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blocklists: how to know if you&#39;re on one and how to get off · Email Seguro</title>
+<meta name="description" content="What email blocklists are, which ones really matter and the process to get delisted without being listed again.">
+<link rel="canonical" href="https://mlduque.github.io/en/guias/listas-negras/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/listas-negras/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/listas-negras/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/listas-negras/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/listas-negras/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/listas-negras/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/listas-negras/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/en/guias/listas-negras/">
+<meta property="og:title" content="Blocklists: how to know if you&#39;re on one and how to get off · Email Seguro">
+<meta property="og:description" content="What email blocklists are, which ones really matter and the process to get delisted without being listed again.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Blocklists: how to know if you're on one and how to get off","description":"What email blocklists are, which ones really matter and the process to get delisted without being listed again.","inLanguage":"en","datePublished":"2026-11-14","dateModified":"2026-11-14","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/en/guias/listas-negras/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mlduque.github.io/?lang=en"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mlduque.github.io/en/guias/"},{"@type":"ListItem","position":3,"name":"Blocklists: how to know if you're on one and how to get off","item":"https://mlduque.github.io/en/guias/listas-negras/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/?lang=en"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Tools">
+    <a href="/en/guias/" aria-current="page">Guides</a>
+    <a href="/en/glosario/">Glossary</a>
+    <a href="/?lang=en#sobre-mi">About me</a>
+    <a class="btn btn-primary" href="/?lang=en">Tools</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/?lang=en">Home</a> › <a href="/en/guias/">Guides</a></p>
+  <span class="kicker"><i></i><span>Deliverability guides · 2 min read</span></span>
+  <h1>Blocklists: how to know if you&#39;re on one and how to get off</h1>
+  <p class="lead">What email blocklists are, which ones really matter and the process to get delisted without being listed again.</p>
+  <p class="gd-by">By <a href="/?lang=en#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-14">Updated 2026-11-14</time></p>
+  <nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#what-a-blocklist-is">What a blocklist is</a></li><li><a href="#which-ones-matter">Which ones matter</a></li><li><a href="#how-to-know-if-you-re-listed">How to know if you&#39;re listed</a></li><li><a href="#how-to-get-off">How to get off</a></li></ol></nav>
+  <section id="what-a-blocklist-is"><h2>What a blocklist is</h2><p>A blocklist (blacklist or DNSBL) is a database of IPs and domains that have sent spam. Many mail servers check it before accepting an email: if your IP or domain is listed, they reject your emails or send them to spam.</p></section>
+  <section id="which-ones-matter"><h2>Which ones matter</h2><p>There are hundreds, but only a few have real impact:</p><ul><li><strong>Spamhaus</strong> (ZEN, SBL, XBL, PBL and DBL): the most widely used in the world. Being listed here is serious.</li><li><strong>Barracuda</strong>: widely used by companies.</li><li><strong>SpamCop</strong>: based on user reports, and listings expire on their own.</li><li>The internal lists of <strong>Microsoft</strong>, <strong>Gmail</strong> and <strong>Yahoo</strong>, which aren't public but show up in their bounces.</li></ul><p>Other small lists barely affect delivery: don't obsess over them.</p></section>
+  <section id="how-to-know-if-you-re-listed"><h2>How to know if you&#39;re listed</h2><p>The signs: bounces with text like «blocked using», «listed», «Spamhaus» or «block list», or a sudden drop in opens. Check your sending IP and domain in «My domain» or in the full audit, and paste any bounce into the bounce translator.</p></section>
+  <section id="how-to-get-off"><h2>How to get off</h2><ol><li><strong>Find out why</strong>: the list's page usually explains it (spam traps, infected computer, home IP…).</li><li><strong>Fix the cause</strong>: clean your list, remove inactive contacts, review forms without double opt-in, secure your server.</li><li><strong>Request delisting</strong> on the list's website. If you use a sending platform and the IP is theirs, ask them.</li><li><strong>Come back carefully</strong>: send to your most active contacts first.</li></ol><p>Requesting delisting without fixing the cause only gets you listed again, and it gets harder each time.</p></section>
+  <div class="todo gd-tools"><h3>Put it into practice</h3><div class="actions"><a class="btn btn-primary" href="/?lang=en#dominio">Check my domain</a><a class="btn btn-primary" href="/?lang=en#auditoria">Audit an email</a></div></div>
+  <div class="gd-next"><span class="minor">More guides</span><ul><li><a href="/en/guias/autenticacion/"><strong>SPF, DKIM and DMARC explained without jargon</strong></a></li><li><a href="/en/guias/requisitos/"><strong>Gmail, Yahoo and Microsoft requirements for bulk senders</strong></a></li><li><a href="/en/guias/spam/"><strong>Why your emails go to spam: 10 causes and how to fix them</strong></a></li><li><a href="/en/glosario/">See the full glossary →</a></li></ul></div>
+  <div class="gd-cta"><h2>Try the tools for free</h2><p>Check your domain, audit an email, translate a bounce or generate your SPF, DMARC and BIMI records. Free and with no sign-up.</p><a class="btn btn-yellow" href="/?lang=en">Tools →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Free, indicative email deliverability tools. No automated analysis is infallible.</p>
+      <p class="langs" aria-label="Language"><a href="/guias/listas-negras/" hreflang="es" lang="es">ES</a><a href="/en/guias/listas-negras/" hreflang="en" lang="en" aria-current="true">EN</a><a href="/it/guias/listas-negras/" hreflang="it" lang="it">IT</a><a href="/fr/guias/listas-negras/" hreflang="fr" lang="fr">FR</a><a href="/pt/guias/listas-negras/" hreflang="pt" lang="pt">PT</a></p></div>
+    <div><h4>Guides</h4><ul><li><a href="/en/guias/autenticacion/">SPF, DKIM and DMARC explained without jargon</a></li><li><a href="/en/guias/requisitos/">Gmail, Yahoo and Microsoft requirements for bulk senders</a></li><li><a href="/en/guias/spam/">Why your emails go to spam: 10 causes and how to fix them</a></li><li><a href="/en/guias/listas-negras/">Blocklists: how to know if you&#39;re on one and how to get off</a></li><li><a href="/en/guias/rebotes/">Bounces: hard, soft and what to do with each</a></li><li><a href="/en/guias/bimi/">BIMI: how to show your logo in the inbox</a></li><li><a href="/en/glosario/">Glossary</a></li></ul></div>
+    <div><h4>Tools</h4><ul><li><a href="/?lang=en#auditoria">Audit an email</a></li><li><a href="/?lang=en#dominio">Check my domain</a></li><li><a href="/?lang=en#rebotes">Translate a bounce</a></li><li><a href="/?lang=en#generador">Generate my records</a></li><li><a href="/?lang=en#campana">Test my campaign</a></li><li><a href="/?lang=en#bbdd">Clean my database</a></li><li><a href="/?lang=en#dmarc">Analyse DMARC reports</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/?lang=en#sobre-mi">About me</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Updated: 2026-11-14</span></div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bounces: hard, soft e o que fazer com cada um · Email Seguro</title>
+<meta name="description" content="Como ler um bounce, que diferença há entre os tipos e quando deve apagar um contacto da sua lista.">
+<link rel="canonical" href="https://mlduque.github.io/pt/guias/rebotes/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/rebotes/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/rebotes/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/rebotes/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/rebotes/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/rebotes/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/rebotes/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/pt/guias/rebotes/">
+<meta property="og:title" content="Bounces: hard, soft e o que fazer com cada um · Email Seguro">
+<meta property="og:description" content="Como ler um bounce, que diferença há entre os tipos e quando deve apagar um contacto da sua lista.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="pt_PT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Bounces: hard, soft e o que fazer com cada um","description":"Como ler um bounce, que diferença há entre os tipos e quando deve apagar um contacto da sua lista.","inLanguage":"pt","datePublished":"2026-11-14","dateModified":"2026-11-14","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/pt/guias/rebotes/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://mlduque.github.io/?lang=pt"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://mlduque.github.io/pt/guias/"},{"@type":"ListItem","position":3,"name":"Bounces: hard, soft e o que fazer com cada um","item":"https://mlduque.github.io/pt/guias/rebotes/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar para o conteúdo</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/?lang=pt"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Ferramentas">
+    <a href="/pt/guias/" aria-current="page">Guias</a>
+    <a href="/pt/glosario/">Glossário</a>
+    <a href="/?lang=pt#sobre-mi">Sobre mim</a>
+    <a class="btn btn-primary" href="/?lang=pt">Ferramentas</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/?lang=pt">Início</a> › <a href="/pt/guias/">Guias</a></p>
+  <span class="kicker"><i></i><span>Guias de entregabilidade · 2 min de leitura</span></span>
+  <h1>Bounces: hard, soft e o que fazer com cada um</h1>
+  <p class="lead">Como ler um bounce, que diferença há entre os tipos e quando deve apagar um contacto da sua lista.</p>
+  <p class="gd-by">Por <a href="/?lang=pt#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-14">Atualizado 2026-11-14</time></p>
+  <nav class="toc" aria-label="Neste guia"><strong>Neste guia</strong><ol><li><a href="#o-que-e-um-bounce">O que é um bounce</a></li><li><a href="#hard-bounces">Hard bounces</a></li><li><a href="#soft-bounces">Soft bounces</a></li><li><a href="#bloqueios-o-terceiro-tipo">Bloqueios: o terceiro tipo</a></li><li><a href="#valores-de-referencia">Valores de referência</a></li></ol></nav>
+  <section id="o-que-e-um-bounce"><h2>O que é um bounce</h2><p>Um bounce é a resposta de um servidor que não conseguiu entregar o seu email. Traz sempre um código: um básico de três algarismos (como <code>550</code>) e, normalmente, um alargado (como <code>5.1.1</code>). O primeiro algarismo diz quase tudo: <strong>4</strong> é temporário e <strong>5</strong> é permanente.</p></section>
+  <section id="hard-bounces"><h2>Hard bounces</h2><p>São permanentes: a caixa não existe (<code>5.1.1</code>), o domínio não existe (<code>5.1.2</code>) ou a conta está desativada (<code>5.2.1</code>). A única resposta correta é <strong>apagar o endereço</strong> de imediato. Continuar a enviar para endereços inexistentes é um dos sinais que mais prejudicam a sua reputação.</p></section>
+  <section id="soft-bounces"><h2>Soft bounces</h2><p>São temporários: caixa cheia (<code>4.2.2</code>), servidor sobrecarregado, greylisting ou limites de velocidade (<code>4.7.0</code>). A sua plataforma volta a tentar. Se um endereço der soft bounce em 3 a 5 envios seguidos, trate-o como hard.</p></section>
+  <section id="bloqueios-o-terceiro-tipo"><h2>Bloqueios: o terceiro tipo</h2><p>Muitos bounces com <code>5.7.x</code> não têm a ver com o destinatário: o servidor rejeita-o pela sua reputação, por uma lista negra ou por não autenticar o domínio. Aqui <strong>não deve apagar o contacto</strong>, mas sim resolver o problema. Se os classificar como hard bounces, acabará por apagar endereços bons.</p></section>
+  <section id="valores-de-referencia"><h2>Valores de referência</h2><ul><li>Taxa total de bounces por envio: abaixo de <strong>2%</strong>.</li><li>Hard bounces: idealmente abaixo de <strong>0,5%</strong>.</li><li>Se um envio ultrapassar 5%, pare e reveja a lista antes de continuar.</li></ul><p>Cole qualquer mensagem de erro no tradutor de bounces para saber de que tipo é e o que fazer.</p></section>
+  <div class="todo gd-tools"><h3>Ponha em prática</h3><div class="actions"><a class="btn btn-primary" href="/?lang=pt#rebotes">Traduzir um bounce</a><a class="btn btn-primary" href="/?lang=pt#bbdd">Limpar a minha base de dados</a></div></div>
+  <div class="gd-next"><span class="minor">Mais guias</span><ul><li><a href="/pt/guias/autenticacion/"><strong>SPF, DKIM e DMARC explicados sem tecnicismos</strong></a></li><li><a href="/pt/guias/requisitos/"><strong>Requisitos do Gmail, Yahoo e Microsoft para envios em massa</strong></a></li><li><a href="/pt/guias/spam/"><strong>Porque é que os seus emails vão para spam: 10 causas e como corrigi-las</strong></a></li><li><a href="/pt/glosario/">Ver o glossário completo →</a></li></ul></div>
+  <div class="gd-cta"><h2>Experimente as ferramentas grátis</h2><p>Verifique o seu domínio, audite um email, traduza um bounce ou gere os seus registos SPF, DMARC e BIMI. Grátis e sem registo.</p><a class="btn btn-yellow" href="/?lang=pt">Ferramentas →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Ferramentas gratuitas e indicativas de entregabilidade de email. Nenhuma análise automática é infalível.</p>
+      <p class="langs" aria-label="Idioma"><a href="/guias/rebotes/" hreflang="es" lang="es">ES</a><a href="/en/guias/rebotes/" hreflang="en" lang="en">EN</a><a href="/it/guias/rebotes/" hreflang="it" lang="it">IT</a><a href="/fr/guias/rebotes/" hreflang="fr" lang="fr">FR</a><a href="/pt/guias/rebotes/" hreflang="pt" lang="pt" aria-current="true">PT</a></p></div>
+    <div><h4>Guias</h4><ul><li><a href="/pt/guias/autenticacion/">SPF, DKIM e DMARC explicados sem tecnicismos</a></li><li><a href="/pt/guias/requisitos/">Requisitos do Gmail, Yahoo e Microsoft para envios em massa</a></li><li><a href="/pt/guias/spam/">Porque é que os seus emails vão para spam: 10 causas e como corrigi-las</a></li><li><a href="/pt/guias/listas-negras/">Listas negras: como saber se está numa e como sair</a></li><li><a href="/pt/guias/rebotes/">Bounces: hard, soft e o que fazer com cada um</a></li><li><a href="/pt/guias/bimi/">BIMI: como mostrar o seu logótipo na caixa de entrada</a></li><li><a href="/pt/glosario/">Glossário</a></li></ul></div>
+    <div><h4>Ferramentas</h4><ul><li><a href="/?lang=pt#auditoria">Auditar um email</a></li><li><a href="/?lang=pt#dominio">Verificar o meu domínio</a></li><li><a href="/?lang=pt#rebotes">Traduzir um bounce</a></li><li><a href="/?lang=pt#generador">Gerar os meus registos</a></li><li><a href="/?lang=pt#campana">Testar a minha campanha</a></li><li><a href="/?lang=pt#bbdd">Limpar a minha base de dados</a></li><li><a href="/?lang=pt#dmarc">Analisar relatórios DMARC</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/?lang=pt#sobre-mi">Sobre mim</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Atualizado: 2026-11-14</span></div>
+</footer>
+</body>
+</html>

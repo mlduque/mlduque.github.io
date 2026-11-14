@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Listes noires : savoir si vous y êtes et comment en sortir · Email Seguro</title>
+<meta name="description" content="Ce que sont les listes noires de l&#39;email, lesquelles comptent vraiment et la démarche pour en sortir sans y retourner.">
+<link rel="canonical" href="https://mlduque.github.io/fr/guias/listas-negras/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/listas-negras/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/listas-negras/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/listas-negras/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/listas-negras/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/listas-negras/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/listas-negras/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/fr/guias/listas-negras/">
+<meta property="og:title" content="Listes noires : savoir si vous y êtes et comment en sortir · Email Seguro">
+<meta property="og:description" content="Ce que sont les listes noires de l&#39;email, lesquelles comptent vraiment et la démarche pour en sortir sans y retourner.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Listes noires : savoir si vous y êtes et comment en sortir","description":"Ce que sont les listes noires de l'email, lesquelles comptent vraiment et la démarche pour en sortir sans y retourner.","inLanguage":"fr","datePublished":"2026-11-14","dateModified":"2026-11-14","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/fr/guias/listas-negras/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://mlduque.github.io/?lang=fr"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mlduque.github.io/fr/guias/"},{"@type":"ListItem","position":3,"name":"Listes noires : savoir si vous y êtes et comment en sortir","item":"https://mlduque.github.io/fr/guias/listas-negras/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/?lang=fr"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Outils">
+    <a href="/fr/guias/" aria-current="page">Guides</a>
+    <a href="/fr/glosario/">Glossaire</a>
+    <a href="/?lang=fr#sobre-mi">À propos</a>
+    <a class="btn btn-primary" href="/?lang=fr">Outils</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/?lang=fr">Accueil</a> › <a href="/fr/guias/">Guides</a></p>
+  <span class="kicker"><i></i><span>Guides de délivrabilité · 2 min de lecture</span></span>
+  <h1>Listes noires : savoir si vous y êtes et comment en sortir</h1>
+  <p class="lead">Ce que sont les listes noires de l&#39;email, lesquelles comptent vraiment et la démarche pour en sortir sans y retourner.</p>
+  <p class="gd-by">Par <a href="/?lang=fr#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-14">Mis à jour 2026-11-14</time></p>
+  <nav class="toc" aria-label="Dans ce guide"><strong>Dans ce guide</strong><ol><li><a href="#qu-est-ce-qu-une-liste-noire">Qu&#39;est-ce qu&#39;une liste noire</a></li><li><a href="#lesquelles-comptent">Lesquelles comptent</a></li><li><a href="#comment-savoir-si-vous-y-etes">Comment savoir si vous y êtes</a></li><li><a href="#comment-en-sortir">Comment en sortir</a></li></ol></nav>
+  <section id="qu-est-ce-qu-une-liste-noire"><h2>Qu&#39;est-ce qu&#39;une liste noire</h2><p>Une liste noire (blacklist, blocklist ou DNSBL) est une base de données d'IP et de domaines ayant envoyé du spam. Beaucoup de serveurs de messagerie la consultent avant d'accepter un email : si votre IP ou votre domaine y figurent, ils refusent vos emails ou les envoient en spam.</p></section>
+  <section id="lesquelles-comptent"><h2>Lesquelles comptent</h2><p>Il en existe des centaines, mais seules quelques-unes ont un impact réel :</p><ul><li><strong>Spamhaus</strong> (ZEN, SBL, XBL, PBL et DBL) : la plus utilisée au monde. Y figurer est grave.</li><li><strong>Barracuda</strong> : très utilisée par les entreprises.</li><li><strong>SpamCop</strong> : basée sur les signalements des utilisateurs, elle expire d'elle-même.</li><li>Les listes internes de <strong>Microsoft</strong>, <strong>Gmail</strong> et <strong>Yahoo</strong>, non publiques mais visibles dans leurs rebonds.</li></ul><p>Les autres petites listes affectent peu la remise : ne vous en inquiétez pas outre mesure.</p></section>
+  <section id="comment-savoir-si-vous-y-etes"><h2>Comment savoir si vous y êtes</h2><p>Les signes : des rebonds avec des textes comme « blocked using », « listed », « Spamhaus » ou « block list », ou une chute soudaine des ouvertures. Vérifiez votre IP d'envoi et votre domaine dans « Mon domaine » ou dans l'audit complet, et collez chaque rebond dans le traducteur de rebonds.</p></section>
+  <section id="comment-en-sortir"><h2>Comment en sortir</h2><ol><li><strong>Identifiez le motif</strong> : la page de la liste l'explique généralement (pièges à spam, ordinateur infecté, IP résidentielle…).</li><li><strong>Corrigez la cause</strong> : nettoyez la liste, retirez les inactifs, revoyez les formulaires sans double opt-in, sécurisez votre serveur.</li><li><strong>Demandez le retrait</strong> sur le site de la liste. Si vous utilisez une plateforme d'envoi et que l'IP est la sienne, demandez-le-lui.</li><li><strong>Reprenez prudemment</strong> : écrivez d'abord à vos contacts les plus actifs.</li></ol><p>Demander le retrait sans corriger la cause ne sert qu'à être listé à nouveau, et chaque fois il est plus difficile d'en sortir.</p></section>
+  <div class="todo gd-tools"><h3>Passez à la pratique</h3><div class="actions"><a class="btn btn-primary" href="/?lang=fr#dominio">Vérifier mon domaine</a><a class="btn btn-primary" href="/?lang=fr#auditoria">Auditer un email</a></div></div>
+  <div class="gd-next"><span class="minor">Autres guides</span><ul><li><a href="/fr/guias/autenticacion/"><strong>SPF, DKIM et DMARC expliqués sans jargon</strong></a></li><li><a href="/fr/guias/requisitos/"><strong>Exigences de Gmail, Yahoo et Microsoft pour les envois en masse</strong></a></li><li><a href="/fr/guias/spam/"><strong>Pourquoi vos emails vont en spam : 10 causes et comment les corriger</strong></a></li><li><a href="/fr/glosario/">Voir le glossaire complet →</a></li></ul></div>
+  <div class="gd-cta"><h2>Essayez les outils gratuitement</h2><p>Vérifiez votre domaine, auditez un email, traduisez un rebond ou générez vos enregistrements SPF, DMARC et BIMI. Gratuit et sans inscription.</p><a class="btn btn-yellow" href="/?lang=fr">Outils →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Outils gratuits et indicatifs de délivrabilité email. Aucune analyse automatique n&#39;est infaillible.</p>
+      <p class="langs" aria-label="Langue"><a href="/guias/listas-negras/" hreflang="es" lang="es">ES</a><a href="/en/guias/listas-negras/" hreflang="en" lang="en">EN</a><a href="/it/guias/listas-negras/" hreflang="it" lang="it">IT</a><a href="/fr/guias/listas-negras/" hreflang="fr" lang="fr" aria-current="true">FR</a><a href="/pt/guias/listas-negras/" hreflang="pt" lang="pt">PT</a></p></div>
+    <div><h4>Guides</h4><ul><li><a href="/fr/guias/autenticacion/">SPF, DKIM et DMARC expliqués sans jargon</a></li><li><a href="/fr/guias/requisitos/">Exigences de Gmail, Yahoo et Microsoft pour les envois en masse</a></li><li><a href="/fr/guias/spam/">Pourquoi vos emails vont en spam : 10 causes et comment les corriger</a></li><li><a href="/fr/guias/listas-negras/">Listes noires : savoir si vous y êtes et comment en sortir</a></li><li><a href="/fr/guias/rebotes/">Rebonds : durs, doux et que faire de chacun</a></li><li><a href="/fr/guias/bimi/">BIMI : afficher votre logo dans la boîte de réception</a></li><li><a href="/fr/glosario/">Glossaire</a></li></ul></div>
+    <div><h4>Outils</h4><ul><li><a href="/?lang=fr#auditoria">Auditer un email</a></li><li><a href="/?lang=fr#dominio">Vérifier mon domaine</a></li><li><a href="/?lang=fr#rebotes">Traduire un rebond</a></li><li><a href="/?lang=fr#generador">Générer mes enregistrements</a></li><li><a href="/?lang=fr#campana">Tester ma campagne</a></li><li><a href="/?lang=fr#bbdd">Nettoyer ma base</a></li><li><a href="/?lang=fr#dmarc">Analyser des rapports DMARC</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/?lang=fr#sobre-mi">À propos</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Mis à jour: 2026-11-14</span></div>
+</footer>
+</body>
+</html>
