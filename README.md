@@ -6,7 +6,7 @@ Herramientas gratuitas para proteger tu dominio, reconocer emails de estafa, pro
 
 👉 **Pruébalas aquí:** [mlduque.github.io](https://mlduque.github.io/)
 
-La web tiene nueve herramientas, cada una en su pestaña:
+La web tiene once herramientas y una sección de guías, cada una en su pestaña:
 
 - **Auditoría completa:** [mlduque.github.io/#auditoria](https://mlduque.github.io/#auditoria)
 - **Mi dominio:** [mlduque.github.io/#dominio](https://mlduque.github.io/#dominio)
@@ -17,6 +17,9 @@ La web tiene nueve herramientas, cada una en su pestaña:
 - **Calculadora de warm-up:** [mlduque.github.io/#warmup](https://mlduque.github.io/#warmup)
 - **Test de bandeja:** [mlduque.github.io/#bandeja](https://mlduque.github.io/#bandeja)
 - **¿Qué plataforma lo envió?:** [mlduque.github.io/#plataforma](https://mlduque.github.io/#plataforma)
+- **Traductor de rebotes:** [mlduque.github.io/#rebotes](https://mlduque.github.io/#rebotes)
+- **Generador de SPF, DMARC y BIMI:** [mlduque.github.io/#generador](https://mlduque.github.io/#generador)
+- **Guías y glosario:** [mlduque.github.io/#guias](https://mlduque.github.io/#guias)
 
 ---
 
@@ -153,6 +156,31 @@ Explica cómo funciona un test de bandeja (inbox placement) y recomienda herrami
 Pega el email original (o sus cabeceras) o sube el archivo .eml y la web identifica con qué plataforma se envió, entre **86 plataformas**: Mailchimp, Klaviyo, SendGrid, Amazon SES, Brevo, HubSpot, Salesforce Marketing Cloud, ActiveCampaign, Acumbamail, Mailrelay, emBlue, MDirector, Doppler, MailerLite, Substack y muchas más. Muestra las pruebas (Return-Path, firmas DKIM, servidores, cabeceras propias y enlaces de seguimiento), el nivel de confianza y si el remitente usa dominios propios (marca blanca).
 
 ---
+
+## Traductor de rebotes (nuevo)
+
+Pega el mensaje de error que te devuelve un servidor (por ejemplo, «550 5.7.1 …» o el aviso completo de «Mail Delivery Subsystem») y la web te dice:
+
+- **qué tipo de rebote es:** duro, blando, bloqueo, autenticación, configuración o respuesta automática;
+- **qué significa, por qué ha pasado y qué hacer**, paso a paso;
+- **si debes borrar el contacto** de tu lista o no;
+- **el código pieza a pieza** (clase, tema y detalle según el estándar), con los códigos propios de Gmail, Microsoft, Yahoo y Apple.
+
+Incluye una base de **326 respuestas reales de 33 proveedores y filtros antispam** (Gmail, Outlook, Microsoft 365, Yahoo, Apple iCloud, GMX/WEB.DE/IONOS, Orange, La Poste, Free, Comcast, AT&T, Yandex, Mail.ru, QQ, Zoho, GoDaddy, Rackspace, Titan, Proton, Mimecast, Proofpoint, Barracuda, Cisco, Trend Micro y más). Si el mensaje coincide con una de ellas, la web te muestra la respuesta documentada, el proveedor y el enlace a su documentación oficial. Clasifica cada caso en más de 45 situaciones distintas, con explicaciones en los cinco idiomas. Incluye explicación con IA.
+
+Las respuestas reales proceden de [SMTP Field Manual](https://smtpfieldmanual.com/) (Postmark/ActiveCampaign) y [smtp.codes](https://smtp.codes/) (Neatnik y Faisal Misle), ambos con licencia MIT. Las explicaciones y traducciones son propias.
+
+## Generador de SPF, DMARC y BIMI (nuevo)
+
+Asistentes paso a paso para crear registros correctos, listos para copiar en tu proveedor de DNS:
+
+- **SPF:** marca tus herramientas (Google Workspace, Microsoft 365, SendGrid, Brevo, Amazon SES…), añade IPs o «include» propios y elige la política. Cuenta las búsquedas DNS y, con «Comprobar en DNS», calcula el total real (máximo 10) y te enseña el SPF que ya tienes publicado.
+- **DMARC:** elige la política (observar, spam o rechazar), las direcciones de informes y las opciones avanzadas. Te avisa si los informes van a otro dominio y te da el registro de autorización necesario.
+- **BIMI:** genera el registro, comprueba si tu DMARC cumple el requisito y valida en tu navegador que el logo cumple el formato SVG Tiny PS.
+
+## Guías y glosario (nuevo)
+
+Seis guías prácticas (SPF, DKIM y DMARC; requisitos de Gmail, Yahoo y Microsoft; por qué los emails van a spam; listas negras; rebotes; BIMI) y un glosario con buscador de 40 términos de entregabilidad, en los cinco idiomas. Cada guía tiene su propio enlace, por ejemplo [mlduque.github.io/#guias/autenticacion](https://mlduque.github.io/#guias/autenticacion).
 
 ## Idiomas
 
