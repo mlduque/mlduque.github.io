@@ -801,6 +801,25 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
 .lk-hw{margin-top:1rem;padding:.7rem .9rem;background:var(--soft);border:1px dashed var(--line);border-radius:10px}
 .lk-hw .chip{text-decoration:none;margin-left:.3rem}
 @media (max-width:40rem){.hw-note{grid-template-columns:auto 1fr}.hw-note .btn{grid-column:1 / -1}}
+.bt-why{display:flex;gap:.7rem;align-items:flex-start;margin-top:.8rem;padding:.8rem 1rem;background:var(--blue-soft);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:10px}
+.bt-why span{font-size:1.3rem}
+.bt-why p{margin:0;line-height:1.5;font-size:.94rem}
+/* ===== Varias IPs ===== */
+.bk-tabs{display:flex;gap:.4rem;margin:0 0 .9rem;flex-wrap:wrap}
+.bk-tabs button{font:inherit;font-weight:700;padding:.55rem 1rem;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.bk-tabs button[aria-selected="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.bk-tabs button:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.bk-tab td{vertical-align:top;white-space:normal}
+.bk-tab code{word-break:break-all;font-size:.82rem}
+.bk-why{min-width:16rem;font-size:.84rem;line-height:1.4}
+.bk-why div+div{margin-top:.3rem}
+.bk-pill{font-weight:800;font-size:.75rem;padding:.15rem .5rem;border-radius:999px;white-space:nowrap}
+.bk-pok{background:var(--safe);color:#fff} .bk-pwarn{background:var(--yellow);color:#0B0B0F} .bk-pfail{background:var(--danger);color:#fff}
+.bk-wait td{color:var(--muted)}
+.bk-card .bt-stats{margin:1rem 0}
+.bk-tab td:first-child,.bk-tab td:first-child code{white-space:nowrap;word-break:normal}
+.bk-tab td:nth-child(2),.bk-tab td:nth-child(3){min-width:10rem}
+.bk-tab td:nth-child(2) code,.bk-tab td:nth-child(3) code{word-break:normal;overflow-wrap:anywhere}
 
 /* Páginas de guías */
 .sh{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
