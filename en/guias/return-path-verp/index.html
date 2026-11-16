@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Return-Path and VERP: where your bounces go · Email Seguro</title>
+<meta name="description" content="Every email&#39;s hidden sender: what the Return-Path is for, how it affects SPF and DMARC, and how VERP tells you exactly which address bounced.">
+<link rel="canonical" href="https://mlduque.github.io/en/guias/return-path-verp/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/return-path-verp/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/return-path-verp/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/return-path-verp/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/return-path-verp/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/return-path-verp/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/return-path-verp/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/en/guias/return-path-verp/">
+<meta property="og:title" content="Return-Path and VERP: where your bounces go · Email Seguro">
+<meta property="og:description" content="Every email&#39;s hidden sender: what the Return-Path is for, how it affects SPF and DMARC, and how VERP tells you exactly which address bounced.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Return-Path and VERP: where your bounces go","description":"Every email's hidden sender: what the Return-Path is for, how it affects SPF and DMARC, and how VERP tells you exactly which address bounced.","inLanguage":"en","datePublished":"2026-11-16","dateModified":"2026-11-16","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/en/guias/return-path-verp/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mlduque.github.io/?lang=en"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mlduque.github.io/en/guias/"},{"@type":"ListItem","position":3,"name":"Return-Path and VERP: where your bounces go","item":"https://mlduque.github.io/en/guias/return-path-verp/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/?lang=en"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Tools">
+    <a href="/en/guias/" aria-current="page">Guides</a>
+    <a href="/en/glosario/">Glossary</a>
+    <a href="/en/recursos/">Resources</a>
+    <a href="/?lang=en#sobre-mi">About me</a>
+    <a class="btn btn-primary" href="/?lang=en">Tools</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/?lang=en">Home</a> › <a href="/en/guias/">Guides</a></p>
+  <span class="kicker"><i></i><span>Deliverability guides · 2 min read</span></span>
+  <h1>Return-Path and VERP: where your bounces go</h1>
+  <p class="lead">Every email&#39;s hidden sender: what the Return-Path is for, how it affects SPF and DMARC, and how VERP tells you exactly which address bounced.</p>
+  <p class="gd-by">By <a href="/?lang=en#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-16">Updated 2026-11-16</time></p>
+  <nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#every-email-has-two-senders">Every email has two senders</a></li><li><a href="#what-the-return-path-is-for">What the Return-Path is for</a></li><li><a href="#return-path-and-dmarc-alignment">Return-Path and DMARC: alignment</a></li><li><a href="#what-verp-is">What VERP is</a></li><li><a href="#how-to-set-it-up-properly">How to set it up properly</a></li><li><a href="#how-to-check-it">How to check it</a></li></ol></nav>
+  <section id="every-email-has-two-senders"><h2>Every email has two senders</h2><p>Just as a letter has the sender's address on the envelope and a signature inside, an email has two senders. The one you see is the <strong>From</strong> (the «From» header). The other is the <strong>envelope sender</strong>, which the server states with the <code>MAIL FROM</code> command when it connects. When the email is delivered, the receiving server stores it in the <strong>Return-Path</strong> header.</p><p>Hardly anyone sees it, but it decides two important things: where bounces go and which domain SPF checks.</p></section>
+  <section id="what-the-return-path-is-for"><h2>What the Return-Path is for</h2><ul><li><strong>Bounces:</strong> if an email can't be delivered, the error notice (the bounce or DSN) goes to the Return-Path, never to the From. That way your customer service inbox doesn't fill up with errors.</li><li><strong>SPF:</strong> SPF doesn't check the From domain but the Return-Path domain. If your platform uses its own bounce domain, SPF passes… with the platform's domain.</li></ul><p>You can see it in any email: in Gmail, «Show original» and look for the <code>Return-Path:</code> line.</p></section>
+  <section id="return-path-and-dmarc-alignment"><h2>Return-Path and DMARC: alignment</h2><p>DMARC requires SPF or DKIM to pass <strong>with the same domain as the From</strong>. If the Return-Path is <code>bounces.platform.com</code> and your From is <code>yourcompany.com</code>, SPF passes but isn't aligned, and everything rests on DKIM. If the DKIM signature ever fails, for example on a forward, DMARC fails.</p><p>The solution is <strong>your own bounce domain</strong>: a subdomain such as <code>bounces.yourcompany.com</code> that the platform asks you to point at its servers with a CNAME or MX record. That way SPF aligns too and you have two ways to pass DMARC.</p></section>
+  <section id="what-verp-is"><h2>What VERP is</h2><p>Bounces are chaos: every server writes them its own way and many don't clearly say which address failed, especially if the contact forwarded their mail to another account. <strong>VERP</strong> (Variable Envelope Return Path) solves this by using a different Return-Path for each recipient.</p><p>Instead of <code>bounces@yourcompany.com</code>, each email goes out with something like <code>b-7f3a91-maria=example.com@bounces.yourcompany.com</code>. When the bounce arrives, the address it reaches already tells you which contact (and which campaign) failed, without having to read the error message. The idea comes from Dan Bernstein, the author of qmail, in 1997, and today every sending platform uses it.</p></section>
+  <section id="how-to-set-it-up-properly"><h2>How to set it up properly</h2><ul><li>Use a <strong>dedicated subdomain</strong> for bounces, with its own MX record pointing to whoever processes bounces and its own SPF.</li><li>Encode an <strong>identifier</strong> (not the full address in clear text, if you can) and <strong>sign it</strong> with a small check code: that way you discard fake bounces and stop others using you to send backscatter.</li><li>Respect the <strong>64-character</strong> limit of the address's local part.</li><li>Also process <strong>asynchronous bounces</strong> (those arriving hours later) and complaint notices (feedback loops).</li><li>Remove hard bounces immediately and retry soft ones sensibly.</li></ul></section>
+  <section id="how-to-check-it"><h2>How to check it</h2><p>Send yourself an email from your platform, open «Show original» and look at the <code>Return-Path</code>: it should be on your domain and change with every send if you use VERP. Then look up the MX record and SPF of that bounce subdomain with the Dig tool. And when you get a bounce, paste it into the bounce translator to find out what it means.</p></section>
+  <div class="todo gd-tools"><h3>Put it into practice</h3><div class="actions"><a class="btn btn-primary" href="/?lang=en#rebotes">Translate a bounce</a><a class="btn btn-primary" href="/?lang=en#dig">Look up DNS records</a></div></div>
+  <div class="gd-next"><span class="minor">More guides</span><ul><li><a href="/en/guias/autenticacion/"><strong>SPF, DKIM and DMARC explained without jargon</strong></a></li><li><a href="/en/guias/requisitos/"><strong>Gmail, Yahoo and Microsoft requirements for bulk senders</strong></a></li><li><a href="/en/guias/spam/"><strong>Why your emails go to spam: 10 causes and how to fix them</strong></a></li><li><a href="/en/glosario/">See the full glossary →</a></li></ul></div>
+  <div class="gd-cta"><h2>Try the tools for free</h2><p>Check your domain, audit an email, translate a bounce or generate your SPF, DMARC and BIMI records. Free and with no sign-up.</p><a class="btn btn-yellow" href="/?lang=en">Tools →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Free, indicative email deliverability tools. No automated analysis is infallible.</p>
+      <p class="langs" aria-label="Language"><a href="/guias/return-path-verp/" hreflang="es" lang="es">ES</a><a href="/en/guias/return-path-verp/" hreflang="en" lang="en" aria-current="true">EN</a><a href="/it/guias/return-path-verp/" hreflang="it" lang="it">IT</a><a href="/fr/guias/return-path-verp/" hreflang="fr" lang="fr">FR</a><a href="/pt/guias/return-path-verp/" hreflang="pt" lang="pt">PT</a></p></div>
+    <div><h4>Guides</h4><ul><li><a href="/en/guias/autenticacion/">SPF, DKIM and DMARC explained without jargon</a></li><li><a href="/en/guias/requisitos/">Gmail, Yahoo and Microsoft requirements for bulk senders</a></li><li><a href="/en/guias/spam/">Why your emails go to spam: 10 causes and how to fix them</a></li><li><a href="/en/guias/listas-negras/">Blocklists: how to know if you&#39;re on one and how to get off</a></li><li><a href="/en/guias/rebotes/">Bounces: hard, soft and what to do with each</a></li><li><a href="/en/guias/bimi/">BIMI: how to show your logo in the inbox</a></li><li><a href="/en/guias/aperturas-falsas/">Fake opens and clicks: Apple, Gmail and bots</a></li><li><a href="/en/guias/return-path-verp/">Return-Path and VERP: where your bounces go</a></li><li><a href="/en/guias/dkim2/">DKIM2: what comes after DKIM</a></li><li><a href="/en/glosario/">Glossary</a></li><li><a href="/en/recursos/">Resources</a></li></ul></div>
+    <div><h4>Tools</h4><ul><li><a href="/?lang=en#auditoria">Audit an email</a></li><li><a href="/?lang=en#dominio">Check my domain</a></li><li><a href="/?lang=en#rebotes">Translate a bounce</a></li><li><a href="/?lang=en#generador">Generate my records</a></li><li><a href="/?lang=en#campana">Test my campaign</a></li><li><a href="/?lang=en#bbdd">Clean my database</a></li><li><a href="/?lang=en#dmarc">Analyse DMARC reports</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/?lang=en#sobre-mi">About me</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Updated: 2026-11-16</span></div>
+</footer>
+</body>
+</html>

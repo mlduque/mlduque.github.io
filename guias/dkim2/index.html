@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DKIM2: lo que viene después de DKIM · Email Seguro</title>
+<meta name="description" content="Qué es DKIM2, qué problemas de DKIM resuelve (replay, reenvíos y rebotes falsos), en qué punto está el estándar y qué deberías hacer hoy.">
+<link rel="canonical" href="https://mlduque.github.io/guias/dkim2/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/dkim2/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/dkim2/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/dkim2/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/dkim2/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/dkim2/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/dkim2/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/guias/dkim2/">
+<meta property="og:title" content="DKIM2: lo que viene después de DKIM · Email Seguro">
+<meta property="og:description" content="Qué es DKIM2, qué problemas de DKIM resuelve (replay, reenvíos y rebotes falsos), en qué punto está el estándar y qué deberías hacer hoy.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"DKIM2: lo que viene después de DKIM","description":"Qué es DKIM2, qué problemas de DKIM resuelve (replay, reenvíos y rebotes falsos), en qué punto está el estándar y qué deberías hacer hoy.","inLanguage":"es","datePublished":"2026-11-16","dateModified":"2026-11-16","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/guias/dkim2/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://mlduque.github.io/"},{"@type":"ListItem","position":2,"name":"Guías","item":"https://mlduque.github.io/guias/"},{"@type":"ListItem","position":3,"name":"DKIM2: lo que viene después de DKIM","item":"https://mlduque.github.io/guias/dkim2/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Herramientas">
+    <a href="/guias/" aria-current="page">Guías</a>
+    <a href="/glosario/">Glosario</a>
+    <a href="/recursos/">Recursos</a>
+    <a href="/#sobre-mi">Sobre mí</a>
+    <a class="btn btn-primary" href="/">Herramientas</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/">Inicio</a> › <a href="/guias/">Guías</a></p>
+  <span class="kicker"><i></i><span>Guías de entregabilidad · 2 min de lectura</span></span>
+  <h1>DKIM2: lo que viene después de DKIM</h1>
+  <p class="lead">Qué es DKIM2, qué problemas de DKIM resuelve (replay, reenvíos y rebotes falsos), en qué punto está el estándar y qué deberías hacer hoy.</p>
+  <p class="gd-by">Por <a href="/#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-16">Actualizado 2026-11-16</time></p>
+  <nav class="toc" aria-label="En esta guía"><strong>En esta guía</strong><ol><li><a href="#que-es-dkim2">Qué es DKIM2</a></li><li><a href="#los-problemas-que-quiere-resolver">Los problemas que quiere resolver</a></li><li><a href="#como-funciona">Cómo funciona</a></li><li><a href="#que-cambia-para-quien-envia">Qué cambia para quien envía</a></li><li><a href="#que-hacer-hoy">Qué hacer hoy</a></li></ol></nav>
+  <section id="que-es-dkim2"><h2>Qué es DKIM2</h2><p>DKIM2 es la próxima versión de DKIM, la firma digital que demuestra que un email lo ha enviado tu dominio y que nadie lo ha cambiado. La está preparando el grupo de trabajo DKIM del IETF, el organismo que publica los estándares de Internet, con autores de Yahoo, Google y Fastmail.</p><p>Importante: <strong>todavía no es un estándar</strong>. Es un borrador (la especificación principal va por la versión 09, de noviembre de 2026, junto a otros dos documentos sobre buenas prácticas y registros DNS) y ningún proveedor lo exige. DKIM, el de siempre, sigue siendo el que cuenta.</p></section>
+  <section id="los-problemas-que-quiere-resolver"><h2>Los problemas que quiere resolver</h2><ul><li><strong>Replay:</strong> alguien consigue un email legítimo firmado por un dominio con buena reputación y lo reenvía a millones de personas. La firma DKIM sigue siendo válida, así que el spam se aprovecha de la reputación ajena.</li><li><strong>Reenvíos y listas de correo:</strong> cuando un intermediario cambia el asunto o añade un pie, la firma se rompe. ARC fue un parche para esto, pero depende de que el receptor confíe en quien reenvía.</li><li><strong>Rebotes falsos (backscatter):</strong> errores que llegan a dominios inocentes cuyo nombre se usó en un envío falsificado.</li><li><strong>Sin retroalimentación:</strong> DKIM no tiene una forma estándar de avisar al remitente de lo que ha pasado con su email.</li></ul></section>
+  <section id="como-funciona"><h2>Cómo funciona</h2><ul><li><strong>Cada salto firma:</strong> cada servidor que maneja el email añade su propia cabecera <code>DKIM2-Signature</code> con un número de orden, de modo que queda una cadena de custodia verificable.</li><li><strong>Firma el sobre:</strong> cada firma incluye el remitente y los destinatarios reales de la conexión (<code>mf=</code> y <code>rt=</code>). Si alguien reenvía el email a otras personas, no coincide y se detecta el replay.</li><li><strong>Cambios reversibles:</strong> una cabecera <code>Message-Instance</code> guarda «recetas» para deshacer los cambios de cada intermediario y comprobar la firma original.</li><li><strong>Rebotes solo por el camino:</strong> los avisos de error solo se aceptan si vuelven por la misma cadena, lo que corta el backscatter.</li><li><strong>Claves:</strong> se publican en el mismo sitio que ahora (<code>selector._domainkey.tudominio</code>) y admite RSA, Ed25519 y un algoritmo poscuántico (ML-DSA-44).</li></ul></section>
+  <section id="que-cambia-para-quien-envia"><h2>Qué cambia para quien envía</h2><p>La consecuencia más práctica: en DKIM2 el dominio que firma tiene que coincidir con el del <strong>remitente del sobre</strong> (el Return-Path). Si hoy tu plataforma envía con su propio dominio de rebotes, con DKIM2 tendrás que usar uno tuyo. Es justo lo que ya conviene hacer para alinear SPF con DMARC.</p><p>DKIM y DKIM2 convivirán durante años, y es probable que ARC desaparezca cuando DKIM2 se extienda.</p></section>
+  <section id="que-hacer-hoy"><h2>Qué hacer hoy</h2><ul><li>No cambies tu infraestructura por un borrador: espera a que sea un RFC y a que Gmail, Yahoo o Microsoft anuncien que lo usan.</li><li>Deja DKIM impecable: claves de 2048 bits (o Ed25519 además de RSA), firmando con tu propio dominio y con rotación periódica.</li><li>Configura un <strong>dominio de rebotes propio</strong> en cada plataforma: te alinea SPF ya y te prepara para DKIM2.</li><li>Lleva DMARC hasta <code>p=quarantine</code> o <code>p=reject</code>.</li><li>Pregunta a tu plataforma de envío por sus planes con DKIM2 y sigue las novedades en dkim2.eu y en el grupo de trabajo DKIM del IETF.</li></ul></section>
+  <div class="todo gd-tools"><h3>Ponlo en práctica</h3><div class="actions"><a class="btn btn-primary" href="/#dominio">Comprobar mi dominio</a><a class="btn btn-primary" href="/#dig">Consultar registros DNS</a></div></div>
+  <div class="gd-next"><span class="minor">Más guías</span><ul><li><a href="/guias/autenticacion/"><strong>SPF, DKIM y DMARC explicados sin tecnicismos</strong></a></li><li><a href="/guias/requisitos/"><strong>Requisitos de Gmail, Yahoo y Microsoft para envíos masivos</strong></a></li><li><a href="/guias/spam/"><strong>Por qué tus emails van a spam: 10 causas y cómo arreglarlas</strong></a></li><li><a href="/glosario/">Ver el glosario completo →</a></li></ul></div>
+  <div class="gd-cta"><h2>Prueba las herramientas gratis</h2><p>Comprueba tu dominio, audita un email, traduce un rebote o genera tus registros SPF, DMARC y BIMI. Gratis y sin registro.</p><a class="btn btn-yellow" href="/">Herramientas →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Herramientas gratuitas y orientativas de entregabilidad del email. Ningún análisis automático es infalible.</p>
+      <p class="langs" aria-label="Idioma"><a href="/guias/dkim2/" hreflang="es" lang="es" aria-current="true">ES</a><a href="/en/guias/dkim2/" hreflang="en" lang="en">EN</a><a href="/it/guias/dkim2/" hreflang="it" lang="it">IT</a><a href="/fr/guias/dkim2/" hreflang="fr" lang="fr">FR</a><a href="/pt/guias/dkim2/" hreflang="pt" lang="pt">PT</a></p></div>
+    <div><h4>Guías</h4><ul><li><a href="/guias/autenticacion/">SPF, DKIM y DMARC explicados sin tecnicismos</a></li><li><a href="/guias/requisitos/">Requisitos de Gmail, Yahoo y Microsoft para envíos masivos</a></li><li><a href="/guias/spam/">Por qué tus emails van a spam: 10 causas y cómo arreglarlas</a></li><li><a href="/guias/listas-negras/">Listas negras: cómo saber si estás en una y cómo salir</a></li><li><a href="/guias/rebotes/">Rebotes: duros, blandos y qué hacer con cada uno</a></li><li><a href="/guias/bimi/">BIMI: cómo mostrar tu logo en la bandeja de entrada</a></li><li><a href="/guias/aperturas-falsas/">Aperturas y clics falsos: Apple, Gmail y los bots</a></li><li><a href="/guias/return-path-verp/">Return-Path y VERP: a dónde van tus rebotes</a></li><li><a href="/guias/dkim2/">DKIM2: lo que viene después de DKIM</a></li><li><a href="/glosario/">Glosario</a></li><li><a href="/recursos/">Recursos</a></li></ul></div>
+    <div><h4>Herramientas</h4><ul><li><a href="/#auditoria">Auditar un email</a></li><li><a href="/#dominio">Comprobar mi dominio</a></li><li><a href="/#rebotes">Traducir un rebote</a></li><li><a href="/#generador">Generar mis registros</a></li><li><a href="/#campana">Probar mi campaña</a></li><li><a href="/#bbdd">Limpiar mi base de datos</a></li><li><a href="/#dmarc">Analizar informes DMARC</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/#sobre-mi">Sobre mí</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Actualizado: 2026-11-16</span></div>
+</footer>
+</body>
+</html>

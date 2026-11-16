@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DKIM2: what comes after DKIM · Email Seguro</title>
+<meta name="description" content="What DKIM2 is, which DKIM problems it solves (replay, forwarding and fake bounces), where the standard stands and what you should do today.">
+<link rel="canonical" href="https://mlduque.github.io/en/guias/dkim2/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/dkim2/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/dkim2/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/dkim2/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/dkim2/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/dkim2/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/dkim2/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/en/guias/dkim2/">
+<meta property="og:title" content="DKIM2: what comes after DKIM · Email Seguro">
+<meta property="og:description" content="What DKIM2 is, which DKIM problems it solves (replay, forwarding and fake bounces), where the standard stands and what you should do today.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"DKIM2: what comes after DKIM","description":"What DKIM2 is, which DKIM problems it solves (replay, forwarding and fake bounces), where the standard stands and what you should do today.","inLanguage":"en","datePublished":"2026-11-16","dateModified":"2026-11-16","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/en/guias/dkim2/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mlduque.github.io/?lang=en"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mlduque.github.io/en/guias/"},{"@type":"ListItem","position":3,"name":"DKIM2: what comes after DKIM","item":"https://mlduque.github.io/en/guias/dkim2/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/?lang=en"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Tools">
+    <a href="/en/guias/" aria-current="page">Guides</a>
+    <a href="/en/glosario/">Glossary</a>
+    <a href="/en/recursos/">Resources</a>
+    <a href="/?lang=en#sobre-mi">About me</a>
+    <a class="btn btn-primary" href="/?lang=en">Tools</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/?lang=en">Home</a> › <a href="/en/guias/">Guides</a></p>
+  <span class="kicker"><i></i><span>Deliverability guides · 2 min read</span></span>
+  <h1>DKIM2: what comes after DKIM</h1>
+  <p class="lead">What DKIM2 is, which DKIM problems it solves (replay, forwarding and fake bounces), where the standard stands and what you should do today.</p>
+  <p class="gd-by">By <a href="/?lang=en#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-16">Updated 2026-11-16</time></p>
+  <nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#what-dkim2-is">What DKIM2 is</a></li><li><a href="#the-problems-it-aims-to-solve">The problems it aims to solve</a></li><li><a href="#how-it-works">How it works</a></li><li><a href="#what-changes-for-senders">What changes for senders</a></li><li><a href="#what-to-do-today">What to do today</a></li></ol></nav>
+  <section id="what-dkim2-is"><h2>What DKIM2 is</h2><p>DKIM2 is the next version of DKIM, the digital signature that proves an email was sent by your domain and that nobody changed it. It's being prepared by the IETF DKIM working group, the body that publishes Internet standards, with authors from Yahoo, Google and Fastmail.</p><p>Important: <strong>it isn't a standard yet</strong>. It's a draft (the main specification is at version 09, from November 2026, alongside two other documents on best practices and DNS records) and no provider requires it. Good old DKIM is still the one that counts.</p></section>
+  <section id="the-problems-it-aims-to-solve"><h2>The problems it aims to solve</h2><ul><li><strong>Replay:</strong> someone gets hold of a legitimate email signed by a domain with a good reputation and resends it to millions of people. The DKIM signature is still valid, so the spam takes advantage of someone else's reputation.</li><li><strong>Forwarding and mailing lists:</strong> when an intermediary changes the subject or adds a footer, the signature breaks. ARC was a patch for this, but it depends on the receiver trusting whoever forwards.</li><li><strong>Fake bounces (backscatter):</strong> errors that reach innocent domains whose name was used in a forged send.</li><li><strong>No feedback:</strong> DKIM has no standard way to tell the sender what happened to their email.</li></ul></section>
+  <section id="how-it-works"><h2>How it works</h2><ul><li><strong>Every hop signs:</strong> each server handling the email adds its own <code>DKIM2-Signature</code> header with a sequence number, leaving a verifiable chain of custody.</li><li><strong>It signs the envelope:</strong> each signature includes the real sender and recipients of the connection (<code>mf=</code> and <code>rt=</code>). If someone resends the email to other people, it won't match and the replay is detected.</li><li><strong>Reversible changes:</strong> a <code>Message-Instance</code> header stores «recipes» to undo each intermediary's changes and verify the original signature.</li><li><strong>Bounces only along the path:</strong> error notices are only accepted if they travel back along the same chain, which cuts backscatter.</li><li><strong>Keys:</strong> they're published in the same place as now (<code>selector._domainkey.yourdomain</code>) and it supports RSA, Ed25519 and a post-quantum algorithm (ML-DSA-44).</li></ul></section>
+  <section id="what-changes-for-senders"><h2>What changes for senders</h2><p>The most practical consequence: in DKIM2 the signing domain must match the <strong>envelope sender</strong> (the Return-Path). If your platform sends with its own bounce domain today, with DKIM2 you'll need to use one of yours. That's exactly what you should already do to align SPF with DMARC.</p><p>DKIM and DKIM2 will coexist for years, and ARC will probably disappear once DKIM2 spreads.</p></section>
+  <section id="what-to-do-today"><h2>What to do today</h2><ul><li>Don't change your infrastructure for a draft: wait until it's an RFC and Gmail, Yahoo or Microsoft announce they use it.</li><li>Keep DKIM spotless: 2048-bit keys (or Ed25519 as well as RSA), signing with your own domain and rotating them regularly.</li><li>Set up <strong>your own bounce domain</strong> on every platform: it aligns SPF now and prepares you for DKIM2.</li><li>Take DMARC to <code>p=quarantine</code> or <code>p=reject</code>.</li><li>Ask your sending platform about its DKIM2 plans and follow the news at dkim2.eu and in the IETF DKIM working group.</li></ul></section>
+  <div class="todo gd-tools"><h3>Put it into practice</h3><div class="actions"><a class="btn btn-primary" href="/?lang=en#dominio">Check my domain</a><a class="btn btn-primary" href="/?lang=en#dig">Look up DNS records</a></div></div>
+  <div class="gd-next"><span class="minor">More guides</span><ul><li><a href="/en/guias/autenticacion/"><strong>SPF, DKIM and DMARC explained without jargon</strong></a></li><li><a href="/en/guias/requisitos/"><strong>Gmail, Yahoo and Microsoft requirements for bulk senders</strong></a></li><li><a href="/en/guias/spam/"><strong>Why your emails go to spam: 10 causes and how to fix them</strong></a></li><li><a href="/en/glosario/">See the full glossary →</a></li></ul></div>
+  <div class="gd-cta"><h2>Try the tools for free</h2><p>Check your domain, audit an email, translate a bounce or generate your SPF, DMARC and BIMI records. Free and with no sign-up.</p><a class="btn btn-yellow" href="/?lang=en">Tools →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Free, indicative email deliverability tools. No automated analysis is infallible.</p>
+      <p class="langs" aria-label="Language"><a href="/guias/dkim2/" hreflang="es" lang="es">ES</a><a href="/en/guias/dkim2/" hreflang="en" lang="en" aria-current="true">EN</a><a href="/it/guias/dkim2/" hreflang="it" lang="it">IT</a><a href="/fr/guias/dkim2/" hreflang="fr" lang="fr">FR</a><a href="/pt/guias/dkim2/" hreflang="pt" lang="pt">PT</a></p></div>
+    <div><h4>Guides</h4><ul><li><a href="/en/guias/autenticacion/">SPF, DKIM and DMARC explained without jargon</a></li><li><a href="/en/guias/requisitos/">Gmail, Yahoo and Microsoft requirements for bulk senders</a></li><li><a href="/en/guias/spam/">Why your emails go to spam: 10 causes and how to fix them</a></li><li><a href="/en/guias/listas-negras/">Blocklists: how to know if you&#39;re on one and how to get off</a></li><li><a href="/en/guias/rebotes/">Bounces: hard, soft and what to do with each</a></li><li><a href="/en/guias/bimi/">BIMI: how to show your logo in the inbox</a></li><li><a href="/en/guias/aperturas-falsas/">Fake opens and clicks: Apple, Gmail and bots</a></li><li><a href="/en/guias/return-path-verp/">Return-Path and VERP: where your bounces go</a></li><li><a href="/en/guias/dkim2/">DKIM2: what comes after DKIM</a></li><li><a href="/en/glosario/">Glossary</a></li><li><a href="/en/recursos/">Resources</a></li></ul></div>
+    <div><h4>Tools</h4><ul><li><a href="/?lang=en#auditoria">Audit an email</a></li><li><a href="/?lang=en#dominio">Check my domain</a></li><li><a href="/?lang=en#rebotes">Translate a bounce</a></li><li><a href="/?lang=en#generador">Generate my records</a></li><li><a href="/?lang=en#campana">Test my campaign</a></li><li><a href="/?lang=en#bbdd">Clean my database</a></li><li><a href="/?lang=en#dmarc">Analyse DMARC reports</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/?lang=en#sobre-mi">About me</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Updated: 2026-11-16</span></div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Return-Path et VERP : où vont vos rebonds · Email Seguro</title>
+<meta name="description" content="L&#39;expéditeur caché de chaque email : à quoi sert le Return-Path, comment il influence SPF et DMARC et comment VERP vous dit exactement quelle adresse a rebondi.">
+<link rel="canonical" href="https://mlduque.github.io/fr/guias/return-path-verp/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/return-path-verp/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/return-path-verp/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/return-path-verp/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/return-path-verp/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/return-path-verp/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/return-path-verp/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/fr/guias/return-path-verp/">
+<meta property="og:title" content="Return-Path et VERP : où vont vos rebonds · Email Seguro">
+<meta property="og:description" content="L&#39;expéditeur caché de chaque email : à quoi sert le Return-Path, comment il influence SPF et DMARC et comment VERP vous dit exactement quelle adresse a rebondi.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Return-Path et VERP : où vont vos rebonds","description":"L'expéditeur caché de chaque email : à quoi sert le Return-Path, comment il influence SPF et DMARC et comment VERP vous dit exactement quelle adresse a rebondi.","inLanguage":"fr","datePublished":"2026-11-16","dateModified":"2026-11-16","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/fr/guias/return-path-verp/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://mlduque.github.io/?lang=fr"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mlduque.github.io/fr/guias/"},{"@type":"ListItem","position":3,"name":"Return-Path et VERP : où vont vos rebonds","item":"https://mlduque.github.io/fr/guias/return-path-verp/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/?lang=fr"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Outils">
+    <a href="/fr/guias/" aria-current="page">Guides</a>
+    <a href="/fr/glosario/">Glossaire</a>
+    <a href="/fr/recursos/">Ressources</a>
+    <a href="/?lang=fr#sobre-mi">À propos</a>
+    <a class="btn btn-primary" href="/?lang=fr">Outils</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/?lang=fr">Accueil</a> › <a href="/fr/guias/">Guides</a></p>
+  <span class="kicker"><i></i><span>Guides de délivrabilité · 3 min de lecture</span></span>
+  <h1>Return-Path et VERP : où vont vos rebonds</h1>
+  <p class="lead">L&#39;expéditeur caché de chaque email : à quoi sert le Return-Path, comment il influence SPF et DMARC et comment VERP vous dit exactement quelle adresse a rebondi.</p>
+  <p class="gd-by">Par <a href="/?lang=fr#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-16">Mis à jour 2026-11-16</time></p>
+  <nav class="toc" aria-label="Dans ce guide"><strong>Dans ce guide</strong><ol><li><a href="#chaque-email-a-deux-expediteurs">Chaque email a deux expéditeurs</a></li><li><a href="#a-quoi-sert-le-return-path">À quoi sert le Return-Path</a></li><li><a href="#return-path-et-dmarc-l-alignement">Return-Path et DMARC : l&#39;alignement</a></li><li><a href="#qu-est-ce-que-verp">Qu&#39;est-ce que VERP</a></li><li><a href="#comment-bien-le-configurer">Comment bien le configurer</a></li><li><a href="#comment-le-verifier">Comment le vérifier</a></li></ol></nav>
+  <section id="chaque-email-a-deux-expediteurs"><h2>Chaque email a deux expéditeurs</h2><p>Comme une lettre porte l'adresse de l'expéditeur sur l'enveloppe et une signature à l'intérieur, un email a deux expéditeurs. Celui que vous voyez est le <strong>From</strong> (l'en-tête « De »). L'autre est l'<strong>expéditeur de l'enveloppe</strong>, que le serveur annonce avec la commande <code>MAIL FROM</code> en se connectant. À la livraison, le serveur destinataire l'enregistre dans l'en-tête <strong>Return-Path</strong>.</p><p>Presque personne ne le voit, mais il décide de deux choses importantes : où arrivent les rebonds et quel domaine SPF vérifie.</p></section>
+  <section id="a-quoi-sert-le-return-path"><h2>À quoi sert le Return-Path</h2><ul><li><strong>Rebonds :</strong> si un email ne peut pas être livré, l'avis d'erreur (le rebond ou DSN) va au Return-Path, jamais au From. Ainsi, la boîte de votre service client ne se remplit pas d'erreurs.</li><li><strong>SPF :</strong> SPF ne vérifie pas le domaine du From, mais celui du Return-Path. Si votre plateforme utilise son propre domaine de rebonds, SPF passe… avec le domaine de la plateforme.</li></ul><p>Vous pouvez le voir dans n'importe quel email : dans Gmail, « Afficher l'original » et cherchez la ligne <code>Return-Path:</code>.</p></section>
+  <section id="return-path-et-dmarc-l-alignement"><h2>Return-Path et DMARC : l&#39;alignement</h2><p>DMARC exige que SPF ou DKIM passent <strong>avec le même domaine que le From</strong>. Si le Return-Path est <code>bounces.plateforme.com</code> et votre From <code>votreentreprise.com</code>, SPF passe mais n'est pas aligné, et tout repose sur DKIM. Si un jour la signature DKIM échoue, par exemple lors d'un transfert, DMARC échoue.</p><p>La solution est un <strong>domaine de rebonds à vous</strong> : un sous-domaine comme <code>rebonds.votreentreprise.com</code> que la plateforme vous demande de pointer vers ses serveurs avec un enregistrement CNAME ou MX. SPF s'aligne alors aussi et vous avez deux chemins pour passer DMARC.</p></section>
+  <section id="qu-est-ce-que-verp"><h2>Qu&#39;est-ce que VERP</h2><p>Les rebonds sont un chaos : chaque serveur les rédige à sa façon et beaucoup n'indiquent pas clairement quelle adresse a échoué, surtout si le contact transférait son courrier vers un autre compte. <strong>VERP</strong> (Variable Envelope Return Path) résout cela en utilisant un Return-Path différent pour chaque destinataire.</p><p>Au lieu de <code>rebonds@votreentreprise.com</code>, chaque email part avec quelque chose comme <code>b-7f3a91-maria=exemple.com@rebonds.votreentreprise.com</code>. Quand le rebond arrive, l'adresse qui le reçoit indique déjà quel contact (et quelle campagne) a échoué, sans avoir à lire le message d'erreur. L'idée vient de Dan Bernstein, l'auteur de qmail, en 1997, et toutes les plateformes d'envoi l'utilisent aujourd'hui.</p></section>
+  <section id="comment-bien-le-configurer"><h2>Comment bien le configurer</h2><ul><li>Utilisez un <strong>sous-domaine dédié</strong> aux rebonds, avec son propre enregistrement MX pointant vers celui qui traite les rebonds et son propre SPF.</li><li>Encodez un <strong>identifiant</strong> (pas l'adresse complète en clair si possible) et <strong>signez-le</strong> avec un petit code de contrôle : vous écartez ainsi les faux rebonds et évitez qu'on vous utilise pour envoyer du backscatter.</li><li>Respectez la limite de <strong>64 caractères</strong> de la partie locale de l'adresse.</li><li>Traitez aussi les <strong>rebonds asynchrones</strong> (ceux qui arrivent des heures plus tard) et les avis de plainte (feedback loops).</li><li>Supprimez immédiatement les rebonds durs et relancez les rebonds temporaires avec discernement.</li></ul></section>
+  <section id="comment-le-verifier"><h2>Comment le vérifier</h2><p>Envoyez-vous un email depuis votre plateforme, ouvrez « Afficher l'original » et regardez le <code>Return-Path</code> : il devrait appartenir à votre domaine et changer à chaque envoi si vous utilisez VERP. Consultez ensuite avec l'outil Dig l'enregistrement MX et le SPF de ce sous-domaine de rebonds. Et quand vous recevez un rebond, collez-le dans le traducteur de rebonds pour savoir ce qu'il signifie.</p></section>
+  <div class="todo gd-tools"><h3>Passez à la pratique</h3><div class="actions"><a class="btn btn-primary" href="/?lang=fr#rebotes">Traduire un rebond</a><a class="btn btn-primary" href="/?lang=fr#dig">Consulter les enregistrements DNS</a></div></div>
+  <div class="gd-next"><span class="minor">Autres guides</span><ul><li><a href="/fr/guias/autenticacion/"><strong>SPF, DKIM et DMARC expliqués sans jargon</strong></a></li><li><a href="/fr/guias/requisitos/"><strong>Exigences de Gmail, Yahoo et Microsoft pour les envois en masse</strong></a></li><li><a href="/fr/guias/spam/"><strong>Pourquoi vos emails vont en spam : 10 causes et comment les corriger</strong></a></li><li><a href="/fr/glosario/">Voir le glossaire complet →</a></li></ul></div>
+  <div class="gd-cta"><h2>Essayez les outils gratuitement</h2><p>Vérifiez votre domaine, auditez un email, traduisez un rebond ou générez vos enregistrements SPF, DMARC et BIMI. Gratuit et sans inscription.</p><a class="btn btn-yellow" href="/?lang=fr">Outils →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Outils gratuits et indicatifs de délivrabilité email. Aucune analyse automatique n&#39;est infaillible.</p>
+      <p class="langs" aria-label="Langue"><a href="/guias/return-path-verp/" hreflang="es" lang="es">ES</a><a href="/en/guias/return-path-verp/" hreflang="en" lang="en">EN</a><a href="/it/guias/return-path-verp/" hreflang="it" lang="it">IT</a><a href="/fr/guias/return-path-verp/" hreflang="fr" lang="fr" aria-current="true">FR</a><a href="/pt/guias/return-path-verp/" hreflang="pt" lang="pt">PT</a></p></div>
+    <div><h4>Guides</h4><ul><li><a href="/fr/guias/autenticacion/">SPF, DKIM et DMARC expliqués sans jargon</a></li><li><a href="/fr/guias/requisitos/">Exigences de Gmail, Yahoo et Microsoft pour les envois en masse</a></li><li><a href="/fr/guias/spam/">Pourquoi vos emails vont en spam : 10 causes et comment les corriger</a></li><li><a href="/fr/guias/listas-negras/">Listes noires : savoir si vous y êtes et comment en sortir</a></li><li><a href="/fr/guias/rebotes/">Rebonds : durs, doux et que faire de chacun</a></li><li><a href="/fr/guias/bimi/">BIMI : afficher votre logo dans la boîte de réception</a></li><li><a href="/fr/guias/aperturas-falsas/">Fausses ouvertures et faux clics : Apple, Gmail et les bots</a></li><li><a href="/fr/guias/return-path-verp/">Return-Path et VERP : où vont vos rebonds</a></li><li><a href="/fr/guias/dkim2/">DKIM2 : ce qui vient après DKIM</a></li><li><a href="/fr/glosario/">Glossaire</a></li><li><a href="/fr/recursos/">Ressources</a></li></ul></div>
+    <div><h4>Outils</h4><ul><li><a href="/?lang=fr#auditoria">Auditer un email</a></li><li><a href="/?lang=fr#dominio">Vérifier mon domaine</a></li><li><a href="/?lang=fr#rebotes">Traduire un rebond</a></li><li><a href="/?lang=fr#generador">Générer mes enregistrements</a></li><li><a href="/?lang=fr#campana">Tester ma campagne</a></li><li><a href="/?lang=fr#bbdd">Nettoyer ma base</a></li><li><a href="/?lang=fr#dmarc">Analyser des rapports DMARC</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/?lang=fr#sobre-mi">À propos</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Mis à jour: 2026-11-16</span></div>
+</footer>
+</body>
+</html>

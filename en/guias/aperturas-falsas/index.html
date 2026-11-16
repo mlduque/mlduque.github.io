@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fake opens and clicks: Apple, Gmail and bots · Email Seguro</title>
+<meta name="description" content="Why your open rates no longer tell the truth, who opens and clicks your emails without being a person, and what to measure instead.">
+<link rel="canonical" href="https://mlduque.github.io/en/guias/aperturas-falsas/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/aperturas-falsas/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/aperturas-falsas/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/aperturas-falsas/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/aperturas-falsas/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/aperturas-falsas/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/aperturas-falsas/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/en/guias/aperturas-falsas/">
+<meta property="og:title" content="Fake opens and clicks: Apple, Gmail and bots · Email Seguro">
+<meta property="og:description" content="Why your open rates no longer tell the truth, who opens and clicks your emails without being a person, and what to measure instead.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Fake opens and clicks: Apple, Gmail and bots","description":"Why your open rates no longer tell the truth, who opens and clicks your emails without being a person, and what to measure instead.","inLanguage":"en","datePublished":"2026-11-16","dateModified":"2026-11-16","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/en/guias/aperturas-falsas/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mlduque.github.io/?lang=en"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mlduque.github.io/en/guias/"},{"@type":"ListItem","position":3,"name":"Fake opens and clicks: Apple, Gmail and bots","item":"https://mlduque.github.io/en/guias/aperturas-falsas/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/?lang=en"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Tools">
+    <a href="/en/guias/" aria-current="page">Guides</a>
+    <a href="/en/glosario/">Glossary</a>
+    <a href="/en/recursos/">Resources</a>
+    <a href="/?lang=en#sobre-mi">About me</a>
+    <a class="btn btn-primary" href="/?lang=en">Tools</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/?lang=en">Home</a> › <a href="/en/guias/">Guides</a></p>
+  <span class="kicker"><i></i><span>Deliverability guides · 2 min read</span></span>
+  <h1>Fake opens and clicks: Apple, Gmail and bots</h1>
+  <p class="lead">Why your open rates no longer tell the truth, who opens and clicks your emails without being a person, and what to measure instead.</p>
+  <p class="gd-by">By <a href="/?lang=en#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-16">Updated 2026-11-16</time></p>
+  <nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#your-statistics-aren-t-what-they-seem">Your statistics aren&#39;t what they seem</a></li><li><a href="#apple-mail-automatic-opens">Apple Mail: automatic opens</a></li><li><a href="#gmail-real-but-anonymous-opens">Gmail: real but anonymous opens</a></li><li><a href="#antivirus-clicks">Antivirus clicks</a></li><li><a href="#how-to-recognise-a-robot">How to recognise a robot</a></li><li><a href="#what-to-measure-instead">What to measure instead</a></li></ol></nav>
+  <section id="your-statistics-aren-t-what-they-seem"><h2>Your statistics aren&#39;t what they seem</h2><p>An open is measured with a tiny image (a tracking pixel) that downloads when the email is opened. For years it was a good sign of interest. Not anymore: some programs download that image without anyone opening the email, and antivirus filters click every link before the person sees it.</p><p>The result is inflated opens and clicks, «engaged» segments full of robots and campaigns that look like they perform better than they do.</p></section>
+  <section id="apple-mail-automatic-opens"><h2>Apple Mail: automatic opens</h2><p>Since 2021, <strong>Apple Mail Privacy Protection</strong> (MPP) downloads the images of every email as soon as it arrives, through Apple's servers, even if the person never opens it. It affects anyone reading in the Mail app on iPhone, iPad or Mac with the option enabled, whatever their account: Gmail, Outlook or their company's.</p><p>You can spot them because they come from Apple IPs, with a minimal user agent (<code>Mozilla/5.0</code>) and very shortly after sending. In lists with lots of iPhones, more than half of opens can be automatic.</p></section>
+  <section id="gmail-real-but-anonymous-opens"><h2>Gmail: real but anonymous opens</h2><p>Gmail also downloads images through its own server (the «Google Image Proxy»), but only when the person opens the email. The open is <strong>real</strong>; what you lose is the device, the location and often repeat opens, because the image gets cached.</p><p>Yahoo does something similar with its own proxy. That's why these opens should count as human, even though they show the provider's IP.</p></section>
+  <section id="antivirus-clicks"><h2>Antivirus clicks</h2><p>Corporate security filters (Microsoft Defender, Proofpoint, Mimecast, Barracuda…) <strong>open every link</strong> to check it doesn't lead to a dangerous site, usually before delivering the email or within the first seconds. On top of that come the previews WhatsApp, Slack or Teams generate when someone shares a link.</p><p>Besides inflating clicks, they can <strong>confirm double opt-in subscriptions or unsubscribe contacts</strong> without anyone asking. That's why Gmail and Yahoo's one-click unsubscribe works with a POST request (RFC 8058) rather than a simple link.</p></section>
+  <section id="how-to-recognise-a-robot"><h2>How to recognise a robot</h2><ul><li><strong>User agent:</strong> scanner or program names (python, curl, HeadlessChrome) or very old browsers.</li><li><strong>IP:</strong> Microsoft, Proofpoint, Mimecast, Barracuda or Apple ranges.</li><li><strong>Speed:</strong> several links clicked within a few seconds, or clicks a few seconds after delivery.</li><li><strong>Sweeps:</strong> the same IP clicking links for many different contacts in a minute.</li><li><strong>Honeypot link:</strong> a link invisible to people; whoever clicks it is a robot.</li><li><strong>Click without an open:</strong> suspicious, although it may be someone with images turned off.</li></ul><p>Our bot detector applies these rules to your platform's export and gives you back the real events.</p></section>
+  <section id="what-to-measure-instead"><h2>What to measure instead</h2><ul><li>Use <strong>human clicks, purchases, replies and conversions</strong> as signs of interest, not opens.</li><li>To define «active» contacts, don't trust Apple opens: combine real clicks and activity on your website or store over the last 90 to 180 days.</li><li>Before removing inactive contacts, check they aren't customers using Apple Mail who never really «open».</li><li>Ask your platform to filter robot clicks and to let you export each event's user agent and IP.</li><li>Monitor reputation with Google Postmaster Tools and Microsoft SNDS, which measure what happens in the mailbox and don't rely on the pixel.</li></ul></section>
+  <div class="todo gd-tools"><h3>Put it into practice</h3><div class="actions"><a class="btn btn-primary" href="/?lang=en#bots">Detect bots in my statistics</a><a class="btn btn-primary" href="/?lang=en#bbdd">Clean my database</a></div></div>
+  <div class="gd-next"><span class="minor">More guides</span><ul><li><a href="/en/guias/autenticacion/"><strong>SPF, DKIM and DMARC explained without jargon</strong></a></li><li><a href="/en/guias/requisitos/"><strong>Gmail, Yahoo and Microsoft requirements for bulk senders</strong></a></li><li><a href="/en/guias/spam/"><strong>Why your emails go to spam: 10 causes and how to fix them</strong></a></li><li><a href="/en/glosario/">See the full glossary →</a></li></ul></div>
+  <div class="gd-cta"><h2>Try the tools for free</h2><p>Check your domain, audit an email, translate a bounce or generate your SPF, DMARC and BIMI records. Free and with no sign-up.</p><a class="btn btn-yellow" href="/?lang=en">Tools →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Free, indicative email deliverability tools. No automated analysis is infallible.</p>
+      <p class="langs" aria-label="Language"><a href="/guias/aperturas-falsas/" hreflang="es" lang="es">ES</a><a href="/en/guias/aperturas-falsas/" hreflang="en" lang="en" aria-current="true">EN</a><a href="/it/guias/aperturas-falsas/" hreflang="it" lang="it">IT</a><a href="/fr/guias/aperturas-falsas/" hreflang="fr" lang="fr">FR</a><a href="/pt/guias/aperturas-falsas/" hreflang="pt" lang="pt">PT</a></p></div>
+    <div><h4>Guides</h4><ul><li><a href="/en/guias/autenticacion/">SPF, DKIM and DMARC explained without jargon</a></li><li><a href="/en/guias/requisitos/">Gmail, Yahoo and Microsoft requirements for bulk senders</a></li><li><a href="/en/guias/spam/">Why your emails go to spam: 10 causes and how to fix them</a></li><li><a href="/en/guias/listas-negras/">Blocklists: how to know if you&#39;re on one and how to get off</a></li><li><a href="/en/guias/rebotes/">Bounces: hard, soft and what to do with each</a></li><li><a href="/en/guias/bimi/">BIMI: how to show your logo in the inbox</a></li><li><a href="/en/guias/aperturas-falsas/">Fake opens and clicks: Apple, Gmail and bots</a></li><li><a href="/en/guias/return-path-verp/">Return-Path and VERP: where your bounces go</a></li><li><a href="/en/guias/dkim2/">DKIM2: what comes after DKIM</a></li><li><a href="/en/glosario/">Glossary</a></li><li><a href="/en/recursos/">Resources</a></li></ul></div>
+    <div><h4>Tools</h4><ul><li><a href="/?lang=en#auditoria">Audit an email</a></li><li><a href="/?lang=en#dominio">Check my domain</a></li><li><a href="/?lang=en#rebotes">Translate a bounce</a></li><li><a href="/?lang=en#generador">Generate my records</a></li><li><a href="/?lang=en#campana">Test my campaign</a></li><li><a href="/?lang=en#bbdd">Clean my database</a></li><li><a href="/?lang=en#dmarc">Analyse DMARC reports</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/?lang=en#sobre-mi">About me</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Updated: 2026-11-16</span></div>
+</footer>
+</body>
+</html>
