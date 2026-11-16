@@ -713,6 +713,32 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
 .zb-stats{margin-top:1rem}
 .zb-hint{margin:1rem 0 0;padding:.7rem .9rem;background:var(--blue-soft);border:1px solid var(--blue-mid);border-radius:10px;font-size:.93rem;color:var(--ink)}
 .zb-hint .beta{margin-right:.35rem}
+/* ===== Detector de bots ===== */
+.bt-drop{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;border:2px dashed var(--line);border-radius:12px;padding:.8rem 1rem;margin:.6rem 0 .8rem;color:var(--muted);transition:border-color .15s,background .15s}
+.bt-drop.on{border-color:var(--blue);background:var(--blue-soft)}
+.bt-card h2{margin-bottom:.3rem}
+.bt-card code{background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:.05rem .35rem;font-size:.85em}
+.bt-sub{margin:1.4rem 0 .6rem;font-size:1.1rem}
+.bt-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:.6rem}
+.bt-st{border:1px solid var(--line);border-top:5px solid var(--c);border-radius:12px;padding:.7rem .85rem;background:var(--card);display:flex;flex-direction:column;gap:.1rem}
+.bt-st strong{font-size:1.6rem;line-height:1.1}
+.bt-st span{font-weight:600;font-size:.92rem}
+.bt-st small{color:var(--muted)}
+.bt-g{--c:var(--safe)} .bt-b{--c:var(--blue)} .bt-y{--c:var(--yellow)} .bt-r{--c:var(--danger)}
+.bt-real{margin-top:.7rem;color:var(--muted)}
+.bt-real strong{color:var(--ink)}
+.bt-top{list-style:none;padding:0;margin:0;display:grid;gap:.35rem}
+.bt-top li{display:grid;grid-template-columns:auto 1fr auto auto;gap:.6rem;align-items:center;padding:.45rem .7rem;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.bt-top em{font-style:normal;color:var(--muted);font-size:.85rem}
+.bt-dot{display:inline-block;width:.65rem;height:.65rem;border-radius:50%;background:var(--c);margin-right:.35rem;flex:none}
+.bt-det{margin-top:1.2rem}
+.bt-det summary{cursor:pointer;font-weight:600}
+.bt-tw{overflow-x:auto;margin-top:.6rem}
+.bt-tab{width:100%;border-collapse:collapse;font-size:.88rem}
+.bt-tab th,.bt-tab td{text-align:left;padding:.4rem .5rem;border-bottom:1px solid var(--line);white-space:nowrap}
+.bt-card .actions{margin-top:1.3rem}
+.bt-err{border-left:5px solid var(--danger)}
+@media (max-width:30rem){.bt-top li{grid-template-columns:auto 1fr auto}.bt-top em{display:none}}
 </style>
 </head>
 <body>
@@ -738,6 +764,7 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
         <a href="#plataforma" data-i18n="navs.esp">Plataforma</a>
         <a href="#rebotes" data-i18n="navs.bounce">Rebotes</a>
         <a href="#generador" data-i18n="navs.gen">SPF · DMARC · BIMI</a>
+        <a href="#bots" data-i18n="navs.bots">Bots</a>
       </div></details>
       <a href="#guias" data-i18n="navs.guides">Guías</a>
     </nav>
@@ -782,7 +809,7 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
 
     <section class="section">
       <div class="wide">
-        <div class="sec-head"><h2 data-i18n="home.toolsTitle">Todo lo que necesitas para llegar a la bandeja</h2><p data-i18n="home.toolsLead">Once herramientas profesionales y guías prácticas, explicadas para que las entienda cualquiera.</p></div>
+        <div class="sec-head"><h2 data-i18n="home.toolsTitle">Todo lo que necesitas para llegar a la bandeja</h2><p data-i18n="home.toolsLead">Doce herramientas profesionales y guías prácticas, explicadas para que las entienda cualquiera.</p></div>
         <a class="tfeat" href="#auditoria">
           <span class="tico"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l2 2 4-4M5 4h14v16H5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></span>
           <div><span class="beta" data-i18n="t8.badge">Nuevo</span><h3 data-i18n="t8.h">Auditoría completa de un email</h3><p data-i18n="t8.p">Sube un email y revisamos todo a la vez: autenticación, alineación, DNS, listas negras, reputación, DNS inverso, cabeceras, contenido, cumplimiento legal y requisitos de Gmail y Yahoo. Un único informe de apto o no apto, descargable en PDF.</p></div>
@@ -799,6 +826,7 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
           <a class="tcard" href="#plataforma"><span class="tico"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4.5-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><h3 data-i18n="t7.h">¿Qué plataforma lo envió?</h3><p data-i18n="t7.p">Pega un email y descubre si se envió con Mailchimp, Klaviyo, SendGrid u otras 80 plataformas.</p><span class="go" data-i18n="go">Probar gratis →</span></a>
           <a class="tcard" href="#rebotes"><span class="tico"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h11a5 5 0 010 10H9M4 7l4-4M4 7l4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="beta" data-i18n="t8.badge">Nuevo</span><h3 data-i18n="t10.h">Traductor de rebotes</h3><p data-i18n="t10.p">Pega un error como «550 5.7.1» y descubre qué significa, por qué ha pasado y qué hacer.</p><span class="go" data-i18n="go">Probar gratis →</span></a>
           <a class="tcard" href="#generador"><span class="tico"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="beta" data-i18n="t8.badge">Nuevo</span><h3 data-i18n="t11.h">Generador de SPF, DMARC y BIMI</h3><p data-i18n="t11.p">Asistentes paso a paso para crear registros correctos y comprobarlos en vivo en tus DNS.</p><span class="go" data-i18n="go">Probar gratis →</span></a>
+          <a class="tcard" href="#bots"><span class="tico"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="8" width="14" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4v4M9 13h.01M15 13h.01M3 13v2M21 13v2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span><span class="beta" data-i18n="t8.badge">Nuevo</span><h3 data-i18n="t13.h">Detector de aperturas y clics de bots</h3><p data-i18n="t13.p">Sube tu exportación de aperturas y clics y separa a las personas de los antivirus, Apple Mail y los scripts.</p><span class="go" data-i18n="go">Probar gratis →</span></a>
           <a class="tcard" href="#guias"><span class="tico"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 012-2h5v17H6a2 2 0 00-2 2zM20 5a2 2 0 00-2-2h-5v17h5a2 2 0 012 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><span class="beta" data-i18n="t8.badge">Nuevo</span><h3 data-i18n="t12.h">Guías y glosario</h3><p data-i18n="t12.p">La entregabilidad explicada sin tecnicismos: autenticación, spam, listas negras, rebotes y más.</p><span class="go" data-i18n="t12.go">Leer las guías →</span></a>
         </div>
       </div>
@@ -1243,6 +1271,7 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
   <!-- ===================== REBOTES, GENERADORES Y GUÍAS (se crean desde JavaScript) ===================== -->
   <div id="rbView" data-view="rebotes" hidden></div>
   <div id="genView" data-view="generador" hidden></div>
+  <div id="btView" data-view="bots" hidden></div>
   <div id="gdView" data-view="guias" hidden></div>
 
   <!-- ===================== SOBRE MÍ ===================== -->
@@ -1330,7 +1359,7 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
     </div>
     <div>
       <h4 data-i18n="foot.tools">Herramientas</h4>
-      <ul><li><a href="#auditoria" data-i18n="t8.h">Auditoría completa de un email</a></li><li><a href="#dominio" data-i18n="nav.domain">Mi dominio</a></li><li><a href="#email" data-i18n="nav.email">Analizar un email</a></li><li><a href="#campana" data-i18n="nav.campaign">Probar mi campaña</a></li><li><a href="#bbdd" data-i18n="nav.db">Mi base de datos</a></li><li><a href="#dmarc" data-i18n="t9.h">Analizador de informes DMARC</a></li><li><a href="#warmup" data-i18n="t5.h">Calculadora de warm-up</a></li><li><a href="#bandeja" data-i18n="t6.h">Test de bandeja</a></li><li><a href="#plataforma" data-i18n="t7.h">¿Qué plataforma lo envió?</a></li><li><a href="#rebotes" data-i18n="t10.h">Traductor de rebotes</a></li><li><a href="#generador" data-i18n="t11.h">Generador de SPF, DMARC y BIMI</a></li><li><a href="/guias/" data-static="guias" data-i18n="t12.h">Guías y glosario</a></li><li><a href="/glosario/" data-static="glosario" data-i18n="gl.foot">Glosario de entregabilidad</a></li></ul>
+      <ul><li><a href="#auditoria" data-i18n="t8.h">Auditoría completa de un email</a></li><li><a href="#dominio" data-i18n="nav.domain">Mi dominio</a></li><li><a href="#email" data-i18n="nav.email">Analizar un email</a></li><li><a href="#campana" data-i18n="nav.campaign">Probar mi campaña</a></li><li><a href="#bbdd" data-i18n="nav.db">Mi base de datos</a></li><li><a href="#dmarc" data-i18n="t9.h">Analizador de informes DMARC</a></li><li><a href="#warmup" data-i18n="t5.h">Calculadora de warm-up</a></li><li><a href="#bandeja" data-i18n="t6.h">Test de bandeja</a></li><li><a href="#plataforma" data-i18n="t7.h">¿Qué plataforma lo envió?</a></li><li><a href="#rebotes" data-i18n="t10.h">Traductor de rebotes</a></li><li><a href="#generador" data-i18n="t11.h">Generador de SPF, DMARC y BIMI</a></li><li><a href="#bots" data-i18n="t13.h">Detector de aperturas y clics de bots</a></li><li><a href="/guias/" data-static="guias" data-i18n="t12.h">Guías y glosario</a></li><li><a href="/glosario/" data-static="glosario" data-i18n="gl.foot">Glosario de entregabilidad</a></li></ul>
     </div>
     <div>
       <h4 data-i18n="foot.legal">Legal</h4>
@@ -1952,6 +1981,17 @@ Object.assign(I18N.it, {"db.zbHint": "Hai un account <strong>ZeroBounce</strong>
 Object.assign(I18N.fr, {"db.zbHint": "Vous avez un compte <strong>ZeroBounce</strong> ? Après l'analyse, vous pourrez vérifier en profondeur chaque boîte avec votre propre clé API : vous saurez lesquelles existent vraiment et repérerez les pièges à spam. Le compte gratuit inclut 100 vérifications par mois."});
 Object.assign(I18N.pt, {"db.zbHint": "Tem conta no <strong>ZeroBounce</strong>? Depois da análise poderá verificar a fundo cada caixa com a sua própria chave de API: saberá quais existem mesmo e detetará spam traps. A conta gratuita inclui 100 verificações por mês."});
 
+/* ===== Detector de bots: títulos, menú y portada ===== */
+Object.assign(TX.es, {"title.bots": "Detector de aperturas y clics de bots · Email Seguro", "share.bots": "Descubre gratis qué aperturas y clics de tus campañas son de personas y cuáles de robots."});
+Object.assign(TX.en, {"title.bots": "Bot opens and clicks detector · Email Seguro", "share.bots": "Find out for free which opens and clicks in your campaigns come from people and which from robots."});
+Object.assign(TX.it, {"title.bots": "Rilevatore di aperture e clic dei bot · Email Seguro", "share.bots": "Scopri gratis quali aperture e clic delle tue campagne sono di persone e quali di robot."});
+Object.assign(TX.fr, {"title.bots": "Détecteur d'ouvertures et de clics de bots · Email Seguro", "share.bots": "Découvrez gratuitement quelles ouvertures et quels clics de vos campagnes viennent de personnes et lesquels de robots."});
+Object.assign(TX.pt, {"title.bots": "Detetor de aberturas e cliques de bots · Email Seguro", "share.bots": "Descubra gratuitamente que aberturas e cliques das suas campanhas são de pessoas e quais são de robôs."});
+Object.assign(I18N.en, {"navs.bots": "Bots", "t13.h": "Bot opens and clicks detector", "t13.p": "Upload your opens and clicks export and separate people from antivirus filters, Apple Mail and scripts.", "home.toolsLead": "Twelve professional tools and practical guides, explained so anyone can understand them."});
+Object.assign(I18N.it, {"navs.bots": "Bot", "t13.h": "Rilevatore di aperture e clic dei bot", "t13.p": "Carica l'esportazione di aperture e clic e separa le persone da antivirus, Apple Mail e script.", "home.toolsLead": "Dodici strumenti professionali e guide pratiche, spiegati in modo che chiunque li capisca."});
+Object.assign(I18N.fr, {"navs.bots": "Bots", "t13.h": "Détecteur d'ouvertures et de clics de bots", "t13.p": "Importez l'export de vos ouvertures et clics et séparez les personnes des antivirus, d'Apple Mail et des scripts.", "home.toolsLead": "Douze outils professionnels et des guides pratiques, expliqués pour que tout le monde les comprenne."});
+Object.assign(I18N.pt, {"navs.bots": "Bots", "t13.h": "Detetor de aberturas e cliques de bots", "t13.p": "Carregue a exportação de aberturas e cliques e separe as pessoas dos antivírus, do Apple Mail e dos scripts.", "home.toolsLead": "Doze ferramentas profissionais e guias práticos, explicados para que qualquer pessoa os entenda."});
+
 (function(){
   const $ = s => document.querySelector(s);
   const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -2008,7 +2048,7 @@ Object.assign(I18N.pt, {"db.zbHint": "Tem conta no <strong>ZeroBounce</strong>? 
   }
 
   /* ---------- Navegación ---------- */
-  const VIEWS = ["inicio","dominio","email","campana","bbdd","auditoria","dmarc","warmup","bandeja","plataforma","rebotes","generador","guias","sobre-mi","contacto","privacidad","aviso-legal"];
+  const VIEWS = ["inicio","dominio","email","campana","bbdd","auditoria","dmarc","warmup","bandeja","plataforma","rebotes","generador","bots","guias","sobre-mi","contacto","privacidad","aviso-legal"];
   function viewFromHash(){
     const h = location.hash.slice(1).split("/")[0];
     if (VIEWS.includes(h)) return h;
@@ -2051,7 +2091,7 @@ Object.assign(I18N.pt, {"db.zbHint": "Tem conta no <strong>ZeroBounce</strong>? 
   $("#shareBtn").addEventListener("click", async () => {
     const view = viewFromHash();
     const base = location.href.split(/[?#]/)[0];
-    const TOOLS = ["auditoria","dominio","email","campana","bbdd","dmarc","warmup","bandeja","plataforma","rebotes","generador","guias"];
+    const TOOLS = ["auditoria","dominio","email","campana","bbdd","dmarc","warmup","bandeja","plataforma","rebotes","generador","bots","guias"];
     const url = TOOLS.includes(view) ? base + location.hash : base;
     const data = {title: t("title." + view), text: t("share." + (TOOLS.includes(view) ? view : "inicio")), url};
     try {
@@ -5887,6 +5927,10 @@ window.NT_CAT = {p:["Gmail · Google", "Yahoo · AOL", "Outlook.com · Hotmail",
 
 </script>
 <script>
+NT.add("en", {ui:{"bt.kicker": "Free tool · Real statistics", "bt.h1": "Bot opens and clicks detector", "bt.lead": "Upload the opens and clicks export from your platform and find out which ones come from people and which from robots: antivirus filters that click every link, Apple Mail privacy, WhatsApp or Slack previews and scripts.", "bt.label": "Your opens and clicks export", "bt.hint": "A CSV from your sending platform with columns such as <strong>email</strong>, <strong>event</strong> (open or click), <strong>date</strong>, <strong>IP</strong>, <strong>user agent</strong> and <strong>URL</strong>. They don't all have to be there, but the more the better. You can also paste just a list of user agents, one per line.", "bt.pick": "Choose CSV file", "bt.or": "or drag it here, or paste the content below", "bt.btn": "Detect bots", "bt.ex": "See an example", "bt.priv": "The file is analysed in your browser: it isn't uploaded to any server.", "bt.empty": "Paste or upload your export first", "bt.big": "The file is too large (30 MB max). Export a shorter period.", "bt.err.cols": "I can't find <strong>user agent</strong> or <strong>IP</strong> columns. Check that the first row has the column names (for example: email;event;date;ip;user_agent;url).", "bt.resT": "Result for {n} events", "bt.cols": "Columns used:", "bt.opens": "Opens", "bt.clicks": "Clicks", "bt.events": "Events", "bt.c.human": "People", "bt.c.proxy": "Gmail or Yahoo proxy", "bt.c.mpp": "Apple Mail (automatic)", "bt.c.bot": "Bots and scanners", "bt.c.susp": "Suspicious", "bt.real": "<strong>{p}%</strong> are real ({n} of {t}).", "bt.topT": "Where the non-human events come from", "bt.clean": "We didn't find any bots in this file.", "bt.sample": "See the first {n} flagged events", "bt.th.ev": "Event", "bt.th.who": "Contact", "bt.th.why": "Reason", "bt.k.open": "Open", "bt.k.click": "Click", "bt.k.any": "Event", "bt.dlH": "Download only the real ones", "bt.dlA": "Download everything with the classification", "bt.colCat": "classification", "bt.colWhy": "reason", "bt.tip": "<strong>Tip:</strong> don't use bot clicks to segment or to measure campaigns, and don't unsubscribe those contacts: they are usually companies with a security filter that checks links before delivering the email.", "bt.w.ip": "{n} IP", "bt.w.fast": "Several links within seconds", "bt.w.sweep": "Many contacts from the same IP within a minute", "bt.w.noopen": "Click without an open", "bt.w.noua": "No user agent", "bt.w.old": "Very old browser, typical of scanners", "bt.w.script": "Automated program (script)", "bt.w.headless": "Automated browser", "bt.w.crawler": "Crawler robot", "bt.i.h": "Why do I have fake opens and clicks?", "bt.i.p": "Since 2021 part of the opens and clicks aren't made by a person. If you don't separate them, you think a campaign performs better than it does, and you segment by «engaged» contacts who are actually robots.", "bt.q1": "What is Apple Mail Privacy Protection (MPP)?", "bt.a1": "<p>Apple Mail downloads the images of every email as soon as it arrives, even if the person doesn't open it, through its own servers. That's why they register an automatic open with a minimal user agent («Mozilla/5.0») and an Apple IP. Those opens don't show real interest.</p>", "bt.q2": "What about the Gmail proxy?", "bt.a2": "<p>Gmail also downloads images through its «Google Image Proxy», but only when the person opens the email. So the open is real; you only lose the device and the location.</p>", "bt.q3": "Who clicks every link?", "bt.a3": "<p>Corporate security filters (Microsoft Defender, Proofpoint, Mimecast, Barracuda…) open each link to check it isn't dangerous before delivering the email. Their IP, their user agent or clicking several links within a few seconds give them away.</p>", "bt.q4": "What is a «suspicious» click?", "bt.a4": "<p>A click without a previous open, an event without a user agent or a very old browser. It may be a person with images turned off, so we don't mark it as a bot, but it's best not to give it the same weight.</p>", "bt.q5": "How do I export events from my platform?", "bt.a5": "<p>Look in the campaign reports for an option like «Export opens» or «Export clicks», or in the API or webhooks section. We need the per-event detail, not the summary. If your platform doesn't provide the user agent or the IP, ask its support: it's the key information for detecting bots.</p>", "bt.realProxy": "Gmail or Yahoo proxy opens count as real: the recipient opened the email, even though we don't know their device."}});
+
+</script>
+<script>
 
 NT.add("en", {gd:{
 autenticacion:{t:"SPF, DKIM and DMARC explained without jargon",d:"What the three records that decide whether your emails can be trusted are, how they work together and in what order to set them up.",s:[
@@ -6181,6 +6225,10 @@ NT.add("en", {ui:{
 </script>
 <script>
 NT.add("en", {ui:{"zb.h": "In-depth verification with ZeroBounce (optional)", "zb.p": "Our analysis checks format, domains and duplicates. <a href=\"https://www.zerobounce.net\" target=\"_blank\" rel=\"noopener\">ZeroBounce</a> goes further: it checks whether each mailbox really exists and detects spam traps, complainers and accept-all (catch-all) domains. You need your own account: the free one includes 100 verifications a month.", "zb.key": "Your ZeroBounce API key", "zb.keyHint": "You'll find it in your ZeroBounce account under <a href=\"https://www.zerobounce.net/members/API\" target=\"_blank\" rel=\"noopener\">API › API Keys</a>. It's only used for this verification: we don't store it.", "zb.consent": "I agree to send the email addresses in my list to ZeroBounce (a US company) to verify them with my account. Each address uses 1 credit.", "zb.btn": "Verify {n} addresses with ZeroBounce", "zb.needKey": "Paste your ZeroBounce API key first", "zb.needOk": "Tick the box to agree to sending to ZeroBounce", "zb.prog": "Verifying {n} of {t} addresses… (you have {c} credits)", "zb.partial": "There were only credits for {n} of {t} addresses: the rest weren't verified.", "zb.errKey": "ZeroBounce doesn't recognise that API key. Copy it again from your account.", "zb.errRate": "Too many verifications in a row. Please wait a few minutes.", "zb.errGen": "The ZeroBounce verification couldn't be completed. Please try later.", "zb.noCredits": "Your ZeroBounce account has no credits left this month.", "zb.st.valid": "Valid", "zb.st.invalid": "Invalid", "zb.st.catch-all": "Catch-all", "zb.st.unknown": "Unknown", "zb.st.spamtrap": "Spam traps", "zb.st.abuse": "Frequent complainers", "zb.st.do_not_mail": "Do not mail", "zb.d.valid": "The mailbox exists: you can send.", "zb.d.invalid": "The mailbox doesn't exist: remove them.", "zb.d.catch-all": "The domain accepts everything: can't be confirmed.", "zb.d.unknown": "The server didn't respond: check later.", "zb.d.spamtrap": "Spam traps: remove them now.", "zb.d.abuse": "They often mark as spam: better exclude them.", "zb.d.do_not_mail": "Disposable, toxic or role: exclude.", "zb.dlValid": "Download valid only ({n})", "zb.dlAll": "Download everything with the result", "zb.again": "Verify again", "zb.privH": "ZeroBounce verification", "zb.privP": "<p>Only if you turn it on yourself in «My database», with your own API key and after ticking the box, we send the email addresses in your list to ZeroBounce (USA) to verify them. They pass through our intermediary without being stored, and their processing is subject to your agreement with ZeroBounce.</p>"}});
+
+</script>
+<script>
+NT.add("es", {ui:{"bt.kicker": "Herramienta gratuita · Estadísticas reales", "bt.h1": "Detector de aperturas y clics de bots", "bt.lead": "Sube la exportación de aperturas y clics de tu plataforma y descubre cuáles son de personas y cuáles de robots: antivirus que pulsan todos los enlaces, la privacidad de Apple Mail, vistas previas de WhatsApp o Slack y scripts.", "bt.label": "Tu exportación de aperturas y clics", "bt.hint": "Un CSV de tu plataforma de envío con columnas como <strong>email</strong>, <strong>evento</strong> (apertura o clic), <strong>fecha</strong>, <strong>IP</strong>, <strong>user agent</strong> y <strong>URL</strong>. No hace falta que estén todas, pero cuantas más haya, mejor. También puedes pegar solo una lista de user agents, uno por línea.", "bt.pick": "Elegir archivo CSV", "bt.or": "o arrástralo aquí, o pega el contenido abajo", "bt.btn": "Detectar bots", "bt.ex": "Ver un ejemplo", "bt.priv": "El archivo se analiza en tu navegador: no se sube a ningún servidor.", "bt.empty": "Pega o sube primero tu exportación", "bt.big": "El archivo es demasiado grande (máximo 30 MB). Exporta un periodo más corto.", "bt.err.cols": "No encuentro columnas de <strong>user agent</strong> ni de <strong>IP</strong>. Comprueba que la primera fila tiene los nombres de las columnas (por ejemplo: email;evento;fecha;ip;user_agent;url).", "bt.resT": "Resultado de {n} eventos", "bt.cols": "Columnas usadas:", "bt.opens": "Aperturas", "bt.clicks": "Clics", "bt.events": "Eventos", "bt.c.human": "Personas", "bt.c.proxy": "Proxy de Gmail o Yahoo", "bt.c.mpp": "Apple Mail (automáticas)", "bt.c.bot": "Bots y escáneres", "bt.c.susp": "Sospechosos", "bt.real": "<strong>{p} %</strong> son reales ({n} de {t}).", "bt.topT": "De dónde vienen los eventos no humanos", "bt.clean": "No hemos encontrado bots en este archivo.", "bt.sample": "Ver los primeros {n} eventos marcados", "bt.th.ev": "Evento", "bt.th.who": "Contacto", "bt.th.why": "Motivo", "bt.k.open": "Apertura", "bt.k.click": "Clic", "bt.k.any": "Evento", "bt.dlH": "Descargar solo los reales", "bt.dlA": "Descargar todo con la clasificación", "bt.colCat": "clasificacion", "bt.colWhy": "motivo", "bt.tip": "<strong>Consejo:</strong> no uses los clics de bots para segmentar ni para medir campañas, y no des de baja a esos contactos: suelen ser empresas con un filtro de seguridad que revisa los enlaces antes de entregar el email.", "bt.w.ip": "IP de {n}", "bt.w.fast": "Varios enlaces en segundos", "bt.w.sweep": "Muchos contactos desde la misma IP en un minuto", "bt.w.noopen": "Clic sin apertura", "bt.w.noua": "Sin user agent", "bt.w.old": "Navegador muy antiguo, típico de escáneres", "bt.w.script": "Programa automático (script)", "bt.w.headless": "Navegador automatizado", "bt.w.crawler": "Robot rastreador", "bt.i.h": "¿Por qué tengo aperturas y clics falsos?", "bt.i.p": "Desde 2021 una parte de las aperturas y clics no los hace una persona. Si no los separas, crees que una campaña funciona mejor de lo que funciona, y segmentas por «interesados» que en realidad son robots.", "bt.q1": "¿Qué es la privacidad de Apple Mail (MPP)?", "bt.a1": "<p>Apple Mail descarga las imágenes de todos los emails en cuanto llegan, aunque la persona no los abra, a través de sus propios servidores. Por eso marcan una apertura automática con un user agent mínimo («Mozilla/5.0») y una IP de Apple. Esas aperturas no indican interés real.</p>", "bt.q2": "¿Y el proxy de Gmail?", "bt.a2": "<p>Gmail también descarga las imágenes a través de su «Google Image Proxy», pero solo cuando la persona abre el email. Así que la apertura es real; lo único que pierdes es el dispositivo y la ubicación.</p>", "bt.q3": "¿Quién hace clic en todos los enlaces?", "bt.a3": "<p>Los filtros de seguridad de las empresas (Microsoft Defender, Proofpoint, Mimecast, Barracuda…) abren cada enlace para comprobar que no es peligroso antes de entregar el email. Lo delatan su IP, su user agent o que pulsan varios enlaces en pocos segundos.</p>", "bt.q4": "¿Qué es un clic «sospechoso»?", "bt.a4": "<p>Un clic sin apertura previa, un evento sin user agent o un navegador muy antiguo. Puede ser una persona con las imágenes desactivadas, por eso no lo marcamos como bot, pero conviene no darle el mismo peso.</p>", "bt.q5": "¿Cómo exporto los eventos de mi plataforma?", "bt.a5": "<p>Busca en los informes de la campaña una opción como «Exportar aperturas» o «Exportar clics», o en la sección de API o webhooks. Necesitamos el detalle por evento, no el resumen. Si tu plataforma no da el user agent ni la IP, pídeselo a su soporte: es la información clave para detectar bots.</p>", "bt.realProxy": "Las del proxy de Gmail o Yahoo cuentan como reales: el destinatario abrió el email, aunque no sepamos su dispositivo."}});
 
 </script>
 <script>
@@ -6484,6 +6532,10 @@ NT.add("es", {ui:{"zb.h": "Verificación a fondo con ZeroBounce (opcional)", "zb
 
 </script>
 <script>
+NT.add("fr", {ui:{"bt.kicker": "Outil gratuit · Statistiques réelles", "bt.h1": "Détecteur d'ouvertures et de clics de bots", "bt.lead": "Importez l'export des ouvertures et des clics de votre plateforme et découvrez lesquels viennent de personnes et lesquels de robots : antivirus qui cliquent sur tous les liens, confidentialité d'Apple Mail, aperçus WhatsApp ou Slack et scripts.", "bt.label": "Votre export d'ouvertures et de clics", "bt.hint": "Un CSV de votre plateforme d'envoi avec des colonnes comme <strong>email</strong>, <strong>événement</strong> (ouverture ou clic), <strong>date</strong>, <strong>IP</strong>, <strong>user agent</strong> et <strong>URL</strong>. Elles ne sont pas toutes obligatoires, mais plus il y en a, mieux c'est. Vous pouvez aussi coller seulement une liste de user agents, un par ligne.", "bt.pick": "Choisir un fichier CSV", "bt.or": "ou glissez-le ici, ou collez le contenu ci-dessous", "bt.btn": "Détecter les bots", "bt.ex": "Voir un exemple", "bt.priv": "Le fichier est analysé dans votre navigateur : il n'est envoyé à aucun serveur.", "bt.empty": "Collez ou importez d'abord votre export", "bt.big": "Le fichier est trop volumineux (30 Mo maximum). Exportez une période plus courte.", "bt.err.cols": "Je ne trouve pas de colonnes <strong>user agent</strong> ni <strong>IP</strong>. Vérifiez que la première ligne contient les noms des colonnes (par exemple : email;evenement;date;ip;user_agent;url).", "bt.resT": "Résultat pour {n} événements", "bt.cols": "Colonnes utilisées :", "bt.opens": "Ouvertures", "bt.clicks": "Clics", "bt.events": "Événements", "bt.c.human": "Personnes", "bt.c.proxy": "Proxy de Gmail ou Yahoo", "bt.c.mpp": "Apple Mail (automatiques)", "bt.c.bot": "Bots et scanners", "bt.c.susp": "Suspects", "bt.real": "<strong>{p} %</strong> sont réels ({n} sur {t}).", "bt.topT": "D'où viennent les événements non humains", "bt.clean": "Nous n'avons trouvé aucun bot dans ce fichier.", "bt.sample": "Voir les {n} premiers événements signalés", "bt.th.ev": "Événement", "bt.th.who": "Contact", "bt.th.why": "Motif", "bt.k.open": "Ouverture", "bt.k.click": "Clic", "bt.k.any": "Événement", "bt.dlH": "Télécharger seulement les réels", "bt.dlA": "Tout télécharger avec la classification", "bt.colCat": "classification", "bt.colWhy": "motif", "bt.tip": "<strong>Conseil :</strong> n'utilisez pas les clics des bots pour segmenter ni pour mesurer vos campagnes, et ne désinscrivez pas ces contacts : ce sont souvent des entreprises dotées d'un filtre de sécurité qui vérifie les liens avant de livrer l'email.", "bt.w.ip": "IP de {n}", "bt.w.fast": "Plusieurs liens en quelques secondes", "bt.w.sweep": "Beaucoup de contacts depuis la même IP en une minute", "bt.w.noopen": "Clic sans ouverture", "bt.w.noua": "Sans user agent", "bt.w.old": "Navigateur très ancien, typique des scanners", "bt.w.script": "Programme automatique (script)", "bt.w.headless": "Navigateur automatisé", "bt.w.crawler": "Robot d'indexation", "bt.i.h": "Pourquoi ai-je de fausses ouvertures et de faux clics ?", "bt.i.p": "Depuis 2021, une partie des ouvertures et des clics n'est pas faite par une personne. Si vous ne les séparez pas, vous croyez qu'une campagne fonctionne mieux qu'en réalité, et vous segmentez des « intéressés » qui sont en fait des robots.", "bt.q1": "Qu'est-ce que la confidentialité d'Apple Mail (MPP) ?", "bt.a1": "<p>Apple Mail télécharge les images de tous les emails dès leur arrivée, même si la personne ne les ouvre pas, via ses propres serveurs. Ils enregistrent donc une ouverture automatique avec un user agent minimal (« Mozilla/5.0 ») et une IP d'Apple. Ces ouvertures ne traduisent pas un intérêt réel.</p>", "bt.q2": "Et le proxy de Gmail ?", "bt.a2": "<p>Gmail télécharge aussi les images via son « Google Image Proxy », mais seulement quand la personne ouvre l'email. L'ouverture est donc réelle ; vous perdez seulement l'appareil et la localisation.</p>", "bt.q3": "Qui clique sur tous les liens ?", "bt.a3": "<p>Les filtres de sécurité des entreprises (Microsoft Defender, Proofpoint, Mimecast, Barracuda…) ouvrent chaque lien pour vérifier qu'il n'est pas dangereux avant de livrer l'email. Leur IP, leur user agent ou le fait de cliquer sur plusieurs liens en quelques secondes les trahissent.</p>", "bt.q4": "Qu'est-ce qu'un clic « suspect » ?", "bt.a4": "<p>Un clic sans ouverture préalable, un événement sans user agent ou un navigateur très ancien. Il peut s'agir d'une personne qui a désactivé les images, c'est pourquoi nous ne le marquons pas comme bot, mais mieux vaut ne pas lui donner le même poids.</p>", "bt.q5": "Comment exporter les événements de ma plateforme ?", "bt.a5": "<p>Cherchez dans les rapports de campagne une option comme « Exporter les ouvertures » ou « Exporter les clics », ou dans la section API ou webhooks. Il faut le détail par événement, pas le résumé. Si votre plateforme ne fournit ni le user agent ni l'IP, demandez-le à son support : c'est l'information clé pour détecter les bots.</p>", "bt.realProxy": "Ceux du proxy de Gmail ou Yahoo comptent comme réels : le destinataire a ouvert l'email, même si nous ne connaissons pas son appareil."}});
+
+</script>
+<script>
 
 NT.add("fr", {gd:{
 autenticacion:{t:"SPF, DKIM et DMARC expliqués sans jargon",d:"Ce que sont les trois enregistrements qui déterminent si vos emails sont dignes de confiance, comment ils fonctionnent ensemble et dans quel ordre les configurer.",s:[
@@ -6778,6 +6830,10 @@ NT.add("fr", {ui:{
 </script>
 <script>
 NT.add("fr", {ui:{"zb.h": "Vérification approfondie avec ZeroBounce (facultatif)", "zb.p": "Notre analyse contrôle le format, les domaines et les doublons. <a href=\"https://www.zerobounce.net\" target=\"_blank\" rel=\"noopener\">ZeroBounce</a> va plus loin : il vérifie que chaque boîte existe réellement et détecte les pièges à spam, les plaignants habituels et les domaines qui acceptent tout (catch-all). Il vous faut votre propre compte : le compte gratuit inclut 100 vérifications par mois.", "zb.key": "Votre clé API ZeroBounce", "zb.keyHint": "Vous la trouverez dans votre compte ZeroBounce, sous <a href=\"https://www.zerobounce.net/members/API\" target=\"_blank\" rel=\"noopener\">API › API Keys</a>. Elle ne sert qu'à cette vérification : nous ne la conservons pas.", "zb.consent": "J'accepte d'envoyer les adresses email de ma liste à ZeroBounce (société américaine) pour les vérifier avec mon compte. Chaque adresse consomme 1 crédit.", "zb.btn": "Vérifier {n} adresses avec ZeroBounce", "zb.needKey": "Collez d'abord votre clé API ZeroBounce", "zb.needOk": "Cochez la case pour accepter l'envoi à ZeroBounce", "zb.prog": "Vérification de {n} adresses sur {t}… (vous avez {c} crédits)", "zb.partial": "Il n'y avait de crédits que pour {n} adresses sur {t} : les autres n'ont pas été vérifiées.", "zb.errKey": "ZeroBounce ne reconnaît pas cette clé API. Copiez-la à nouveau depuis votre compte.", "zb.errRate": "Trop de vérifications d'affilée. Patientez quelques minutes.", "zb.errGen": "Impossible de terminer la vérification avec ZeroBounce. Réessayez plus tard.", "zb.noCredits": "Votre compte ZeroBounce n'a plus de crédits ce mois-ci.", "zb.st.valid": "Valides", "zb.st.invalid": "Invalides", "zb.st.catch-all": "Catch-all", "zb.st.unknown": "Inconnues", "zb.st.spamtrap": "Pièges à spam", "zb.st.abuse": "Plaignants habituels", "zb.st.do_not_mail": "Ne pas envoyer", "zb.d.valid": "La boîte existe : vous pouvez envoyer.", "zb.d.invalid": "La boîte n'existe pas : supprimez-les.", "zb.d.catch-all": "Le domaine accepte tout : impossible de confirmer.", "zb.d.unknown": "Le serveur n'a pas répondu : réessayez plus tard.", "zb.d.spamtrap": "Pièges à spam : supprimez-les tout de suite.", "zb.d.abuse": "Ils signalent souvent en spam : mieux vaut les exclure.", "zb.d.do_not_mail": "Jetables, toxiques ou génériques : à exclure.", "zb.dlValid": "Télécharger uniquement les valides ({n})", "zb.dlAll": "Tout télécharger avec le résultat", "zb.again": "Vérifier à nouveau", "zb.privH": "Vérification avec ZeroBounce", "zb.privP": "<p>Uniquement si vous l'activez vous-même dans « Ma base de données », avec votre propre clé API et après avoir coché la case, nous envoyons les adresses email de votre liste à ZeroBounce (États-Unis) pour les vérifier. Elles transitent par notre intermédiaire sans être conservées, et leur traitement relève de votre contrat avec ZeroBounce.</p>"}});
+
+</script>
+<script>
+NT.add("it", {ui:{"bt.kicker": "Strumento gratuito · Statistiche reali", "bt.h1": "Rilevatore di aperture e clic dei bot", "bt.lead": "Carica l'esportazione di aperture e clic della tua piattaforma e scopri quali sono di persone e quali di robot: antivirus che cliccano tutti i link, la privacy di Apple Mail, anteprime di WhatsApp o Slack e script.", "bt.label": "La tua esportazione di aperture e clic", "bt.hint": "Un CSV della tua piattaforma di invio con colonne come <strong>email</strong>, <strong>evento</strong> (apertura o clic), <strong>data</strong>, <strong>IP</strong>, <strong>user agent</strong> e <strong>URL</strong>. Non servono tutte, ma più ce ne sono, meglio è. Puoi anche incollare solo un elenco di user agent, uno per riga.", "bt.pick": "Scegli file CSV", "bt.or": "oppure trascinalo qui, o incolla il contenuto qui sotto", "bt.btn": "Rileva i bot", "bt.ex": "Vedi un esempio", "bt.priv": "Il file viene analizzato nel tuo browser: non viene caricato su nessun server.", "bt.empty": "Incolla o carica prima la tua esportazione", "bt.big": "Il file è troppo grande (massimo 30 MB). Esporta un periodo più breve.", "bt.err.cols": "Non trovo colonne di <strong>user agent</strong> né di <strong>IP</strong>. Controlla che la prima riga contenga i nomi delle colonne (ad esempio: email;evento;data;ip;user_agent;url).", "bt.resT": "Risultato di {n} eventi", "bt.cols": "Colonne usate:", "bt.opens": "Aperture", "bt.clicks": "Clic", "bt.events": "Eventi", "bt.c.human": "Persone", "bt.c.proxy": "Proxy di Gmail o Yahoo", "bt.c.mpp": "Apple Mail (automatiche)", "bt.c.bot": "Bot e scanner", "bt.c.susp": "Sospetti", "bt.real": "<strong>{p}%</strong> sono reali ({n} su {t}).", "bt.topT": "Da dove vengono gli eventi non umani", "bt.clean": "Non abbiamo trovato bot in questo file.", "bt.sample": "Vedi i primi {n} eventi segnalati", "bt.th.ev": "Evento", "bt.th.who": "Contatto", "bt.th.why": "Motivo", "bt.k.open": "Apertura", "bt.k.click": "Clic", "bt.k.any": "Evento", "bt.dlH": "Scarica solo quelli reali", "bt.dlA": "Scarica tutto con la classificazione", "bt.colCat": "classificazione", "bt.colWhy": "motivo", "bt.tip": "<strong>Consiglio:</strong> non usare i clic dei bot per segmentare né per misurare le campagne, e non disiscrivere quei contatti: di solito sono aziende con un filtro di sicurezza che controlla i link prima di consegnare l'email.", "bt.w.ip": "IP di {n}", "bt.w.fast": "Più link in pochi secondi", "bt.w.sweep": "Molti contatti dallo stesso IP in un minuto", "bt.w.noopen": "Clic senza apertura", "bt.w.noua": "Senza user agent", "bt.w.old": "Browser molto vecchio, tipico degli scanner", "bt.w.script": "Programma automatico (script)", "bt.w.headless": "Browser automatizzato", "bt.w.crawler": "Robot crawler", "bt.i.h": "Perché ho aperture e clic falsi?", "bt.i.p": "Dal 2021 una parte delle aperture e dei clic non è fatta da una persona. Se non li separi, credi che una campagna funzioni meglio di quanto funzioni davvero, e segmenti per «interessati» che in realtà sono robot.", "bt.q1": "Che cos'è la privacy di Apple Mail (MPP)?", "bt.a1": "<p>Apple Mail scarica le immagini di tutte le email appena arrivano, anche se la persona non le apre, tramite i propri server. Per questo registrano un'apertura automatica con uno user agent minimo («Mozilla/5.0») e un IP di Apple. Queste aperture non indicano un interesse reale.</p>", "bt.q2": "E il proxy di Gmail?", "bt.a2": "<p>Anche Gmail scarica le immagini tramite il suo «Google Image Proxy», ma solo quando la persona apre l'email. Quindi l'apertura è reale; perdi solo il dispositivo e la posizione.</p>", "bt.q3": "Chi clicca su tutti i link?", "bt.a3": "<p>I filtri di sicurezza aziendali (Microsoft Defender, Proofpoint, Mimecast, Barracuda…) aprono ogni link per verificare che non sia pericoloso prima di consegnare l'email. Li tradiscono il loro IP, il loro user agent o il fatto di cliccare più link in pochi secondi.</p>", "bt.q4": "Che cos'è un clic «sospetto»?", "bt.a4": "<p>Un clic senza apertura precedente, un evento senza user agent o un browser molto vecchio. Può essere una persona con le immagini disattivate, per questo non lo segnaliamo come bot, ma conviene non dargli lo stesso peso.</p>", "bt.q5": "Come esporto gli eventi dalla mia piattaforma?", "bt.a5": "<p>Cerca nei report della campagna un'opzione come «Esporta aperture» o «Esporta clic», oppure nella sezione API o webhook. Serve il dettaglio per evento, non il riepilogo. Se la tua piattaforma non fornisce lo user agent né l'IP, chiedilo al supporto: è l'informazione chiave per rilevare i bot.</p>", "bt.realProxy": "Quelle del proxy di Gmail o Yahoo contano come reali: il destinatario ha aperto l'email, anche se non conosciamo il suo dispositivo."}});
 
 </script>
 <script>
@@ -7078,6 +7134,10 @@ NT.add("it", {ui:{"zb.h": "Verifica approfondita con ZeroBounce (facoltativa)", 
 
 </script>
 <script>
+NT.add("pt", {ui:{"bt.kicker": "Ferramenta gratuita · Estatísticas reais", "bt.h1": "Detetor de aberturas e cliques de bots", "bt.lead": "Carregue a exportação de aberturas e cliques da sua plataforma e descubra quais são de pessoas e quais são de robôs: antivírus que clicam em todos os links, a privacidade do Apple Mail, pré-visualizações do WhatsApp ou do Slack e scripts.", "bt.label": "A sua exportação de aberturas e cliques", "bt.hint": "Um CSV da sua plataforma de envio com colunas como <strong>email</strong>, <strong>evento</strong> (abertura ou clique), <strong>data</strong>, <strong>IP</strong>, <strong>user agent</strong> e <strong>URL</strong>. Não precisam de estar todas, mas quantas mais, melhor. Também pode colar apenas uma lista de user agents, um por linha.", "bt.pick": "Escolher ficheiro CSV", "bt.or": "ou arraste-o para aqui, ou cole o conteúdo abaixo", "bt.btn": "Detetar bots", "bt.ex": "Ver um exemplo", "bt.priv": "O ficheiro é analisado no seu navegador: não é enviado para nenhum servidor.", "bt.empty": "Cole ou carregue primeiro a sua exportação", "bt.big": "O ficheiro é demasiado grande (máximo 30 MB). Exporte um período mais curto.", "bt.err.cols": "Não encontro colunas de <strong>user agent</strong> nem de <strong>IP</strong>. Verifique se a primeira linha tem os nomes das colunas (por exemplo: email;evento;data;ip;user_agent;url).", "bt.resT": "Resultado de {n} eventos", "bt.cols": "Colunas usadas:", "bt.opens": "Aberturas", "bt.clicks": "Cliques", "bt.events": "Eventos", "bt.c.human": "Pessoas", "bt.c.proxy": "Proxy do Gmail ou Yahoo", "bt.c.mpp": "Apple Mail (automáticas)", "bt.c.bot": "Bots e scanners", "bt.c.susp": "Suspeitos", "bt.real": "<strong>{p}%</strong> são reais ({n} de {t}).", "bt.topT": "De onde vêm os eventos não humanos", "bt.clean": "Não encontrámos bots neste ficheiro.", "bt.sample": "Ver os primeiros {n} eventos assinalados", "bt.th.ev": "Evento", "bt.th.who": "Contacto", "bt.th.why": "Motivo", "bt.k.open": "Abertura", "bt.k.click": "Clique", "bt.k.any": "Evento", "bt.dlH": "Descarregar só os reais", "bt.dlA": "Descarregar tudo com a classificação", "bt.colCat": "classificacao", "bt.colWhy": "motivo", "bt.tip": "<strong>Conselho:</strong> não use os cliques de bots para segmentar nem para medir campanhas, e não remova esses contactos: costumam ser empresas com um filtro de segurança que verifica os links antes de entregar o email.", "bt.w.ip": "IP de {n}", "bt.w.fast": "Vários links em segundos", "bt.w.sweep": "Muitos contactos a partir do mesmo IP num minuto", "bt.w.noopen": "Clique sem abertura", "bt.w.noua": "Sem user agent", "bt.w.old": "Navegador muito antigo, típico de scanners", "bt.w.script": "Programa automático (script)", "bt.w.headless": "Navegador automatizado", "bt.w.crawler": "Robô rastreador", "bt.i.h": "Porque tenho aberturas e cliques falsos?", "bt.i.p": "Desde 2021 uma parte das aberturas e dos cliques não é feita por uma pessoa. Se não os separar, pensa que uma campanha funciona melhor do que funciona, e segmenta «interessados» que na verdade são robôs.", "bt.q1": "O que é a privacidade do Apple Mail (MPP)?", "bt.a1": "<p>O Apple Mail descarrega as imagens de todos os emails assim que chegam, mesmo que a pessoa não os abra, através dos seus próprios servidores. Por isso registam uma abertura automática com um user agent mínimo («Mozilla/5.0») e um IP da Apple. Essas aberturas não indicam interesse real.</p>", "bt.q2": "E o proxy do Gmail?", "bt.a2": "<p>O Gmail também descarrega as imagens através do seu «Google Image Proxy», mas só quando a pessoa abre o email. Por isso a abertura é real; só perde o dispositivo e a localização.</p>", "bt.q3": "Quem clica em todos os links?", "bt.a3": "<p>Os filtros de segurança das empresas (Microsoft Defender, Proofpoint, Mimecast, Barracuda…) abrem cada link para verificar que não é perigoso antes de entregar o email. Denunciam-nos o IP, o user agent ou o facto de clicarem em vários links em poucos segundos.</p>", "bt.q4": "O que é um clique «suspeito»?", "bt.a4": "<p>Um clique sem abertura prévia, um evento sem user agent ou um navegador muito antigo. Pode ser uma pessoa com as imagens desativadas, por isso não o marcamos como bot, mas convém não lhe dar o mesmo peso.</p>", "bt.q5": "Como exporto os eventos da minha plataforma?", "bt.a5": "<p>Procure nos relatórios da campanha uma opção como «Exportar aberturas» ou «Exportar cliques», ou na secção de API ou webhooks. Precisamos do detalhe por evento, não do resumo. Se a sua plataforma não fornece o user agent nem o IP, peça ao suporte: é a informação-chave para detetar bots.</p>", "bt.realProxy": "As do proxy do Gmail ou do Yahoo contam como reais: o destinatário abriu o email, embora não saibamos o seu dispositivo."}});
+
+</script>
+<script>
 
 NT.add("pt", {gd:{
 autenticacion:{t:"SPF, DKIM e DMARC explicados sem tecnicismos",d:"O que são os três registos que decidem se os seus emails são de confiança, como funcionam em conjunto e por que ordem os configurar.",s:[
@@ -7372,6 +7432,252 @@ NT.add("pt", {ui:{
 </script>
 <script>
 NT.add("pt", {ui:{"zb.h": "Verificação aprofundada com o ZeroBounce (opcional)", "zb.p": "A nossa análise verifica o formato, os domínios e os duplicados. O <a href=\"https://www.zerobounce.net\" target=\"_blank\" rel=\"noopener\">ZeroBounce</a> vai mais longe: confirma se cada caixa existe mesmo e deteta spam traps, endereços que costumam queixar-se e domínios que aceitam tudo (catch-all). Precisa da sua própria conta: a gratuita inclui 100 verificações por mês.", "zb.key": "A sua chave de API do ZeroBounce", "zb.keyHint": "Encontra-a na sua conta do ZeroBounce, em <a href=\"https://www.zerobounce.net/members/API\" target=\"_blank\" rel=\"noopener\">API › API Keys</a>. Só é usada nesta verificação: não a guardamos.", "zb.consent": "Aceito enviar os endereços de email da minha lista para o ZeroBounce (empresa dos EUA) para os verificar com a minha conta. Cada endereço gasta 1 crédito.", "zb.btn": "Verificar {n} endereços com o ZeroBounce", "zb.needKey": "Cole primeiro a sua chave de API do ZeroBounce", "zb.needOk": "Marque a caixa para aceitar o envio para o ZeroBounce", "zb.prog": "A verificar {n} de {t} endereços… (tem {c} créditos)", "zb.partial": "Só havia créditos para {n} de {t} endereços: os restantes não foram verificados.", "zb.errKey": "O ZeroBounce não reconhece essa chave de API. Copie-a novamente da sua conta.", "zb.errRate": "Demasiadas verificações seguidas. Aguarde alguns minutos.", "zb.errGen": "Não foi possível concluir a verificação com o ZeroBounce. Tente mais tarde.", "zb.noCredits": "A sua conta do ZeroBounce não tem créditos disponíveis este mês.", "zb.st.valid": "Válidos", "zb.st.invalid": "Inválidos", "zb.st.catch-all": "Catch-all", "zb.st.unknown": "Desconhecidos", "zb.st.spamtrap": "Spam traps", "zb.st.abuse": "Queixosos habituais", "zb.st.do_not_mail": "Não enviar", "zb.d.valid": "A caixa existe: pode enviar.", "zb.d.invalid": "A caixa não existe: apague-os.", "zb.d.catch-all": "O domínio aceita tudo: não é possível confirmar.", "zb.d.unknown": "O servidor não respondeu: tente mais tarde.", "zb.d.spamtrap": "Spam traps: apague-os já.", "zb.d.abuse": "Costumam marcar como spam: melhor excluí-los.", "zb.d.do_not_mail": "Descartáveis, tóxicos ou genéricos: excluir.", "zb.dlValid": "Descarregar só os válidos ({n})", "zb.dlAll": "Descarregar tudo com o resultado", "zb.again": "Verificar novamente", "zb.privH": "Verificação com o ZeroBounce", "zb.privP": "<p>Só se o ativar na «A minha base de dados», com a sua própria chave de API e depois de marcar a caixa, enviamos os endereços de email da sua lista para o ZeroBounce (EUA) para os verificar. Passam pelo nosso intermediário sem serem guardados, e o seu tratamento está sujeito ao seu contrato com o ZeroBounce.</p>"}});
+
+</script>
+<script>
+/* ===================== Detector de aperturas y clics de bots ===================== */
+(function(){
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const L = NT.L;
+const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+const LOCK = `<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>`;
+const hero = p => `<section class="phero"><div class="wrap"><span class="kicker"><i></i><span>${L(p + ".kicker")}</span></span><h1>${L(p + ".h1")}</h1><p class="lead">${L(p + ".lead")}</p></div></section>`;
+
+/* ---------- Reglas ---------- */
+// [expresión, tipo, nombre]. Tipo: bot (escáner, vista previa, script), proxy (apertura real a través de Gmail o Yahoo), mpp (Apple), susp (sospechoso)
+const UA_RULES = [
+  [/GoogleImageProxy|ggpht\.com/i, "proxy", "Gmail (Google Image Proxy)"],
+  [/YahooMailProxy/i, "proxy", "Yahoo Mail Proxy"],
+  [/Barracuda/i, "bot", "Barracuda"], [/Mimecast/i, "bot", "Mimecast"], [/Proofpoint|pphosted/i, "bot", "Proofpoint"],
+  [/Trend ?Micro/i, "bot", "Trend Micro"], [/Symantec|MessageLabs|Broadcom/i, "bot", "Symantec"], [/Forcepoint/i, "bot", "Forcepoint"],
+  [/IronPort|Cisco/i, "bot", "Cisco"], [/Forti(?:Guard|net)/i, "bot", "Fortinet"], [/Sophos/i, "bot", "Sophos"], [/Avanan|Check ?Point/i, "bot", "Check Point"],
+  [/Zscaler/i, "bot", "Zscaler"], [/Cloudmark/i, "bot", "Cloudmark"], [/SpamTitan/i, "bot", "SpamTitan"], [/Hornet/i, "bot", "Hornetsecurity"],
+  [/Vade(?:Secure|Retro)?\b/i, "bot", "Vade"], [/SafeLinks|Defender/i, "bot", "Microsoft Defender"],
+  [/facebookexternalhit|Facebot/i, "bot", "Facebook"], [/Slackbot|Slack-ImgProxy/i, "bot", "Slack"], [/LinkedInBot/i, "bot", "LinkedIn"],
+  [/Twitterbot/i, "bot", "X · Twitter"], [/WhatsApp/i, "bot", "WhatsApp"], [/TelegramBot/i, "bot", "Telegram"], [/Discordbot/i, "bot", "Discord"],
+  [/SkypeUriPreview|Teams/i, "bot", "Microsoft Teams · Skype"], [/BingPreview|bingbot/i, "bot", "Bing"], [/Googlebot|Google-InspectionTool|AdsBot-Google/i, "bot", "Googlebot"],
+  [/python-requests|python-urllib|aiohttp|httpx|curl\/|Wget|Go-http-client|Java\/|okhttp|axios|node-fetch|libwww-perl|Apache-HttpClient|PostmanRuntime|zgrab|Scrapy/i, "bot", "script"],
+  [/HeadlessChrome|PhantomJS|Puppeteer|Selenium|Playwright/i, "bot", "headless"],
+  [/\b(?:bot|crawler|spider|scanner|preview)\b/i, "bot", "crawler"],
+  [/^Mozilla\/5\.0$/, "mpp", "Apple Mail (MPP)"],
+  [/MSIE [5-7]\.|Windows NT 5\.[01]|Windows 95|Windows 98/i, "susp", "old"]
+];
+// Rangos de IP publicados por filtros de seguridad conocidos
+const IP_RULES = [
+  ["17.0.0.0/8", "mpp", "Apple"],
+  ["66.102.0.0/20", "proxy", "Google"], ["66.249.64.0/19", "proxy", "Google"], ["74.125.0.0/16", "proxy", "Google"], ["64.233.160.0/19", "proxy", "Google"],
+  ["40.92.0.0/15", "bot", "Microsoft Defender"], ["40.107.0.0/16", "bot", "Microsoft Defender"], ["52.100.0.0/14", "bot", "Microsoft Defender"], ["104.47.0.0/17", "bot", "Microsoft Defender"],
+  ["148.163.128.0/19", "bot", "Proofpoint"], ["67.231.144.0/20", "bot", "Proofpoint"],
+  ["205.139.110.0/24", "bot", "Mimecast"], ["207.211.30.0/24", "bot", "Mimecast"], ["207.211.31.0/25", "bot", "Mimecast"], ["185.58.84.0/22", "bot", "Mimecast"], ["91.220.42.0/24", "bot", "Mimecast"], ["146.101.78.0/24", "bot", "Mimecast"],
+  ["64.235.144.0/20", "bot", "Barracuda"], ["209.222.80.0/21", "bot", "Barracuda"]
+].map(([c, t, n]) => { const [ip, b] = c.split("/"); return {n4:ip4n(ip), mask:b == 0 ? 0 : (~0 << (32 - b)) >>> 0, t, n}; });
+function ip4n(ip){ const p = String(ip).trim().split("."); if (p.length !== 4 || p.some(x => !/^\d{1,3}$/.test(x) || +x > 255)) return null; return ((+p[0] << 24) >>> 0) + (+p[1] << 16) + (+p[2] << 8) + (+p[3]); }
+const ipRule = ip => { const n = ip4n(ip); if (n === null) return null; return IP_RULES.find(r => ((n & r.mask) >>> 0) === ((r.n4 & r.mask) >>> 0)) || null; };
+
+/* ---------- Lectura del archivo ---------- */
+function parseCsv(text){
+  text = text.replace(/^﻿/, "");
+  const first = text.split(/\r?\n/, 1)[0];
+  const cnt = ch => (first.match(new RegExp("\\" + ch, "g")) || []).length;
+  const d = ["\t", ";", ",", "|"].sort((a, b) => cnt(b) - cnt(a))[0];
+  const delim = cnt(d) ? d : "\u0000";
+  const rows = []; let row = [], f = "", q = false;
+  for (let i = 0; i < text.length; i++){
+    const c = text[i];
+    if (q){ if (c === '"'){ if (text[i + 1] === '"'){ f += '"'; i++; } else q = false; } else f += c; continue; }
+    if (c === '"' && f === "") q = true;
+    else if (c === delim){ row.push(f); f = ""; }
+    else if (c === "\n" || c === "\r"){ if (c === "\r" && text[i + 1] === "\n") i++; row.push(f); f = ""; if (row.some(x => x.trim())) rows.push(row); row = []; }
+    else f += c;
+  }
+  row.push(f); if (row.some(x => x.trim())) rows.push(row);
+  return {rows, delim: delim === "\u0000" ? ";" : delim};
+}
+const norm = s => String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim();
+const COLS = {
+  ua:/user.?agent|^ua$|agente|navegador|browser|client.?info/,
+  ip:/^ip$|ip.?addr|direccion.?ip|^ip[ _-]|[ _-]ip$|client.?ip|remote.?ip/,
+  email:/e-?mail|correo|address|recipient|destinatario|contact|subscriber|suscriptor/,
+  time:/date|fecha|time|hora|timestamp|^ts$|created|occurred|when/,
+  type:/event|tipo|^type|action|accion|activity|actividad/,
+  url:/url|link|enlace|href/
+};
+function detectCols(head){
+  const h = head.map(norm), out = {};
+  for (const k of ["ua","ip","url","type","time","email"]) out[k] = h.findIndex((x, i) => COLS[k].test(x) && !Object.values(out).includes(i));
+  return out;
+}
+function parseTime(s){
+  s = String(s || "").trim(); if (!s) return null;
+  if (/^\d{10}(\.\d+)?$/.test(s)) return +s * 1000;
+  if (/^\d{13}$/.test(s)) return +s;
+  let m = s.match(/^(\d{1,2})[\/.-](\d{1,2})[\/.-](\d{2,4})[ T,]+(\d{1,2}):(\d{2})(?::(\d{2}))?/);
+  if (m){ let [, a, b, y, H, M, S] = m; y = +y < 100 ? 2000 + +y : +y; let dd = +a, mm = +b; if (mm > 12 && dd <= 12) [dd, mm] = [mm, dd]; return new Date(y, mm - 1, dd, +H, +M, +(S || 0)).getTime(); }
+  const t = Date.parse(s.replace(" ", "T")); return isNaN(t) ? null : t;
+}
+
+/* ---------- Clasificación ---------- */
+function analyze(text){
+  const {rows, delim} = parseCsv(text);
+  if (!rows.length) return null;
+  let cols = detectCols(rows[0]), head = rows[0], data = rows.slice(1);
+  const known = Object.values(cols).filter(i => i >= 0).length;
+  if (!known){
+    // Sin cabecera reconocible: si hay una sola columna, son agentes de usuario
+    if (rows.every(r => r.length === 1)){ cols = {ua:0, ip:-1, url:-1, type:-1, time:-1, email:-1}; head = ["user_agent"]; data = rows; }
+    else return {error:"cols"};
+  }
+  if (cols.ua < 0 && cols.ip < 0) return {error:"cols"};
+  const ev = data.map((r, i) => {
+    const g = k => cols[k] >= 0 ? String(r[cols[k]] || "").trim() : "";
+    const ty = norm(g("type")), url = g("url");
+    const kind = /clic|click|klick|clique/.test(ty) ? "click" : /open|apert|abiert|ouvert|view|lettur|aberto|abertura/.test(ty) ? "open" : (url ? "click" : (cols.url >= 0 ? "open" : "any"));
+    return {i, r, ua:g("ua"), ip:g("ip"), email:g("email").toLowerCase(), url, t:parseTime(g("time")), kind, cat:"human", why:""};
+  });
+  // 1. Agente de usuario e IP
+  for (const e of ev){
+    if (cols.ua >= 0 && !e.ua){ e.cat = "susp"; e.why = "noua"; }
+    const u = e.ua && UA_RULES.find(x => x[0].test(e.ua));
+    if (u){ e.cat = u[1]; e.why = u[2]; if (u[1] !== "susp") continue; }
+    const p = e.ip && ipRule(e.ip);
+    if (p && !(p.t === "proxy" && e.kind === "click")){ e.cat = p.t; e.why = "ip:" + p.n; }
+  }
+  // 2. Comportamiento en los clics: muchos enlaces en segundos y barridos desde una misma IP
+  const clicks = ev.filter(e => e.kind === "click" && e.t !== null && e.cat !== "bot");
+  const by = (k) => { const m = new Map(); for (const e of clicks){ const v = e[k]; if (!v) continue; (m.get(v) || m.set(v, []).get(v)).push(e); } return m; };
+  for (const list of by("email").values()){
+    list.sort((a, b) => a.t - b.t);
+    for (let a = 0; a < list.length; a++){
+      let b = a; const urls = new Set();
+      while (b < list.length && list[b].t - list[a].t <= 10000){ urls.add(list[b].url); b++; }
+      if (urls.size >= 3) for (let k = a; k < b; k++){ list[k].cat = "bot"; list[k].why = "fast"; }
+    }
+  }
+  for (const list of by("ip").values()){
+    list.sort((a, b) => a.t - b.t);
+    for (let a = 0; a < list.length; a++){
+      let b = a; const em = new Set();
+      while (b < list.length && list[b].t - list[a].t <= 60000){ if (list[b].email) em.add(list[b].email); b++; }
+      if (em.size >= 5) for (let k = a; k < b; k++) if (list[k].cat !== "bot"){ list[k].cat = "bot"; list[k].why = "sweep"; }
+    }
+  }
+  // 3. Clic sin apertura (solo si el archivo trae aperturas)
+  if (ev.some(e => e.kind === "open") && cols.email >= 0){
+    const opened = new Set(ev.filter(e => e.kind === "open").map(e => e.email));
+    for (const e of ev) if (e.kind === "click" && e.cat === "human" && e.email && !opened.has(e.email)){ e.cat = "susp"; e.why = "noopen"; }
+  }
+  return {ev, head, cols, delim, hasKind: ev.some(e => e.kind !== "any")};
+}
+
+/* ---------- Interfaz ---------- */
+const CATS = ["human", "proxy", "mpp", "bot", "susp"];
+const TONE = {human:"g", proxy:"b", mpp:"y", bot:"r", susp:"y"};
+let RES = null, FILE = "";
+const whyLabel = w => !w ? "" : w.startsWith("ip:") ? L("bt.w.ip", {n:w.slice(3)}) : ["fast","sweep","noopen","noua","old","script","headless","crawler"].includes(w) ? L("bt.w." + w) : w;
+const pct = (a, b) => b ? Math.round(a * 1000 / b) / 10 : 0;
+
+function stats(list){ const c = {}; for (const k of CATS) c[k] = 0; for (const e of list) c[e.cat]++; return c; }
+function block(title, list){
+  if (!list.length) return "";
+  const c = stats(list), n = list.length, real = c.human + c.proxy;
+  return `<h3 class="bt-sub">${esc(title)} · ${n.toLocaleString()}</h3>
+  <div class="bt-stats">${CATS.filter(k => c[k]).map(k => `<div class="bt-st bt-${TONE[k]}"><strong>${c[k].toLocaleString()}</strong><span>${esc(L("bt.c." + k))}</span><small>${pct(c[k], n)} %</small></div>`).join("")}</div>
+  <p class="bt-real">${L("bt.real", {p:pct(real, n), n:real.toLocaleString(), t:n.toLocaleString()})}${c.proxy ? " " + L("bt.realProxy") : ""}</p>`;
+}
+function render(){
+  const out = $("#btResult"); if (!out) return;
+  if (!RES){ out.innerHTML = ""; return; }
+  if (RES.error){ out.innerHTML = `<div class="card bt-err"><p>${L("bt.err." + RES.error)}</p></div>`; return; }
+  const ev = RES.ev, opens = ev.filter(e => e.kind === "open"), clicks = ev.filter(e => e.kind === "click"), any = ev.filter(e => e.kind === "any");
+  const src = new Map(); for (const e of ev) if (e.cat !== "human"){ const k = e.cat + "|" + e.why; src.set(k, (src.get(k) || 0) + 1); }
+  const top = [...src.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12);
+  const flagged = ev.filter(e => e.cat !== "human").slice(0, 40);
+  const nb = ev.filter(e => e.cat === "bot").length;
+  out.innerHTML = `<div class="card bt-card">
+    <h2>${esc(L("bt.resT", {n:ev.length.toLocaleString()}))}</h2>
+    <p class="minor">${esc(L("bt.cols"))} ${["email","type","time","ip","ua","url"].filter(k => RES.cols[k] >= 0).map(k => `<code>${esc(RES.head[RES.cols[k]])}</code>`).join(" ")}</p>
+    ${block(L("bt.opens"), opens)}${block(L("bt.clicks"), clicks)}${block(L("bt.events"), any)}
+    ${top.length ? `<h3 class="bt-sub">${esc(L("bt.topT"))}</h3><ul class="bt-top">${top.map(([k, n]) => { const [c, w] = k.split("|"); return `<li><span class="bt-dot bt-${TONE[c]}"></span><span>${esc(whyLabel(w))}</span><em>${esc(L("bt.c." + c))}</em><strong>${n.toLocaleString()}</strong></li>`; }).join("")}</ul>` : `<p class="bt-real">${esc(L("bt.clean"))}</p>`}
+    ${flagged.length ? `<details class="bt-det"><summary>${esc(L("bt.sample", {n:flagged.length}))}</summary><div class="bt-tw"><table class="bt-tab"><thead><tr><th>${esc(L("bt.th.ev"))}</th><th>${esc(L("bt.th.who"))}</th><th>IP</th><th>${esc(L("bt.th.why"))}</th></tr></thead><tbody>${flagged.map(e => `<tr><td>${esc(L("bt.k." + e.kind))}</td><td>${esc(e.email || "—")}</td><td>${esc(e.ip || "—")}</td><td><span class="bt-dot bt-${TONE[e.cat]}"></span>${esc(whyLabel(e.why))}</td></tr>`).join("")}</tbody></table></div></details>` : ""}
+    <div class="actions"><button class="btn btn-primary" type="button" id="btDlH">${esc(L("bt.dlH"))}</button><button class="btn btn-ghost" type="button" id="btDlA">${esc(L("bt.dlA"))}</button></div>
+    ${nb ? `<p class="minor">${L("bt.tip")}</p>` : ""}
+  </div>`;
+  $("#btDlA").addEventListener("click", () => dl(false));
+  $("#btDlH").addEventListener("click", () => dl(true));
+}
+function dl(onlyHuman){
+  const d = RES.delim, q = v => /["\n\r]|[;,\t|]/.test(v) ? '"' + String(v).replace(/"/g, '""') + '"' : v;
+  const lines = [[...RES.head, L("bt.colCat"), L("bt.colWhy")].map(q).join(d)];
+  for (const e of RES.ev){ if (onlyHuman && !(e.cat === "human" || e.cat === "proxy")) continue; lines.push([...e.r, L("bt.c." + e.cat), whyLabel(e.why)].map(q).join(d)); }
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob(["﻿" + lines.join("\r\n")], {type:"text/csv;charset=utf-8"}));
+  a.download = (FILE || "eventos").replace(/\.\w+$/, "") + (onlyHuman ? "_humanos" : "_clasificado") + ".csv";
+  document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+function sample(){
+  const H = ["email","evento","fecha","ip","user_agent","url"], rows = [H.join(";")];
+  const chrome = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36";
+  const iphone = "Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148";
+  const qq = v => /[;"]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+  const add = (e, ev, t, ip, ua, url) => rows.push([e, ev, "2026-11-16 " + t, ip, ua, url || ""].map(qq).join(";"));
+  add("laura.gomez@gmail.com","open","10:02:11","66.102.8.34","Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)");
+  add("laura.gomez@gmail.com","click","10:03:40","83.45.112.9",chrome,"https://tienda.ejemplo.com/ofertas");
+  add("pedro.ruiz@icloud.com","open","10:00:05","17.58.101.22","Mozilla/5.0");
+  add("ana.martin@empresa-cliente.es","open","10:00:31","40.107.12.8",chrome);
+  ["/ofertas","/novedades","/baja","/privacidad"].forEach((u, i) => add("ana.martin@empresa-cliente.es","click","10:00:3" + (2 + i),"40.107.12.8",chrome,"https://tienda.ejemplo.com" + u));
+  add("jorge.santos@hotmail.com","open","11:15:00","88.12.40.7","Mozilla/5.0 (Windows NT 10.0; Microsoft Outlook 16.0.17928)");
+  add("jorge.santos@hotmail.com","click","11:15:42","88.12.40.7",chrome,"https://tienda.ejemplo.com/ofertas");
+  add("marta.diaz@yahoo.es","open","12:20:00","98.137.10.4","YahooMailProxy; https://help.yahoo.com/kb/yahoo-mail-proxy-SLN28749.html");
+  add("compras@distribuidora.es","click","10:01:02","148.163.140.5","Mozilla/5.0 (compatible; MSIE 7.0; Windows NT 6.1)","https://tienda.ejemplo.com/ofertas");
+  add("lucia.vega@gmail.com","click","13:40:10","185.20.9.77","python-requests/2.31","https://tienda.ejemplo.com/ofertas");
+  add("carlos.ib@outlook.es","click","14:05:00","79.150.3.21",iphone,"https://tienda.ejemplo.com/ofertas");
+  add("equipo@agencia.com","click","15:00:00","31.13.71.1","facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)","https://tienda.ejemplo.com/novedades");
+  return rows.join("\n");
+}
+
+function view(){
+  const v = $("#btView"); if (!v) return;
+  const prev = $("#btInput") ? $("#btInput").value : "";
+  v.innerHTML = hero("bt") + `
+  <div class="wrap">
+    <section class="tool" aria-label="${esc(L("bt.h1"))}"><div class="tool-body">
+      <label class="lbl" for="btInput">${esc(L("bt.label"))}</label>
+      <p class="hint">${L("bt.hint")}</p>
+      <div class="bt-drop" id="btDrop"><input type="file" id="btFile" accept=".csv,.tsv,.txt" hidden><button class="btn btn-ghost" type="button" id="btPick">${esc(L("bt.pick"))}</button><span>${esc(L("bt.or"))}</span></div>
+      <textarea id="btInput" spellcheck="false" class="rb-ta" placeholder="email;evento;fecha;ip;user_agent;url"></textarea>
+      <div class="actions"><button class="btn btn-primary" id="btGo" type="button">${esc(L("bt.btn"))}</button><button class="btn btn-ghost" id="btClear" type="button">${esc(L("c.clear"))}</button></div>
+      <div class="examples"><span>${esc(L("c.try"))}</span><button class="chip" type="button" id="btEx">${esc(L("bt.ex"))}</button></div>
+      <p class="privacy">${LOCK}<span>${esc(L("bt.priv"))}</span></p>
+    </div></section>
+    <section class="result" id="btResult" aria-live="polite"></section>
+    <section class="info">
+      <h2>${esc(L("bt.i.h"))}</h2><p>${esc(L("bt.i.p"))}</p>
+      ${[1,2,3,4,5].map(i => `<details><summary>${esc(L("bt.q" + i))}</summary><div>${L("bt.a" + i)}</div></details>`).join("")}
+    </section>
+  </div>`;
+  $("#btInput").value = prev;
+  const go = () => {
+    const val = $("#btInput").value.trim();
+    if (!val){ toast(L("bt.empty")); $("#btInput").focus(); return; }
+    RES = analyze(val); render(); const r = $("#btResult"); r && r.scrollIntoView({behavior: reduced() ? "auto" : "smooth", block:"start"});
+  };
+  const load = f => { if (!f) return; if (f.size > 30e6){ toast(L("bt.big")); return; } FILE = f.name; f.text().then(t => { $("#btInput").value = t.length > 2e5 ? "" : t; $("#btInput").placeholder = t.length > 2e5 ? f.name : $("#btInput").placeholder; RES = analyze(t); render(); $("#btResult").scrollIntoView({behavior: reduced() ? "auto" : "smooth", block:"start"}); }); };
+  $("#btGo").addEventListener("click", go);
+  $("#btClear").addEventListener("click", () => { $("#btInput").value = ""; RES = null; FILE = ""; render(); });
+  $("#btEx").addEventListener("click", () => { $("#btInput").value = sample(); FILE = "ejemplo"; go(); });
+  $("#btPick").addEventListener("click", () => $("#btFile").click());
+  $("#btFile").addEventListener("change", e => load(e.target.files[0]));
+  const dz = $("#btDrop");
+  ["dragover","dragenter"].forEach(t => v.addEventListener(t, e => { e.preventDefault(); dz.classList.add("on"); }));
+  ["dragleave","drop"].forEach(t => v.addEventListener(t, e => { e.preventDefault(); dz.classList.remove("on"); }));
+  v.addEventListener("drop", e => load(e.dataTransfer.files[0]));
+  render();
+}
+window.NTX = window.NTX || {};
+window.NTX.bots = view;
+window.NTX._bt = {analyze, sample};
+})();
 
 </script>
 <script>
@@ -8032,7 +8338,8 @@ function gdView(){
 }
 
 /* ---------- Navegación e idioma ---------- */
-const views = {rebotes:rbView, generador:genView, guias:gdView};
+const views = Object.assign({rebotes:rbView, generador:genView, guias:gdView}, window.NTX || {});
+delete views._bt;
 const built = {};
 function route(force){
   const h = location.hash.slice(1).split("/")[0];
