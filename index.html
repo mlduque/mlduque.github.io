@@ -8223,13 +8223,17 @@ async function zbRun(){
     if (!credits) throw new Error(L("zb.noCredits"));
     ZB.partial = list.length > credits; if (ZB.partial) list = list.slice(0, credits);
     const res = [];
-    for (let i = 0; i < list.length; i += 200){
-      ZB.prog = L("zb.prog", {n:Math.min(i + 200, list.length).toLocaleString(), t:list.length.toLocaleString(), c:credits.toLocaleString()}); zbRender(); keep();
-      let r = await zbPost("/zb/batch", {key, emails:list.slice(i, i + 200)});
-      if (r.status === 429){ await new Promise(x => setTimeout(x, 15000)); r = await zbPost("/zb/batch", {key, emails:list.slice(i, i + 200)}); }
+    let single = false;
+    for (let i = 0; i < list.length;){
+      const size = single ? 25 : 200, chunk = list.slice(i, i + size);
+      ZB.prog = L("zb.prog", {n:Math.min(i + size, list.length).toLocaleString(), t:list.length.toLocaleString(), c:credits.toLocaleString()}); zbRender(); keep();
+      let r = await zbPost(single ? "/zb/single" : "/zb/batch", {key, emails:chunk});
+      if (!single && r.status === 409){ single = true; continue; }   // sin acceso al lote: una a una
+      if (r.status === 429){ await new Promise(x => setTimeout(x, 15000)); r = await zbPost(single ? "/zb/single" : "/zb/batch", {key, emails:chunk}); }
       if (!r.ok) throw new Error(L("zb.errGen") + (r.j.detail ? " (" + r.j.detail + ")" : ""));
       res.push(...r.j.results);
-      if (i + 200 < list.length) await new Promise(x => setTimeout(x, 12500));   // ZeroBounce admite 5 lotes por minuto
+      i += size;
+      if (!single && i < list.length) await new Promise(x => setTimeout(x, 12500));   // ZeroBounce admite 5 lotes por minuto
     }
     ZB.res = res;
   } catch(e){ ZB.err = e.message || L("zb.errGen"); }
