@@ -704,6 +704,13 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
 .req .ibx-tips li{display:list-item;font-weight:400;color:var(--muted)}
 .rb-status{margin-top:1.25rem;color:var(--muted)}
 .rb-status a{color:var(--blue)}
+
+/* ZeroBounce */
+.zb-card{background:var(--soft);border:1px solid var(--line);border-left:5px solid var(--blue);border-radius:12px;padding:1.1rem 1.3rem}
+.zb-card h3{margin-bottom:.4rem}
+.zb-card .minor a{color:var(--blue)}
+.zb-form{display:grid;gap:.6rem;margin-top:.8rem;max-width:40rem}
+.zb-stats{margin-top:1rem}
 </style>
 </head>
 <body>
@@ -5789,6 +5796,7 @@ function exportRows(list, extra){
   });
   return rows;
 }
+window.ES_DB = {last:() => LAST, exportRows, download};
 document.addEventListener("change", e => { if (e.target.matches("[data-opt]")) updateCounts(); });
 document.addEventListener("click", e => {
   if (!LAST) return;
@@ -6165,6 +6173,10 @@ NT.add("en", {ui:{
 
 </script>
 <script>
+NT.add("en", {ui:{"zb.h": "In-depth verification with ZeroBounce (optional)", "zb.p": "Our analysis checks format, domains and duplicates. <a href=\"https://www.zerobounce.net\" target=\"_blank\" rel=\"noopener\">ZeroBounce</a> goes further: it checks whether each mailbox really exists and detects spam traps, complainers and accept-all (catch-all) domains. You need your own account: the free one includes 100 verifications a month.", "zb.key": "Your ZeroBounce API key", "zb.keyHint": "You'll find it in your ZeroBounce account under <a href=\"https://www.zerobounce.net/members/API\" target=\"_blank\" rel=\"noopener\">API › API Keys</a>. It's only used for this verification: we don't store it.", "zb.consent": "I agree to send the email addresses in my list to ZeroBounce (a US company) to verify them with my account. Each address uses 1 credit.", "zb.btn": "Verify {n} addresses with ZeroBounce", "zb.needKey": "Paste your ZeroBounce API key first", "zb.needOk": "Tick the box to agree to sending to ZeroBounce", "zb.prog": "Verifying {n} of {t} addresses… (you have {c} credits)", "zb.partial": "There were only credits for {n} of {t} addresses: the rest weren't verified.", "zb.errKey": "ZeroBounce doesn't recognise that API key. Copy it again from your account.", "zb.errRate": "Too many verifications in a row. Please wait a few minutes.", "zb.errGen": "The ZeroBounce verification couldn't be completed. Please try later.", "zb.noCredits": "Your ZeroBounce account has no credits left this month.", "zb.st.valid": "Valid", "zb.st.invalid": "Invalid", "zb.st.catch-all": "Catch-all", "zb.st.unknown": "Unknown", "zb.st.spamtrap": "Spam traps", "zb.st.abuse": "Frequent complainers", "zb.st.do_not_mail": "Do not mail", "zb.d.valid": "The mailbox exists: you can send.", "zb.d.invalid": "The mailbox doesn't exist: remove them.", "zb.d.catch-all": "The domain accepts everything: can't be confirmed.", "zb.d.unknown": "The server didn't respond: check later.", "zb.d.spamtrap": "Spam traps: remove them now.", "zb.d.abuse": "They often mark as spam: better exclude them.", "zb.d.do_not_mail": "Disposable, toxic or role: exclude.", "zb.dlValid": "Download valid only ({n})", "zb.dlAll": "Download everything with the result", "zb.again": "Verify again", "zb.privH": "ZeroBounce verification", "zb.privP": "<p>Only if you turn it on yourself in «My database», with your own API key and after ticking the box, we send the email addresses in your list to ZeroBounce (USA) to verify them. They pass through our intermediary without being stored, and their processing is subject to your agreement with ZeroBounce.</p>"}});
+
+</script>
+<script>
 
 NT.add("es", {gd:{
 autenticacion:{t:"SPF, DKIM y DMARC explicados sin tecnicismos",d:"Qué son los tres registros que deciden si tus emails son de fiar, cómo funcionan juntos y en qué orden configurarlos.",s:[
@@ -6461,6 +6473,10 @@ NT.add("es", {ui:{
 
 </script>
 <script>
+NT.add("es", {ui:{"zb.h": "Verificación a fondo con ZeroBounce (opcional)", "zb.p": "Nuestro análisis revisa el formato, los dominios y los duplicados. <a href=\"https://www.zerobounce.net\" target=\"_blank\" rel=\"noopener\">ZeroBounce</a> va más allá: comprueba si cada buzón existe de verdad y detecta trampas de spam, direcciones de quejas y dominios que lo aceptan todo (catch-all). Necesitas tu propia cuenta: la gratuita incluye 100 verificaciones al mes.", "zb.key": "Tu clave de API de ZeroBounce", "zb.keyHint": "La encontrarás en tu cuenta de ZeroBounce, en <a href=\"https://www.zerobounce.net/members/API\" target=\"_blank\" rel=\"noopener\">API › API Keys</a>. Solo se usa para esta verificación: no la guardamos.", "zb.consent": "Acepto enviar las direcciones de email de mi lista a ZeroBounce (empresa de EE. UU.) para verificarlas con mi cuenta. Cada dirección gasta 1 crédito.", "zb.btn": "Verificar {n} direcciones con ZeroBounce", "zb.needKey": "Pega primero tu clave de API de ZeroBounce", "zb.needOk": "Marca la casilla para aceptar el envío a ZeroBounce", "zb.prog": "Verificando {n} de {t} direcciones… (tienes {c} créditos)", "zb.partial": "Solo había créditos para {n} de {t} direcciones: las demás no se han verificado.", "zb.errKey": "ZeroBounce no reconoce esa clave de API. Cópiala de nuevo desde tu cuenta.", "zb.errRate": "Demasiadas verificaciones seguidas. Espera unos minutos.", "zb.errGen": "No se ha podido completar la verificación con ZeroBounce. Inténtalo más tarde.", "zb.noCredits": "Tu cuenta de ZeroBounce no tiene créditos disponibles este mes.", "zb.st.valid": "Válidos", "zb.st.invalid": "Inválidos", "zb.st.catch-all": "Catch-all", "zb.st.unknown": "Desconocidos", "zb.st.spamtrap": "Trampas de spam", "zb.st.abuse": "Quejas habituales", "zb.st.do_not_mail": "No enviar", "zb.d.valid": "El buzón existe: puedes enviar.", "zb.d.invalid": "El buzón no existe: elimínalos.", "zb.d.catch-all": "El dominio lo acepta todo: no se puede confirmar.", "zb.d.unknown": "El servidor no ha respondido: revisa más tarde.", "zb.d.spamtrap": "Trampas de spam: elimínalos ya.", "zb.d.abuse": "Suelen marcar como spam: mejor excluirlos.", "zb.d.do_not_mail": "Desechables, tóxicos o de rol: excluir.", "zb.dlValid": "Descargar solo los válidos ({n})", "zb.dlAll": "Descargar todo con el resultado", "zb.again": "Verificar otra vez", "zb.privH": "Verificación con ZeroBounce", "zb.privP": "<p>Solo si lo activas tú en «Mi base de datos», con tu propia clave de API y tras aceptar la casilla, enviamos las direcciones de email de tu lista a ZeroBounce (EE. UU.) para verificarlas. Pasan por nuestro intermediario sin guardarse, y su tratamiento queda sujeto a tu contrato con ZeroBounce.</p>"}});
+
+</script>
+<script>
 
 NT.add("fr", {gd:{
 autenticacion:{t:"SPF, DKIM et DMARC expliqués sans jargon",d:"Ce que sont les trois enregistrements qui déterminent si vos emails sont dignes de confiance, comment ils fonctionnent ensemble et dans quel ordre les configurer.",s:[
@@ -6751,6 +6767,10 @@ NT.add("fr", {ui:{
 "gd.min":"{n} min de lecture","gd.read":"Lire le guide →","gd.back":"Tous les guides","gd.by":"Par","gd.toolsT":"Passez à la pratique","gd.page":"Ouvrir en page à partager","gd.next":"Guide suivant",
 "gd.tool.gen":"Générer mes enregistrements","gd.tool.dom":"Vérifier mon domaine","gd.tool.au":"Auditer un email","gd.tool.cp":"Tester ma campagne","gd.tool.rb":"Traduire un rebond","gd.tool.db":"Nettoyer ma base"
 }});
+
+</script>
+<script>
+NT.add("fr", {ui:{"zb.h": "Vérification approfondie avec ZeroBounce (facultatif)", "zb.p": "Notre analyse contrôle le format, les domaines et les doublons. <a href=\"https://www.zerobounce.net\" target=\"_blank\" rel=\"noopener\">ZeroBounce</a> va plus loin : il vérifie que chaque boîte existe réellement et détecte les pièges à spam, les plaignants habituels et les domaines qui acceptent tout (catch-all). Il vous faut votre propre compte : le compte gratuit inclut 100 vérifications par mois.", "zb.key": "Votre clé API ZeroBounce", "zb.keyHint": "Vous la trouverez dans votre compte ZeroBounce, sous <a href=\"https://www.zerobounce.net/members/API\" target=\"_blank\" rel=\"noopener\">API › API Keys</a>. Elle ne sert qu'à cette vérification : nous ne la conservons pas.", "zb.consent": "J'accepte d'envoyer les adresses email de ma liste à ZeroBounce (société américaine) pour les vérifier avec mon compte. Chaque adresse consomme 1 crédit.", "zb.btn": "Vérifier {n} adresses avec ZeroBounce", "zb.needKey": "Collez d'abord votre clé API ZeroBounce", "zb.needOk": "Cochez la case pour accepter l'envoi à ZeroBounce", "zb.prog": "Vérification de {n} adresses sur {t}… (vous avez {c} crédits)", "zb.partial": "Il n'y avait de crédits que pour {n} adresses sur {t} : les autres n'ont pas été vérifiées.", "zb.errKey": "ZeroBounce ne reconnaît pas cette clé API. Copiez-la à nouveau depuis votre compte.", "zb.errRate": "Trop de vérifications d'affilée. Patientez quelques minutes.", "zb.errGen": "Impossible de terminer la vérification avec ZeroBounce. Réessayez plus tard.", "zb.noCredits": "Votre compte ZeroBounce n'a plus de crédits ce mois-ci.", "zb.st.valid": "Valides", "zb.st.invalid": "Invalides", "zb.st.catch-all": "Catch-all", "zb.st.unknown": "Inconnues", "zb.st.spamtrap": "Pièges à spam", "zb.st.abuse": "Plaignants habituels", "zb.st.do_not_mail": "Ne pas envoyer", "zb.d.valid": "La boîte existe : vous pouvez envoyer.", "zb.d.invalid": "La boîte n'existe pas : supprimez-les.", "zb.d.catch-all": "Le domaine accepte tout : impossible de confirmer.", "zb.d.unknown": "Le serveur n'a pas répondu : réessayez plus tard.", "zb.d.spamtrap": "Pièges à spam : supprimez-les tout de suite.", "zb.d.abuse": "Ils signalent souvent en spam : mieux vaut les exclure.", "zb.d.do_not_mail": "Jetables, toxiques ou génériques : à exclure.", "zb.dlValid": "Télécharger uniquement les valides ({n})", "zb.dlAll": "Tout télécharger avec le résultat", "zb.again": "Vérifier à nouveau", "zb.privH": "Vérification avec ZeroBounce", "zb.privP": "<p>Uniquement si vous l'activez vous-même dans « Ma base de données », avec votre propre clé API et après avoir coché la case, nous envoyons les adresses email de votre liste à ZeroBounce (États-Unis) pour les vérifier. Elles transitent par notre intermédiaire sans être conservées, et leur traitement relève de votre contrat avec ZeroBounce.</p>"}});
 
 </script>
 <script>
@@ -7047,6 +7067,10 @@ NT.add("it", {ui:{
 
 </script>
 <script>
+NT.add("it", {ui:{"zb.h": "Verifica approfondita con ZeroBounce (facoltativa)", "zb.p": "La nostra analisi controlla formato, domini e duplicati. <a href=\"https://www.zerobounce.net\" target=\"_blank\" rel=\"noopener\">ZeroBounce</a> va oltre: verifica se ogni casella esiste davvero e rileva spam trap, indirizzi che segnalano spesso e domini che accettano tutto (catch-all). Ti serve un tuo account: quello gratuito include 100 verifiche al mese.", "zb.key": "La tua chiave API di ZeroBounce", "zb.keyHint": "La trovi nel tuo account ZeroBounce, in <a href=\"https://www.zerobounce.net/members/API\" target=\"_blank\" rel=\"noopener\">API › API Keys</a>. Si usa solo per questa verifica: non la conserviamo.", "zb.consent": "Accetto di inviare gli indirizzi email della mia lista a ZeroBounce (azienda statunitense) per verificarli con il mio account. Ogni indirizzo consuma 1 credito.", "zb.btn": "Verifica {n} indirizzi con ZeroBounce", "zb.needKey": "Incolla prima la tua chiave API di ZeroBounce", "zb.needOk": "Seleziona la casella per accettare l'invio a ZeroBounce", "zb.prog": "Verifica di {n} indirizzi su {t}… (hai {c} crediti)", "zb.partial": "C'erano crediti solo per {n} indirizzi su {t}: gli altri non sono stati verificati.", "zb.errKey": "ZeroBounce non riconosce questa chiave API. Copiala di nuovo dal tuo account.", "zb.errRate": "Troppe verifiche di seguito. Aspetta qualche minuto.", "zb.errGen": "Non è stato possibile completare la verifica con ZeroBounce. Riprova più tardi.", "zb.noCredits": "Il tuo account ZeroBounce non ha crediti disponibili questo mese.", "zb.st.valid": "Validi", "zb.st.invalid": "Non validi", "zb.st.catch-all": "Catch-all", "zb.st.unknown": "Sconosciuti", "zb.st.spamtrap": "Spam trap", "zb.st.abuse": "Segnalatori abituali", "zb.st.do_not_mail": "Non inviare", "zb.d.valid": "La casella esiste: puoi inviare.", "zb.d.invalid": "La casella non esiste: eliminali.", "zb.d.catch-all": "Il dominio accetta tutto: non si può confermare.", "zb.d.unknown": "Il server non ha risposto: riprova più tardi.", "zb.d.spamtrap": "Spam trap: eliminali subito.", "zb.d.abuse": "Segnalano spesso come spam: meglio escluderli.", "zb.d.do_not_mail": "Usa e getta, tossici o di ruolo: escludere.", "zb.dlValid": "Scarica solo i validi ({n})", "zb.dlAll": "Scarica tutto con il risultato", "zb.again": "Verifica di nuovo", "zb.privH": "Verifica con ZeroBounce", "zb.privP": "<p>Solo se la attivi tu in «Il mio database», con la tua chiave API e dopo aver selezionato la casella, inviamo gli indirizzi email della tua lista a ZeroBounce (USA) per verificarli. Passano dal nostro intermediario senza essere conservati, e il loro trattamento è soggetto al tuo contratto con ZeroBounce.</p>"}});
+
+</script>
+<script>
 
 NT.add("pt", {gd:{
 autenticacion:{t:"SPF, DKIM e DMARC explicados sem tecnicismos",d:"O que são os três registos que decidem se os seus emails são de confiança, como funcionam em conjunto e por que ordem os configurar.",s:[
@@ -7337,6 +7361,10 @@ NT.add("pt", {ui:{
 "gd.min":"{n} min de leitura","gd.read":"Ler o guia →","gd.back":"Todos os guias","gd.by":"Por","gd.toolsT":"Ponha em prática","gd.page":"Abrir como página para partilhar","gd.next":"Guia seguinte",
 "gd.tool.gen":"Gerar os meus registos","gd.tool.dom":"Verificar o meu domínio","gd.tool.au":"Auditar um email","gd.tool.cp":"Testar a minha campanha","gd.tool.rb":"Traduzir um bounce","gd.tool.db":"Limpar a minha base de dados"
 }});
+
+</script>
+<script>
+NT.add("pt", {ui:{"zb.h": "Verificação aprofundada com o ZeroBounce (opcional)", "zb.p": "A nossa análise verifica o formato, os domínios e os duplicados. O <a href=\"https://www.zerobounce.net\" target=\"_blank\" rel=\"noopener\">ZeroBounce</a> vai mais longe: confirma se cada caixa existe mesmo e deteta spam traps, endereços que costumam queixar-se e domínios que aceitam tudo (catch-all). Precisa da sua própria conta: a gratuita inclui 100 verificações por mês.", "zb.key": "A sua chave de API do ZeroBounce", "zb.keyHint": "Encontra-a na sua conta do ZeroBounce, em <a href=\"https://www.zerobounce.net/members/API\" target=\"_blank\" rel=\"noopener\">API › API Keys</a>. Só é usada nesta verificação: não a guardamos.", "zb.consent": "Aceito enviar os endereços de email da minha lista para o ZeroBounce (empresa dos EUA) para os verificar com a minha conta. Cada endereço gasta 1 crédito.", "zb.btn": "Verificar {n} endereços com o ZeroBounce", "zb.needKey": "Cole primeiro a sua chave de API do ZeroBounce", "zb.needOk": "Marque a caixa para aceitar o envio para o ZeroBounce", "zb.prog": "A verificar {n} de {t} endereços… (tem {c} créditos)", "zb.partial": "Só havia créditos para {n} de {t} endereços: os restantes não foram verificados.", "zb.errKey": "O ZeroBounce não reconhece essa chave de API. Copie-a novamente da sua conta.", "zb.errRate": "Demasiadas verificações seguidas. Aguarde alguns minutos.", "zb.errGen": "Não foi possível concluir a verificação com o ZeroBounce. Tente mais tarde.", "zb.noCredits": "A sua conta do ZeroBounce não tem créditos disponíveis este mês.", "zb.st.valid": "Válidos", "zb.st.invalid": "Inválidos", "zb.st.catch-all": "Catch-all", "zb.st.unknown": "Desconhecidos", "zb.st.spamtrap": "Spam traps", "zb.st.abuse": "Queixosos habituais", "zb.st.do_not_mail": "Não enviar", "zb.d.valid": "A caixa existe: pode enviar.", "zb.d.invalid": "A caixa não existe: apague-os.", "zb.d.catch-all": "O domínio aceita tudo: não é possível confirmar.", "zb.d.unknown": "O servidor não respondeu: tente mais tarde.", "zb.d.spamtrap": "Spam traps: apague-os já.", "zb.d.abuse": "Costumam marcar como spam: melhor excluí-los.", "zb.d.do_not_mail": "Descartáveis, tóxicos ou genéricos: excluir.", "zb.dlValid": "Descarregar só os válidos ({n})", "zb.dlAll": "Descarregar tudo com o resultado", "zb.again": "Verificar novamente", "zb.privH": "Verificação com o ZeroBounce", "zb.privP": "<p>Só se o ativar na «A minha base de dados», com a sua própria chave de API e depois de marcar a caixa, enviamos os endereços de email da sua lista para o ZeroBounce (EUA) para os verificar. Passam pelo nosso intermediário sem serem guardados, e o seu tratamento está sujeito ao seu contrato com o ZeroBounce.</p>"}});
 
 </script>
 <script>
@@ -8135,10 +8163,92 @@ window.addEventListener("hashchange", () => { if (isView("bandeja")) ibInit(); }
 window.addEventListener("langchange", () => { if (IBX.enabled) ibRender(); });
 if (isView("bandeja")) ibInit();
 
+/* ---------- Verificación a fondo con ZeroBounce (clave de cada persona) ---------- */
+const ZB = {busy:false, res:null, list:null, err:"", prog:""};
+const ZB_ST = ["valid","invalid","catch-all","unknown","spamtrap","abuse","do_not_mail"];
+const ZB_TONE = {valid:"g", invalid:"r", "catch-all":"y", unknown:"y", spamtrap:"r", abuse:"r", do_not_mail:"r"};
+function zbCandidates(){
+  const L0 = window.ES_DB && ES_DB.last(); if (!L0) return [];
+  const fix = $("#dbFixTypos") ? $("#dbFixTypos").checked : true;
+  const seen = new Set(), out = [];
+  for (const c of L0.contacts){
+    if (["invalid","dup","disposable","test","nomail"].some(k => c.flags.has(k))) continue;
+    const e = (fix && c.fixed) || c.email; if (!e || seen.has(e)) continue; seen.add(e); out.push(e);
+  }
+  return out;
+}
+function zbRender(){
+  const out = $("#dbResult"); if (!out || !API) return;
+  const anchor = out.querySelector("#dbDlClean"); let card = out.querySelector(".zb-card");
+  if (!anchor){ if (card) card.remove(); return; }
+  if (!card){ card = document.createElement("div"); card.className = "block zb-card"; const host = anchor.closest(".block") || anchor.parentElement; host.insertAdjacentElement("afterend", card); }
+  const list = zbCandidates(), n = list.length;
+  if (ZB.list && ZB.list.join() !== list.join()){ ZB.res = null; ZB.err = ""; }
+  ZB.list = list;
+  let html = `<h3>${esc(L("zb.h"))}</h3><p class="minor">${L("zb.p")}</p>`;
+  if (!ZB.res){
+    html += `<div class="zb-form"><div class="field"><label class="lbl" for="zbKey">${esc(L("zb.key"))}</label><input id="zbKey" type="password" autocomplete="off" spellcheck="false" placeholder="••••••••••••••••••••••••••••••••"></div>
+      <p class="minor gen-hint">${L("zb.keyHint")}</p>
+      <label class="ai-consent"><input type="checkbox" id="zbOk"><span>${esc(L("zb.consent"))}</span></label>
+      <div class="actions"><button class="btn btn-primary" id="zbGo" type="button" ${n && !ZB.busy ? "" : "disabled"}>${esc(ZB.busy ? L("gen.checking") : L("zb.btn", {n:n.toLocaleString()}))}</button></div>
+      ${ZB.prog ? `<p class="minor">${esc(ZB.prog)}</p>` : ""}${ZB.err ? `<div class="alert"><p>${esc(ZB.err)}</p></div>` : ""}</div>`;
+  } else {
+    const cnt = {}; ZB.res.forEach(r => { cnt[r.status] = (cnt[r.status] || 0) + 1; });
+    const tot = ZB.res.length;
+    html += `<div class="stats zb-stats">${ZB_ST.filter(s => cnt[s]).map(s => `<div class="stat s-${ZB_TONE[s] === "g" ? "g" : ZB_TONE[s] === "r" ? "r" : "y"}"><span class="stat-n">${cnt[s].toLocaleString()}</span><span class="stat-l">${esc(L("zb.st." + s))}</span><span class="stat-h">${esc(L("zb.d." + s))}</span></div>`).join("")}</div>
+      ${ZB.partial ? `<p class="minor">${esc(L("zb.partial", {n:tot.toLocaleString(), t:ZB.list.length.toLocaleString()}))}</p>` : ""}
+      <div class="actions"><button class="btn btn-primary" id="zbDlValid" type="button">${esc(L("zb.dlValid", {n:(cnt.valid || 0).toLocaleString()}))}</button><button class="btn btn-ghost" id="zbDlAll" type="button">${esc(L("zb.dlAll"))}</button><button class="btn btn-ghost" id="zbAgain" type="button">${esc(L("zb.again"))}</button></div>`;
+  }
+  card.innerHTML = html;
+}
+async function zbPost(path, body){ const r = await fetch(API + path, {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(body)}); const j = await r.json().catch(() => ({})); return {ok:r.ok, status:r.status, j}; }
+async function zbRun(){
+  const key = ($("#zbKey") || {}).value ? $("#zbKey").value.trim() : "";
+  if (!key){ toast(L("zb.needKey")); return; }
+  if (!$("#zbOk").checked){ toast(L("zb.needOk")); return; }
+  ZB.busy = true; ZB.err = ""; ZB.prog = ""; zbRender();
+  const keep = () => { const i = $("#zbKey"); if (i) i.value = key; const c = $("#zbOk"); if (c) c.checked = true; };
+  keep();
+  try {
+    const cr = await zbPost("/zb/credits", {key});
+    if (!cr.ok){ throw new Error(L(cr.j.error === "key" ? "zb.errKey" : cr.j.error === "rate" ? "zb.errRate" : "zb.errGen")); }
+    let list = ZB.list.slice(); const credits = cr.j.credits;
+    if (!credits) throw new Error(L("zb.noCredits"));
+    ZB.partial = list.length > credits; if (ZB.partial) list = list.slice(0, credits);
+    const res = [];
+    for (let i = 0; i < list.length; i += 200){
+      ZB.prog = L("zb.prog", {n:Math.min(i + 200, list.length).toLocaleString(), t:list.length.toLocaleString(), c:credits.toLocaleString()}); zbRender(); keep();
+      let r = await zbPost("/zb/batch", {key, emails:list.slice(i, i + 200)});
+      if (r.status === 429){ await new Promise(x => setTimeout(x, 15000)); r = await zbPost("/zb/batch", {key, emails:list.slice(i, i + 200)}); }
+      if (!r.ok) throw new Error(L("zb.errGen") + (r.j.detail ? " (" + r.j.detail + ")" : ""));
+      res.push(...r.j.results);
+      if (i + 200 < list.length) await new Promise(x => setTimeout(x, 12500));   // ZeroBounce admite 5 lotes por minuto
+    }
+    ZB.res = res;
+  } catch(e){ ZB.err = e.message || L("zb.errGen"); }
+  ZB.busy = false; ZB.prog = ""; zbRender(); if (!ZB.res) keep();
+}
+function zbDownload(onlyValid){
+  const L0 = ES_DB.last(), map = new Map(ZB.res.map(r => [r.email, r])), fix = $("#dbFixTypos") ? $("#dbFixTypos").checked : true;
+  const rowOf = c => map.get((fix && c.fixed) || c.email);
+  const list = L0.contacts.filter(c => { const r = rowOf(c); return onlyValid ? r && r.status === "valid" : true; });
+  const rows = ES_DB.exportRows(list, {h:"zerobounce_status", f:c => { const r = rowOf(c); return r ? r.status + (r.sub ? " (" + r.sub + ")" : "") : ""; }});
+  ES_DB.download(onlyValid ? "lista-verificada-zerobounce.csv" : "lista-con-resultado-zerobounce.csv", rows);
+}
+document.addEventListener("click", e => {
+  if (e.target.id === "zbGo") zbRun();
+  if (e.target.id === "zbDlValid") zbDownload(true);
+  if (e.target.id === "zbDlAll") zbDownload(false);
+  if (e.target.id === "zbAgain"){ ZB.res = null; zbRender(); }
+});
+document.addEventListener("change", e => { if (e.target.id === "dbFixTypos" && !ZB.busy) zbRender(); });
+{ const r = $("#dbResult"); if (r && window.MutationObserver && API){ let busy = false; new MutationObserver(() => { if (busy || ZB.busy) return; busy = true; requestAnimationFrame(() => { if (!$("#dbResult .zb-card") ) { ZB.res = null; ZB.err = ""; } zbRender(); busy = false; }); }).observe(r, {childList:true}); } }
+window.addEventListener("langchange", () => setTimeout(() => { if (!ZB.busy) zbRender(); }, 0));
+
 /* Política de privacidad: apartado sobre las alertas */
 function tgPrivacy(){
   const doc = $("#privacyDoc"); if (!doc || doc.querySelector(".tg-priv")) return;
-  doc.insertAdjacentHTML("beforeend", `<section class="tg-priv">${TGB ? `<h2>${esc(L("tg.privH"))}</h2>${L("tg.privP", {bot:esc(TGB)})}` : ""}<h2>${esc(L("ibx.privH"))}</h2>${L("ibx.privP")}</section>`);
+  doc.insertAdjacentHTML("beforeend", `<section class="tg-priv">${TGB ? `<h2>${esc(L("tg.privH"))}</h2>${L("tg.privP", {bot:esc(TGB)})}` : ""}<h2>${esc(L("ibx.privH"))}</h2>${L("ibx.privP")}<h2>${esc(L("zb.privH"))}</h2>${L("zb.privP")}</section>`);
 }
 tgPrivacy(); window.addEventListener("langchange", () => setTimeout(tgPrivacy, 0));
 

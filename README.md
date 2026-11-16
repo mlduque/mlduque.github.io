@@ -126,6 +126,9 @@ Sube tu lista de contactos en CSV o Excel, pégala desde una hoja de cálculo o 
 
 ---
 
+
+**Nuevo: verificación a fondo con ZeroBounce (opcional).** Tras el análisis, puedes verificar las direcciones con tu propia cuenta de [ZeroBounce](https://www.zerobounce.net) (la gratuita incluye 100 verificaciones al mes): pegas tu clave de API, aceptas el envío y la web te dice cuántas son válidas, inválidas, catch-all, trampas de spam o direcciones que conviene no usar, y te deja descargar solo las válidas o la lista entera con el resultado. La clave no se guarda en ningún sitio.
+
 ## Analizador de informes DMARC (nuevo)
 
 Sube los informes DMARC agregados que te envían Google, Microsoft o Yahoo (.xml, .zip o .gz, tal como llegan, uno o varios a la vez) y verás:
