@@ -711,6 +711,8 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
 .zb-card .minor a{color:var(--blue)}
 .zb-form{display:grid;gap:.6rem;margin-top:.8rem;max-width:40rem}
 .zb-stats{margin-top:1rem}
+.zb-hint{margin:1rem 0 0;padding:.7rem .9rem;background:var(--blue-soft);border:1px solid var(--blue-mid);border-radius:10px;font-size:.93rem;color:var(--ink)}
+.zb-hint .beta{margin-right:.35rem}
 </style>
 </head>
 <body>
@@ -1069,6 +1071,7 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
             <button class="chip" type="button" data-ex="list" data-i18n="db.ex1">Lista de ejemplo</button>
             <button class="chip" type="button" data-ex="javier.lopez@gmial.com" data-i18n="db.ex2">Un contacto</button>
           </div>
+          <p class="zb-hint"><span class="beta" data-i18n="t8.badge">Nuevo</span> <span data-i18n="db.zbHint">¿Tienes cuenta de <strong>ZeroBounce</strong>? Después del análisis podrás verificar a fondo cada buzón con tu propia clave de API: sabrás cuáles existen de verdad y detectarás trampas de spam. La cuenta gratuita incluye 100 verificaciones al mes.</span></p>
           <p class="privacy"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
             <span data-i18n="db.priv">Tu lista no sale de tu dispositivo: se analiza en tu navegador. Solo consultamos en el DNS público si los dominios de empresa reciben correo, nunca las direcciones. A la IA solo le enviamos estadísticas, nunca tus contactos.</span></p>
         </div>
@@ -1944,6 +1947,10 @@ Object.assign(I18N.en, {"ab.s1n": "Tens of millions", "ab.s1": "of emails sent p
 Object.assign(I18N.it, {"ab.s1n": "Decine di milioni", "ab.s1": "di email inviate al giorno", "ib.gio": "Ritardi, nuovi tentativi e bounce in tempo reale nelle consegne a Gmail, Outlook, Yahoo, iCloud, Microsoft 365 e altri, misurati con gli invii reali di Groups.io. Utile per capire se un problema è tuo o del provider."});
 Object.assign(I18N.fr, {"ab.s1n": "Des dizaines de millions", "ab.s1": "d'emails envoyés par jour", "ib.gio": "Retards, nouvelles tentatives et rebonds en temps réel lors des envois vers Gmail, Outlook, Yahoo, iCloud, Microsoft 365 et d'autres, mesurés avec les envois réels de Groups.io. Utile pour savoir si un problème vient de vous ou du fournisseur."});
 Object.assign(I18N.pt, {"ab.s1n": "Dezenas de milhões", "ab.s1": "de emails enviados por dia", "ib.gio": "Atrasos, novas tentativas e bounces em tempo real nas entregas para Gmail, Outlook, Yahoo, iCloud, Microsoft 365 e outros, medidos com os envios reais da Groups.io. Útil para saber se um problema é seu ou do fornecedor."});
+Object.assign(I18N.en, {"db.zbHint": "Do you have a <strong>ZeroBounce</strong> account? After the analysis you'll be able to verify each mailbox in depth with your own API key: you'll know which ones really exist and spot spam traps. The free account includes 100 verifications a month."});
+Object.assign(I18N.it, {"db.zbHint": "Hai un account <strong>ZeroBounce</strong>? Dopo l'analisi potrai verificare a fondo ogni casella con la tua chiave API: saprai quali esistono davvero e individuerai le spam trap. L'account gratuito include 100 verifiche al mese."});
+Object.assign(I18N.fr, {"db.zbHint": "Vous avez un compte <strong>ZeroBounce</strong> ? Après l'analyse, vous pourrez vérifier en profondeur chaque boîte avec votre propre clé API : vous saurez lesquelles existent vraiment et repérerez les pièges à spam. Le compte gratuit inclut 100 vérifications par mois."});
+Object.assign(I18N.pt, {"db.zbHint": "Tem conta no <strong>ZeroBounce</strong>? Depois da análise poderá verificar a fundo cada caixa com a sua própria chave de API: saberá quais existem mesmo e detetará spam traps. A conta gratuita inclui 100 verificações por mês."});
 
 (function(){
   const $ = s => document.querySelector(s);
