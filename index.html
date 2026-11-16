@@ -739,6 +739,35 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
 .bt-card .actions{margin-top:1.3rem}
 .bt-err{border-left:5px solid var(--danger)}
 @media (max-width:30rem){.bt-top li{grid-template-columns:auto 1fr auto}.bt-top em{display:none}}
+/* ===== Información de una IP ===== */
+.ip-row{display:flex;gap:.6rem;flex-wrap:wrap}
+.ip-row input{flex:1 1 14rem;min-width:0;font:inherit;font-size:1.05rem;padding:.75rem .9rem;border:1.5px solid var(--line);border-radius:10px;background:var(--field);color:var(--ink)}
+.ip-row input:focus{outline:3px solid var(--focus);outline-offset:1px;border-color:var(--blue)}
+.ip-card h2 code{font-size:1.5rem;background:none;border:0;padding:0;word-break:break-all}
+.ip-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
+.ip-verdict{font-weight:700;padding:.35rem .8rem;border-radius:999px;font-size:.92rem}
+.ip-verdict.ip-g{background:var(--safe);color:#fff} .ip-verdict.ip-y{background:var(--yellow);color:#0B0B0F} .ip-verdict.ip-r{background:var(--danger);color:#fff}
+.ip-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:1.4rem;margin-top:1rem}
+.ip-grid h3{margin-bottom:.5rem;font-size:1.1rem}
+.ip-grid .dns th{white-space:nowrap}
+.ip-grid .dns td{word-break:break-word}
+.ip-checks{list-style:none;padding:0;margin:0;display:grid;gap:.5rem}
+.ip-checks li{display:flex;gap:.3rem;align-items:flex-start;padding:.55rem .7rem;border:1px solid var(--line);border-radius:10px;background:var(--card);line-height:1.45}
+.ip-checks .bt-dot{margin-top:.4rem}
+.ip-checks code{word-break:break-all}
+.ip-bl{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:.45rem}
+.ip-bl>div{display:flex;justify-content:space-between;align-items:center;gap:.5rem;padding:.45rem .7rem;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.ip-bl a{color:var(--ink)}
+.ip-fix{margin-top:1rem;padding:.8rem 1rem;border-left:4px solid var(--yellow);background:var(--soft);border-radius:8px}
+.ip-links{display:flex;flex-wrap:wrap;gap:.45rem}
+.ip-links .chip{text-decoration:none}
+.ip-err{border-left:5px solid var(--yellow)}
+.ip-load{display:flex;align-items:center;gap:.7rem;margin:0}
+.ip-spin{width:1.1rem;height:1.1rem;border:2.5px solid var(--line);border-top-color:var(--blue);border-radius:50%;animation:ipspin .8s linear infinite}
+@keyframes ipspin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.ip-spin{animation:none}}
+@media (max-width:48rem){.ip-grid{grid-template-columns:1fr}}
+.ip-bl .bl{white-space:nowrap;flex:none}
 </style>
 </head>
 <body>
@@ -765,6 +794,7 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
         <a href="#rebotes" data-i18n="navs.bounce">Rebotes</a>
         <a href="#generador" data-i18n="navs.gen">SPF · DMARC · BIMI</a>
         <a href="#bots" data-i18n="navs.bots">Bots</a>
+        <a href="#ip" data-i18n="navs.ip">IP</a>
       </div></details>
       <a href="#guias" data-i18n="navs.guides">Guías</a>
     </nav>
@@ -809,7 +839,7 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
 
     <section class="section">
       <div class="wide">
-        <div class="sec-head"><h2 data-i18n="home.toolsTitle">Todo lo que necesitas para llegar a la bandeja</h2><p data-i18n="home.toolsLead">Doce herramientas profesionales y guías prácticas, explicadas para que las entienda cualquiera.</p></div>
+        <div class="sec-head"><h2 data-i18n="home.toolsTitle">Todo lo que necesitas para llegar a la bandeja</h2><p data-i18n="home.toolsLead">Trece herramientas profesionales y guías prácticas, explicadas para que las entienda cualquiera.</p></div>
         <a class="tfeat" href="#auditoria">
           <span class="tico"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l2 2 4-4M5 4h14v16H5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></span>
           <div><span class="beta" data-i18n="t8.badge">Nuevo</span><h3 data-i18n="t8.h">Auditoría completa de un email</h3><p data-i18n="t8.p">Sube un email y revisamos todo a la vez: autenticación, alineación, DNS, listas negras, reputación, DNS inverso, cabeceras, contenido, cumplimiento legal y requisitos de Gmail y Yahoo. Un único informe de apto o no apto, descargable en PDF.</p></div>
@@ -827,6 +857,7 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
           <a class="tcard" href="#rebotes"><span class="tico"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h11a5 5 0 010 10H9M4 7l4-4M4 7l4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="beta" data-i18n="t8.badge">Nuevo</span><h3 data-i18n="t10.h">Traductor de rebotes</h3><p data-i18n="t10.p">Pega un error como «550 5.7.1» y descubre qué significa, por qué ha pasado y qué hacer.</p><span class="go" data-i18n="go">Probar gratis →</span></a>
           <a class="tcard" href="#generador"><span class="tico"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="beta" data-i18n="t8.badge">Nuevo</span><h3 data-i18n="t11.h">Generador de SPF, DMARC y BIMI</h3><p data-i18n="t11.p">Asistentes paso a paso para crear registros correctos y comprobarlos en vivo en tus DNS.</p><span class="go" data-i18n="go">Probar gratis →</span></a>
           <a class="tcard" href="#bots"><span class="tico"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="8" width="14" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4v4M9 13h.01M15 13h.01M3 13v2M21 13v2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span><span class="beta" data-i18n="t8.badge">Nuevo</span><h3 data-i18n="t13.h">Detector de aperturas y clics de bots</h3><p data-i18n="t13.p">Sube tu exportación de aperturas y clics y separa a las personas de los antivirus, Apple Mail y los scripts.</p><span class="go" data-i18n="go">Probar gratis →</span></a>
+          <a class="tcard" href="#ip"><span class="tico"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z" fill="none" stroke="currentColor" stroke-width="2"/></svg></span><span class="beta" data-i18n="t8.badge">Nuevo</span><h3 data-i18n="t14.h">Información de una IP</h3><p data-i18n="t14.p">Escribe una IP o un dominio y descubre de quién es, su país, su red y si está en listas negras.</p><span class="go" data-i18n="go">Probar gratis →</span></a>
           <a class="tcard" href="#guias"><span class="tico"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 012-2h5v17H6a2 2 0 00-2 2zM20 5a2 2 0 00-2-2h-5v17h5a2 2 0 012 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><span class="beta" data-i18n="t8.badge">Nuevo</span><h3 data-i18n="t12.h">Guías y glosario</h3><p data-i18n="t12.p">La entregabilidad explicada sin tecnicismos: autenticación, spam, listas negras, rebotes y más.</p><span class="go" data-i18n="t12.go">Leer las guías →</span></a>
         </div>
       </div>
@@ -1272,6 +1303,7 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
   <div id="rbView" data-view="rebotes" hidden></div>
   <div id="genView" data-view="generador" hidden></div>
   <div id="btView" data-view="bots" hidden></div>
+  <div id="ipView" data-view="ip" hidden></div>
   <div id="gdView" data-view="guias" hidden></div>
 
   <!-- ===================== SOBRE MÍ ===================== -->
@@ -1359,7 +1391,7 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
     </div>
     <div>
       <h4 data-i18n="foot.tools">Herramientas</h4>
-      <ul><li><a href="#auditoria" data-i18n="t8.h">Auditoría completa de un email</a></li><li><a href="#dominio" data-i18n="nav.domain">Mi dominio</a></li><li><a href="#email" data-i18n="nav.email">Analizar un email</a></li><li><a href="#campana" data-i18n="nav.campaign">Probar mi campaña</a></li><li><a href="#bbdd" data-i18n="nav.db">Mi base de datos</a></li><li><a href="#dmarc" data-i18n="t9.h">Analizador de informes DMARC</a></li><li><a href="#warmup" data-i18n="t5.h">Calculadora de warm-up</a></li><li><a href="#bandeja" data-i18n="t6.h">Test de bandeja</a></li><li><a href="#plataforma" data-i18n="t7.h">¿Qué plataforma lo envió?</a></li><li><a href="#rebotes" data-i18n="t10.h">Traductor de rebotes</a></li><li><a href="#generador" data-i18n="t11.h">Generador de SPF, DMARC y BIMI</a></li><li><a href="#bots" data-i18n="t13.h">Detector de aperturas y clics de bots</a></li><li><a href="/guias/" data-static="guias" data-i18n="t12.h">Guías y glosario</a></li><li><a href="/glosario/" data-static="glosario" data-i18n="gl.foot">Glosario de entregabilidad</a></li></ul>
+      <ul><li><a href="#auditoria" data-i18n="t8.h">Auditoría completa de un email</a></li><li><a href="#dominio" data-i18n="nav.domain">Mi dominio</a></li><li><a href="#email" data-i18n="nav.email">Analizar un email</a></li><li><a href="#campana" data-i18n="nav.campaign">Probar mi campaña</a></li><li><a href="#bbdd" data-i18n="nav.db">Mi base de datos</a></li><li><a href="#dmarc" data-i18n="t9.h">Analizador de informes DMARC</a></li><li><a href="#warmup" data-i18n="t5.h">Calculadora de warm-up</a></li><li><a href="#bandeja" data-i18n="t6.h">Test de bandeja</a></li><li><a href="#plataforma" data-i18n="t7.h">¿Qué plataforma lo envió?</a></li><li><a href="#rebotes" data-i18n="t10.h">Traductor de rebotes</a></li><li><a href="#generador" data-i18n="t11.h">Generador de SPF, DMARC y BIMI</a></li><li><a href="#bots" data-i18n="t13.h">Detector de aperturas y clics de bots</a></li><li><a href="#ip" data-i18n="t14.h">Información de una IP</a></li><li><a href="/guias/" data-static="guias" data-i18n="t12.h">Guías y glosario</a></li><li><a href="/glosario/" data-static="glosario" data-i18n="gl.foot">Glosario de entregabilidad</a></li></ul>
     </div>
     <div>
       <h4 data-i18n="foot.legal">Legal</h4>
@@ -1987,10 +2019,21 @@ Object.assign(TX.en, {"title.bots": "Bot opens and clicks detector · Email Segu
 Object.assign(TX.it, {"title.bots": "Rilevatore di aperture e clic dei bot · Email Seguro", "share.bots": "Scopri gratis quali aperture e clic delle tue campagne sono di persone e quali di robot."});
 Object.assign(TX.fr, {"title.bots": "Détecteur d'ouvertures et de clics de bots · Email Seguro", "share.bots": "Découvrez gratuitement quelles ouvertures et quels clics de vos campagnes viennent de personnes et lesquels de robots."});
 Object.assign(TX.pt, {"title.bots": "Detetor de aberturas e cliques de bots · Email Seguro", "share.bots": "Descubra gratuitamente que aberturas e cliques das suas campanhas são de pessoas e quais são de robôs."});
-Object.assign(I18N.en, {"navs.bots": "Bots", "t13.h": "Bot opens and clicks detector", "t13.p": "Upload your opens and clicks export and separate people from antivirus filters, Apple Mail and scripts.", "home.toolsLead": "Twelve professional tools and practical guides, explained so anyone can understand them."});
-Object.assign(I18N.it, {"navs.bots": "Bot", "t13.h": "Rilevatore di aperture e clic dei bot", "t13.p": "Carica l'esportazione di aperture e clic e separa le persone da antivirus, Apple Mail e script.", "home.toolsLead": "Dodici strumenti professionali e guide pratiche, spiegati in modo che chiunque li capisca."});
-Object.assign(I18N.fr, {"navs.bots": "Bots", "t13.h": "Détecteur d'ouvertures et de clics de bots", "t13.p": "Importez l'export de vos ouvertures et clics et séparez les personnes des antivirus, d'Apple Mail et des scripts.", "home.toolsLead": "Douze outils professionnels et des guides pratiques, expliqués pour que tout le monde les comprenne."});
-Object.assign(I18N.pt, {"navs.bots": "Bots", "t13.h": "Detetor de aberturas e cliques de bots", "t13.p": "Carregue a exportação de aberturas e cliques e separe as pessoas dos antivírus, do Apple Mail e dos scripts.", "home.toolsLead": "Doze ferramentas profissionais e guias práticos, explicados para que qualquer pessoa os entenda."});
+Object.assign(I18N.en, {"navs.bots": "Bots", "t13.h": "Bot opens and clicks detector", "t13.p": "Upload your opens and clicks export and separate people from antivirus filters, Apple Mail and scripts.", "home.toolsLead": "Thirteen professional tools and practical guides, explained so anyone can understand them."});
+Object.assign(I18N.it, {"navs.bots": "Bot", "t13.h": "Rilevatore di aperture e clic dei bot", "t13.p": "Carica l'esportazione di aperture e clic e separa le persone da antivirus, Apple Mail e script.", "home.toolsLead": "Tredici strumenti professionali e guide pratiche, spiegati in modo che chiunque li capisca."});
+Object.assign(I18N.fr, {"navs.bots": "Bots", "t13.h": "Détecteur d'ouvertures et de clics de bots", "t13.p": "Importez l'export de vos ouvertures et clics et séparez les personnes des antivirus, d'Apple Mail et des scripts.", "home.toolsLead": "Treize outils professionnels et des guides pratiques, expliqués pour que tout le monde les comprenne."});
+Object.assign(I18N.pt, {"navs.bots": "Bots", "t13.h": "Detetor de aberturas e cliques de bots", "t13.p": "Carregue a exportação de aberturas e cliques e separe as pessoas dos antivírus, do Apple Mail e dos scripts.", "home.toolsLead": "Treze ferramentas profissionais e guias práticos, explicados para que qualquer pessoa os entenda."});
+
+/* ===== Información de una IP: títulos, menú y portada ===== */
+Object.assign(TX.es, {"title.ip": "Información de una IP: dueño, país, ASN y listas negras · Email Seguro", "share.ip": "Escribe una IP y descubre gratis de quién es, su red, su DNS inverso y si está en listas negras."});
+Object.assign(TX.en, {"title.ip": "IP address information: owner, country, ASN and blocklists · Email Seguro", "share.ip": "Type an IP and find out for free who owns it, its network, its reverse DNS and whether it's on blocklists."});
+Object.assign(I18N.en, {"navs.ip": "IP", "t14.h": "IP address information", "t14.p": "Type an IP or a domain and find out who owns it, its country, its network and whether it's on blocklists."});
+Object.assign(TX.it, {"title.ip": "Informazioni su un IP: proprietario, paese, ASN e blacklist · Email Seguro", "share.ip": "Scrivi un IP e scopri gratis a chi appartiene, la sua rete, il suo DNS inverso e se è nelle blacklist."});
+Object.assign(I18N.it, {"navs.ip": "IP", "t14.h": "Informazioni su un IP", "t14.p": "Scrivi un IP o un dominio e scopri a chi appartiene, il paese, la rete e se è nelle blacklist."});
+Object.assign(TX.fr, {"title.ip": "Informations sur une IP : propriétaire, pays, ASN et listes noires · Email Seguro", "share.ip": "Saisissez une IP et découvrez gratuitement à qui elle appartient, son réseau, son DNS inverse et si elle est sur des listes noires."});
+Object.assign(I18N.fr, {"navs.ip": "IP", "t14.h": "Informations sur une IP", "t14.p": "Saisissez une IP ou un domaine et découvrez à qui elle appartient, son pays, son réseau et si elle est sur des listes noires."});
+Object.assign(TX.pt, {"title.ip": "Informação de um IP: dono, país, ASN e listas negras · Email Seguro", "share.ip": "Escreva um IP e descubra gratuitamente a quem pertence, a sua rede, o seu DNS inverso e se está em listas negras."});
+Object.assign(I18N.pt, {"navs.ip": "IP", "t14.h": "Informação de um IP", "t14.p": "Escreva um IP ou um domínio e descubra a quem pertence, o país, a rede e se está em listas negras."});
 
 (function(){
   const $ = s => document.querySelector(s);
@@ -2048,7 +2091,7 @@ Object.assign(I18N.pt, {"navs.bots": "Bots", "t13.h": "Detetor de aberturas e cl
   }
 
   /* ---------- Navegación ---------- */
-  const VIEWS = ["inicio","dominio","email","campana","bbdd","auditoria","dmarc","warmup","bandeja","plataforma","rebotes","generador","bots","guias","sobre-mi","contacto","privacidad","aviso-legal"];
+  const VIEWS = ["inicio","dominio","email","campana","bbdd","auditoria","dmarc","warmup","bandeja","plataforma","rebotes","generador","bots","ip","guias","sobre-mi","contacto","privacidad","aviso-legal"];
   function viewFromHash(){
     const h = location.hash.slice(1).split("/")[0];
     if (VIEWS.includes(h)) return h;
@@ -2091,7 +2134,7 @@ Object.assign(I18N.pt, {"navs.bots": "Bots", "t13.h": "Detetor de aberturas e cl
   $("#shareBtn").addEventListener("click", async () => {
     const view = viewFromHash();
     const base = location.href.split(/[?#]/)[0];
-    const TOOLS = ["auditoria","dominio","email","campana","bbdd","dmarc","warmup","bandeja","plataforma","rebotes","generador","bots","guias"];
+    const TOOLS = ["auditoria","dominio","email","campana","bbdd","dmarc","warmup","bandeja","plataforma","rebotes","generador","bots","ip","guias"];
     const url = TOOLS.includes(view) ? base + location.hash : base;
     const data = {title: t("title." + view), text: t("share." + (TOOLS.includes(view) ? view : "inicio")), url};
     try {
@@ -6023,6 +6066,10 @@ NT.add("en", {ui:{"tg.new": "New", "ibx.h": "Inbox test with our mailboxes", "ib
 
 </script>
 <script>
+NT.add("en", {ui:{"ip.kicker": "Free tool · Public data", "ip.h1": "IP address information", "ip.lead": "Type an IP or a domain and find out who owns it, which country it's in, which network (ASN) it belongs to, who to report abuse to and whether it's on blocklists.", "ip.label": "IP or domain", "ip.hint": "For example, the IP that appears in a bounce, in an email's headers or in your SPF. Works with IPv4 and IPv6. If you type a domain, we use its IP.", "ip.btn": "Look up", "ip.ex1": "8.8.8.8 (Google)", "ip.ex2": "A Microsoft 365 IP", "ip.ex3": "gmail.com", "ip.priv": "We query public records (RDAP, DNS and geolocation). We don't store anything.", "ip.empty": "Type an IP or a domain first", "ip.loading": "Looking up {ip}…", "ip.err.bad": "<strong>{ip}</strong> doesn't look like an IP or a domain. Valid examples: 203.0.113.45, 2a00:1450:4003::1 or example.com.", "ip.err.noip": "We couldn't find any IP for <strong>{ip}</strong>. Check that the domain is spelled correctly.", "ip.err.net": "We can't query the records for <strong>{ip}</strong> right now. Try again in a moment.", "ip.err.sp_private": "<strong>{ip}</strong> is a <strong>private</strong> IP: it only exists inside a local network (an office, a home or a data centre). It isn't on the Internet, so it has no public owner and can't be on blocklists.", "ip.err.sp_loop": "<strong>{ip}</strong> is the address of <strong>your own computer</strong> (localhost). It doesn't exist on the Internet.", "ip.err.sp_cgnat": "<strong>{ip}</strong> is a <strong>shared carrier</strong> IP (CGNAT): Internet providers use it inside their network. It isn't public.", "ip.err.sp_link": "<strong>{ip}</strong> is a <strong>link-local</strong> IP: it's self-assigned when a device doesn't receive an address. It isn't public.", "ip.err.sp_reserved": "<strong>{ip}</strong> is a <strong>reserved</strong> IP (multicast or special use). It doesn't belong to anyone on the Internet.", "ip.err.sp_doc": "<strong>{ip}</strong> is an <strong>example</strong> IP: it's reserved for documentation and is never used on the Internet.", "ip.from": "IP of {d}", "ip.ipT": "IP looked up", "ip.more": "Other IPs for this domain:", "ip.v.g": "All good", "ip.v.y": "Review", "ip.v.r": "Problem for sending email", "ip.whoT": "Who owns it", "ip.org": "Organisation", "ip.isp": "Provider", "ip.asn": "Network (ASN)", "ip.net": "Block name", "ip.range": "Range", "ip.country": "Country", "ip.rir": "Regional registry", "ip.reg": "Registered on", "ip.abuse": "Abuse contact", "ip.geoNote": "The city is approximate: IP geolocation is estimated and can be wrong.", "ip.mailT": "For sending email", "ip.c.ptrOk": "It has reverse DNS (PTR): <code>{p}</code>", "ip.c.ptrGen": "Its reverse DNS looks <strong>generic</strong> (<code>{p}</code>), typical of home connections or unconfigured IPs. Gmail, Outlook and Yahoo distrust these IPs for sending email.", "ip.c.ptrNo": "<strong>It has no reverse DNS (PTR).</strong> Gmail and Yahoo require a PTR from email senders: many servers will reject emails from this IP.", "ip.c.fcrOk": "The PTR points back to this IP (FCrDNS is correct).", "ip.c.fcrNo": "The PTR name <strong>doesn't point back</strong> to this IP. To send email, both directions must match.", "ip.c.blMajor": "It's on a major blocklist: <strong>{l}</strong>.", "ip.c.blMinor": "It's on a secondary list: {l}.", "ip.c.blOk": "It doesn't appear on any of the {n} blocklists that responded.", "ip.c.ss": "Sender Score (Validity reputation): <strong>{s}</strong> out of 100.", "ip.c.dnswl": "It's on the DNSWL allowlist: it's a recognised sending IP.", "ip.blT": "Blocklists", "ip.bl.in": "Listed", "ip.bl.ok": "Clean", "ip.bl.na": "Unavailable", "ip.blNa": "Some lists, such as Spamhaus, don't answer queries from public DNS services. For an official check, use the Spamhaus link below.", "ip.fix": "<strong>To get off a list:</strong> first fix the cause (an infected computer, a bought or old contact list, spam traps) and then request removal on the list's website. Click its name to go there.", "ip.linksT": "Check in other tools", "ip.i.h": "What's the point of looking up an IP?", "ip.i.p": "Every email leaves from an IP. Knowing who owns it helps you understand a bounce, find out which platform sent a suspicious email or check that your own sending IPs are properly set up.", "ip.q1": "What is the ASN?", "ip.a1": "<p>It's the number that identifies the network announcing that IP on the Internet: a carrier, a cloud (Amazon, Google, Microsoft) or a sending platform. If an IP in your SPF belongs to a network you didn't expect, it's worth reviewing.</p>", "ip.q2": "What is reverse DNS (PTR) and why does it matter?", "ip.a2": "<p>It's the name associated with the IP, for example <code>mail.yourcompany.com</code>. Big providers require IPs that send email to have a PTR, for that name to point back to the same IP and for it not to look like a home connection. It's set by whoever gives you the IP (your provider or your cloud), not in your DNS.</p>", "ip.q3": "What is the abuse contact for?", "ip.a3": "<p>It's the address to notify if you receive spam, phishing or attacks from that IP. The network owner publishes it in the regional Internet registry (ARIN, RIPE, LACNIC, APNIC or AFRINIC).</p>", "ip.q4": "Where does the data come from?", "ip.a4": "<p>From public records: RDAP (the modern replacement for WHOIS) for the owner and the contact, Team Cymru for the ASN, DNS for the PTR and the blocklists, and ipwho.is for the approximate location.</p>"}});
+
+</script>
+<script>
 
 NT.add("en", {rb:{
 g_spf:["Gmail: SPF doesn't pass","Gmail rejected or deferred the email because your domain's SPF check didn't pass.","The server that sent the email isn't authorised in the sender domain's SPF record, or the SPF has errors (for example, more than 10 DNS lookups).",["Check your SPF in <a href=\"#dominio\">My domain</a>.","Add the platform you send with to your SPF using the <a href=\"#generador/spf\">SPF generator</a>.","Make sure you have a single SPF record and don't exceed 10 DNS lookups."]],
@@ -6321,6 +6368,10 @@ rol:["Dirección de rol","Dirección genérica como info@, ventas@ o admin@, que
 </script>
 <script>
 NT.add("es", {ui:{"tg.new": "Nuevo", "ibx.h": "Test de bandeja con nuestros buzones", "ibx.p": "Envía tu email a nuestras direcciones de prueba y te decimos dónde ha aterrizado en cada proveedor: Recibidos (y en qué pestaña), Promociones o Spam, además de si ha pasado SPF, DKIM y DMARC.", "ibx.start": "Empezar un test gratis", "ibx.priv": "Los emails de prueba se borran de nuestros buzones en cuanto los analizamos. El resultado se guarda 48 horas.", "ibx.s1": "Copia tu código de test", "ibx.s1p": "Ponlo en el asunto del email, por ejemplo: «Novedades de noviembre {id}». Así encontramos tu email entre los demás.", "ibx.s2": "Envía tu email a estas direcciones", "ibx.s2p": "Envíalo desde tu plataforma habitual y con el mismo contenido que vas a enviar a tus contactos. Puedes ponerlas todas como destinatarios de una sola prueba.", "ibx.copyAll": "Copiar todas", "ibx.s3": "Mira dónde ha llegado", "ibx.go": "Ya lo he enviado: ver resultados", "ibx.again": "Volver a comprobar", "ibx.newTest": "Empezar otro test", "ibx.checking": "Comprobando los buzones cada 15 segundos…", "ibx.last": "(última revisión hace {n} s)", "ibx.stopped": "Hemos dejado de comprobar tras 20 minutos. Si acabas de enviarlo, pulsa «Volver a comprobar».", "ibx.st.waiting": "Esperando…", "ibx.st.inbox": "Recibidos", "ibx.st.spam": "Spam", "ibx.st.other": "Otra carpeta", "ibx.st.missing": "No ha llegado", "ibx.st.error": "No se ha podido comprobar", "ibx.tab.primary": "Principal", "ibx.tab.promotions": "Promociones", "ibx.tab.social": "Social", "ibx.tab.updates": "Notificaciones", "ibx.tab.forums": "Foros", "ibx.tab.focused": "Prioritarios", "ibx.tab.other": "Otros", "ibx.from": "Remitente", "ibx.errLogin": "Nuestro buzón no está disponible ahora mismo. Inténtalo más tarde.", "ibx.sumT": "Resultado del test", "ibx.sumAll": "Ha llegado a la bandeja principal en todos los proveedores. ¡Enhorabuena!", "ibx.sumSome": "Ha llegado a la bandeja principal en {n} de {t} proveedores.", "ibx.sumNone": "No ha llegado a la bandeja principal en ningún proveedor.", "ibx.tipSpam": "Ha ido a spam en algún proveedor: revisa la autenticación en <a href=\"#dominio\">Mi dominio</a> y haz una <a href=\"#auditoria\">Auditoría completa</a> del email.", "ibx.tipPromo": "Llegar a Promociones u Otros es normal en emails comerciales: no es spam y tus contactos lo ven igual. Para acercarte a la bandeja principal, escribe un email más personal y con menos imágenes y enlaces.", "ibx.tipAuth": "Alguna comprobación de autenticación no pasa: corrígela con los <a href=\"#generador\">generadores de registros</a>.", "ibx.tipMissing": "En algún proveedor no ha llegado: puede haber sido rechazado. Revisa si tu plataforma tiene un rebote y tradúcelo con el <a href=\"#rebotes\">traductor de rebotes</a>.", "ibx.errStart": "No se ha podido crear el test. Inténtalo en unos minutos.", "ibx.expired": "Este test ha caducado. Empieza uno nuevo.", "ibx.rate": "Has creado muchos tests seguidos. Espera un rato.", "ibx.privH": "Test de bandeja", "ibx.privP": "<p>Si usas el test de bandeja, recibimos en nuestros buzones de prueba (Gmail, Outlook y Yahoo) el email que nos envías. Lo analizamos de forma automática para saber en qué carpeta ha llegado y si supera SPF, DKIM y DMARC, y lo borramos de los buzones en cuanto termina el análisis. Solo guardamos el resultado (carpeta, remitente, asunto y autenticación) durante 48 horas. No envíes datos personales de terceros en el email de prueba.</p>"}});
+
+</script>
+<script>
+NT.add("es", {ui:{"ip.kicker": "Herramienta gratuita · Datos públicos", "ip.h1": "Información de una IP", "ip.lead": "Escribe una IP o un dominio y descubre de quién es, en qué país está, a qué red (ASN) pertenece, a quién avisar de abusos y si está en listas negras.", "ip.label": "IP o dominio", "ip.hint": "Por ejemplo, la IP que aparece en un rebote, en las cabeceras de un email o en tu SPF. Funciona con IPv4 e IPv6. Si escribes un dominio, usamos su IP.", "ip.btn": "Consultar", "ip.ex1": "8.8.8.8 (Google)", "ip.ex2": "Una IP de Microsoft 365", "ip.ex3": "gmail.com", "ip.priv": "Consultamos registros públicos (RDAP, DNS y geolocalización). No guardamos nada.", "ip.empty": "Escribe primero una IP o un dominio", "ip.loading": "Consultando {ip}…", "ip.err.bad": "<strong>{ip}</strong> no parece una IP ni un dominio. Ejemplos válidos: 203.0.113.45, 2a00:1450:4003::1 o ejemplo.com.", "ip.err.noip": "No hemos encontrado ninguna IP para <strong>{ip}</strong>. Comprueba que el dominio está bien escrito.", "ip.err.net": "Ahora mismo no podemos consultar los registros de <strong>{ip}</strong>. Inténtalo de nuevo en un momento.", "ip.err.sp_private": "<strong>{ip}</strong> es una IP <strong>privada</strong>: solo existe dentro de una red local (una oficina, una casa o un centro de datos). No está en Internet, así que no tiene dueño público ni puede estar en listas negras.", "ip.err.sp_loop": "<strong>{ip}</strong> es la dirección de <strong>tu propio equipo</strong> (localhost). No existe en Internet.", "ip.err.sp_cgnat": "<strong>{ip}</strong> es una IP <strong>compartida de operador</strong> (CGNAT): la usan los operadores de Internet dentro de su red. No es pública.", "ip.err.sp_link": "<strong>{ip}</strong> es una IP <strong>de enlace local</strong>: se asigna sola cuando un equipo no recibe dirección. No es pública.", "ip.err.sp_reserved": "<strong>{ip}</strong> es una IP <strong>reservada</strong> (multidifusión o uso especial). No pertenece a nadie en Internet.", "ip.err.sp_doc": "<strong>{ip}</strong> es una IP <strong>de ejemplo</strong>: está reservada para documentación y nunca se usa en Internet.", "ip.from": "IP de {d}", "ip.ipT": "IP consultada", "ip.more": "Otras IPs de este dominio:", "ip.v.g": "Todo en orden", "ip.v.y": "Revisar", "ip.v.r": "Problema para enviar correo", "ip.whoT": "De quién es", "ip.org": "Organización", "ip.isp": "Proveedor", "ip.asn": "Red (ASN)", "ip.net": "Nombre del bloque", "ip.range": "Rango", "ip.country": "País", "ip.rir": "Registro regional", "ip.reg": "Registrada el", "ip.abuse": "Contacto de abusos", "ip.geoNote": "La ciudad es aproximada: la geolocalización de IPs se calcula y puede equivocarse.", "ip.mailT": "Para enviar correo", "ip.c.ptrOk": "Tiene DNS inverso (PTR): <code>{p}</code>", "ip.c.ptrGen": "Su DNS inverso parece <strong>genérico</strong> (<code>{p}</code>), típico de conexiones domésticas o IPs sin configurar. Gmail, Outlook y Yahoo desconfían de estas IPs para enviar correo.", "ip.c.ptrNo": "<strong>No tiene DNS inverso (PTR).</strong> Gmail y Yahoo exigen PTR a quien envía correo: muchos servidores rechazarán emails desde esta IP.", "ip.c.fcrOk": "El PTR apunta de vuelta a esta IP (FCrDNS correcto).", "ip.c.fcrNo": "El nombre del PTR <strong>no apunta de vuelta</strong> a esta IP. Para enviar correo, los dos sentidos deben coincidir.", "ip.c.blMajor": "Está en una lista negra importante: <strong>{l}</strong>.", "ip.c.blMinor": "Está en alguna lista secundaria: {l}.", "ip.c.blOk": "No aparece en ninguna de las {n} listas negras que han respondido.", "ip.c.ss": "Sender Score (reputación de Validity): <strong>{s}</strong> sobre 100.", "ip.c.dnswl": "Está en la lista blanca DNSWL: es una IP de envío reconocida.", "ip.blT": "Listas negras", "ip.bl.in": "En lista", "ip.bl.ok": "Limpia", "ip.bl.na": "No disponible", "ip.blNa": "Algunas listas, como Spamhaus, no responden a consultas desde servicios DNS públicos. Para una comprobación oficial, usa el enlace de Spamhaus de abajo.", "ip.fix": "<strong>Para salir de una lista:</strong> soluciona primero la causa (un equipo infectado, una lista de contactos comprada o antigua, trampas de spam) y después pide la baja en la web de la lista. Pulsa su nombre para ir a ella.", "ip.linksT": "Consultar en otras herramientas", "ip.i.h": "¿Para qué sirve consultar una IP?", "ip.i.p": "Cada email sale de una IP. Saber de quién es te ayuda a entender un rebote, a descubrir qué plataforma envió un email sospechoso o a comprobar que tus propias IPs de envío están bien configuradas.", "ip.q1": "¿Qué es el ASN?", "ip.a1": "<p>Es el número que identifica a la red que anuncia esa IP en Internet: un operador, una nube (Amazon, Google, Microsoft) o una plataforma de envío. Si una IP de tu SPF pertenece a una red que no esperabas, merece la pena revisarlo.</p>", "ip.q2": "¿Qué es el DNS inverso (PTR) y por qué importa?", "ip.a2": "<p>Es el nombre que tiene asociado la IP, por ejemplo <code>mail.tuempresa.com</code>. Los grandes proveedores exigen que las IPs que envían correo tengan PTR, que ese nombre apunte de vuelta a la misma IP y que no parezca una conexión doméstica. Lo configura quien te da la IP (tu proveedor o tu nube), no tu DNS.</p>", "ip.q3": "¿Para qué sirve el contacto de abusos?", "ip.a3": "<p>Es la dirección a la que avisar si desde esa IP te llega spam, phishing o ataques. La publica el dueño de la red en el registro regional de Internet (ARIN, RIPE, LACNIC, APNIC o AFRINIC).</p>", "ip.q4": "¿De dónde salen los datos?", "ip.a4": "<p>De registros públicos: RDAP (el sustituto moderno de WHOIS) para el dueño y el contacto, Team Cymru para el ASN, el DNS para el PTR y las listas negras, e ipwho.is para la ubicación aproximada.</p>"}});
 
 </script>
 <script>
@@ -6628,6 +6679,10 @@ NT.add("fr", {ui:{"tg.new": "Nouveau", "ibx.h": "Test de boîte de réception av
 
 </script>
 <script>
+NT.add("fr", {ui:{"ip.kicker": "Outil gratuit · Données publiques", "ip.h1": "Informations sur une IP", "ip.lead": "Saisissez une IP ou un domaine et découvrez à qui elle appartient, dans quel pays elle se trouve, à quel réseau (ASN) elle est rattachée, à qui signaler les abus et si elle figure sur des listes noires.", "ip.label": "IP ou domaine", "ip.hint": "Par exemple, l'IP qui apparaît dans un rebond, dans les en-têtes d'un email ou dans votre SPF. Fonctionne avec IPv4 et IPv6. Si vous saisissez un domaine, nous utilisons son IP.", "ip.btn": "Consulter", "ip.ex1": "8.8.8.8 (Google)", "ip.ex2": "Une IP de Microsoft 365", "ip.ex3": "gmail.com", "ip.priv": "Nous consultons des registres publics (RDAP, DNS et géolocalisation). Nous ne conservons rien.", "ip.empty": "Saisissez d'abord une IP ou un domaine", "ip.loading": "Consultation de {ip}…", "ip.err.bad": "<strong>{ip}</strong> ne ressemble ni à une IP ni à un domaine. Exemples valides : 203.0.113.45, 2a00:1450:4003::1 ou exemple.com.", "ip.err.noip": "Nous n'avons trouvé aucune IP pour <strong>{ip}</strong>. Vérifiez que le domaine est bien écrit.", "ip.err.net": "Nous ne pouvons pas consulter les registres de <strong>{ip}</strong> pour le moment. Réessayez dans un instant.", "ip.err.sp_private": "<strong>{ip}</strong> est une IP <strong>privée</strong> : elle n'existe qu'à l'intérieur d'un réseau local (un bureau, une maison ou un centre de données). Elle n'est pas sur Internet, elle n'a donc pas de propriétaire public et ne peut pas figurer sur des listes noires.", "ip.err.sp_loop": "<strong>{ip}</strong> est l'adresse de <strong>votre propre ordinateur</strong> (localhost). Elle n'existe pas sur Internet.", "ip.err.sp_cgnat": "<strong>{ip}</strong> est une IP <strong>partagée d'opérateur</strong> (CGNAT) : les fournisseurs d'accès l'utilisent à l'intérieur de leur réseau. Elle n'est pas publique.", "ip.err.sp_link": "<strong>{ip}</strong> est une IP <strong>de lien local</strong> : elle s'attribue toute seule quand un appareil ne reçoit pas d'adresse. Elle n'est pas publique.", "ip.err.sp_reserved": "<strong>{ip}</strong> est une IP <strong>réservée</strong> (multidiffusion ou usage spécial). Elle n'appartient à personne sur Internet.", "ip.err.sp_doc": "<strong>{ip}</strong> est une IP <strong>d'exemple</strong> : elle est réservée à la documentation et n'est jamais utilisée sur Internet.", "ip.from": "IP de {d}", "ip.ipT": "IP consultée", "ip.more": "Autres IP de ce domaine :", "ip.v.g": "Tout est en ordre", "ip.v.y": "À vérifier", "ip.v.r": "Problème pour envoyer des emails", "ip.whoT": "À qui elle appartient", "ip.org": "Organisation", "ip.isp": "Fournisseur", "ip.asn": "Réseau (ASN)", "ip.net": "Nom du bloc", "ip.range": "Plage", "ip.country": "Pays", "ip.rir": "Registre régional", "ip.reg": "Enregistrée le", "ip.abuse": "Contact abus", "ip.geoNote": "La ville est approximative : la géolocalisation des IP est une estimation et peut se tromper.", "ip.mailT": "Pour envoyer des emails", "ip.c.ptrOk": "Elle a un DNS inverse (PTR) : <code>{p}</code>", "ip.c.ptrGen": "Son DNS inverse semble <strong>générique</strong> (<code>{p}</code>), typique des connexions domestiques ou des IP non configurées. Gmail, Outlook et Yahoo se méfient de ces IP pour l'envoi d'emails.", "ip.c.ptrNo": "<strong>Elle n'a pas de DNS inverse (PTR).</strong> Gmail et Yahoo exigent un PTR des expéditeurs : de nombreux serveurs refuseront les emails venant de cette IP.", "ip.c.fcrOk": "Le PTR renvoie bien vers cette IP (FCrDNS correct).", "ip.c.fcrNo": "Le nom du PTR <strong>ne renvoie pas</strong> vers cette IP. Pour envoyer des emails, les deux sens doivent correspondre.", "ip.c.blMajor": "Elle figure sur une liste noire importante : <strong>{l}</strong>.", "ip.c.blMinor": "Elle figure sur une liste secondaire : {l}.", "ip.c.blOk": "Elle n'apparaît sur aucune des {n} listes noires qui ont répondu.", "ip.c.ss": "Sender Score (réputation de Validity) : <strong>{s}</strong> sur 100.", "ip.c.dnswl": "Elle figure sur la liste blanche DNSWL : c'est une IP d'envoi reconnue.", "ip.blT": "Listes noires", "ip.bl.in": "Listée", "ip.bl.ok": "Propre", "ip.bl.na": "Indisponible", "ip.blNa": "Certaines listes, comme Spamhaus, ne répondent pas aux requêtes venant de services DNS publics. Pour une vérification officielle, utilisez le lien Spamhaus ci-dessous.", "ip.fix": "<strong>Pour sortir d'une liste :</strong> corrigez d'abord la cause (un ordinateur infecté, une liste de contacts achetée ou ancienne, des pièges à spam), puis demandez le retrait sur le site de la liste. Cliquez sur son nom pour y aller.", "ip.linksT": "Consulter dans d'autres outils", "ip.i.h": "À quoi sert de consulter une IP ?", "ip.i.p": "Chaque email part d'une IP. Savoir à qui elle appartient vous aide à comprendre un rebond, à découvrir quelle plateforme a envoyé un email suspect ou à vérifier que vos propres IP d'envoi sont bien configurées.", "ip.q1": "Qu'est-ce que l'ASN ?", "ip.a1": "<p>C'est le numéro qui identifie le réseau qui annonce cette IP sur Internet : un opérateur, un cloud (Amazon, Google, Microsoft) ou une plateforme d'envoi. Si une IP de votre SPF appartient à un réseau inattendu, il vaut la peine de vérifier.</p>", "ip.q2": "Qu'est-ce que le DNS inverse (PTR) et pourquoi est-il important ?", "ip.a2": "<p>C'est le nom associé à l'IP, par exemple <code>mail.votreentreprise.com</code>. Les grands fournisseurs exigent que les IP qui envoient des emails aient un PTR, que ce nom renvoie vers la même IP et qu'il ne ressemble pas à une connexion domestique. Il est configuré par celui qui vous fournit l'IP (votre fournisseur ou votre cloud), pas dans votre DNS.</p>", "ip.q3": "À quoi sert le contact abus ?", "ip.a3": "<p>C'est l'adresse à prévenir si vous recevez du spam, du phishing ou des attaques depuis cette IP. Le propriétaire du réseau la publie dans le registre Internet régional (ARIN, RIPE, LACNIC, APNIC ou AFRINIC).</p>", "ip.q4": "D'où viennent les données ?", "ip.a4": "<p>De registres publics : RDAP (le remplaçant moderne de WHOIS) pour le propriétaire et le contact, Team Cymru pour l'ASN, le DNS pour le PTR et les listes noires, et ipwho.is pour la localisation approximative.</p>"}});
+
+</script>
+<script>
 
 NT.add("fr", {rb:{
 g_spf:["Gmail : SPF ne passe pas","Gmail a refusé ou reporté l'email parce que la vérification SPF de votre domaine a échoué.","Le serveur qui a envoyé l'email n'est pas autorisé dans l'enregistrement SPF du domaine de l'expéditeur, ou le SPF contient des erreurs (par exemple plus de 10 requêtes DNS).",["Vérifiez votre SPF dans <a href=\"#dominio\">Mon domaine</a>.","Ajoutez la plateforme d'envoi à votre SPF avec le <a href=\"#generador/spf\">générateur SPF</a>.","Assurez-vous d'avoir un seul enregistrement SPF et de ne pas dépasser 10 requêtes DNS."]],
@@ -6929,6 +6984,10 @@ NT.add("it", {ui:{"tg.new": "Nuovo", "ibx.h": "Test di inbox con le nostre casel
 
 </script>
 <script>
+NT.add("it", {ui:{"ip.kicker": "Strumento gratuito · Dati pubblici", "ip.h1": "Informazioni su un IP", "ip.lead": "Scrivi un IP o un dominio e scopri a chi appartiene, in quale paese si trova, a quale rete (ASN) appartiene, a chi segnalare gli abusi e se è nelle blacklist.", "ip.label": "IP o dominio", "ip.hint": "Per esempio, l'IP che compare in un bounce, nelle intestazioni di un'email o nel tuo SPF. Funziona con IPv4 e IPv6. Se scrivi un dominio, usiamo il suo IP.", "ip.btn": "Consulta", "ip.ex1": "8.8.8.8 (Google)", "ip.ex2": "Un IP di Microsoft 365", "ip.ex3": "gmail.com", "ip.priv": "Consultiamo registri pubblici (RDAP, DNS e geolocalizzazione). Non salviamo nulla.", "ip.empty": "Scrivi prima un IP o un dominio", "ip.loading": "Consultazione di {ip}…", "ip.err.bad": "<strong>{ip}</strong> non sembra un IP né un dominio. Esempi validi: 203.0.113.45, 2a00:1450:4003::1 o esempio.com.", "ip.err.noip": "Non abbiamo trovato nessun IP per <strong>{ip}</strong>. Controlla che il dominio sia scritto correttamente.", "ip.err.net": "Al momento non riusciamo a consultare i registri di <strong>{ip}</strong>. Riprova tra poco.", "ip.err.sp_private": "<strong>{ip}</strong> è un IP <strong>privato</strong>: esiste solo all'interno di una rete locale (un ufficio, una casa o un data center). Non è su Internet, quindi non ha un proprietario pubblico e non può essere in blacklist.", "ip.err.sp_loop": "<strong>{ip}</strong> è l'indirizzo del <strong>tuo stesso computer</strong> (localhost). Non esiste su Internet.", "ip.err.sp_cgnat": "<strong>{ip}</strong> è un IP <strong>condiviso dell'operatore</strong> (CGNAT): lo usano i provider all'interno della loro rete. Non è pubblico.", "ip.err.sp_link": "<strong>{ip}</strong> è un IP <strong>link-local</strong>: si assegna da solo quando un dispositivo non riceve un indirizzo. Non è pubblico.", "ip.err.sp_reserved": "<strong>{ip}</strong> è un IP <strong>riservato</strong> (multicast o uso speciale). Non appartiene a nessuno su Internet.", "ip.err.sp_doc": "<strong>{ip}</strong> è un IP <strong>di esempio</strong>: è riservato alla documentazione e non si usa mai su Internet.", "ip.from": "IP di {d}", "ip.ipT": "IP consultato", "ip.more": "Altri IP di questo dominio:", "ip.v.g": "Tutto in ordine", "ip.v.y": "Da verificare", "ip.v.r": "Problema per inviare email", "ip.whoT": "A chi appartiene", "ip.org": "Organizzazione", "ip.isp": "Provider", "ip.asn": "Rete (ASN)", "ip.net": "Nome del blocco", "ip.range": "Intervallo", "ip.country": "Paese", "ip.rir": "Registro regionale", "ip.reg": "Registrato il", "ip.abuse": "Contatto abusi", "ip.geoNote": "La città è approssimativa: la geolocalizzazione degli IP è una stima e può sbagliare.", "ip.mailT": "Per inviare email", "ip.c.ptrOk": "Ha DNS inverso (PTR): <code>{p}</code>", "ip.c.ptrGen": "Il suo DNS inverso sembra <strong>generico</strong> (<code>{p}</code>), tipico delle connessioni domestiche o degli IP non configurati. Gmail, Outlook e Yahoo diffidano di questi IP per l'invio di email.", "ip.c.ptrNo": "<strong>Non ha DNS inverso (PTR).</strong> Gmail e Yahoo richiedono il PTR a chi invia email: molti server rifiuteranno le email da questo IP.", "ip.c.fcrOk": "Il PTR punta di nuovo a questo IP (FCrDNS corretto).", "ip.c.fcrNo": "Il nome del PTR <strong>non punta di nuovo</strong> a questo IP. Per inviare email, le due direzioni devono coincidere.", "ip.c.blMajor": "È in una blacklist importante: <strong>{l}</strong>.", "ip.c.blMinor": "È in qualche lista secondaria: {l}.", "ip.c.blOk": "Non compare in nessuna delle {n} blacklist che hanno risposto.", "ip.c.ss": "Sender Score (reputazione di Validity): <strong>{s}</strong> su 100.", "ip.c.dnswl": "È nella whitelist DNSWL: è un IP di invio riconosciuto.", "ip.blT": "Blacklist", "ip.bl.in": "In lista", "ip.bl.ok": "Pulito", "ip.bl.na": "Non disponibile", "ip.blNa": "Alcune liste, come Spamhaus, non rispondono alle query dai servizi DNS pubblici. Per una verifica ufficiale, usa il link di Spamhaus qui sotto.", "ip.fix": "<strong>Per uscire da una lista:</strong> risolvi prima la causa (un computer infetto, una lista di contatti comprata o vecchia, trappole di spam) e poi chiedi la rimozione sul sito della lista. Clicca sul suo nome per andarci.", "ip.linksT": "Consulta in altri strumenti", "ip.i.h": "A cosa serve consultare un IP?", "ip.i.p": "Ogni email parte da un IP. Sapere a chi appartiene ti aiuta a capire un bounce, a scoprire quale piattaforma ha inviato un'email sospetta o a verificare che i tuoi IP di invio siano configurati bene.", "ip.q1": "Che cos'è l'ASN?", "ip.a1": "<p>È il numero che identifica la rete che annuncia quell'IP su Internet: un operatore, un cloud (Amazon, Google, Microsoft) o una piattaforma di invio. Se un IP del tuo SPF appartiene a una rete che non ti aspettavi, vale la pena controllarlo.</p>", "ip.q2": "Che cos'è il DNS inverso (PTR) e perché è importante?", "ip.a2": "<p>È il nome associato all'IP, per esempio <code>mail.tuaazienda.com</code>. I grandi provider richiedono che gli IP che inviano email abbiano un PTR, che quel nome punti di nuovo allo stesso IP e che non sembri una connessione domestica. Lo configura chi ti fornisce l'IP (il tuo provider o il tuo cloud), non il tuo DNS.</p>", "ip.q3": "A cosa serve il contatto abusi?", "ip.a3": "<p>È l'indirizzo da avvisare se da quell'IP ricevi spam, phishing o attacchi. Lo pubblica il proprietario della rete nel registro regionale di Internet (ARIN, RIPE, LACNIC, APNIC o AFRINIC).</p>", "ip.q4": "Da dove vengono i dati?", "ip.a4": "<p>Da registri pubblici: RDAP (il sostituto moderno di WHOIS) per il proprietario e il contatto, Team Cymru per l'ASN, il DNS per il PTR e le blacklist, e ipwho.is per la posizione approssimativa.</p>"}});
+
+</script>
+<script>
 
 NT.add("it", {rb:{
 g_spf:["Gmail: SPF non supera il controllo","Gmail ha rifiutato o rinviato l'email perché il controllo SPF del tuo dominio non è stato superato.","Il server che ha inviato l'email non è autorizzato nel record SPF del dominio del mittente, oppure l'SPF contiene errori (ad esempio più di 10 ricerche DNS).",["Controlla il tuo SPF in <a href=\"#dominio\">Il mio dominio</a>.","Aggiungi la piattaforma con cui invii al tuo SPF con il <a href=\"#generador/spf\">generatore di SPF</a>.","Assicurati di avere un solo record SPF e di non superare le 10 ricerche DNS."]],
@@ -7227,6 +7286,10 @@ rol:["Endereço genérico","Endereço como info@, vendas@ ou admin@, que costuma
 </script>
 <script>
 NT.add("pt", {ui:{"tg.new": "Novo", "ibx.h": "Teste de caixa de entrada com as nossas caixas", "ibx.p": "Envie o seu email para os nossos endereços de teste e dizemos-lhe onde chegou em cada fornecedor: caixa de entrada (e em que separador), Promoções ou Spam, e se passou SPF, DKIM e DMARC.", "ibx.start": "Começar um teste grátis", "ibx.priv": "Os emails de teste são apagados das nossas caixas assim que os analisamos. O resultado é guardado durante 48 horas.", "ibx.s1": "Copie o seu código de teste", "ibx.s1p": "Coloque-o no assunto do email, por exemplo: «Novidades de novembro {id}». É assim que encontramos o seu email entre os outros.", "ibx.s2": "Envie o seu email para estes endereços", "ibx.s2p": "Envie-o a partir da sua plataforma habitual e com o mesmo conteúdo que vai enviar aos seus contactos. Pode colocá-los todos como destinatários de um único teste.", "ibx.copyAll": "Copiar todos", "ibx.s3": "Veja onde chegou", "ibx.go": "Já o enviei: ver resultados", "ibx.again": "Verificar novamente", "ibx.newTest": "Começar outro teste", "ibx.checking": "A verificar as caixas a cada 15 segundos…", "ibx.last": "(última verificação há {n} s)", "ibx.stopped": "Deixámos de verificar ao fim de 20 minutos. Se acabou de o enviar, carregue em «Verificar novamente».", "ibx.st.waiting": "À espera…", "ibx.st.inbox": "Caixa de entrada", "ibx.st.spam": "Spam", "ibx.st.other": "Outra pasta", "ibx.st.missing": "Não chegou", "ibx.st.error": "Não foi possível verificar", "ibx.tab.primary": "Principal", "ibx.tab.promotions": "Promoções", "ibx.tab.social": "Social", "ibx.tab.updates": "Atualizações", "ibx.tab.forums": "Fóruns", "ibx.tab.focused": "Destaques", "ibx.tab.other": "Outros", "ibx.from": "Remetente", "ibx.errLogin": "A nossa caixa não está disponível neste momento. Tente mais tarde.", "ibx.sumT": "Resultado do teste", "ibx.sumAll": "Chegou à caixa principal em todos os fornecedores. Parabéns!", "ibx.sumSome": "Chegou à caixa principal em {n} de {t} fornecedores.", "ibx.sumNone": "Não chegou à caixa principal em nenhum fornecedor.", "ibx.tipSpam": "Foi para spam em algum fornecedor: reveja a autenticação em <a href=\"#dominio\">O meu domínio</a> e faça uma <a href=\"#auditoria\">Auditoria completa</a> do email.", "ibx.tipPromo": "Chegar a Promoções ou Outros é normal em emails comerciais: não é spam e os seus contactos veem-no na mesma. Para se aproximar da caixa principal, escreva um email mais pessoal e com menos imagens e ligações.", "ibx.tipAuth": "Alguma verificação de autenticação não passa: corrija-a com os <a href=\"#generador\">geradores de registos</a>.", "ibx.tipMissing": "Em algum fornecedor não chegou: pode ter sido rejeitado. Veja se a sua plataforma tem um bounce e traduza-o com o <a href=\"#rebotes\">tradutor de bounces</a>.", "ibx.errStart": "Não foi possível criar o teste. Tente dentro de alguns minutos.", "ibx.expired": "Este teste expirou. Comece um novo.", "ibx.rate": "Criou muitos testes seguidos. Aguarde um pouco.", "ibx.privH": "Teste de caixa de entrada", "ibx.privP": "<p>Se usar o teste de caixa de entrada, o email que nos envia é recebido nas nossas caixas de teste (Gmail, Outlook e Yahoo). Analisamo-lo de forma automática para saber em que pasta chegou e se passa SPF, DKIM e DMARC, e apagamo-lo das caixas assim que termina a análise. Só guardamos o resultado (pasta, remetente, assunto e autenticação) durante 48 horas. Não inclua dados pessoais de terceiros no email de teste.</p>"}});
+
+</script>
+<script>
+NT.add("pt", {ui:{"ip.kicker": "Ferramenta gratuita · Dados públicos", "ip.h1": "Informação de um IP", "ip.lead": "Escreva um IP ou um domínio e descubra a quem pertence, em que país está, a que rede (ASN) pertence, a quem comunicar abusos e se está em listas negras.", "ip.label": "IP ou domínio", "ip.hint": "Por exemplo, o IP que aparece num bounce, nos cabeçalhos de um email ou no seu SPF. Funciona com IPv4 e IPv6. Se escrever um domínio, usamos o seu IP.", "ip.btn": "Consultar", "ip.ex1": "8.8.8.8 (Google)", "ip.ex2": "Um IP do Microsoft 365", "ip.ex3": "gmail.com", "ip.priv": "Consultamos registos públicos (RDAP, DNS e geolocalização). Não guardamos nada.", "ip.empty": "Escreva primeiro um IP ou um domínio", "ip.loading": "A consultar {ip}…", "ip.err.bad": "<strong>{ip}</strong> não parece um IP nem um domínio. Exemplos válidos: 203.0.113.45, 2a00:1450:4003::1 ou exemplo.com.", "ip.err.noip": "Não encontrámos nenhum IP para <strong>{ip}</strong>. Verifique se o domínio está bem escrito.", "ip.err.net": "Neste momento não conseguimos consultar os registos de <strong>{ip}</strong>. Tente novamente daqui a pouco.", "ip.err.sp_private": "<strong>{ip}</strong> é um IP <strong>privado</strong>: só existe dentro de uma rede local (um escritório, uma casa ou um centro de dados). Não está na Internet, por isso não tem dono público nem pode estar em listas negras.", "ip.err.sp_loop": "<strong>{ip}</strong> é o endereço do <strong>seu próprio computador</strong> (localhost). Não existe na Internet.", "ip.err.sp_cgnat": "<strong>{ip}</strong> é um IP <strong>partilhado de operador</strong> (CGNAT): os operadores de Internet usam-no dentro da sua rede. Não é público.", "ip.err.sp_link": "<strong>{ip}</strong> é um IP <strong>de ligação local</strong>: atribui-se sozinho quando um dispositivo não recebe endereço. Não é público.", "ip.err.sp_reserved": "<strong>{ip}</strong> é um IP <strong>reservado</strong> (multicast ou uso especial). Não pertence a ninguém na Internet.", "ip.err.sp_doc": "<strong>{ip}</strong> é um IP <strong>de exemplo</strong>: está reservado para documentação e nunca é usado na Internet.", "ip.from": "IP de {d}", "ip.ipT": "IP consultado", "ip.more": "Outros IPs deste domínio:", "ip.v.g": "Tudo em ordem", "ip.v.y": "Rever", "ip.v.r": "Problema para enviar email", "ip.whoT": "A quem pertence", "ip.org": "Organização", "ip.isp": "Fornecedor", "ip.asn": "Rede (ASN)", "ip.net": "Nome do bloco", "ip.range": "Intervalo", "ip.country": "País", "ip.rir": "Registo regional", "ip.reg": "Registado em", "ip.abuse": "Contacto de abusos", "ip.geoNote": "A cidade é aproximada: a geolocalização de IPs é uma estimativa e pode enganar-se.", "ip.mailT": "Para enviar email", "ip.c.ptrOk": "Tem DNS inverso (PTR): <code>{p}</code>", "ip.c.ptrGen": "O seu DNS inverso parece <strong>genérico</strong> (<code>{p}</code>), típico de ligações domésticas ou de IPs não configurados. O Gmail, o Outlook e o Yahoo desconfiam destes IPs para enviar email.", "ip.c.ptrNo": "<strong>Não tem DNS inverso (PTR).</strong> O Gmail e o Yahoo exigem PTR a quem envia email: muitos servidores vão rejeitar emails a partir deste IP.", "ip.c.fcrOk": "O PTR aponta de volta para este IP (FCrDNS correto).", "ip.c.fcrNo": "O nome do PTR <strong>não aponta de volta</strong> para este IP. Para enviar email, os dois sentidos têm de coincidir.", "ip.c.blMajor": "Está numa lista negra importante: <strong>{l}</strong>.", "ip.c.blMinor": "Está numa lista secundária: {l}.", "ip.c.blOk": "Não aparece em nenhuma das {n} listas negras que responderam.", "ip.c.ss": "Sender Score (reputação da Validity): <strong>{s}</strong> em 100.", "ip.c.dnswl": "Está na lista branca DNSWL: é um IP de envio reconhecido.", "ip.blT": "Listas negras", "ip.bl.in": "Na lista", "ip.bl.ok": "Limpo", "ip.bl.na": "Indisponível", "ip.blNa": "Algumas listas, como a Spamhaus, não respondem a consultas a partir de serviços DNS públicos. Para uma verificação oficial, use o link da Spamhaus abaixo.", "ip.fix": "<strong>Para sair de uma lista:</strong> resolva primeiro a causa (um computador infetado, uma lista de contactos comprada ou antiga, armadilhas de spam) e depois peça a remoção no site da lista. Clique no nome para lá ir.", "ip.linksT": "Consultar noutras ferramentas", "ip.i.h": "Para que serve consultar um IP?", "ip.i.p": "Cada email sai de um IP. Saber a quem pertence ajuda a perceber um bounce, a descobrir que plataforma enviou um email suspeito ou a verificar que os seus próprios IPs de envio estão bem configurados.", "ip.q1": "O que é o ASN?", "ip.a1": "<p>É o número que identifica a rede que anuncia esse IP na Internet: um operador, uma nuvem (Amazon, Google, Microsoft) ou uma plataforma de envio. Se um IP do seu SPF pertence a uma rede que não esperava, vale a pena rever.</p>", "ip.q2": "O que é o DNS inverso (PTR) e porque importa?", "ip.a2": "<p>É o nome associado ao IP, por exemplo <code>mail.asuaempresa.com</code>. Os grandes fornecedores exigem que os IPs que enviam email tenham PTR, que esse nome aponte de volta para o mesmo IP e que não pareça uma ligação doméstica. Quem o configura é quem lhe dá o IP (o seu fornecedor ou a sua nuvem), não o seu DNS.</p>", "ip.q3": "Para que serve o contacto de abusos?", "ip.a3": "<p>É o endereço a avisar se receber spam, phishing ou ataques a partir desse IP. O dono da rede publica-o no registo regional da Internet (ARIN, RIPE, LACNIC, APNIC ou AFRINIC).</p>", "ip.q4": "De onde vêm os dados?", "ip.a4": "<p>De registos públicos: RDAP (o substituto moderno do WHOIS) para o dono e o contacto, Team Cymru para o ASN, o DNS para o PTR e as listas negras, e ipwho.is para a localização aproximada.</p>"}});
 
 </script>
 <script>
@@ -7677,6 +7740,257 @@ function view(){
 window.NTX = window.NTX || {};
 window.NTX.bots = view;
 window.NTX._bt = {analyze, sample};
+})();
+
+</script>
+<script>
+/* ===================== Información de una IP ===================== */
+(function(){
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const L = NT.L;
+const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+const LOCK = `<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>`;
+const hero = p => `<section class="phero"><div class="wrap"><span class="kicker"><i></i><span>${L(p + ".kicker")}</span></span><h1>${L(p + ".h1")}</h1><p class="lead">${L(p + ".lead")}</p></div></section>`;
+const dns = (n, t) => window.ES_DNS ? ES_DNS(n, t) : Promise.reject(new Error("dns"));
+async function getJson(url, ms){
+  const ctl = new AbortController(); const id = setTimeout(() => ctl.abort(), ms || 9000);
+  try { const r = await fetch(url, {signal:ctl.signal}); if (!r.ok) throw new Error("http " + r.status); return await r.json(); }
+  finally { clearTimeout(id); }
+}
+
+/* ---------- Direcciones ---------- */
+const isV4 = s => /^(25[0-5]|2[0-4]\d|1?\d?\d)(\.(25[0-5]|2[0-4]\d|1?\d?\d)){3}$/.test(s);
+function expandV6(s){
+  if (!/^[0-9a-f:]+$/i.test(s) || !s.includes(":") || (s.match(/::/g) || []).length > 1) return null;
+  let [a, b] = s.split("::"); const A = a ? a.split(":") : [], B = b !== undefined ? (b ? b.split(":") : []) : [];
+  if (b === undefined && A.length !== 8) return null;
+  const fill = 8 - A.length - B.length; if (fill < 0 || (b !== undefined && fill < 1)) return null;
+  const all = [...A, ...Array(b !== undefined ? fill : 0).fill("0"), ...B];
+  if (all.length !== 8 || all.some(x => !/^[0-9a-f]{1,4}$/i.test(x))) return null;
+  return all.map(x => x.padStart(4, "0").toLowerCase());
+}
+const isV6 = s => !!expandV6(s);
+const rev4 = ip => ip.split(".").reverse().join(".");
+const nib6 = ip => expandV6(ip).join("").split("").reverse().join(".");
+function special(ip){
+  if (isV4(ip)){
+    const [a, b] = ip.split(".").map(Number);
+    if (a === 10 || (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168)) return "private";
+    if (a === 127) return "loop"; if (a === 100 && b >= 64 && b <= 127) return "cgnat"; if (a === 169 && b === 254) return "link"; if (a === 0 || a >= 224) return "reserved";
+    if ((a === 192 && b === 0) || (a === 198 && (b === 18 || b === 19 || b === 51)) || (a === 203 && b === 0)) return "doc";
+    return null;
+  }
+  const h = expandV6(ip)[0];
+  if (h === "0000") return "loop"; if (/^f[cd]/.test(h)) return "private"; if (/^fe[89ab]/.test(h)) return "link"; if (/^ff/.test(h)) return "reserved"; if (h === "2001" && expandV6(ip)[1] === "0db8") return "doc";
+  return null;
+}
+
+/* ---------- Consultas ---------- */
+const IPBL = [
+  {name:"Spamhaus ZEN", zone:"zen.spamhaus.org", major:true, v6:true, url:"https://check.spamhaus.org/"},
+  {name:"SpamCop", zone:"bl.spamcop.net", major:true, url:"https://www.spamcop.net/bl.shtml"},
+  {name:"Barracuda", zone:"b.barracudacentral.org", major:true, url:"https://www.barracudacentral.org/lookups"},
+  {name:"PSBL", zone:"psbl.surriel.com", url:"https://psbl.org/"},
+  {name:"Mailspike", zone:"bl.mailspike.net", url:"https://mailspike.io/"},
+  {name:"SpamRATS", zone:"all.spamrats.com", url:"https://www.spamrats.com/"},
+  {name:"UCEPROTECT 1", zone:"dnsbl-1.uceprotect.net", url:"https://www.uceprotect.net/"},
+  {name:"DroneBL", zone:"dnsbl.dronebl.org", v6:true, url:"https://dronebl.org/"},
+  {name:"NiX Spam", zone:"ix.dnsbl.manitu.net", url:"https://www.nixspam.net/"}
+];
+async function bl(name, list){
+  try {
+    const r = await dns(name, "A");
+    if (r.status === 3) return "clean";
+    if (r.status !== 0) return "na";
+    const ips = r.answers.filter(a => a.type === 1).map(a => String(a.data));
+    if (!ips.length) return "clean";
+    if (ips.some(x => !x.startsWith("127.") || x.startsWith("127.255.255.") || x === "127.0.0.1" && /surbl|uribl/.test(list.zone))) return "na";
+    return "listed";
+  } catch(e){ return "na"; }
+}
+function vcard(e, k){ const v = e && e.vcardArray && e.vcardArray[1]; if (!v) return ""; const f = v.find(x => x[0] === k); return f ? (Array.isArray(f[3]) ? "" : String(f[3])) : ""; }
+function walk(ents, fn, out = []){ for (const e of ents || []){ if (fn(e)) out.push(e); walk(e.entities, fn, out); } return out; }
+function parseRdap(j){
+  const ents = j.entities || [];
+  const abuse = walk(ents, e => (e.roles || []).includes("abuse")).map(e => vcard(e, "email")).find(Boolean) || "";
+  const regs = walk(ents, e => (e.roles || []).includes("registrant") && !/-MNT$/i.test(e.handle || ""));
+  const org = (regs.find(e => vcard(e, "kind") === "org") || regs[0]);
+  const ev = k => ((j.events || []).find(x => x.eventAction === k) || {}).eventDate || "";
+  const cidr = (j.cidr0_cidrs || []).map(c => (c.v4prefix || c.v6prefix) + "/" + c.length).join(", ");
+  const port = String(j.port43 || "").match(/whois\.(\w+)/);
+  return {name:j.name || j.handle || "", org: org ? vcard(org, "fn") : "", country:j.country || "", range: cidr || (j.startAddress ? j.startAddress + " – " + j.endAddress : ""), type:j.type || "", reg:ev("registration"), changed:ev("last changed"), abuse, rir: port ? port[1].toUpperCase().replace("AFRINIC","AFRINIC") : "", link:(j.links || []).find(l => l.rel === "self") ? j.links.find(l => l.rel === "self").href : ""};
+}
+async function asnInfo(ip){
+  const q = isV4(ip) ? `${rev4(ip)}.origin.asn.cymru.com` : `${nib6(ip)}.origin6.asn.cymru.com`;
+  const r = await dns(q, "TXT");
+  const rows = r.answers.filter(a => a.type === 16).map(a => String(a.data).replace(/"/g, "").split("|").map(x => x.trim()));
+  if (!rows.length) return null;
+  rows.sort((a, b) => (+String(b[1]).split("/")[1] || 0) - (+String(a[1]).split("/")[1] || 0));
+  const [asn, prefix, cc, rir, date] = rows[0];
+  let name = "";
+  try { const n = await dns(`AS${asn.split(" ")[0]}.asn.cymru.com`, "TXT"); const t = n.answers.find(a => a.type === 16); if (t) name = String(t.data).replace(/"/g, "").split("|").pop().trim(); } catch(e){}
+  return {asn:asn.split(" ")[0], prefix, cc, rir, date, name};
+}
+async function ptrOf(ip){
+  const q = isV4(ip) ? `${rev4(ip)}.in-addr.arpa` : `${nib6(ip)}.ip6.arpa`;
+  const r = await dns(q, "PTR");
+  const p = r.answers.filter(a => a.type === 12).map(a => String(a.data).replace(/\.$/, ""));
+  if (!p.length) return {ptr:"", fcr:null};
+  let fcr = false;
+  try { const f = await dns(p[0], isV4(ip) ? "A" : "AAAA"); const want = isV4(ip) ? ip : expandV6(ip).join(":"); fcr = f.answers.some(a => (isV4(ip) ? String(a.data) : (expandV6(String(a.data)) || []).join(":")) === want); } catch(e){ fcr = null; }
+  return {ptr:p[0], fcr};
+}
+function genericPtr(ptr, ip){
+  if (!ptr) return false;
+  const p = ptr.toLowerCase();
+  if (/(^|[.-])(dyn|dynamic|dhcp|dsl|adsl|xdsl|cable|ppp|pool|client|customer|cust|broadband|dial|dialup|home|res|resid|residential|user|static-ip|ip-?\d|host-?\d|unassigned|nat)([.-]|\d|$)/.test(p)) return true;
+  if (isV4(ip)){ const o = ip.split("."); if (p.includes(o.join("-")) || p.includes(o.join(".")) || p.includes(o.slice().reverse().join("-")) || p.includes(o.slice().reverse().join("."))) return true; }
+  return false;
+}
+async function reputation(ip){
+  if (!isV4(ip)) return {};
+  const q = n => dns(n, "A").catch(() => null);
+  const [ss, wl] = await Promise.all([q(`${rev4(ip)}.score.senderscore.com`), q(`${rev4(ip)}.list.dnswl.org`)]);
+  const vals = r => r ? r.answers.filter(a => a.type === 1).map(a => String(a.data)) : [];
+  let score = null; const v = vals(ss).find(x => x.startsWith("127.0.4.")); if (v) score = +v.split(".")[3];
+  let dnswl = null; const w = vals(wl).filter(x => !x.endsWith(".255")); if (w.length) dnswl = Math.max(...w.map(x => +x.split(".")[3] || 0));
+  return {score, dnswl};
+}
+
+/* ---------- Interfaz ---------- */
+let RES = null, BUSY = false;
+const row = (k, v) => v ? `<tr><th scope="row">${esc(L(k))}</th><td>${v}</td></tr>` : "";
+const flag = cc => /^[A-Z]{2}$/.test(cc) ? String.fromCodePoint(...[...cc].map(c => 127397 + c.charCodeAt(0))) + " " : "";
+const country = cc => { try { return new Intl.DisplayNames([NT.cur()], {type:"region"}).of(cc) || cc; } catch(e){ return cc; } };
+const date = s => { if (!s) return ""; const d = new Date(s); return isNaN(d) ? esc(s) : d.toLocaleDateString(NT.cur(), {year:"numeric", month:"long", day:"numeric"}); };
+const badge = r => r === "listed" ? `<span class="bl bl-r">${esc(L("ip.bl.in"))}</span>` : r === "clean" ? `<span class="bl bl-g">${esc(L("ip.bl.ok"))}</span>` : `<span class="bl bl-n">${esc(L("ip.bl.na"))}</span>`;
+
+function render(){
+  const out = $("#ipResult"); if (!out) return;
+  if (!RES){ out.innerHTML = ""; return; }
+  if (RES.loading){ out.innerHTML = `<div class="card ip-card"><p class="ip-load"><span class="ip-spin" aria-hidden="true"></span>${esc(L("ip.loading", {ip:RES.ip}))}</p></div>`; return; }
+  if (RES.error){ out.innerHTML = `<div class="card ip-card ip-err"><p>${L("ip.err." + RES.error, {ip:esc(RES.ip || "")})}</p></div>`; return; }
+  const r = RES, w = r.geo || {}, rd = r.rdap || {}, a = r.asn || {}, p = r.ptr || {};
+  const listed = (r.bl || []).filter(x => x.r === "listed"), major = listed.filter(x => x.list.major), answered = (r.bl || []).filter(x => x.r !== "na");
+  // Veredicto para el correo
+  const checks = [];
+  if (p.ptr){
+    if (genericPtr(p.ptr, r.ip)) checks.push(["y", L("ip.c.ptrGen", {p:esc(p.ptr)})]);
+    else checks.push(["g", L("ip.c.ptrOk", {p:esc(p.ptr)})]);
+    if (p.fcr === false) checks.push(["y", L("ip.c.fcrNo")]); else if (p.fcr) checks.push(["g", L("ip.c.fcrOk")]);
+  } else checks.push(["r", L("ip.c.ptrNo")]);
+  if (major.length) checks.push(["r", L("ip.c.blMajor", {l:major.map(x => esc(x.list.name)).join(", ")})]);
+  else if (listed.length) checks.push(["y", L("ip.c.blMinor", {l:listed.map(x => esc(x.list.name)).join(", ")})]);
+  else if (answered.length) checks.push(["g", L("ip.c.blOk", {n:answered.length})]);
+  if (r.rep && r.rep.score !== null && r.rep.score !== undefined) checks.push([r.rep.score >= 80 ? "g" : r.rep.score >= 70 ? "y" : "r", L("ip.c.ss", {s:r.rep.score})]);
+  if (r.rep && r.rep.dnswl !== null && r.rep.dnswl !== undefined) checks.push(["g", L("ip.c.dnswl")]);
+  const worst = checks.some(c => c[0] === "r") ? "r" : checks.some(c => c[0] === "y") ? "y" : "g";
+  const loc = [w.city, w.region].filter(Boolean).filter((x, i, arr) => arr.indexOf(x) === i).join(", ");
+  const cc = w.country_code || rd.country || a.cc || "";
+  const links = [
+    ["AbuseIPDB", `https://www.abuseipdb.com/check/${r.ip}`], ["Cisco Talos", `https://talosintelligence.com/reputation_center/lookup?search=${r.ip}`],
+    ["Spamhaus", `https://check.spamhaus.org/results/?query=${r.ip}`], ["MultiRBL", `https://multirbl.valli.org/lookup/${r.ip}.html`],
+    ...(isV4(r.ip) ? [["Sender Score", `https://senderscore.org/assess/get-your-score/report/?lookup=${r.ip}`]] : []),
+    ...(a.asn ? [["bgp.he.net (AS" + a.asn + ")", `https://bgp.he.net/AS${a.asn}`]] : []),
+    ...(rd.link ? [["RDAP · WHOIS", rd.link]] : [])
+  ];
+  out.innerHTML = `<div class="card ip-card">
+    <div class="ip-head"><div><span class="minor">${r.from ? esc(L("ip.from", {d:r.from})) : esc(L("ip.ipT"))}</span><h2><code>${esc(r.ip)}</code></h2></div>
+    <span class="ip-verdict ip-${worst}">${esc(L("ip.v." + worst))}</span></div>
+    ${r.from && r.all.length > 1 ? `<p class="minor">${esc(L("ip.more"))} ${r.all.slice(1).map(x => `<button class="chip" type="button" data-ipgo="${esc(x)}">${esc(x)}</button>`).join(" ")}</p>` : ""}
+    <div class="ip-grid">
+      <section><h3>${esc(L("ip.whoT"))}</h3><div class="dns-wrap"><table class="dns"><tbody>
+        ${row("ip.org", esc(rd.org || w.connection && w.connection.org || a.name || "—"))}
+        ${row("ip.isp", w.connection && w.connection.isp && w.connection.isp !== rd.org ? esc(w.connection.isp) : "")}
+        ${row("ip.asn", a.asn ? `AS${esc(a.asn)}${a.name ? " · " + esc(a.name) : ""}` : "")}
+        ${row("ip.net", rd.name ? esc(rd.name) : "")}
+        ${row("ip.range", esc(rd.range || a.prefix || ""))}
+        ${row("ip.country", cc ? flag(cc) + esc(country(cc)) + (loc ? ` <span class="minor">· ${esc(loc)}</span>` : "") : "")}
+        ${row("ip.rir", esc(rd.rir || (a.rir || "").toUpperCase()))}
+        ${row("ip.reg", date(rd.reg || a.date))}
+        ${row("ip.abuse", rd.abuse ? `<a href="mailto:${esc(rd.abuse)}">${esc(rd.abuse)}</a>` : "")}
+      </tbody></table></div>
+      ${w.city ? `<p class="minor">${esc(L("ip.geoNote"))}</p>` : ""}</section>
+      <section><h3>${esc(L("ip.mailT"))}</h3><ul class="ip-checks">${checks.map(([t, s]) => `<li class="ip-${t}"><span class="bt-dot bt-${t === "g" ? "g" : t === "y" ? "y" : "r"}"></span><span>${s}</span></li>`).join("")}</ul></section>
+    </div>
+    ${(r.bl || []).length ? `<h3 class="bt-sub">${esc(L("ip.blT"))}</h3><div class="ip-bl">${r.bl.map(x => `<div><span>${x.list.url ? `<a href="${esc(x.list.url)}" target="_blank" rel="noopener">${esc(x.list.name)}</a>` : esc(x.list.name)}</span>${badge(x.r)}</div>`).join("")}</div>
+    ${r.bl.some(x => x.r === "na") ? `<p class="minor">${esc(L("ip.blNa"))}</p>` : ""}` : ""}
+    ${listed.length ? `<p class="ip-fix">${L("ip.fix")}</p>` : ""}
+    <h3 class="bt-sub">${esc(L("ip.linksT"))}</h3>
+    <div class="ip-links">${links.map(([n, u]) => `<a class="chip" href="${esc(u)}" target="_blank" rel="noopener">${esc(n)} ↗</a>`).join("")}</div>
+  </div>`;
+  out.querySelectorAll("[data-ipgo]").forEach(b => b.addEventListener("click", () => { $("#ipInput").value = b.dataset.ipgo; run(); }));
+}
+
+async function run(){
+  if (BUSY) return;
+  let q = $("#ipInput").value.trim().replace(/^\[|\]$/g, "").replace(/^https?:\/\//i, "").replace(/[\/?#].*$/, "");
+  if (!q){ toast(L("ip.empty")); $("#ipInput").focus(); return; }
+  if (/^[^@\s]+@/.test(q)) q = q.split("@").pop();
+  BUSY = true;
+  let ip = q, from = "", all = [q];
+  const scroll = () => { const r = $("#ipResult"); r && r.scrollIntoView({behavior: reduced() ? "auto" : "smooth", block:"start"}); };
+  try {
+    if (!isV4(q) && !isV6(q)){
+      const d = q.toLowerCase().replace(/\.$/, "");
+      if (!/^([a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$/.test(d)){ RES = {error:"bad", ip:q}; render(); return; }
+      RES = {loading:true, ip:d}; render(); scroll();
+      let ips = [];
+      try { ips = (await dns(d, "A")).answers.filter(a => a.type === 1).map(a => String(a.data)); } catch(e){}
+      if (!ips.length){ try { const mx = (await dns(d, "MX")).answers.filter(a => a.type === 15).map(a => String(a.data).split(/\s+/).pop().replace(/\.$/, "")); if (mx[0]) ips = (await dns(mx[0], "A")).answers.filter(a => a.type === 1).map(a => String(a.data)); } catch(e){} }
+      if (!ips.length){ RES = {error:"noip", ip:d}; render(); return; }
+      ip = ips[0]; from = d; all = ips.slice(0, 6);
+    }
+    const sp = special(ip);
+    if (sp){ RES = {error:"sp_" + sp, ip}; render(); scroll(); return; }
+    RES = {loading:true, ip}; render(); if (!from) scroll();
+    const blName = l => isV4(ip) ? `${rev4(ip)}.${l.zone}` : `${nib6(ip)}.${l.zone}`;
+    const lists = IPBL.filter(l => isV4(ip) || l.v6);
+    const [rdap, asn, ptr, geo, rep, bls] = await Promise.all([
+      getJson(`https://rdap.org/ip/${encodeURIComponent(ip)}`).then(parseRdap).catch(() => null),
+      asnInfo(ip).catch(() => null),
+      ptrOf(ip).catch(() => ({ptr:"", fcr:null})),
+      getJson(`https://ipwho.is/${encodeURIComponent(ip)}`, 7000).then(j => j && j.success !== false ? j : null).catch(() => null),
+      reputation(ip).catch(() => ({})),
+      Promise.all(lists.map(async l => ({list:l, r: await bl(blName(l), l)})))
+    ]);
+    if (!rdap && !asn && !geo){ RES = {error:"net", ip}; render(); return; }
+    RES = {ip, from, all, rdap, asn, ptr, geo, rep, bl:bls};
+    if (location.hash.split("/")[0] === "#ip") history.replaceState(null, "", "#ip/" + (from || ip));
+    render();
+  } finally { BUSY = false; }
+}
+
+function view(){
+  const v = $("#ipView"); if (!v) return;
+  const sub = decodeURIComponent(location.hash.slice(1).split("/")[1] || "");
+  const prev = $("#ipInput") ? $("#ipInput").value : sub;
+  v.innerHTML = hero("ip") + `
+  <div class="wrap">
+    <section class="tool" aria-label="${esc(L("ip.h1"))}"><div class="tool-body">
+      <label class="lbl" for="ipInput">${esc(L("ip.label"))}</label>
+      <p class="hint">${esc(L("ip.hint"))}</p>
+      <div class="ip-row"><input id="ipInput" type="text" inputmode="url" autocomplete="off" spellcheck="false" placeholder="203.0.113.45"><button class="btn btn-primary" id="ipGo" type="button">${esc(L("ip.btn"))}</button></div>
+      <div class="examples"><span>${esc(L("c.try"))}</span>${[["8.8.8.8","ip.ex1"],["40.107.22.1","ip.ex2"],["gmail.com","ip.ex3"]].map(([x, k]) => `<button class="chip" type="button" data-ipex="${x}">${esc(L(k))}</button>`).join("")}</div>
+      <p class="privacy">${LOCK}<span>${esc(L("ip.priv"))}</span></p>
+    </div></section>
+    <section class="result" id="ipResult" aria-live="polite"></section>
+    <section class="info">
+      <h2>${esc(L("ip.i.h"))}</h2><p>${esc(L("ip.i.p"))}</p>
+      ${[1,2,3,4].map(i => `<details><summary>${esc(L("ip.q" + i))}</summary><div>${L("ip.a" + i)}</div></details>`).join("")}
+    </section>
+  </div>`;
+  $("#ipInput").value = prev;
+  $("#ipGo").addEventListener("click", run);
+  $("#ipInput").addEventListener("keydown", e => { if (e.key === "Enter") run(); });
+  v.querySelectorAll("[data-ipex]").forEach(b => b.addEventListener("click", () => { $("#ipInput").value = b.dataset.ipex; run(); }));
+  render();
+  if (sub && !RES) run();
+}
+window.NTX = window.NTX || {};
+window.NTX.ip = view;
+window.NTX._ip = {expandV6, special, genericPtr, parseRdap, isV4, isV6};
 })();
 
 </script>
@@ -8339,7 +8653,7 @@ function gdView(){
 
 /* ---------- Navegación e idioma ---------- */
 const views = Object.assign({rebotes:rbView, generador:genView, guias:gdView}, window.NTX || {});
-delete views._bt;
+for (const k of Object.keys(views)) if (k.startsWith("_")) delete views[k];
 const built = {};
 function route(force){
   const h = location.hash.slice(1).split("/")[0];
