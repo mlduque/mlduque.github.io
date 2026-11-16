@@ -675,6 +675,33 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
 .tg-card h3{font-size:1.1rem;margin:0 0 .2rem}
 .tg-card p{margin:0;color:var(--muted);font-size:.95rem}
 @media (max-width:44rem){.tg-band,.tg-card{grid-template-columns:1fr}.tg-band .btn,.tg-card .btn{width:100%}}
+
+/* Test de bandeja propio */
+.ibx{margin-bottom:2.5rem}
+#ibLive:not(:empty) + .tool{margin-top:2rem}
+.ibx-provs{display:flex;gap:.5rem;flex-wrap:wrap;margin:.2rem 0 .4rem}
+.ibx-prov{border:1px solid var(--line);border-radius:999px;padding:.2rem .75rem;font-weight:700;font-size:.9rem;background:var(--field)}
+.ibx-code{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap}
+.ibx-code code{font:800 1.5rem/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.06em;background:var(--blue-soft);color:var(--blue);border:2px dashed var(--blue-mid);border-radius:10px;padding:.4rem .9rem}
+.ibx-seeds{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.ibx-seeds li{display:grid;grid-template-columns:9rem 1fr auto;gap:.6rem;align-items:center;background:var(--field);border:1px solid var(--line);border-radius:10px;padding:.5rem .75rem}
+.ibx-seeds code{word-break:break-all;font-size:.95rem}
+.ibx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:.75rem}
+.ibx-card{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--ic,var(--line));border-radius:12px;padding:.85rem 1rem}
+.ibx-card.s-g{--ic:var(--safe)} .ibx-card.s-y{--ic:var(--yellow)} .ibx-card.s-r{--ic:var(--danger)} .ibx-card.s-w,.ibx-card.s-n{--ic:var(--line)}
+.ibx-card-h{display:flex;justify-content:space-between;gap:.5rem;align-items:center;flex-wrap:wrap}
+.ibx-pill{display:inline-flex;gap:.4rem;align-items:center;border-radius:999px;padding:.15rem .7rem;font-weight:700;font-size:.88rem;background:var(--field);color:var(--muted)}
+.ibx-pill .spin{width:12px;height:12px;border-width:2px}
+.ibx-pill.p-g{background:var(--safe);color:#fff} .ibx-pill.p-y{background:var(--yellow);color:#0B0B0F} .ibx-pill.p-r{background:var(--danger);color:#fff}
+.ibx-auths{display:flex;gap:.35rem;flex-wrap:wrap;margin:.6rem 0 .2rem}
+.ibx-auth{font:700 .78rem/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;border:1px solid var(--line);border-radius:6px;padding:.05rem .4rem;color:var(--muted)}
+.ibx-auth.ok{color:var(--safe);border-color:var(--safe)} .ibx-auth.ko{color:var(--danger);border-color:var(--danger)}
+.ibx-card .minor{margin:.3rem 0 0;word-break:break-word}
+.ibx-tips{margin:.5rem 0 0;padding-left:1.2rem;color:var(--muted)}
+.ibx-tips li{margin:.3rem 0}
+@media (max-width:36rem){.ibx-seeds li{grid-template-columns:1fr auto}.ibx-seeds li .minor{grid-column:1/-1}}
+.req ul.ibx-tips{display:block;list-style:disc;padding-left:1.2rem;margin-top:.6rem}
+.req .ibx-tips li{display:list-item;font-weight:400;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -1128,6 +1155,7 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
       <p class="lead" data-i18n="ib.lead">Descubre si tus emails llegan a Recibidos, a Promociones o a Spam en cada proveedor de correo.</p>
     </div></section>
     <div class="wrap">
+      <div id="ibLive"></div>
       <section class="tool"><div class="tool-body">
         <h2 class="ib-h" data-i18n="ib.how">Cómo funciona un test de bandeja</h2>
         <div class="steps ib-steps">
@@ -5925,6 +5953,10 @@ rol:["Role address","Generic address like info@, sales@ or admin@, usually read 
 
 </script>
 <script>
+NT.add("en", {ui:{"tg.new": "New", "ibx.h": "Inbox test with our mailboxes", "ibx.p": "Send your email to our test addresses and we'll tell you where it landed at each provider: Inbox (and which tab), Promotions or Spam, plus whether it passed SPF, DKIM and DMARC.", "ibx.start": "Start a free test", "ibx.priv": "Test emails are deleted from our mailboxes as soon as we analyse them. The result is kept for 48 hours.", "ibx.s1": "Copy your test code", "ibx.s1p": "Put it in the email subject, for example: «November news {id}». That's how we find your email among the others.", "ibx.s2": "Send your email to these addresses", "ibx.s2p": "Send it from your usual platform and with the same content you'll send to your contacts. You can add them all as recipients of a single test.", "ibx.copyAll": "Copy all", "ibx.s3": "See where it landed", "ibx.go": "I've sent it: see results", "ibx.again": "Check again", "ibx.newTest": "Start another test", "ibx.checking": "Checking the mailboxes every 15 seconds…", "ibx.last": "(last check {n} s ago)", "ibx.stopped": "We stopped checking after 20 minutes. If you've just sent it, press «Check again».", "ibx.st.waiting": "Waiting…", "ibx.st.inbox": "Inbox", "ibx.st.spam": "Spam", "ibx.st.other": "Another folder", "ibx.st.missing": "Not received", "ibx.st.error": "Couldn't check", "ibx.tab.primary": "Primary", "ibx.tab.promotions": "Promotions", "ibx.tab.social": "Social", "ibx.tab.updates": "Updates", "ibx.tab.forums": "Forums", "ibx.tab.focused": "Focused", "ibx.tab.other": "Other", "ibx.from": "Sender", "ibx.errLogin": "Our mailbox isn't available right now. Please try later.", "ibx.sumT": "Test result", "ibx.sumAll": "It reached the primary inbox at every provider. Congratulations!", "ibx.sumSome": "It reached the primary inbox at {n} of {t} providers.", "ibx.sumNone": "It didn't reach the primary inbox at any provider.", "ibx.tipSpam": "It went to spam at some provider: check your authentication in <a href=\"#dominio\">My domain</a> and run a <a href=\"#auditoria\">Full audit</a> of the email.", "ibx.tipPromo": "Landing in Promotions or Other is normal for marketing emails: it isn't spam and your contacts still see it. To get closer to the primary inbox, write a more personal email with fewer images and links.", "ibx.tipAuth": "An authentication check doesn't pass: fix it with the <a href=\"#generador\">record generators</a>.", "ibx.tipMissing": "It didn't arrive at some provider: it may have been rejected. Check whether your platform has a bounce and translate it with the <a href=\"#rebotes\">bounce translator</a>.", "ibx.errStart": "The test couldn't be created. Please try again in a few minutes.", "ibx.expired": "This test has expired. Start a new one.", "ibx.rate": "You've created many tests in a row. Please wait a while.", "ibx.privH": "Inbox test", "ibx.privP": "<p>If you use the inbox test, the email you send us is received in our test mailboxes (Gmail, Outlook and Yahoo). We analyse it automatically to find out which folder it landed in and whether it passes SPF, DKIM and DMARC, and we delete it from the mailboxes as soon as the analysis ends. We only keep the result (folder, sender, subject and authentication) for 48 hours. Don't include third parties' personal data in the test email.</p>"}});
+
+</script>
+<script>
 
 NT.add("en", {rb:{
 g_spf:["Gmail: SPF doesn't pass","Gmail rejected or deferred the email because your domain's SPF check didn't pass.","The server that sent the email isn't authorised in the sender domain's SPF record, or the SPF has errors (for example, more than 10 DNS lookups).",["Check your SPF in <a href=\"#dominio\">My domain</a>.","Add the platform you send with to your SPF using the <a href=\"#generador/spf\">SPF generator</a>.","Make sure you have a single SPF record and don't exceed 10 DNS lookups."]],
@@ -6207,6 +6239,10 @@ engagement:["Engagement","Interacción de los destinatarios con tus emails: aper
 higiene:["Higiene de lista","Mantenimiento periódico de la base de datos: eliminar rebotes, inactivos, duplicados y direcciones de rol para proteger la reputación."],
 rol:["Dirección de rol","Dirección genérica como info@, ventas@ o admin@, que suele leer más de una persona. Generan más quejas y algunas plataformas no permiten enviarles campañas."]
 }});
+
+</script>
+<script>
+NT.add("es", {ui:{"tg.new": "Nuevo", "ibx.h": "Test de bandeja con nuestros buzones", "ibx.p": "Envía tu email a nuestras direcciones de prueba y te decimos dónde ha aterrizado en cada proveedor: Recibidos (y en qué pestaña), Promociones o Spam, además de si ha pasado SPF, DKIM y DMARC.", "ibx.start": "Empezar un test gratis", "ibx.priv": "Los emails de prueba se borran de nuestros buzones en cuanto los analizamos. El resultado se guarda 48 horas.", "ibx.s1": "Copia tu código de test", "ibx.s1p": "Ponlo en el asunto del email, por ejemplo: «Novedades de noviembre {id}». Así encontramos tu email entre los demás.", "ibx.s2": "Envía tu email a estas direcciones", "ibx.s2p": "Envíalo desde tu plataforma habitual y con el mismo contenido que vas a enviar a tus contactos. Puedes ponerlas todas como destinatarios de una sola prueba.", "ibx.copyAll": "Copiar todas", "ibx.s3": "Mira dónde ha llegado", "ibx.go": "Ya lo he enviado: ver resultados", "ibx.again": "Volver a comprobar", "ibx.newTest": "Empezar otro test", "ibx.checking": "Comprobando los buzones cada 15 segundos…", "ibx.last": "(última revisión hace {n} s)", "ibx.stopped": "Hemos dejado de comprobar tras 20 minutos. Si acabas de enviarlo, pulsa «Volver a comprobar».", "ibx.st.waiting": "Esperando…", "ibx.st.inbox": "Recibidos", "ibx.st.spam": "Spam", "ibx.st.other": "Otra carpeta", "ibx.st.missing": "No ha llegado", "ibx.st.error": "No se ha podido comprobar", "ibx.tab.primary": "Principal", "ibx.tab.promotions": "Promociones", "ibx.tab.social": "Social", "ibx.tab.updates": "Notificaciones", "ibx.tab.forums": "Foros", "ibx.tab.focused": "Prioritarios", "ibx.tab.other": "Otros", "ibx.from": "Remitente", "ibx.errLogin": "Nuestro buzón no está disponible ahora mismo. Inténtalo más tarde.", "ibx.sumT": "Resultado del test", "ibx.sumAll": "Ha llegado a la bandeja principal en todos los proveedores. ¡Enhorabuena!", "ibx.sumSome": "Ha llegado a la bandeja principal en {n} de {t} proveedores.", "ibx.sumNone": "No ha llegado a la bandeja principal en ningún proveedor.", "ibx.tipSpam": "Ha ido a spam en algún proveedor: revisa la autenticación en <a href=\"#dominio\">Mi dominio</a> y haz una <a href=\"#auditoria\">Auditoría completa</a> del email.", "ibx.tipPromo": "Llegar a Promociones u Otros es normal en emails comerciales: no es spam y tus contactos lo ven igual. Para acercarte a la bandeja principal, escribe un email más personal y con menos imágenes y enlaces.", "ibx.tipAuth": "Alguna comprobación de autenticación no pasa: corrígela con los <a href=\"#generador\">generadores de registros</a>.", "ibx.tipMissing": "En algún proveedor no ha llegado: puede haber sido rechazado. Revisa si tu plataforma tiene un rebote y tradúcelo con el <a href=\"#rebotes\">traductor de rebotes</a>.", "ibx.errStart": "No se ha podido crear el test. Inténtalo en unos minutos.", "ibx.expired": "Este test ha caducado. Empieza uno nuevo.", "ibx.rate": "Has creado muchos tests seguidos. Espera un rato.", "ibx.privH": "Test de bandeja", "ibx.privP": "<p>Si usas el test de bandeja, recibimos en nuestros buzones de prueba (Gmail, Outlook y Yahoo) el email que nos envías. Lo analizamos de forma automática para saber en qué carpeta ha llegado y si supera SPF, DKIM y DMARC, y lo borramos de los buzones en cuanto termina el análisis. Solo guardamos el resultado (carpeta, remitente, asunto y autenticación) durante 48 horas. No envíes datos personales de terceros en el email de prueba.</p>"}});
 
 </script>
 <script>
@@ -6498,6 +6534,10 @@ rol:["Adresse générique","Adresse comme info@, ventes@ ou admin@, généraleme
 
 </script>
 <script>
+NT.add("fr", {ui:{"tg.new": "Nouveau", "ibx.h": "Test de boîte de réception avec nos boîtes", "ibx.p": "Envoyez votre email à nos adresses de test et nous vous disons où il est arrivé chez chaque fournisseur : boîte de réception (et quel onglet), Promotions ou Spam, et s'il a passé SPF, DKIM et DMARC.", "ibx.start": "Lancer un test gratuit", "ibx.priv": "Les emails de test sont supprimés de nos boîtes dès que nous les analysons. Le résultat est conservé 48 heures.", "ibx.s1": "Copiez votre code de test", "ibx.s1p": "Mettez-le dans l'objet de l'email, par exemple : « Nouveautés de novembre {id} ». C'est ainsi que nous retrouvons votre email parmi les autres.", "ibx.s2": "Envoyez votre email à ces adresses", "ibx.s2p": "Envoyez-le depuis votre plateforme habituelle et avec le même contenu que celui destiné à vos contacts. Vous pouvez toutes les mettre en destinataires d'un seul test.", "ibx.copyAll": "Tout copier", "ibx.s3": "Voyez où il est arrivé", "ibx.go": "Je l'ai envoyé : voir les résultats", "ibx.again": "Vérifier à nouveau", "ibx.newTest": "Lancer un autre test", "ibx.checking": "Vérification des boîtes toutes les 15 secondes…", "ibx.last": "(dernière vérification il y a {n} s)", "ibx.stopped": "Nous avons arrêté de vérifier après 20 minutes. Si vous venez de l'envoyer, cliquez sur « Vérifier à nouveau ».", "ibx.st.waiting": "En attente…", "ibx.st.inbox": "Boîte de réception", "ibx.st.spam": "Spam", "ibx.st.other": "Autre dossier", "ibx.st.missing": "Non reçu", "ibx.st.error": "Vérification impossible", "ibx.tab.primary": "Principale", "ibx.tab.promotions": "Promotions", "ibx.tab.social": "Réseaux sociaux", "ibx.tab.updates": "Notifications", "ibx.tab.forums": "Forums", "ibx.tab.focused": "Prioritaire", "ibx.tab.other": "Autres", "ibx.from": "Expéditeur", "ibx.errLogin": "Notre boîte n'est pas disponible pour le moment. Réessayez plus tard.", "ibx.sumT": "Résultat du test", "ibx.sumAll": "Il est arrivé dans la boîte principale chez tous les fournisseurs. Félicitations !", "ibx.sumSome": "Il est arrivé dans la boîte principale chez {n} fournisseurs sur {t}.", "ibx.sumNone": "Il n'est arrivé dans la boîte principale chez aucun fournisseur.", "ibx.tipSpam": "Il est allé en spam chez un fournisseur : vérifiez l'authentification dans <a href=\"#dominio\">Mon domaine</a> et faites un <a href=\"#auditoria\">Audit complet</a> de l'email.", "ibx.tipPromo": "Arriver dans Promotions ou Autres est normal pour un email commercial : ce n'est pas du spam et vos contacts le voient quand même. Pour vous rapprocher de la boîte principale, écrivez un email plus personnel avec moins d'images et de liens.", "ibx.tipAuth": "Une vérification d'authentification ne passe pas : corrigez-la avec les <a href=\"#generador\">générateurs d'enregistrements</a>.", "ibx.tipMissing": "Il n'est pas arrivé chez un fournisseur : il a peut-être été refusé. Vérifiez si votre plateforme a reçu un rebond et traduisez-le avec le <a href=\"#rebotes\">traducteur de rebonds</a>.", "ibx.errStart": "Impossible de créer le test. Réessayez dans quelques minutes.", "ibx.expired": "Ce test a expiré. Lancez-en un nouveau.", "ibx.rate": "Vous avez créé beaucoup de tests d'affilée. Patientez un peu.", "ibx.privH": "Test de boîte de réception", "ibx.privP": "<p>Si vous utilisez le test de boîte de réception, l'email que vous nous envoyez est reçu dans nos boîtes de test (Gmail, Outlook et Yahoo). Nous l'analysons automatiquement pour savoir dans quel dossier il est arrivé et s'il passe SPF, DKIM et DMARC, puis nous le supprimons des boîtes dès la fin de l'analyse. Nous ne conservons que le résultat (dossier, expéditeur, objet et authentification) pendant 48 heures. N'incluez pas de données personnelles de tiers dans l'email de test.</p>"}});
+
+</script>
+<script>
 
 NT.add("fr", {rb:{
 g_spf:["Gmail : SPF ne passe pas","Gmail a refusé ou reporté l'email parce que la vérification SPF de votre domaine a échoué.","Le serveur qui a envoyé l'email n'est pas autorisé dans l'enregistrement SPF du domaine de l'expéditeur, ou le SPF contient des erreurs (par exemple plus de 10 requêtes DNS).",["Vérifiez votre SPF dans <a href=\"#dominio\">Mon domaine</a>.","Ajoutez la plateforme d'envoi à votre SPF avec le <a href=\"#generador/spf\">générateur SPF</a>.","Assurez-vous d'avoir un seul enregistrement SPF et de ne pas dépasser 10 requêtes DNS."]],
@@ -6783,6 +6823,10 @@ rol:["Indirizzo di ruolo","Indirizzo generico come info@, vendite@ o admin@, let
 
 </script>
 <script>
+NT.add("it", {ui:{"tg.new": "Nuovo", "ibx.h": "Test di inbox con le nostre caselle", "ibx.p": "Invia la tua email ai nostri indirizzi di prova e ti diciamo dove è arrivata presso ogni provider: Posta in arrivo (e in quale scheda), Promozioni o Spam, oltre a se ha superato SPF, DKIM e DMARC.", "ibx.start": "Inizia un test gratis", "ibx.priv": "Le email di prova vengono cancellate dalle nostre caselle appena le analizziamo. Il risultato viene conservato per 48 ore.", "ibx.s1": "Copia il tuo codice di test", "ibx.s1p": "Inseriscilo nell'oggetto dell'email, ad esempio: «Novità di novembre {id}». Così troviamo la tua email tra le altre.", "ibx.s2": "Invia la tua email a questi indirizzi", "ibx.s2p": "Inviala dalla tua piattaforma abituale e con lo stesso contenuto che invierai ai tuoi contatti. Puoi metterli tutti come destinatari di un'unica prova.", "ibx.copyAll": "Copia tutti", "ibx.s3": "Guarda dove è arrivata", "ibx.go": "L'ho inviata: vedi i risultati", "ibx.again": "Controlla di nuovo", "ibx.newTest": "Inizia un altro test", "ibx.checking": "Controllo delle caselle ogni 15 secondi…", "ibx.last": "(ultimo controllo {n} s fa)", "ibx.stopped": "Abbiamo smesso di controllare dopo 20 minuti. Se l'hai appena inviata, premi «Controlla di nuovo».", "ibx.st.waiting": "In attesa…", "ibx.st.inbox": "Posta in arrivo", "ibx.st.spam": "Spam", "ibx.st.other": "Altra cartella", "ibx.st.missing": "Non arrivata", "ibx.st.error": "Impossibile controllare", "ibx.tab.primary": "Principale", "ibx.tab.promotions": "Promozioni", "ibx.tab.social": "Social", "ibx.tab.updates": "Aggiornamenti", "ibx.tab.forums": "Forum", "ibx.tab.focused": "Posta evidenziata", "ibx.tab.other": "Altra posta", "ibx.from": "Mittente", "ibx.errLogin": "La nostra casella non è disponibile in questo momento. Riprova più tardi.", "ibx.sumT": "Risultato del test", "ibx.sumAll": "È arrivata nella posta principale presso tutti i provider. Complimenti!", "ibx.sumSome": "È arrivata nella posta principale presso {n} provider su {t}.", "ibx.sumNone": "Non è arrivata nella posta principale presso nessun provider.", "ibx.tipSpam": "È finita in spam presso qualche provider: controlla l'autenticazione in <a href=\"#dominio\">Il mio dominio</a> e fai un <a href=\"#auditoria\">Audit completo</a> dell'email.", "ibx.tipPromo": "Arrivare in Promozioni o Altra posta è normale per le email commerciali: non è spam e i tuoi contatti la vedono comunque. Per avvicinarti alla posta principale, scrivi un'email più personale e con meno immagini e link.", "ibx.tipAuth": "Qualche controllo di autenticazione non passa: correggilo con i <a href=\"#generador\">generatori di record</a>.", "ibx.tipMissing": "Presso qualche provider non è arrivata: potrebbe essere stata rifiutata. Controlla se la tua piattaforma ha un bounce e traducilo con il <a href=\"#rebotes\">traduttore di bounce</a>.", "ibx.errStart": "Non è stato possibile creare il test. Riprova tra qualche minuto.", "ibx.expired": "Questo test è scaduto. Iniziane uno nuovo.", "ibx.rate": "Hai creato molti test di seguito. Aspetta un po'.", "ibx.privH": "Test di inbox", "ibx.privP": "<p>Se usi il test di inbox, l'email che ci invii viene ricevuta nelle nostre caselle di prova (Gmail, Outlook e Yahoo). La analizziamo in modo automatico per sapere in quale cartella è arrivata e se supera SPF, DKIM e DMARC, e la cancelliamo dalle caselle appena termina l'analisi. Conserviamo solo il risultato (cartella, mittente, oggetto e autenticazione) per 48 ore. Non includere dati personali di terzi nell'email di prova.</p>"}});
+
+</script>
+<script>
 
 NT.add("it", {rb:{
 g_spf:["Gmail: SPF non supera il controllo","Gmail ha rifiutato o rinviato l'email perché il controllo SPF del tuo dominio non è stato superato.","Il server che ha inviato l'email non è autorizzato nel record SPF del dominio del mittente, oppure l'SPF contiene errori (ad esempio più di 10 ricerche DNS).",["Controlla il tuo SPF in <a href=\"#dominio\">Il mio dominio</a>.","Aggiungi la piattaforma con cui invii al tuo SPF con il <a href=\"#generador/spf\">generatore di SPF</a>.","Assicurati di avere un solo record SPF e di non superare le 10 ricerche DNS."]],
@@ -7065,6 +7109,10 @@ engagement:["Engagement","Interação dos destinatários com os seus emails: abe
 higiene:["Higiene de lista","Manutenção periódica da base de dados: eliminar bounces, inativos, duplicados e endereços genéricos para proteger a reputação."],
 rol:["Endereço genérico","Endereço como info@, vendas@ ou admin@, que costuma ser lido por mais de uma pessoa. Geram mais queixas e algumas plataformas não permitem enviar-lhes campanhas."]
 }});
+
+</script>
+<script>
+NT.add("pt", {ui:{"tg.new": "Novo", "ibx.h": "Teste de caixa de entrada com as nossas caixas", "ibx.p": "Envie o seu email para os nossos endereços de teste e dizemos-lhe onde chegou em cada fornecedor: caixa de entrada (e em que separador), Promoções ou Spam, e se passou SPF, DKIM e DMARC.", "ibx.start": "Começar um teste grátis", "ibx.priv": "Os emails de teste são apagados das nossas caixas assim que os analisamos. O resultado é guardado durante 48 horas.", "ibx.s1": "Copie o seu código de teste", "ibx.s1p": "Coloque-o no assunto do email, por exemplo: «Novidades de novembro {id}». É assim que encontramos o seu email entre os outros.", "ibx.s2": "Envie o seu email para estes endereços", "ibx.s2p": "Envie-o a partir da sua plataforma habitual e com o mesmo conteúdo que vai enviar aos seus contactos. Pode colocá-los todos como destinatários de um único teste.", "ibx.copyAll": "Copiar todos", "ibx.s3": "Veja onde chegou", "ibx.go": "Já o enviei: ver resultados", "ibx.again": "Verificar novamente", "ibx.newTest": "Começar outro teste", "ibx.checking": "A verificar as caixas a cada 15 segundos…", "ibx.last": "(última verificação há {n} s)", "ibx.stopped": "Deixámos de verificar ao fim de 20 minutos. Se acabou de o enviar, carregue em «Verificar novamente».", "ibx.st.waiting": "À espera…", "ibx.st.inbox": "Caixa de entrada", "ibx.st.spam": "Spam", "ibx.st.other": "Outra pasta", "ibx.st.missing": "Não chegou", "ibx.st.error": "Não foi possível verificar", "ibx.tab.primary": "Principal", "ibx.tab.promotions": "Promoções", "ibx.tab.social": "Social", "ibx.tab.updates": "Atualizações", "ibx.tab.forums": "Fóruns", "ibx.tab.focused": "Destaques", "ibx.tab.other": "Outros", "ibx.from": "Remetente", "ibx.errLogin": "A nossa caixa não está disponível neste momento. Tente mais tarde.", "ibx.sumT": "Resultado do teste", "ibx.sumAll": "Chegou à caixa principal em todos os fornecedores. Parabéns!", "ibx.sumSome": "Chegou à caixa principal em {n} de {t} fornecedores.", "ibx.sumNone": "Não chegou à caixa principal em nenhum fornecedor.", "ibx.tipSpam": "Foi para spam em algum fornecedor: reveja a autenticação em <a href=\"#dominio\">O meu domínio</a> e faça uma <a href=\"#auditoria\">Auditoria completa</a> do email.", "ibx.tipPromo": "Chegar a Promoções ou Outros é normal em emails comerciais: não é spam e os seus contactos veem-no na mesma. Para se aproximar da caixa principal, escreva um email mais pessoal e com menos imagens e ligações.", "ibx.tipAuth": "Alguma verificação de autenticação não passa: corrija-a com os <a href=\"#generador\">geradores de registos</a>.", "ibx.tipMissing": "Em algum fornecedor não chegou: pode ter sido rejeitado. Veja se a sua plataforma tem um bounce e traduza-o com o <a href=\"#rebotes\">tradutor de bounces</a>.", "ibx.errStart": "Não foi possível criar o teste. Tente dentro de alguns minutos.", "ibx.expired": "Este teste expirou. Comece um novo.", "ibx.rate": "Criou muitos testes seguidos. Aguarde um pouco.", "ibx.privH": "Teste de caixa de entrada", "ibx.privP": "<p>Se usar o teste de caixa de entrada, o email que nos envia é recebido nas nossas caixas de teste (Gmail, Outlook e Yahoo). Analisamo-lo de forma automática para saber em que pasta chegou e se passa SPF, DKIM e DMARC, e apagamo-lo das caixas assim que termina a análise. Só guardamos o resultado (pasta, remetente, assunto e autenticação) durante 48 horas. Não inclua dados pessoais de terceiros no email de teste.</p>"}});
 
 </script>
 <script>
@@ -7954,10 +8002,115 @@ if (TGB){
   const r = $("#dmResult"); if (r && window.MutationObserver){ let busy = false; new MutationObserver(() => { if (busy) return; busy = true; requestAnimationFrame(() => { tgCard(); busy = false; }); }).observe(r, {childList:true}); }
   window.addEventListener("langchange", () => setTimeout(tgCard, 0));
 }
+/* ---------- Test de bandeja con buzones propios ---------- */
+const API = (typeof IA !== "undefined" && IA && IA.url) ? IA.url.replace(/\/$/, "") : "";
+const IBX = {enabled:false, checked:false, test:null, res:null, timer:null, started:0, last:0, stopped:false};
+const PNAME = {gmail:"Gmail", outlook:"Outlook · Hotmail", yahoo:"Yahoo · AOL"};
+const ibPost = (path, body) => fetch(API + path, {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(body || {})}).then(r => r.json().then(j => ({ok:r.ok, status:r.status, j})));
+function ibSave(){ try { if (IBX.test) localStorage.setItem("es-ibx", JSON.stringify({id:IBX.test.id, seeds:IBX.test.seeds, t:Date.now()})); else localStorage.removeItem("es-ibx"); } catch(e){} }
+function ibRestore(){ try { const o = JSON.parse(localStorage.getItem("es-ibx") || "null"); if (o && Date.now() - o.t < 47 * 3600e3) IBX.test = {id:o.id, seeds:o.seeds}; } catch(e){} }
+function ibStatus(p, r){
+  if (!r || r.state === "waiting") return ["w", L("ibx.st.waiting")];
+  if (r.state === "error") return ["n", L("ibx.st.error")];
+  if (r.state === "missing") return ["n", L("ibx.st.missing")];
+  if (r.state === "spam") return ["r", L("ibx.st.spam")];
+  if (r.state === "other") return ["y", L("ibx.st.other")];
+  const good = !r.tab || r.tab === "primary" || r.tab === "focused";
+  return [good ? "g" : "y", L("ibx.st.inbox") + (r.tab ? " · " + L("ibx.tab." + r.tab) : "")];
+}
+const authBadge = (k, v) => `<span class="ibx-auth ${v === "pass" ? "ok" : v ? "ko" : ""}">${k.toUpperCase()} ${v === "pass" ? "✓" : v ? "✗ " + esc(v) : "—"}</span>`;
+function ibRender(){
+  const box = $("#ibLive"); if (!box) return;
+  if (!IBX.enabled){ box.innerHTML = ""; return; }
+  const why = document.querySelector('#ibView [data-i18n="ib.why"]'); if (why) why.hidden = true;
+  if (!IBX.test){
+    box.innerHTML = `<section class="tool ibx"><div class="tool-body">
+      <span class="beta">${esc(L("tg.new"))}</span>
+      <h2 class="ib-h" style="margin-top:.6rem">${esc(L("ibx.h"))}</h2>
+      <p class="hint">${esc(L("ibx.p"))}</p>
+      <div class="ibx-provs">${IBX.providers.map(p => `<span class="ibx-prov">${esc(PNAME[p])}</span>`).join("")}</div>
+      <div class="actions"><button class="btn btn-primary" id="ibxStart" type="button">${esc(L("ibx.start"))}</button></div>
+      <p class="privacy">${LOCK}<span>${esc(L("ibx.priv"))}</span></p>
+    </div></section>`;
+    $("#ibxStart").addEventListener("click", ibStart);
+    return;
+  }
+  const t = IBX.test, res = (IBX.res && IBX.res.res) || {};
+  const all = t.seeds.map(x => x.email).join(", ");
+  const done = IBX.res && IBX.res.done;
+  const cards = t.seeds.map(x => { const r = res[x.p]; const [c, label] = ibStatus(x.p, r); return `<div class="ibx-card s-${c}">
+      <div class="ibx-card-h"><strong>${esc(PNAME[x.p])}</strong><span class="ibx-pill p-${c}">${c === "w" && IBX.timer ? `<span class="spin" aria-hidden="true"></span>` : ""}${esc(label)}</span></div>
+      ${r && r.auth ? `<div class="ibx-auths">${authBadge("spf", r.auth.spf)}${authBadge("dkim", r.auth.dkim)}${authBadge("dmarc", r.auth.dmarc)}</div>` : ""}
+      ${r && r.from ? `<p class="minor">${esc(L("ibx.from"))}: ${esc(r.from)}</p>` : ""}
+      ${r && r.state === "error" && r.error === "login" ? `<p class="minor">${esc(L("ibx.errLogin"))}</p>` : ""}
+    </div>`; }).join("");
+  let summary = "";
+  const found = t.seeds.filter(x => res[x.p] && !["waiting", "error", "missing"].includes(res[x.p].state));
+  if (found.length){
+    const prim = found.filter(x => ibStatus(x.p, res[x.p])[0] === "g").length;
+    const spam = found.some(x => res[x.p].state === "spam"), promo = found.some(x => ibStatus(x.p, res[x.p])[0] === "y");
+    const authFail = found.some(x => res[x.p].auth && ["spf", "dkim", "dmarc"].some(k => res[x.p].auth[k] && res[x.p].auth[k] !== "pass"));
+    const missing = t.seeds.some(x => res[x.p] && res[x.p].state === "missing");
+    const head = prim === t.seeds.length ? L("ibx.sumAll") : prim ? L("ibx.sumSome", {n:prim, t:t.seeds.length}) : L("ibx.sumNone");
+    const tips = [spam && L("ibx.tipSpam"), promo && L("ibx.tipPromo"), authFail && L("ibx.tipAuth"), missing && L("ibx.tipMissing")].filter(Boolean);
+    summary = `<div class="block req"><h3>${esc(L("ibx.sumT"))}</h3><p>${esc(head)}</p>${tips.length ? `<ul class="ibx-tips">${tips.map(x => `<li>${x}</li>`).join("")}</ul>` : ""}</div>`;
+  }
+  const ago = IBX.last ? Math.round((Date.now() - IBX.last) / 1000) : null;
+  box.innerHTML = `<section class="tool ibx"><div class="tool-body">
+    <h2 class="ib-h">${esc(L("ibx.h"))}</h2>
+    <div class="gen-step"><div class="gen-n">1</div><div class="gen-sb"><h3>${esc(L("ibx.s1"))}</h3>
+      <div class="ibx-code"><code>${esc(t.id)}</code>${copyBtn(t.id)}</div><p class="minor gen-hint">${esc(L("ibx.s1p", {id:t.id}))}</p></div></div>
+    <div class="gen-step"><div class="gen-n">2</div><div class="gen-sb"><h3>${esc(L("ibx.s2"))}</h3>
+      <ul class="ibx-seeds">${t.seeds.map(x => `<li><span class="minor">${esc(PNAME[x.p])}</span><code>${esc(x.email)}</code>${copyBtn(x.email)}</li>`).join("")}</ul>
+      <div><button class="btn-small" type="button" data-copy="${esc(all)}">${esc(L("ibx.copyAll"))}</button></div>
+      <p class="minor gen-hint">${esc(L("ibx.s2p"))}</p></div></div>
+    <div class="gen-step"><div class="gen-n">3</div><div class="gen-sb"><h3>${esc(L("ibx.s3"))}</h3>
+      ${IBX.timer || IBX.res ? `<div class="ibx-grid">${cards}</div>` : ""}
+      <div class="actions">${!IBX.timer && !done ? `<button class="btn btn-primary" id="ibxGo" type="button">${esc(L(IBX.res ? "ibx.again" : "ibx.go"))}</button>` : ""}<button class="btn btn-ghost" id="ibxNew" type="button">${esc(L("ibx.newTest"))}</button></div>
+      ${IBX.timer ? `<p class="minor">${esc(L("ibx.checking"))}${ago !== null ? " " + esc(L("ibx.last", {n:ago})) : ""}</p>` : ""}
+      ${IBX.stopped && !done ? `<p class="minor">${esc(L("ibx.stopped"))}</p>` : ""}
+    </div></div>
+    ${summary}
+    <p class="privacy">${LOCK}<span>${esc(L("ibx.priv"))}</span></p>
+  </div></section>`;
+  const go = $("#ibxGo"); if (go) go.addEventListener("click", ibPoll);
+  $("#ibxNew").addEventListener("click", () => { ibStop(); IBX.test = null; IBX.res = null; IBX.stopped = false; ibSave(); ibRender(); });
+}
+async function ibStart(){
+  const b = $("#ibxStart"); if (b){ b.disabled = true; b.textContent = L("gen.checking"); }
+  try {
+    const r = await ibPost("/inbox/new");
+    if (!r.ok || !r.j.id){ toast(L(r.status === 429 ? "ibx.rate" : "ibx.errStart")); if (b){ b.disabled = false; b.textContent = L("ibx.start"); } return; }
+    IBX.test = {id:r.j.id, seeds:r.j.seeds}; IBX.res = null; ibSave(); ibRender();
+  } catch(e){ toast(L("ibx.errStart")); if (b){ b.disabled = false; b.textContent = L("ibx.start"); } }
+}
+function ibStop(){ if (IBX.timer){ clearInterval(IBX.timer); IBX.timer = null; } }
+async function ibCheck(){
+  if (!IBX.test) return ibStop();
+  try {
+    const r = await ibPost("/inbox/check", {id:IBX.test.id});
+    if (r.status === 404){ ibStop(); toast(L("ibx.expired")); IBX.test = null; IBX.res = null; ibSave(); return ibRender(); }
+    if (r.ok){ IBX.res = r.j; IBX.last = Date.now(); if (r.j.done) ibStop(); }
+  } catch(e){}
+  if (IBX.timer && Date.now() - IBX.started > 20 * 60e3){ ibStop(); IBX.stopped = true; }
+  if (isView("bandeja")) ibRender();
+}
+function ibPoll(){ ibStop(); IBX.started = Date.now(); IBX.stopped = false; IBX.timer = setInterval(ibCheck, 15000); ibCheck(); ibRender(); }
+async function ibInit(){
+  if (IBX.checked || !API) return; IBX.checked = true;
+  try {
+    const r = await ibPost("/inbox/status");
+    if (r.ok && r.j.enabled){ IBX.enabled = true; IBX.providers = r.j.providers; ibRestore(); ibRender(); if (IBX.test && !IBX.res) ibCheck(); }
+  } catch(e){}
+}
+window.addEventListener("hashchange", () => { if (isView("bandeja")) ibInit(); });
+window.addEventListener("langchange", () => { if (IBX.enabled) ibRender(); });
+if (isView("bandeja")) ibInit();
+
 /* Política de privacidad: apartado sobre las alertas */
 function tgPrivacy(){
-  const doc = $("#privacyDoc"); if (!doc || !TGB || doc.querySelector(".tg-priv")) return;
-  doc.insertAdjacentHTML("beforeend", `<section class="tg-priv"><h2>${esc(L("tg.privH"))}</h2>${L("tg.privP", {bot:esc(TGB)})}</section>`);
+  const doc = $("#privacyDoc"); if (!doc || doc.querySelector(".tg-priv")) return;
+  doc.insertAdjacentHTML("beforeend", `<section class="tg-priv">${TGB ? `<h2>${esc(L("tg.privH"))}</h2>${L("tg.privP", {bot:esc(TGB)})}` : ""}<h2>${esc(L("ibx.privH"))}</h2>${L("ibx.privP")}</section>`);
 }
 tgPrivacy(); window.addEventListener("langchange", () => setTimeout(tgPrivacy, 0));
 

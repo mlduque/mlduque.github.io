@@ -147,6 +147,9 @@ Indica si el dominio o la IP son nuevos o tienen historial, el volumen diario al
 
 ## 6. Test de bandeja
 
+**Nuevo: test con buzones propios.** Pulsa «Empezar un test gratis», copia tu código, ponlo en el asunto y envía tu email a nuestras direcciones de prueba. La web te dice en directo si en cada proveedor ha llegado a Recibidos (y a qué pestaña: Principal, Promociones, Social…), a otra carpeta o a Spam, y si ha pasado SPF, DKIM y DMARC, con consejos para mejorar. Los emails de prueba se borran de los buzones en cuanto se analizan y el resultado se guarda 48 horas. Por ahora funciona con Gmail; Yahoo y Outlook se añadirán más adelante.
+
+
 Explica cómo funciona un test de bandeja (inbox placement) y recomienda herramientas gratuitas para hacerlo: Warmy, Mail-tester, GlockApps, MXToolbox, Google Postmaster Tools y Microsoft SNDS. También explica cómo montar tu propia lista de semillas.
 
 ---
