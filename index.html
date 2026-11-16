@@ -837,6 +837,13 @@ dl.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));g
 .rt-num{font-weight:600;margin:.3rem 0 .5rem}
 .rt-tips{margin:.4rem 0 .6rem 1.1rem;line-height:1.5}
 .rt-box{margin-bottom:1rem}
+/* ===== Heatwave DBL ===== */
+.hw-note{display:grid;grid-template-columns:auto 1fr auto;gap:.8rem;align-items:center;margin:.9rem 0 .4rem;padding:.8rem 1rem;border:1px dashed var(--line);border-radius:12px;background:var(--soft)}
+.hw-note p{margin:.15rem 0 0;font-size:.9rem;color:var(--muted)}
+.hw-ico{font-size:1.4rem}
+.lk-hw{margin-top:1rem;padding:.7rem .9rem;background:var(--soft);border:1px dashed var(--line);border-radius:10px}
+.lk-hw .chip{text-decoration:none;margin-left:.3rem}
+@media (max-width:40rem){.hw-note{grid-template-columns:auto 1fr}.hw-note .btn{grid-column:1 / -1}}
 </style>
 </head>
 <body>
@@ -6167,6 +6174,10 @@ rol:["Role address","Generic address like info@, sales@ or admin@, usually read 
 
 </script>
 <script>
+NT.add("en", {ui:{"hw.t": "Also check it on Heatwave DBL (Validity)", "hw.p": "Validity's list of domains used for cold email and to «warm up» reputation artificially. It doesn't allow automated lookups, so it opens on their website with your domain already filled in. It also shows you domains similar to yours that are already listed.", "hw.btn": "See {d} on Heatwave", "lk.hw": "Validity's Heatwave DBL shows domains similar to yours that are already listed for cold email or artificial warming:", "lk.hwBtn": "See lookalikes on Heatwave"}});
+
+</script>
+<script>
 NT.add("en", {ui:{"tg.new": "New", "ibx.h": "Inbox test with our mailboxes", "ibx.p": "Send your email to our test addresses and we'll tell you where it landed at each provider: Inbox (and which tab), Promotions or Spam, plus whether it passed SPF, DKIM and DMARC.", "ibx.start": "Start a free test", "ibx.priv": "Test emails are deleted from our mailboxes as soon as we analyse them. The result is kept for 48 hours.", "ibx.s1": "Copy your test code", "ibx.s1p": "Put it in the email subject, for example: «November news {id}». That's how we find your email among the others.", "ibx.s2": "Send your email to these addresses", "ibx.s2p": "Send it from your usual platform and with the same content you'll send to your contacts. You can add them all as recipients of a single test.", "ibx.copyAll": "Copy all", "ibx.s3": "See where it landed", "ibx.go": "I've sent it: see results", "ibx.again": "Check again", "ibx.newTest": "Start another test", "ibx.checking": "Checking the mailboxes every 15 seconds…", "ibx.last": "(last check {n} s ago)", "ibx.stopped": "We stopped checking after 20 minutes. If you've just sent it, press «Check again».", "ibx.st.waiting": "Waiting…", "ibx.st.inbox": "Inbox", "ibx.st.spam": "Spam", "ibx.st.other": "Another folder", "ibx.st.missing": "Not received", "ibx.st.error": "Couldn't check", "ibx.tab.primary": "Primary", "ibx.tab.promotions": "Promotions", "ibx.tab.social": "Social", "ibx.tab.updates": "Updates", "ibx.tab.forums": "Forums", "ibx.tab.focused": "Focused", "ibx.tab.other": "Other", "ibx.from": "Sender", "ibx.errLogin": "Our mailbox isn't available right now. Please try later.", "ibx.sumT": "Test result", "ibx.sumAll": "It reached the primary inbox at every provider. Congratulations!", "ibx.sumSome": "It reached the primary inbox at {n} of {t} providers.", "ibx.sumNone": "It didn't reach the primary inbox at any provider.", "ibx.tipSpam": "It went to spam at some provider: check your authentication in <a href=\"#dominio\">My domain</a> and run a <a href=\"#auditoria\">Full audit</a> of the email.", "ibx.tipPromo": "Landing in Promotions or Other is normal for marketing emails: it isn't spam and your contacts still see it. To get closer to the primary inbox, write a more personal email with fewer images and links.", "ibx.tipAuth": "An authentication check doesn't pass: fix it with the <a href=\"#generador\">record generators</a>.", "ibx.tipMissing": "It didn't arrive at some provider: it may have been rejected. Check whether your platform has a bounce and translate it with the <a href=\"#rebotes\">bounce translator</a>.", "ibx.errStart": "The test couldn't be created. Please try again in a few minutes.", "ibx.expired": "This test has expired. Start a new one.", "ibx.rate": "You've created many tests in a row. Please wait a while.", "ibx.privH": "Inbox test", "ibx.privP": "<p>If you use the inbox test, the email you send us is received in our test mailboxes (Gmail, Outlook and Yahoo). We analyse it automatically to find out which folder it landed in and whether it passes SPF, DKIM and DMARC, and we delete it from the mailboxes as soon as the analysis ends. We only keep the result (folder, sender, subject and authentication) for 48 hours. Don't include third parties' personal data in the test email.</p>"}});
 
 </script>
@@ -6481,6 +6492,10 @@ engagement:["Engagement","Interacción de los destinatarios con tus emails: aper
 higiene:["Higiene de lista","Mantenimiento periódico de la base de datos: eliminar rebotes, inactivos, duplicados y direcciones de rol para proteger la reputación."],
 rol:["Dirección de rol","Dirección genérica como info@, ventas@ o admin@, que suele leer más de una persona. Generan más quejas y algunas plataformas no permiten enviarles campañas."]
 }});
+
+</script>
+<script>
+NT.add("es", {ui:{"hw.t": "Compruébalo también en Heatwave DBL (Validity)", "hw.p": "Lista de Validity de dominios usados para cold email y para «calentar» la reputación de forma artificial. No admite consultas automáticas, así que se abre en su web con tu dominio ya puesto. Además te enseña dominios parecidos al tuyo que ya están listados.", "hw.btn": "Ver {d} en Heatwave", "lk.hw": "Heatwave DBL de Validity muestra los dominios parecidos al tuyo que ya están listados por cold email o calentamiento artificial:", "lk.hwBtn": "Ver parecidos en Heatwave"}});
 
 </script>
 <script>
@@ -6804,6 +6819,10 @@ rol:["Adresse générique","Adresse comme info@, ventes@ ou admin@, généraleme
 
 </script>
 <script>
+NT.add("fr", {ui:{"hw.t": "Vérifiez-le aussi sur Heatwave DBL (Validity)", "hw.p": "Liste de Validity des domaines utilisés pour le cold email et pour « chauffer » la réputation de façon artificielle. Elle n'accepte pas les requêtes automatiques : elle s'ouvre donc sur leur site avec votre domaine déjà saisi. Elle vous montre aussi les domaines similaires au vôtre déjà listés.", "hw.btn": "Voir {d} sur Heatwave", "lk.hw": "Heatwave DBL de Validity montre les domaines similaires au vôtre déjà listés pour cold email ou chauffe artificielle :", "lk.hwBtn": "Voir les similaires sur Heatwave"}});
+
+</script>
+<script>
 NT.add("fr", {ui:{"tg.new": "Nouveau", "ibx.h": "Test de boîte de réception avec nos boîtes", "ibx.p": "Envoyez votre email à nos adresses de test et nous vous disons où il est arrivé chez chaque fournisseur : boîte de réception (et quel onglet), Promotions ou Spam, et s'il a passé SPF, DKIM et DMARC.", "ibx.start": "Lancer un test gratuit", "ibx.priv": "Les emails de test sont supprimés de nos boîtes dès que nous les analysons. Le résultat est conservé 48 heures.", "ibx.s1": "Copiez votre code de test", "ibx.s1p": "Mettez-le dans l'objet de l'email, par exemple : « Nouveautés de novembre {id} ». C'est ainsi que nous retrouvons votre email parmi les autres.", "ibx.s2": "Envoyez votre email à ces adresses", "ibx.s2p": "Envoyez-le depuis votre plateforme habituelle et avec le même contenu que celui destiné à vos contacts. Vous pouvez toutes les mettre en destinataires d'un seul test.", "ibx.copyAll": "Tout copier", "ibx.s3": "Voyez où il est arrivé", "ibx.go": "Je l'ai envoyé : voir les résultats", "ibx.again": "Vérifier à nouveau", "ibx.newTest": "Lancer un autre test", "ibx.checking": "Vérification des boîtes toutes les 15 secondes…", "ibx.last": "(dernière vérification il y a {n} s)", "ibx.stopped": "Nous avons arrêté de vérifier après 20 minutes. Si vous venez de l'envoyer, cliquez sur « Vérifier à nouveau ».", "ibx.st.waiting": "En attente…", "ibx.st.inbox": "Boîte de réception", "ibx.st.spam": "Spam", "ibx.st.other": "Autre dossier", "ibx.st.missing": "Non reçu", "ibx.st.error": "Vérification impossible", "ibx.tab.primary": "Principale", "ibx.tab.promotions": "Promotions", "ibx.tab.social": "Réseaux sociaux", "ibx.tab.updates": "Notifications", "ibx.tab.forums": "Forums", "ibx.tab.focused": "Prioritaire", "ibx.tab.other": "Autres", "ibx.from": "Expéditeur", "ibx.errLogin": "Notre boîte n'est pas disponible pour le moment. Réessayez plus tard.", "ibx.sumT": "Résultat du test", "ibx.sumAll": "Il est arrivé dans la boîte principale chez tous les fournisseurs. Félicitations !", "ibx.sumSome": "Il est arrivé dans la boîte principale chez {n} fournisseurs sur {t}.", "ibx.sumNone": "Il n'est arrivé dans la boîte principale chez aucun fournisseur.", "ibx.tipSpam": "Il est allé en spam chez un fournisseur : vérifiez l'authentification dans <a href=\"#dominio\">Mon domaine</a> et faites un <a href=\"#auditoria\">Audit complet</a> de l'email.", "ibx.tipPromo": "Arriver dans Promotions ou Autres est normal pour un email commercial : ce n'est pas du spam et vos contacts le voient quand même. Pour vous rapprocher de la boîte principale, écrivez un email plus personnel avec moins d'images et de liens.", "ibx.tipAuth": "Une vérification d'authentification ne passe pas : corrigez-la avec les <a href=\"#generador\">générateurs d'enregistrements</a>.", "ibx.tipMissing": "Il n'est pas arrivé chez un fournisseur : il a peut-être été refusé. Vérifiez si votre plateforme a reçu un rebond et traduisez-le avec le <a href=\"#rebotes\">traducteur de rebonds</a>.", "ibx.errStart": "Impossible de créer le test. Réessayez dans quelques minutes.", "ibx.expired": "Ce test a expiré. Lancez-en un nouveau.", "ibx.rate": "Vous avez créé beaucoup de tests d'affilée. Patientez un peu.", "ibx.privH": "Test de boîte de réception", "ibx.privP": "<p>Si vous utilisez le test de boîte de réception, l'email que vous nous envoyez est reçu dans nos boîtes de test (Gmail, Outlook et Yahoo). Nous l'analysons automatiquement pour savoir dans quel dossier il est arrivé et s'il passe SPF, DKIM et DMARC, puis nous le supprimons des boîtes dès la fin de l'analyse. Nous ne conservons que le résultat (dossier, expéditeur, objet et authentification) pendant 48 heures. N'incluez pas de données personnelles de tiers dans l'email de test.</p>"}});
 
 </script>
@@ -7121,6 +7140,10 @@ rol:["Indirizzo di ruolo","Indirizzo generico come info@, vendite@ o admin@, let
 
 </script>
 <script>
+NT.add("it", {ui:{"hw.t": "Controllalo anche su Heatwave DBL (Validity)", "hw.p": "Lista di Validity dei domini usati per il cold email e per «riscaldare» la reputazione in modo artificiale. Non accetta consultazioni automatiche, quindi si apre sul loro sito con il tuo dominio già inserito. Ti mostra anche i domini simili al tuo già in lista.", "hw.btn": "Vedi {d} su Heatwave", "lk.hw": "Heatwave DBL di Validity mostra i domini simili al tuo già in lista per cold email o riscaldamento artificiale:", "lk.hwBtn": "Vedi i simili su Heatwave"}});
+
+</script>
+<script>
 NT.add("it", {ui:{"tg.new": "Nuovo", "ibx.h": "Test di inbox con le nostre caselle", "ibx.p": "Invia la tua email ai nostri indirizzi di prova e ti diciamo dove è arrivata presso ogni provider: Posta in arrivo (e in quale scheda), Promozioni o Spam, oltre a se ha superato SPF, DKIM e DMARC.", "ibx.start": "Inizia un test gratis", "ibx.priv": "Le email di prova vengono cancellate dalle nostre caselle appena le analizziamo. Il risultato viene conservato per 48 ore.", "ibx.s1": "Copia il tuo codice di test", "ibx.s1p": "Inseriscilo nell'oggetto dell'email, ad esempio: «Novità di novembre {id}». Così troviamo la tua email tra le altre.", "ibx.s2": "Invia la tua email a questi indirizzi", "ibx.s2p": "Inviala dalla tua piattaforma abituale e con lo stesso contenuto che invierai ai tuoi contatti. Puoi metterli tutti come destinatari di un'unica prova.", "ibx.copyAll": "Copia tutti", "ibx.s3": "Guarda dove è arrivata", "ibx.go": "L'ho inviata: vedi i risultati", "ibx.again": "Controlla di nuovo", "ibx.newTest": "Inizia un altro test", "ibx.checking": "Controllo delle caselle ogni 15 secondi…", "ibx.last": "(ultimo controllo {n} s fa)", "ibx.stopped": "Abbiamo smesso di controllare dopo 20 minuti. Se l'hai appena inviata, premi «Controlla di nuovo».", "ibx.st.waiting": "In attesa…", "ibx.st.inbox": "Posta in arrivo", "ibx.st.spam": "Spam", "ibx.st.other": "Altra cartella", "ibx.st.missing": "Non arrivata", "ibx.st.error": "Impossibile controllare", "ibx.tab.primary": "Principale", "ibx.tab.promotions": "Promozioni", "ibx.tab.social": "Social", "ibx.tab.updates": "Aggiornamenti", "ibx.tab.forums": "Forum", "ibx.tab.focused": "Posta evidenziata", "ibx.tab.other": "Altra posta", "ibx.from": "Mittente", "ibx.errLogin": "La nostra casella non è disponibile in questo momento. Riprova più tardi.", "ibx.sumT": "Risultato del test", "ibx.sumAll": "È arrivata nella posta principale presso tutti i provider. Complimenti!", "ibx.sumSome": "È arrivata nella posta principale presso {n} provider su {t}.", "ibx.sumNone": "Non è arrivata nella posta principale presso nessun provider.", "ibx.tipSpam": "È finita in spam presso qualche provider: controlla l'autenticazione in <a href=\"#dominio\">Il mio dominio</a> e fai un <a href=\"#auditoria\">Audit completo</a> dell'email.", "ibx.tipPromo": "Arrivare in Promozioni o Altra posta è normale per le email commerciali: non è spam e i tuoi contatti la vedono comunque. Per avvicinarti alla posta principale, scrivi un'email più personale e con meno immagini e link.", "ibx.tipAuth": "Qualche controllo di autenticazione non passa: correggilo con i <a href=\"#generador\">generatori di record</a>.", "ibx.tipMissing": "Presso qualche provider non è arrivata: potrebbe essere stata rifiutata. Controlla se la tua piattaforma ha un bounce e traducilo con il <a href=\"#rebotes\">traduttore di bounce</a>.", "ibx.errStart": "Non è stato possibile creare il test. Riprova tra qualche minuto.", "ibx.expired": "Questo test è scaduto. Iniziane uno nuovo.", "ibx.rate": "Hai creato molti test di seguito. Aspetta un po'.", "ibx.privH": "Test di inbox", "ibx.privP": "<p>Se usi il test di inbox, l'email che ci invii viene ricevuta nelle nostre caselle di prova (Gmail, Outlook e Yahoo). La analizziamo in modo automatico per sapere in quale cartella è arrivata e se supera SPF, DKIM e DMARC, e la cancelliamo dalle caselle appena termina l'analisi. Conserviamo solo il risultato (cartella, mittente, oggetto e autenticazione) per 48 ore. Non includere dati personali di terzi nell'email di prova.</p>"}});
 
 </script>
@@ -7435,6 +7458,10 @@ engagement:["Engagement","Interação dos destinatários com os seus emails: abe
 higiene:["Higiene de lista","Manutenção periódica da base de dados: eliminar bounces, inativos, duplicados e endereços genéricos para proteger a reputação."],
 rol:["Endereço genérico","Endereço como info@, vendas@ ou admin@, que costuma ser lido por mais de uma pessoa. Geram mais queixas e algumas plataformas não permitem enviar-lhes campanhas."]
 }});
+
+</script>
+<script>
+NT.add("pt", {ui:{"hw.t": "Verifique-o também no Heatwave DBL (Validity)", "hw.p": "Lista da Validity de domínios usados para cold email e para «aquecer» a reputação de forma artificial. Não aceita consultas automáticas, por isso abre-se no site deles com o seu domínio já preenchido. Também lhe mostra domínios parecidos com o seu que já estão na lista.", "hw.btn": "Ver {d} no Heatwave", "lk.hw": "O Heatwave DBL da Validity mostra os domínios parecidos com o seu que já estão na lista por cold email ou aquecimento artificial:", "lk.hwBtn": "Ver parecidos no Heatwave"}});
 
 </script>
 <script>
@@ -8088,7 +8115,8 @@ function render(){
     ["Spamhaus", `https://check.spamhaus.org/results/?query=${r.ip}`], ["MultiRBL", `https://multirbl.valli.org/lookup/${r.ip}.html`],
     ...(isV4(r.ip) ? [["Sender Score", `https://senderscore.org/assess/get-your-score/report/?lookup=${r.ip}`]] : []),
     ...(a.asn ? [["bgp.he.net (AS" + a.asn + ")", `https://bgp.he.net/AS${a.asn}`]] : []),
-    ...(rd.link ? [["RDAP · WHOIS", rd.link]] : [])
+    ...(rd.link ? [["RDAP · WHOIS", rd.link]] : []),
+    ...(r.from ? [["Heatwave DBL (" + r.from + ")", "https://lookup.validity.tools/?domain=" + encodeURIComponent(r.from)]] : [])
   ];
   out.innerHTML = `<div class="card ip-card">
     <div class="ip-head"><div><span class="minor">${r.from ? esc(L("ip.from", {d:r.from})) : esc(L("ip.ipT"))}</span><h2><code>${esc(r.ip)}</code></h2></div>
@@ -8320,10 +8348,11 @@ function render(){
       <td>${esc(L("lk.k." + x.kind))}</td>
       <td><span class="bt-dot bt-${TONE[x.risk]}"></span>${esc(L("lk.r." + x.risk))}${x.broken ? ` <span class="minor">(${esc(L("lk.broken"))})</span>` : ""}</td>
       <td class="lk-mx">${x.mx.length ? esc(x.mx[0]) + (x.mx.length > 1 ? ` <span class="minor">+${x.mx.length - 1}</span>` : "") : "—"}</td>
-      <td class="lk-act"><a class="chip" href="#ip/${encodeURIComponent(x.d)}">${esc(L("lk.ip"))}</a> <a class="chip" href="https://lookup.icann.org/en/lookup?name=${encodeURIComponent(x.d)}" target="_blank" rel="noopener">WHOIS ↗</a></td></tr>`).join("")}</tbody></table></div>` : ""}
+      <td class="lk-act"><a class="chip" href="#ip/${encodeURIComponent(x.d)}">${esc(L("lk.ip"))}</a> <a class="chip" href="https://lookup.icann.org/en/lookup?name=${encodeURIComponent(x.d)}" target="_blank" rel="noopener">WHOIS ↗</a> <a class="chip" href="https://lookup.validity.tools/?domain=${encodeURIComponent(x.d)}" target="_blank" rel="noopener" title="Heatwave DBL">Heatwave ↗</a></td></tr>`).join("")}</tbody></table></div>` : ""}
     ${c.mine ? `<label class="lk-all"><input type="checkbox" id="lkAll"${S.all ? " checked" : ""}> ${esc(L("lk.showMine", {n:c.mine}))}</label>` : ""}
     ${!S.busy && reg.length ? `<div class="actions"><button class="btn btn-ghost" type="button" id="lkDl">${esc(L("lk.dl"))}</button></div>` : ""}
     ${!S.busy && c.high ? `<p class="ip-fix">${L("lk.tipHigh")}</p>` : ""}
+    <p class="lk-hw">🔥 ${L("lk.hw")} <a class="chip" href="https://lookup.validity.tools/?domain=${encodeURIComponent(S.domain)}" target="_blank" rel="noopener">${esc(L("lk.hwBtn"))} ↗</a></p>
     <p class="minor">${L("lk.safe")}</p>
   </div>`;
   const st = $("#lkStop"); if (st) st.addEventListener("click", () => { RUN++; S.busy = false; render(); });
@@ -8657,6 +8686,42 @@ function init(){
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 window.NTX = window.NTX || {};
 window.NTX._cc = {detect, ratio};
+})();
+
+</script>
+<script>
+/* ===================== Heatwave DBL de Validity (enlaces directos) ===================== */
+(function(){
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const L = NT.L;
+const url = d => "https://lookup.validity.tools/?domain=" + encodeURIComponent(d);
+window.ES_HW = url;
+function card(){
+  const out = $("#dmResult"); if (!out) return;
+  const dEl = out.querySelector(".verdict .domain-name");
+  const old = out.querySelector(".hw-note");
+  if (!dEl){ if (old) old.remove(); return; }
+  const d = String(dEl.textContent || "").trim().toLowerCase().replace(/^www\./, "");
+  const k = d + NT.cur();
+  if (old && old.dataset.k === k) return;
+  const html = `<span class="hw-ico" aria-hidden="true">🔥</span><div><strong>${esc(L("hw.t"))}</strong><p>${esc(L("hw.p"))}</p></div><a class="btn btn-ghost btn-sm" href="${url(d)}" target="_blank" rel="noopener">${esc(L("hw.btn", {d}))} ↗</a>`;
+  const el = old || document.createElement("div");
+  el.className = "hw-note"; el.dataset.k = k; el.innerHTML = html;
+  if (!old){
+    const bl = [...out.querySelectorAll("article.check")].find(a => /blacklist|listas negras|blocklist/i.test(a.querySelector("h3") ? a.querySelector("h3").textContent : ""));
+    const host = bl ? bl.querySelector(":scope > div") : null;
+    if (host){ const sum = host.querySelector(".summary"); sum ? sum.after(el) : host.appendChild(el); }
+    else out.appendChild(el);
+  }
+}
+function init(){
+  const r = $("#dmResult"); if (!r) return;
+  let busy = false;
+  new MutationObserver(() => { if (busy) return; busy = true; requestAnimationFrame(() => { card(); busy = false; }); }).observe(r, {childList:true, subtree:true});
+  window.addEventListener("langchange", () => { const o = r.querySelector(".hw-note"); if (o) o.dataset.k = ""; setTimeout(card, 0); });
+}
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();
 
 </script>
