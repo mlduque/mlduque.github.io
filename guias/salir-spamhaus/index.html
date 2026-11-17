@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cómo salir de Spamhaus: SBL, CSS, XBL, PBL y DBL · Email Seguro</title>
+<meta name="description" content="Qué significa cada lista de Spamhaus, cómo saber en cuál estás, cuáles puedes quitar tú misma y qué hacer para no volver a entrar.">
+<link rel="canonical" href="https://mlduque.github.io/guias/salir-spamhaus/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/salir-spamhaus/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/salir-spamhaus/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/salir-spamhaus/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/salir-spamhaus/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/salir-spamhaus/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/salir-spamhaus/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/guias/salir-spamhaus/">
+<meta property="og:title" content="Cómo salir de Spamhaus: SBL, CSS, XBL, PBL y DBL · Email Seguro">
+<meta property="og:description" content="Qué significa cada lista de Spamhaus, cómo saber en cuál estás, cuáles puedes quitar tú misma y qué hacer para no volver a entrar.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Cómo salir de Spamhaus: SBL, CSS, XBL, PBL y DBL","description":"Qué significa cada lista de Spamhaus, cómo saber en cuál estás, cuáles puedes quitar tú misma y qué hacer para no volver a entrar.","inLanguage":"es","datePublished":"2026-11-17","dateModified":"2026-11-17","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/guias/salir-spamhaus/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://mlduque.github.io/"},{"@type":"ListItem","position":2,"name":"Guías","item":"https://mlduque.github.io/guias/"},{"@type":"ListItem","position":3,"name":"Cómo salir de Spamhaus: SBL, CSS, XBL, PBL y DBL","item":"https://mlduque.github.io/guias/salir-spamhaus/"}]}]}</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d25e423ccf7548898d2adc9bc46a8937"}'></script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Herramientas">
+    <a href="/guias/" aria-current="page">Guías</a>
+    <a href="/glosario/">Glosario</a>
+    <a href="/recursos/">Recursos</a>
+    <a href="/#sobre-mi">Sobre mí</a>
+    <a class="btn btn-primary" href="/">Herramientas</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/">Inicio</a> › <a href="/guias/">Guías</a></p>
+  <span class="kicker"><i></i><span>Guías de entregabilidad · 3 min de lectura</span></span>
+  <h1>Cómo salir de Spamhaus: SBL, CSS, XBL, PBL y DBL</h1>
+  <p class="lead">Qué significa cada lista de Spamhaus, cómo saber en cuál estás, cuáles puedes quitar tú misma y qué hacer para no volver a entrar.</p>
+  <p class="gd-by">Por <a href="/#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-17">Actualizado 2026-11-17</time></p>
+  <nav class="toc" aria-label="En esta guía"><strong>En esta guía</strong><ol><li><a href="#por-que-spamhaus-importa-tanto">Por qué Spamhaus importa tanto</a></li><li><a href="#las-listas-una-por-una">Las listas, una por una</a></li><li><a href="#averigua-donde-estas">Averigua dónde estás</a></li><li><a href="#como-salir-de-cada-lista">Cómo salir de cada lista</a></li><li><a href="#por-que-se-entra-en-spamhaus-sin-ser-spammer">Por qué se entra en Spamhaus sin ser spammer</a></li><li><a href="#checklist">Checklist</a></li></ol></nav>
+  <section id="por-que-spamhaus-importa-tanto"><h2>Por qué Spamhaus importa tanto</h2><p>Spamhaus es la organización de listas negras más usada del mundo. Miles de proveedores de correo y empresas consultan sus listas antes de aceptar un email. Si tu IP o tu dominio aparecen en ellas, muchos de tus envíos rebotarán con mensajes que mencionan <code>spamhaus.org</code>.</p><p>No es una sola lista: son varias, y cada una se resuelve de forma distinta. Lo primero es saber en cuál estás.</p></section>
+  <section id="las-listas-una-por-una"><h2>Las listas, una por una</h2><ul><li><strong>SBL</strong>: IPs que Spamhaus relaciona con spam o con remitentes de mala reputación. Es la más seria y la revisa una persona.</li><li><strong>CSS</strong>: IPs que envían correo con problemas técnicos o de calidad: HELO incorrecto, DNS inverso genérico, contenido típico de spam. Es la más habitual en servidores legítimos mal configurados.</li><li><strong>XBL</strong>: IPs de equipos infectados, proxies abiertos o servidores comprometidos.</li><li><strong>PBL</strong>: rangos de IP que su propio dueño (por ejemplo, un proveedor de internet doméstico) declara que no deberían enviar correo directamente. No es un castigo, es una política.</li><li><strong>DBL</strong>: dominios, no IPs. Aparecen dominios usados en spam o phishing, incluidos los de los enlaces de tus emails.</li></ul></section>
+  <section id="averigua-donde-estas"><h2>Averigua dónde estás</h2><ol><li>Entra en el comprobador oficial de Spamhaus, <code>check.spamhaus.org</code>.</li><li>Escribe la IP de tu servidor de envío o tu dominio.</li><li>Te dirá en qué lista estás, desde cuándo y, a menudo, el motivo.</li></ol><p>También puedes comprobar tu IP y tu dominio en <a href="/#ip">Información de una IP</a> y en <a href="/#dominio">Mi dominio</a>, que consultan varias listas a la vez.</p></section>
+  <section id="como-salir-de-cada-lista"><h2>Cómo salir de cada lista</h2><ul><li><strong>CSS y XBL</strong>: normalmente puedes pedir la retirada tú misma desde el comprobador de Spamhaus. Antes, arregla la causa: HELO con un nombre real, DNS inverso propio que apunte a la IP y que la IP no esté enviando spam por un equipo infectado. Si no lo arreglas, volverás a entrar.</li><li><strong>PBL</strong>: si tu IP es de un rango doméstico, lo correcto es enviar a través del servidor de tu proveedor o de una plataforma de envío, no directamente. Si es tu servidor de correo real, con IP fija y DNS inverso propio, puedes pedir que la quiten del PBL desde el comprobador.</li><li><strong>SBL</strong>: la revisa una persona de Spamhaus. Normalmente tiene que contactarles el dueño de la IP (tu proveedor de hosting o tu plataforma de envío) explicando qué se ha corregido.</li><li><strong>DBL</strong>: revisa los dominios de tus enlaces y de tu remitente. Si un dominio estaba comprometido, límpialo y pide la retirada desde el comprobador.</li></ul></section>
+  <section id="por-que-se-entra-en-spamhaus-sin-ser-spammer"><h2>Por qué se entra en Spamhaus sin ser spammer</h2><ul><li>Enviar a listas antiguas o compradas que contienen trampas de spam.</li><li>Un servidor que se presenta con un HELO incorrecto o sin DNS inverso propio.</li><li>Un formulario web sin protección que usan los bots para enviar spam desde tu servidor.</li><li>Un equipo o una cuenta de correo de la empresa infectados.</li><li>Compartir IP con otros clientes que hacen spam.</li></ul><p>Lee la guía <a href="/#guias/helo-ptr-nat">HELO, PTR y NAT</a> para entender los requisitos técnicos que vigila Spamhaus.</p></section>
+  <section id="checklist"><h2>Checklist</h2><ul><li>☐ Sé en qué lista estoy (SBL, CSS, XBL, PBL o DBL).</li><li>☐ He encontrado y corregido la causa.</li><li>☐ HELO y DNS inverso correctos.</li><li>☐ He pedido la retirada (yo misma o mi proveedor, según la lista).</li><li>☐ Vigilo mis IPs y mis dominios para enterarme si vuelvo a entrar.</li></ul></section>
+  <div class="todo gd-tools"><h3>Ponlo en práctica</h3><div class="actions"><a class="btn btn-primary" href="/#ip">Comprobar una IP y su HELO</a><a class="btn btn-primary" href="/#dominio">Comprobar mi dominio</a></div></div>
+  <div class="gd-next"><span class="minor">Más guías</span><ul><li><a href="/guias/autenticacion/"><strong>SPF, DKIM y DMARC explicados sin tecnicismos</strong></a></li><li><a href="/guias/requisitos/"><strong>Requisitos de Gmail, Yahoo y Microsoft para envíos masivos</strong></a></li><li><a href="/guias/spam/"><strong>Por qué tus emails van a spam: 10 causas y cómo arreglarlas</strong></a></li><li><a href="/glosario/">Ver el glosario completo →</a></li></ul></div>
+  <div class="ea-box"><span class="kicker"><i></i><span>Mi newsletter en LinkedIn</span></span><h3>Email Alchemy</h3><p>Escribo sobre entregabilidad con casos reales, cambios de Gmail, Microsoft y Yahoo y consejos que puedes aplicar ya. Suscríbete gratis en LinkedIn y te avisará de cada nuevo artículo.</p><a class="btn btn-primary" href="https://www.linkedin.com/newsletters/email-alchemy-7422261994277285888/" target="_blank" rel="noopener">Suscribirme en LinkedIn</a></div>
+  <div class="gd-cta"><h2>Prueba las herramientas gratis</h2><p>Comprueba tu dominio, audita un email, traduce un rebote o genera tus registros SPF, DMARC y BIMI. Gratis y sin registro.</p><a class="btn btn-yellow" href="/">Herramientas →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Herramientas gratuitas y orientativas de entregabilidad del email. Ningún análisis automático es infalible.</p>
+      <p class="langs" aria-label="Idioma"><a href="/guias/salir-spamhaus/" hreflang="es" lang="es" aria-current="true">ES</a><a href="/en/guias/salir-spamhaus/" hreflang="en" lang="en">EN</a><a href="/it/guias/salir-spamhaus/" hreflang="it" lang="it">IT</a><a href="/fr/guias/salir-spamhaus/" hreflang="fr" lang="fr">FR</a><a href="/pt/guias/salir-spamhaus/" hreflang="pt" lang="pt">PT</a></p></div>
+    <div><h4>Guías</h4><ul><li><a href="/guias/autenticacion/">SPF, DKIM y DMARC explicados sin tecnicismos</a></li><li><a href="/guias/requisitos/">Requisitos de Gmail, Yahoo y Microsoft para envíos masivos</a></li><li><a href="/guias/spam/">Por qué tus emails van a spam: 10 causas y cómo arreglarlas</a></li><li><a href="/guias/listas-negras/">Listas negras: cómo saber si estás en una y cómo salir</a></li><li><a href="/guias/rebotes/">Rebotes: duros, blandos y qué hacer con cada uno</a></li><li><a href="/guias/bimi/">BIMI: cómo mostrar tu logo en la bandeja de entrada</a></li><li><a href="/guias/aperturas-falsas/">Aperturas y clics falsos: Apple, Gmail y los bots</a></li><li><a href="/guias/return-path-verp/">Return-Path y VERP: a dónde van tus rebotes</a></li><li><a href="/guias/dkim2/">DKIM2: lo que viene después de DKIM</a></li><li><a href="/guias/helo-ptr-nat/">HELO, PTR y NAT: los nuevos requisitos de Spamhaus</a></li><li><a href="/guias/bloqueo-microsoft/">Cómo salir del bloqueo de Microsoft (Outlook y Hotmail)</a></li><li><a href="/guias/spam-gmail/">Por qué tus emails van a spam en Gmail (y cómo evitarlo)</a></li><li><a href="/guias/warmup-ip/">Cómo hacer el warm-up de una IP o un dominio nuevos</a></li><li><a href="/guias/salir-spamhaus/">Cómo salir de Spamhaus: SBL, CSS, XBL, PBL y DBL</a></li><li><a href="/guias/trampas-spam/">Trampas de spam: qué son y cómo evitarlas</a></li><li><a href="/guias/informes-dmarc/">Cómo leer los informes DMARC (y llegar a p=reject)</a></li><li><a href="/guias/migrar-plataforma/">Cómo cambiar de plataforma de envío sin perder la reputación</a></li><li><a href="/glosario/">Glosario</a></li><li><a href="/recursos/">Recursos</a></li></ul></div>
+    <div><h4>Herramientas</h4><ul><li><a href="/#auditoria">Auditar un email</a></li><li><a href="/#dominio">Comprobar mi dominio</a></li><li><a href="/#rebotes">Traducir un rebote</a></li><li><a href="/#generador">Generar mis registros</a></li><li><a href="/#campana">Probar mi campaña</a></li><li><a href="/#bbdd">Limpiar mi base de datos</a></li><li><a href="/#dmarc">Analizar informes DMARC</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/#sobre-mi">Sobre mí</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Actualizado: 2026-11-17</span></div>
+</footer>
+</body>
+</html>

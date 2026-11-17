@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Come cambiare piattaforma di invio senza perdere reputazione · Email Seguro</title>
+<meta name="description" content="Cosa preparare prima di migrare a un nuovo ESP o ai tuoi server, come trasferire autenticazione, contatti e disiscrizioni e come riscaldare la nuova piattaforma.">
+<link rel="canonical" href="https://mlduque.github.io/it/guias/migrar-plataforma/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/migrar-plataforma/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/migrar-plataforma/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/migrar-plataforma/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/migrar-plataforma/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/migrar-plataforma/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/migrar-plataforma/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/it/guias/migrar-plataforma/">
+<meta property="og:title" content="Come cambiare piattaforma di invio senza perdere reputazione · Email Seguro">
+<meta property="og:description" content="Cosa preparare prima di migrare a un nuovo ESP o ai tuoi server, come trasferire autenticazione, contatti e disiscrizioni e come riscaldare la nuova piattaforma.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Come cambiare piattaforma di invio senza perdere reputazione","description":"Cosa preparare prima di migrare a un nuovo ESP o ai tuoi server, come trasferire autenticazione, contatti e disiscrizioni e come riscaldare la nuova piattaforma.","inLanguage":"it","datePublished":"2026-11-17","dateModified":"2026-11-17","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/it/guias/migrar-plataforma/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mlduque.github.io/?lang=it"},{"@type":"ListItem","position":2,"name":"Guide","item":"https://mlduque.github.io/it/guias/"},{"@type":"ListItem","position":3,"name":"Come cambiare piattaforma di invio senza perdere reputazione","item":"https://mlduque.github.io/it/guias/migrar-plataforma/"}]}]}</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d25e423ccf7548898d2adc9bc46a8937"}'></script>
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/?lang=it"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Strumenti">
+    <a href="/it/guias/" aria-current="page">Guide</a>
+    <a href="/it/glosario/">Glossario</a>
+    <a href="/it/recursos/">Risorse</a>
+    <a href="/?lang=it#sobre-mi">Chi sono</a>
+    <a class="btn btn-primary" href="/?lang=it">Strumenti</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/?lang=it">Home</a> › <a href="/it/guias/">Guide</a></p>
+  <span class="kicker"><i></i><span>Guide alla deliverability · 2 min di lettura</span></span>
+  <h1>Come cambiare piattaforma di invio senza perdere reputazione</h1>
+  <p class="lead">Cosa preparare prima di migrare a un nuovo ESP o ai tuoi server, come trasferire autenticazione, contatti e disiscrizioni e come riscaldare la nuova piattaforma.</p>
+  <p class="gd-by">Di <a href="/?lang=it#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-17">Aggiornato 2026-11-17</time></p>
+  <nav class="toc" aria-label="In questa guida"><strong>In questa guida</strong><ol><li><a href="#perche-una-migrazione-puo-andare-male">Perché una migrazione può andare male</a></li><li><a href="#prima-di-migrare">Prima di migrare</a></li><li><a href="#autenticazione-nella-nuova-piattaforma">Autenticazione nella nuova piattaforma</a></li><li><a href="#riscalda-la-nuova-piattaforma">Riscalda la nuova piattaforma</a></li><li><a href="#dopo-la-migrazione">Dopo la migrazione</a></li><li><a href="#checklist">Checklist</a></li></ol></nav>
+  <section id="perche-una-migrazione-puo-andare-male"><h2>Perché una migrazione può andare male</h2><p>Quando cambi piattaforma di invio (da un ESP a un altro, o da un ESP ai tuoi server), cambiano gli IP, a volte i domini dei link e il modo di firmare le email. Per Gmail, Microsoft o Yahoo sei quasi un mittente nuovo, anche se il marchio è lo stesso.</p><p>Ben pianificata, la migrazione può passare inosservata. Fatta male, può mandare le tue email nello spam per settimane.</p></section>
+  <section id="prima-di-migrare"><h2>Prima di migrare</h2><ul><li><strong>Esporta tutto</strong>: contatti, disiscrizioni, bounce definitivi, reclami e date dell'ultima apertura o clic.</li><li><strong>Rispetta le disiscrizioni</strong>: importa disiscrizioni, bounce e reclami come soppressi nella nuova piattaforma. Riscrivere a chi si è disiscritto è il modo più rapido per accumulare reclami.</li><li><strong>Inventario degli invii</strong>: annota tutto ciò che parte dalla vecchia piattaforma (newsletter, automazioni, email transazionali).</li><li><strong>Non staccare di colpo</strong>: tieni attiva la vecchia piattaforma qualche settimana mentre riscaldi la nuova.</li></ul></section>
+  <section id="autenticazione-nella-nuova-piattaforma"><h2>Autenticazione nella nuova piattaforma</h2><ol><li>Aggiungi la nuova piattaforma allo SPF senza togliere la vecchia finché non hai finito. Attenzione a non superare i 10 lookup.</li><li>Configura DKIM con il tuo dominio (non quello della piattaforma), così la reputazione resta tua.</li><li>Configura il Return-Path o dominio dei bounce con un tuo sottodominio, così lo SPF è allineato.</li><li>Se la piattaforma usa un dominio di tracciamento dei link, personalizzalo con un tuo sottodominio.</li><li>Controlla i report DMARC: la nuova piattaforma deve comparire superando l'allineamento.</li></ol><p>Verifica il risultato in <a href="/?lang=it#requisitos">Requisiti di Gmail, Yahoo e Microsoft</a>.</p></section>
+  <section id="riscalda-la-nuova-piattaforma"><h2>Riscalda la nuova piattaforma</h2><p>Gli IP nuovi non hanno storico. Se hai un IP dedicato, fai un <a href="/?lang=it#warmup">warm-up</a> di 3-6 settimane partendo dai contatti più attivi. Se usi IP condivisi della piattaforma il rischio è minore, ma conviene comunque partire dai più attivi e aumentare il volume in una o due settimane.</p><p>Nel frattempo la vecchia piattaforma continua a inviare al resto della lista e sposti il volume da una all'altra poco a poco.</p></section>
+  <section id="dopo-la-migrazione"><h2>Dopo la migrazione</h2><ul><li>Controlla ogni giorno bounce, reclami e aperture per provider durante il primo mese.</li><li>Confronta la deliverability con la piattaforma precedente: se un provider peggiora, rallenta il volume verso di lui.</li><li>Quando tutto il volume è sulla nuova piattaforma, togli la vecchia dallo SPF.</li><li>Conserva l'esportazione di disiscrizioni e bounce della vecchia piattaforma.</li></ul></section>
+  <section id="checklist"><h2>Checklist</h2><ul><li>☐ Ho esportato contatti, disiscrizioni, bounce e reclami.</li><li>☐ Disiscrizioni e bounce importati come soppressi.</li><li>☐ SPF, DKIM, Return-Path e DMARC allineati nella nuova piattaforma.</li><li>☐ Piano di riscaldamento partendo dai più attivi.</li><li>☐ La vecchia piattaforma resta attiva fino alla fine del passaggio.</li></ul></section>
+  <div class="todo gd-tools"><h3>Mettilo in pratica</h3><div class="actions"><a class="btn btn-primary" href="/?lang=it#requisitos">Verifica i requisiti</a><a class="btn btn-primary" href="/?lang=it#warmup">Calcola il mio warm-up</a></div></div>
+  <div class="gd-next"><span class="minor">Altre guide</span><ul><li><a href="/it/guias/autenticacion/"><strong>SPF, DKIM e DMARC spiegati senza tecnicismi</strong></a></li><li><a href="/it/guias/requisitos/"><strong>Requisiti di Gmail, Yahoo e Microsoft per gli invii massivi</strong></a></li><li><a href="/it/guias/spam/"><strong>Perché le tue email finiscono in spam: 10 cause e come risolverle</strong></a></li><li><a href="/it/glosario/">Vedi il glossario completo →</a></li></ul></div>
+  <div class="ea-box"><span class="kicker"><i></i><span>La mia newsletter su LinkedIn</span></span><h3>Email Alchemy</h3><p>Scrivo di deliverability con casi reali, novità di Gmail, Microsoft e Yahoo e consigli da applicare subito. Iscriviti gratis su LinkedIn e riceverai un avviso a ogni nuovo articolo.</p><a class="btn btn-primary" href="https://www.linkedin.com/newsletters/email-alchemy-7422261994277285888/" target="_blank" rel="noopener">Iscriviti su LinkedIn</a></div>
+  <div class="gd-cta"><h2>Prova gli strumenti gratis</h2><p>Verifica il tuo dominio, fai l&#39;audit di un&#39;email, traduci un bounce o genera i tuoi record SPF, DMARC e BIMI. Gratis e senza registrazione.</p><a class="btn btn-yellow" href="/?lang=it">Strumenti →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Strumenti gratuiti e indicativi di email deliverability. Nessuna analisi automatica è infallibile.</p>
+      <p class="langs" aria-label="Lingua"><a href="/guias/migrar-plataforma/" hreflang="es" lang="es">ES</a><a href="/en/guias/migrar-plataforma/" hreflang="en" lang="en">EN</a><a href="/it/guias/migrar-plataforma/" hreflang="it" lang="it" aria-current="true">IT</a><a href="/fr/guias/migrar-plataforma/" hreflang="fr" lang="fr">FR</a><a href="/pt/guias/migrar-plataforma/" hreflang="pt" lang="pt">PT</a></p></div>
+    <div><h4>Guide</h4><ul><li><a href="/it/guias/autenticacion/">SPF, DKIM e DMARC spiegati senza tecnicismi</a></li><li><a href="/it/guias/requisitos/">Requisiti di Gmail, Yahoo e Microsoft per gli invii massivi</a></li><li><a href="/it/guias/spam/">Perché le tue email finiscono in spam: 10 cause e come risolverle</a></li><li><a href="/it/guias/listas-negras/">Blacklist: come sapere se ci sei e come uscirne</a></li><li><a href="/it/guias/rebotes/">Bounce: hard, soft e cosa fare con ciascuno</a></li><li><a href="/it/guias/bimi/">BIMI: come mostrare il tuo logo nella posta in arrivo</a></li><li><a href="/it/guias/aperturas-falsas/">Aperture e clic falsi: Apple, Gmail e i bot</a></li><li><a href="/it/guias/return-path-verp/">Return-Path e VERP: dove finiscono i tuoi bounce</a></li><li><a href="/it/guias/dkim2/">DKIM2: ciò che viene dopo DKIM</a></li><li><a href="/it/guias/helo-ptr-nat/">HELO, PTR e NAT: i nuovi requisiti di Spamhaus</a></li><li><a href="/it/guias/bloqueo-microsoft/">Come uscire dal blocco di Microsoft (Outlook e Hotmail)</a></li><li><a href="/it/guias/spam-gmail/">Perché le tue email finiscono nello spam di Gmail (e come evitarlo)</a></li><li><a href="/it/guias/warmup-ip/">Come fare il warm-up di un IP o di un dominio nuovi</a></li><li><a href="/it/guias/salir-spamhaus/">Come uscire da Spamhaus: SBL, CSS, XBL, PBL e DBL</a></li><li><a href="/it/guias/trampas-spam/">Spam trap: cosa sono e come evitarle</a></li><li><a href="/it/guias/informes-dmarc/">Come leggere i report DMARC (e arrivare a p=reject)</a></li><li><a href="/it/guias/migrar-plataforma/">Come cambiare piattaforma di invio senza perdere reputazione</a></li><li><a href="/it/glosario/">Glossario</a></li><li><a href="/it/recursos/">Risorse</a></li></ul></div>
+    <div><h4>Strumenti</h4><ul><li><a href="/?lang=it#auditoria">Fai l&#39;audit di un&#39;email</a></li><li><a href="/?lang=it#dominio">Verifica il mio dominio</a></li><li><a href="/?lang=it#rebotes">Traduci un bounce</a></li><li><a href="/?lang=it#generador">Genera i miei record</a></li><li><a href="/?lang=it#campana">Prova la campagna</a></li><li><a href="/?lang=it#bbdd">Pulisci il mio database</a></li><li><a href="/?lang=it#dmarc">Analizza i report DMARC</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/?lang=it#sobre-mi">Chi sono</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Aggiornato: 2026-11-17</span></div>
+</footer>
+</body>
+</html>

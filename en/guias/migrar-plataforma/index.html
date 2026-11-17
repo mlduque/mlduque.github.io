@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How to switch sending platforms without losing your reputation · Email Seguro</title>
+<meta name="description" content="What to prepare before migrating to a new ESP or your own servers, how to move authentication, contacts and unsubscribes, and how to warm up the new platform.">
+<link rel="canonical" href="https://mlduque.github.io/en/guias/migrar-plataforma/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/migrar-plataforma/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/migrar-plataforma/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/migrar-plataforma/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/migrar-plataforma/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/migrar-plataforma/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/migrar-plataforma/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/en/guias/migrar-plataforma/">
+<meta property="og:title" content="How to switch sending platforms without losing your reputation · Email Seguro">
+<meta property="og:description" content="What to prepare before migrating to a new ESP or your own servers, how to move authentication, contacts and unsubscribes, and how to warm up the new platform.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"How to switch sending platforms without losing your reputation","description":"What to prepare before migrating to a new ESP or your own servers, how to move authentication, contacts and unsubscribes, and how to warm up the new platform.","inLanguage":"en","datePublished":"2026-11-17","dateModified":"2026-11-17","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/en/guias/migrar-plataforma/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mlduque.github.io/?lang=en"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mlduque.github.io/en/guias/"},{"@type":"ListItem","position":3,"name":"How to switch sending platforms without losing your reputation","item":"https://mlduque.github.io/en/guias/migrar-plataforma/"}]}]}</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d25e423ccf7548898d2adc9bc46a8937"}'></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/?lang=en"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Tools">
+    <a href="/en/guias/" aria-current="page">Guides</a>
+    <a href="/en/glosario/">Glossary</a>
+    <a href="/en/recursos/">Resources</a>
+    <a href="/?lang=en#sobre-mi">About me</a>
+    <a class="btn btn-primary" href="/?lang=en">Tools</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/?lang=en">Home</a> › <a href="/en/guias/">Guides</a></p>
+  <span class="kicker"><i></i><span>Deliverability guides · 2 min read</span></span>
+  <h1>How to switch sending platforms without losing your reputation</h1>
+  <p class="lead">What to prepare before migrating to a new ESP or your own servers, how to move authentication, contacts and unsubscribes, and how to warm up the new platform.</p>
+  <p class="gd-by">By <a href="/?lang=en#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-17">Updated 2026-11-17</time></p>
+  <nav class="toc" aria-label="In this guide"><strong>In this guide</strong><ol><li><a href="#why-a-migration-can-go-wrong">Why a migration can go wrong</a></li><li><a href="#before-migrating">Before migrating</a></li><li><a href="#authentication-on-the-new-platform">Authentication on the new platform</a></li><li><a href="#warm-up-the-new-platform">Warm up the new platform</a></li><li><a href="#after-migrating">After migrating</a></li><li><a href="#checklist">Checklist</a></li></ol></nav>
+  <section id="why-a-migration-can-go-wrong"><h2>Why a migration can go wrong</h2><p>When you switch sending platforms (from one ESP to another, or from an ESP to your own servers), the IPs change, sometimes the link domains too, and so does the way emails are signed. To Gmail, Microsoft or Yahoo you're almost a new sender, even though your brand is the same.</p><p>Well planned, a migration doesn't have to be noticeable. Done badly, it can send your emails to spam for weeks.</p></section>
+  <section id="before-migrating"><h2>Before migrating</h2><ul><li><strong>Export everything</strong>: contacts, unsubscribes, hard bounces, complaints and last open or click dates.</li><li><strong>Respect unsubscribes</strong>: import unsubscribes, bounces and complaints as suppressed in the new platform. Writing again to people who unsubscribed is the fastest way to pile up complaints.</li><li><strong>Inventory your sends</strong>: list everything sent from the old platform (newsletters, automations, transactional emails).</li><li><strong>Don't cut over at once</strong>: keep the old platform active for a few weeks while you warm up the new one.</li></ul></section>
+  <section id="authentication-on-the-new-platform"><h2>Authentication on the new platform</h2><ol><li>Add the new platform to your SPF without removing the old one until you've finished. Watch out for the 10-lookup limit.</li><li>Set up DKIM with your domain (not the platform's), so the reputation stays yours.</li><li>Set the Return-Path or bounce domain to a subdomain of yours, so SPF is aligned.</li><li>If the platform uses a link tracking domain, customise it with a subdomain of yours.</li><li>Check the DMARC reports: the new platform should appear passing alignment.</li></ol><p>Check the result in <a href="/?lang=en#requisitos">Gmail, Yahoo and Microsoft requirements</a>.</p></section>
+  <section id="warm-up-the-new-platform"><h2>Warm up the new platform</h2><p>New IPs have no history. If you have a dedicated IP, do a <a href="/?lang=en#warmup">warm-up</a> of 3 to 6 weeks starting with your most active contacts. If you use the platform's shared IPs, the risk is lower, but it's still wise to start with the most active contacts and ramp up over one or two weeks.</p><p>Meanwhile, the old platform keeps sending to the rest of the list and you gradually move volume from one to the other.</p></section>
+  <section id="after-migrating"><h2>After migrating</h2><ul><li>Check bounces, complaints and opens per provider every day during the first month.</li><li>Compare deliverability with the previous platform: if a provider gets worse, slow down volume to it.</li><li>Once all volume is on the new platform, remove the old one from SPF.</li><li>Keep the export of unsubscribes and bounces from the old platform.</li></ul></section>
+  <section id="checklist"><h2>Checklist</h2><ul><li>☐ I've exported contacts, unsubscribes, bounces and complaints.</li><li>☐ Unsubscribes and bounces imported as suppressed.</li><li>☐ SPF, DKIM, Return-Path and DMARC aligned on the new platform.</li><li>☐ Warm-up plan starting with the most active contacts.</li><li>☐ The old platform stays active until the move is finished.</li></ul></section>
+  <div class="todo gd-tools"><h3>Put it into practice</h3><div class="actions"><a class="btn btn-primary" href="/?lang=en#requisitos">Check requirements</a><a class="btn btn-primary" href="/?lang=en#warmup">Plan my warm-up</a></div></div>
+  <div class="gd-next"><span class="minor">More guides</span><ul><li><a href="/en/guias/autenticacion/"><strong>SPF, DKIM and DMARC explained without jargon</strong></a></li><li><a href="/en/guias/requisitos/"><strong>Gmail, Yahoo and Microsoft requirements for bulk senders</strong></a></li><li><a href="/en/guias/spam/"><strong>Why your emails go to spam: 10 causes and how to fix them</strong></a></li><li><a href="/en/glosario/">See the full glossary →</a></li></ul></div>
+  <div class="ea-box"><span class="kicker"><i></i><span>My LinkedIn newsletter</span></span><h3>Email Alchemy</h3><p>I write about deliverability with real cases, changes at Gmail, Microsoft and Yahoo, and tips you can apply right away. Subscribe for free on LinkedIn and you&#39;ll be notified of every new article.</p><a class="btn btn-primary" href="https://www.linkedin.com/newsletters/email-alchemy-7422261994277285888/" target="_blank" rel="noopener">Subscribe on LinkedIn</a></div>
+  <div class="gd-cta"><h2>Try the tools for free</h2><p>Check your domain, audit an email, translate a bounce or generate your SPF, DMARC and BIMI records. Free and with no sign-up.</p><a class="btn btn-yellow" href="/?lang=en">Tools →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Free, indicative email deliverability tools. No automated analysis is infallible.</p>
+      <p class="langs" aria-label="Language"><a href="/guias/migrar-plataforma/" hreflang="es" lang="es">ES</a><a href="/en/guias/migrar-plataforma/" hreflang="en" lang="en" aria-current="true">EN</a><a href="/it/guias/migrar-plataforma/" hreflang="it" lang="it">IT</a><a href="/fr/guias/migrar-plataforma/" hreflang="fr" lang="fr">FR</a><a href="/pt/guias/migrar-plataforma/" hreflang="pt" lang="pt">PT</a></p></div>
+    <div><h4>Guides</h4><ul><li><a href="/en/guias/autenticacion/">SPF, DKIM and DMARC explained without jargon</a></li><li><a href="/en/guias/requisitos/">Gmail, Yahoo and Microsoft requirements for bulk senders</a></li><li><a href="/en/guias/spam/">Why your emails go to spam: 10 causes and how to fix them</a></li><li><a href="/en/guias/listas-negras/">Blocklists: how to know if you&#39;re on one and how to get off</a></li><li><a href="/en/guias/rebotes/">Bounces: hard, soft and what to do with each</a></li><li><a href="/en/guias/bimi/">BIMI: how to show your logo in the inbox</a></li><li><a href="/en/guias/aperturas-falsas/">Fake opens and clicks: Apple, Gmail and bots</a></li><li><a href="/en/guias/return-path-verp/">Return-Path and VERP: where your bounces go</a></li><li><a href="/en/guias/dkim2/">DKIM2: what comes after DKIM</a></li><li><a href="/en/guias/helo-ptr-nat/">HELO, PTR and NAT: Spamhaus&#39;s new requirements</a></li><li><a href="/en/guias/bloqueo-microsoft/">How to get off Microsoft&#39;s block list (Outlook and Hotmail)</a></li><li><a href="/en/guias/spam-gmail/">Why your emails go to spam in Gmail (and how to stop it)</a></li><li><a href="/en/guias/warmup-ip/">How to warm up a new IP or domain</a></li><li><a href="/en/guias/salir-spamhaus/">How to get off Spamhaus: SBL, CSS, XBL, PBL and DBL</a></li><li><a href="/en/guias/trampas-spam/">Spam traps: what they are and how to avoid them</a></li><li><a href="/en/guias/informes-dmarc/">How to read DMARC reports (and get to p=reject)</a></li><li><a href="/en/guias/migrar-plataforma/">How to switch sending platforms without losing your reputation</a></li><li><a href="/en/glosario/">Glossary</a></li><li><a href="/en/recursos/">Resources</a></li></ul></div>
+    <div><h4>Tools</h4><ul><li><a href="/?lang=en#auditoria">Audit an email</a></li><li><a href="/?lang=en#dominio">Check my domain</a></li><li><a href="/?lang=en#rebotes">Translate a bounce</a></li><li><a href="/?lang=en#generador">Generate my records</a></li><li><a href="/?lang=en#campana">Test my campaign</a></li><li><a href="/?lang=en#bbdd">Clean my database</a></li><li><a href="/?lang=en#dmarc">Analyse DMARC reports</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/?lang=en#sobre-mi">About me</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Updated: 2026-11-17</span></div>
+</footer>
+</body>
+</html>

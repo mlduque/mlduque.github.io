@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Como ler os relatórios DMARC (e chegar a p=reject) · Email Seguro</title>
+<meta name="description" content="O que são os relatórios DMARC agregados (RUA), que dados contêm, como descobrir quem envia em seu nome e como passar de p=none a p=reject sem perder emails.">
+<link rel="canonical" href="https://mlduque.github.io/pt/guias/informes-dmarc/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/informes-dmarc/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/informes-dmarc/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/informes-dmarc/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/informes-dmarc/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/informes-dmarc/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/informes-dmarc/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/pt/guias/informes-dmarc/">
+<meta property="og:title" content="Como ler os relatórios DMARC (e chegar a p=reject) · Email Seguro">
+<meta property="og:description" content="O que são os relatórios DMARC agregados (RUA), que dados contêm, como descobrir quem envia em seu nome e como passar de p=none a p=reject sem perder emails.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="pt_PT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Como ler os relatórios DMARC (e chegar a p=reject)","description":"O que são os relatórios DMARC agregados (RUA), que dados contêm, como descobrir quem envia em seu nome e como passar de p=none a p=reject sem perder emails.","inLanguage":"pt","datePublished":"2026-11-17","dateModified":"2026-11-17","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/pt/guias/informes-dmarc/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://mlduque.github.io/?lang=pt"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://mlduque.github.io/pt/guias/"},{"@type":"ListItem","position":3,"name":"Como ler os relatórios DMARC (e chegar a p=reject)","item":"https://mlduque.github.io/pt/guias/informes-dmarc/"}]}]}</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d25e423ccf7548898d2adc9bc46a8937"}'></script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar para o conteúdo</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/?lang=pt"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Ferramentas">
+    <a href="/pt/guias/" aria-current="page">Guias</a>
+    <a href="/pt/glosario/">Glossário</a>
+    <a href="/pt/recursos/">Recursos</a>
+    <a href="/?lang=pt#sobre-mi">Sobre mim</a>
+    <a class="btn btn-primary" href="/?lang=pt">Ferramentas</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/?lang=pt">Início</a> › <a href="/pt/guias/">Guias</a></p>
+  <span class="kicker"><i></i><span>Guias de entregabilidade · 2 min de leitura</span></span>
+  <h1>Como ler os relatórios DMARC (e chegar a p=reject)</h1>
+  <p class="lead">O que são os relatórios DMARC agregados (RUA), que dados contêm, como descobrir quem envia em seu nome e como passar de p=none a p=reject sem perder emails.</p>
+  <p class="gd-by">Por <a href="/?lang=pt#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-17">Atualizado 2026-11-17</time></p>
+  <nav class="toc" aria-label="Neste guia"><strong>Neste guia</strong><ol><li><a href="#o-que-sao-os-relatorios-dmarc">O que são os relatórios DMARC</a></li><li><a href="#o-que-contem-um-relatorio">O que contém um relatório</a></li><li><a href="#como-interpreta-lo">Como interpretá-lo</a></li><li><a href="#de-p-none-a-p-reject-passo-a-passo">De p=none a p=reject passo a passo</a></li><li><a href="#erros-habituais">Erros habituais</a></li><li><a href="#checklist">Checklist</a></li></ol></nav>
+  <section id="o-que-sao-os-relatorios-dmarc"><h2>O que são os relatórios DMARC</h2><p>Quando o seu registo DMARC inclui <code>rua=mailto:…</code>, os grandes fornecedores (Gmail, Yahoo, Microsoft e outros) enviam-lhe todos os dias um relatório com todos os emails recebidos que usam o seu domínio: de que IP, quantos e se passaram SPF, DKIM e DMARC.</p><p>É a única forma de saber <strong>quem envia em seu nome</strong>: as suas plataformas legítimas, as que esqueceu e quem tenta fazer-se passar por si.</p></section>
+  <section id="o-que-contem-um-relatorio"><h2>O que contém um relatório</h2><p>Chega como um ficheiro XML comprimido (.zip ou .gz) anexado a um email. Lá dentro há, para cada IP que enviou:</p><ul><li>O <strong>IP de origem</strong> e quantos emails enviou.</li><li>O resultado de <strong>SPF</strong> e <strong>DKIM</strong>, e com que domínio.</li><li>Se passaram o <strong>alinhamento</strong> com o domínio do remetente.</li><li>O que o fornecedor fez com eles segundo a sua política (entregar, enviar para spam ou rejeitar).</li></ul><p>Ler o XML à mão é muito pesado. Carregue-o no <a href="/?lang=pt#dmarc">analisador de relatórios DMARC</a> e ele diz-lhe que fontes são legítimas, quais falham e quais parecem usurpação.</p></section>
+  <section id="como-interpreta-lo"><h2>Como interpretá-lo</h2><ul><li><strong>Fontes legítimas que passam</strong>: tudo bem.</li><li><strong>Fontes legítimas que falham</strong>: por exemplo, o seu CRM ou a ferramenta de faturação enviam com o seu domínio mas sem DKIM. São estas que tem de corrigir antes de endurecer a política.</li><li><strong>Fontes desconhecidas que falham</strong>: possíveis usurpações. DMARC em <code>quarantine</code> ou <code>reject</code> é precisamente o que as trava.</li><li><strong>Reencaminhamentos</strong>: emails reencaminhados por listas de distribuição ou utilizadores costumam falhar o SPF. Se o DKIM passar, não há problema.</li></ul></section>
+  <section id="de-p-none-a-p-reject-passo-a-passo"><h2>De p=none a p=reject passo a passo</h2><ol><li><strong>p=none</strong> com <code>rua</code>: só observa. Mantenha-o 2 a 4 semanas e anote todas as fontes legítimas.</li><li>Configure SPF e DKIM alinhados em cada fonte legítima, até quase todo o seu correio passar.</li><li><strong>p=quarantine</strong> com <code>pct=25</code>, depois 50 e 100: o que falha vai para spam. Vigie os relatórios em cada passo.</li><li><strong>p=reject</strong>: o que falha é rejeitado. O seu domínio fica protegido contra a usurpação.</li></ol><p>Gere o registo de cada passo com o <a href="/?lang=pt#generador">gerador de SPF, DMARC e BIMI</a>.</p></section>
+  <section id="erros-habituais"><h2>Erros habituais</h2><ul><li>Passar a <code>reject</code> sem rever os relatórios: deixa de entregar faturas, avisos ou emails do CRM.</li><li>Não ter <code>rua</code>: tem DMARC, mas não sabe o que se passa.</li><li>Esquecer os subdomínios: use <code>sp=</code> se envia a partir deles.</li><li>Receber os relatórios na caixa pessoal: chegam muitos por dia. Use um endereço dedicado.</li></ul></section>
+  <section id="checklist"><h2>Checklist</h2><ul><li>☐ O meu DMARC tem <code>rua=mailto:</code> com um endereço dedicado.</li><li>☐ Revejo os relatórios todas as semanas.</li><li>☐ Conheço todas as minhas fontes legítimas.</li><li>☐ Todas passam SPF ou DKIM alinhados.</li><li>☐ Tenho um plano para chegar a p=reject.</li></ul></section>
+  <div class="todo gd-tools"><h3>Ponha em prática</h3><div class="actions"><a class="btn btn-primary" href="/?lang=pt#dmarc">Analisar relatórios DMARC</a><a class="btn btn-primary" href="/?lang=pt#generador">Gerar os meus registos</a></div></div>
+  <div class="gd-next"><span class="minor">Mais guias</span><ul><li><a href="/pt/guias/autenticacion/"><strong>SPF, DKIM e DMARC explicados sem tecnicismos</strong></a></li><li><a href="/pt/guias/requisitos/"><strong>Requisitos do Gmail, Yahoo e Microsoft para envios em massa</strong></a></li><li><a href="/pt/guias/spam/"><strong>Porque é que os seus emails vão para spam: 10 causas e como corrigi-las</strong></a></li><li><a href="/pt/glosario/">Ver o glossário completo →</a></li></ul></div>
+  <div class="ea-box"><span class="kicker"><i></i><span>A minha newsletter no LinkedIn</span></span><h3>Email Alchemy</h3><p>Escrevo sobre entregabilidade com casos reais, mudanças do Gmail, da Microsoft e do Yahoo e dicas que pode aplicar já. Subscreva gratuitamente no LinkedIn e será avisado de cada novo artigo.</p><a class="btn btn-primary" href="https://www.linkedin.com/newsletters/email-alchemy-7422261994277285888/" target="_blank" rel="noopener">Subscrever no LinkedIn</a></div>
+  <div class="gd-cta"><h2>Experimente as ferramentas grátis</h2><p>Verifique o seu domínio, audite um email, traduza um bounce ou gere os seus registos SPF, DMARC e BIMI. Grátis e sem registo.</p><a class="btn btn-yellow" href="/?lang=pt">Ferramentas →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Ferramentas gratuitas e indicativas de entregabilidade de email. Nenhuma análise automática é infalível.</p>
+      <p class="langs" aria-label="Idioma"><a href="/guias/informes-dmarc/" hreflang="es" lang="es">ES</a><a href="/en/guias/informes-dmarc/" hreflang="en" lang="en">EN</a><a href="/it/guias/informes-dmarc/" hreflang="it" lang="it">IT</a><a href="/fr/guias/informes-dmarc/" hreflang="fr" lang="fr">FR</a><a href="/pt/guias/informes-dmarc/" hreflang="pt" lang="pt" aria-current="true">PT</a></p></div>
+    <div><h4>Guias</h4><ul><li><a href="/pt/guias/autenticacion/">SPF, DKIM e DMARC explicados sem tecnicismos</a></li><li><a href="/pt/guias/requisitos/">Requisitos do Gmail, Yahoo e Microsoft para envios em massa</a></li><li><a href="/pt/guias/spam/">Porque é que os seus emails vão para spam: 10 causas e como corrigi-las</a></li><li><a href="/pt/guias/listas-negras/">Listas negras: como saber se está numa e como sair</a></li><li><a href="/pt/guias/rebotes/">Bounces: hard, soft e o que fazer com cada um</a></li><li><a href="/pt/guias/bimi/">BIMI: como mostrar o seu logótipo na caixa de entrada</a></li><li><a href="/pt/guias/aperturas-falsas/">Aberturas e cliques falsos: Apple, Gmail e os bots</a></li><li><a href="/pt/guias/return-path-verp/">Return-Path e VERP: para onde vão os seus bounces</a></li><li><a href="/pt/guias/dkim2/">DKIM2: o que vem depois do DKIM</a></li><li><a href="/pt/guias/helo-ptr-nat/">HELO, PTR e NAT: os novos requisitos da Spamhaus</a></li><li><a href="/pt/guias/bloqueo-microsoft/">Como sair do bloqueio da Microsoft (Outlook e Hotmail)</a></li><li><a href="/pt/guias/spam-gmail/">Porque é que os seus emails vão para spam no Gmail (e como evitar)</a></li><li><a href="/pt/guias/warmup-ip/">Como fazer o aquecimento (warm-up) de um IP ou domínio novos</a></li><li><a href="/pt/guias/salir-spamhaus/">Como sair da Spamhaus: SBL, CSS, XBL, PBL e DBL</a></li><li><a href="/pt/guias/trampas-spam/">Armadilhas de spam: o que são e como evitá-las</a></li><li><a href="/pt/guias/informes-dmarc/">Como ler os relatórios DMARC (e chegar a p=reject)</a></li><li><a href="/pt/guias/migrar-plataforma/">Como mudar de plataforma de envio sem perder a reputação</a></li><li><a href="/pt/glosario/">Glossário</a></li><li><a href="/pt/recursos/">Recursos</a></li></ul></div>
+    <div><h4>Ferramentas</h4><ul><li><a href="/?lang=pt#auditoria">Auditar um email</a></li><li><a href="/?lang=pt#dominio">Verificar o meu domínio</a></li><li><a href="/?lang=pt#rebotes">Traduzir um bounce</a></li><li><a href="/?lang=pt#generador">Gerar os meus registos</a></li><li><a href="/?lang=pt#campana">Testar a minha campanha</a></li><li><a href="/?lang=pt#bbdd">Limpar a minha base de dados</a></li><li><a href="/?lang=pt#dmarc">Analisar relatórios DMARC</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/?lang=pt#sobre-mi">Sobre mim</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Atualizado: 2026-11-17</span></div>
+</footer>
+</body>
+</html>
