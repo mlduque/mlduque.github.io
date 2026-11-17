@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Comment faire le warm-up d&#39;une IP ou d&#39;un domaine neufs · Email Seguro</title>
+<meta name="description" content="Ce qu&#39;est la chauffe d&#39;une IP ou d&#39;un domaine, combien de temps elle dure, comment augmenter le volume jour après jour et comment l&#39;adapter à Gmail, Microsoft et Yahoo sans être bloqué.">
+<link rel="canonical" href="https://mlduque.github.io/fr/guias/warmup-ip/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/warmup-ip/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/warmup-ip/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/warmup-ip/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/warmup-ip/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/warmup-ip/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/warmup-ip/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/fr/guias/warmup-ip/">
+<meta property="og:title" content="Comment faire le warm-up d&#39;une IP ou d&#39;un domaine neufs · Email Seguro">
+<meta property="og:description" content="Ce qu&#39;est la chauffe d&#39;une IP ou d&#39;un domaine, combien de temps elle dure, comment augmenter le volume jour après jour et comment l&#39;adapter à Gmail, Microsoft et Yahoo sans être bloqué.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Comment faire le warm-up d'une IP ou d'un domaine neufs","description":"Ce qu'est la chauffe d'une IP ou d'un domaine, combien de temps elle dure, comment augmenter le volume jour après jour et comment l'adapter à Gmail, Microsoft et Yahoo sans être bloqué.","inLanguage":"fr","datePublished":"2026-11-17","dateModified":"2026-11-17","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/fr/guias/warmup-ip/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://mlduque.github.io/?lang=fr"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://mlduque.github.io/fr/guias/"},{"@type":"ListItem","position":3,"name":"Comment faire le warm-up d'une IP ou d'un domaine neufs","item":"https://mlduque.github.io/fr/guias/warmup-ip/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/?lang=fr"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Outils">
+    <a href="/fr/guias/" aria-current="page">Guides</a>
+    <a href="/fr/glosario/">Glossaire</a>
+    <a href="/fr/recursos/">Ressources</a>
+    <a href="/?lang=fr#sobre-mi">À propos</a>
+    <a class="btn btn-primary" href="/?lang=fr">Outils</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/?lang=fr">Accueil</a> › <a href="/fr/guias/">Guides</a></p>
+  <span class="kicker"><i></i><span>Guides de délivrabilité · 3 min de lecture</span></span>
+  <h1>Comment faire le warm-up d&#39;une IP ou d&#39;un domaine neufs</h1>
+  <p class="lead">Ce qu&#39;est la chauffe d&#39;une IP ou d&#39;un domaine, combien de temps elle dure, comment augmenter le volume jour après jour et comment l&#39;adapter à Gmail, Microsoft et Yahoo sans être bloqué.</p>
+  <p class="gd-by">Par <a href="/?lang=fr#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-17">Mis à jour 2026-11-17</time></p>
+  <nav class="toc" aria-label="Dans ce guide"><strong>Dans ce guide</strong><ol><li><a href="#qu-est-ce-que-le-warm-up-et-pourquoi-il-est-indispensable">Qu&#39;est-ce que le warm-up et pourquoi il est indispensable</a></li><li><a href="#avant-de-commencer">Avant de commencer</a></li><li><a href="#le-plan-de-combien-augmenter-chaque-jour">Le plan : de combien augmenter chaque jour</a></li><li><a href="#chaque-fournisseur-a-son-rythme">Chaque fournisseur à son rythme</a></li><li><a href="#les-signaux-pour-ralentir">Les signaux pour ralentir</a></li><li><a href="#les-erreurs-qui-ruinent-un-warm-up">Les erreurs qui ruinent un warm-up</a></li><li><a href="#checklist">Checklist</a></li></ol></nav>
+  <section id="qu-est-ce-que-le-warm-up-et-pourquoi-il-est-indispensable"><h2>Qu&#39;est-ce que le warm-up et pourquoi il est indispensable</h2><p>Une IP ou un domaine neufs n'ont pas d'historique. Pour Gmail, Outlook ou Yahoo, un expéditeur inconnu qui envoie soudain des milliers d'emails ressemble beaucoup à un spammeur. Le <strong>warm-up</strong> (chauffe) consiste à commencer avec peu d'envois et à augmenter le volume progressivement, pour que les fournisseurs voient que vos emails sont ouverts et ne génèrent pas de plaintes.</p><p>Il faut le faire quand vous commencez à utiliser une IP dédiée, quand vous changez de plateforme d'envoi, quand vous commencez à envoyer depuis un nouveau domaine et quand vous reprenez après plusieurs semaines d'arrêt.</p></section>
+  <section id="avant-de-commencer"><h2>Avant de commencer</h2><ul><li>Configurez SPF, DKIM et DMARC et vérifiez qu'ils sont alignés.</li><li>Donnez à l'IP un DNS inverse (PTR) propre qui renvoie vers elle. Vérifiez-le dans <a href="/?lang=fr#ip">Informations sur une IP</a>.</li><li>Inscrivez-vous à Google Postmaster Tools et à Microsoft SNDS pour voir comment vous êtes reçu.</li><li>Préparez une liste de vos contacts <strong>les plus actifs</strong> : ceux qui ont ouvert ou cliqué au cours des 30 à 60 derniers jours. Vous commencerez par eux.</li></ul></section>
+  <section id="le-plan-de-combien-augmenter-chaque-jour"><h2>Le plan : de combien augmenter chaque jour</h2><p>La règle générale est de commencer avec quelques centaines d'emails par jour et de multiplier le volume par 1,3 à 2 chaque jour, tant que les résultats sont bons. Pour atteindre des dizaines de milliers d'emails par jour, il faut en général de 3 à 6 semaines.</p><p>Calculez votre plan exact avec le <a href="/?lang=fr#warmup">calculateur de warm-up</a> : indiquez le volume à atteindre et il vous donne les envois de chaque jour, téléchargeables pour Excel.</p><p>Envoyez toujours à peu près à la même heure et répartissez le volume sur la journée au lieu de tout envoyer d'un coup.</p></section>
+  <section id="chaque-fournisseur-a-son-rythme"><h2>Chaque fournisseur à son rythme</h2><p>Tous n'acceptent pas la même croissance :</p><ul><li><strong>Microsoft</strong> (Outlook, Hotmail) est le plus strict. Montez plus doucement, au maximum 25 % par jour, et surveillez les rebonds 4.7.650.</li><li><strong>Gmail</strong> tolère des hausses un peu plus rapides si les plaintes sont faibles. Surveillez le taux de spam dans Postmaster Tools.</li><li><strong>Yahoo et AOL</strong> vous freinent avec des reports <code>421 4.7.0 [TSS04]</code> quand vous allez trop vite.</li></ul><p>Le calculateur de warm-up vous permet d'indiquer la part de votre liste chez chaque fournisseur et vous donne un plan séparé pour chacun.</p></section>
+  <section id="les-signaux-pour-ralentir"><h2>Les signaux pour ralentir</h2><p>Si vous voyez l'un de ces signaux, répétez le volume de la veille au lieu d'augmenter, et si cela empire, baissez :</p><ul><li>Rebonds temporaires (4xx) au-dessus de 1 % chez un fournisseur.</li><li>Plaintes au-dessus de 0,1 %.</li><li>Baisse nette des ouvertures chez un fournisseur précis (vous arrivez peut-être en spam).</li><li>L'IP apparaît sur une liste noire. Vérifiez-le dans <a href="/?lang=fr#dominio">Mon domaine</a> ou dans <a href="/?lang=fr#ip">Informations sur une IP</a>.</li></ul></section>
+  <section id="les-erreurs-qui-ruinent-un-warm-up"><h2>Les erreurs qui ruinent un warm-up</h2><ul><li>Commencer en envoyant à toute la base, inactifs compris.</li><li>Utiliser des listes anciennes ou achetées : c'est précisément là que se trouvent les pièges à spam.</li><li>S'arrêter plusieurs jours en pleine chauffe et reprendre avec le volume complet.</li><li>Mélanger sur la même IP emails commerciaux et transactionnels dès le premier jour.</li><li>Envoyer un contenu inhabituel (par exemple une grosse promotion) pendant la chauffe.</li></ul></section>
+  <section id="checklist"><h2>Checklist</h2><ul><li>☐ SPF, DKIM, DMARC et PTR corrects.</li><li>☐ Postmaster Tools et SNDS configurés.</li><li>☐ Je commence par mes contacts les plus actifs.</li><li>☐ J'ai un plan jour par jour et par fournisseur.</li><li>☐ Je vérifie rebonds, plaintes et ouvertures chaque jour avant d'augmenter.</li><li>☐ Je sais quand ralentir.</li></ul></section>
+  <div class="todo gd-tools"><h3>Passez à la pratique</h3><div class="actions"><a class="btn btn-primary" href="/?lang=fr#warmup">Calculer mon warm-up</a><a class="btn btn-primary" href="/?lang=fr#ip">Vérifier une IP et son HELO</a></div></div>
+  <div class="gd-next"><span class="minor">Autres guides</span><ul><li><a href="/fr/guias/autenticacion/"><strong>SPF, DKIM et DMARC expliqués sans jargon</strong></a></li><li><a href="/fr/guias/requisitos/"><strong>Exigences de Gmail, Yahoo et Microsoft pour les envois en masse</strong></a></li><li><a href="/fr/guias/spam/"><strong>Pourquoi vos emails vont en spam : 10 causes et comment les corriger</strong></a></li><li><a href="/fr/glosario/">Voir le glossaire complet →</a></li></ul></div>
+  <div class="gd-cta"><h2>Essayez les outils gratuitement</h2><p>Vérifiez votre domaine, auditez un email, traduisez un rebond ou générez vos enregistrements SPF, DMARC et BIMI. Gratuit et sans inscription.</p><a class="btn btn-yellow" href="/?lang=fr">Outils →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Outils gratuits et indicatifs de délivrabilité email. Aucune analyse automatique n&#39;est infaillible.</p>
+      <p class="langs" aria-label="Langue"><a href="/guias/warmup-ip/" hreflang="es" lang="es">ES</a><a href="/en/guias/warmup-ip/" hreflang="en" lang="en">EN</a><a href="/it/guias/warmup-ip/" hreflang="it" lang="it">IT</a><a href="/fr/guias/warmup-ip/" hreflang="fr" lang="fr" aria-current="true">FR</a><a href="/pt/guias/warmup-ip/" hreflang="pt" lang="pt">PT</a></p></div>
+    <div><h4>Guides</h4><ul><li><a href="/fr/guias/autenticacion/">SPF, DKIM et DMARC expliqués sans jargon</a></li><li><a href="/fr/guias/requisitos/">Exigences de Gmail, Yahoo et Microsoft pour les envois en masse</a></li><li><a href="/fr/guias/spam/">Pourquoi vos emails vont en spam : 10 causes et comment les corriger</a></li><li><a href="/fr/guias/listas-negras/">Listes noires : savoir si vous y êtes et comment en sortir</a></li><li><a href="/fr/guias/rebotes/">Rebonds : durs, doux et que faire de chacun</a></li><li><a href="/fr/guias/bimi/">BIMI : afficher votre logo dans la boîte de réception</a></li><li><a href="/fr/guias/aperturas-falsas/">Fausses ouvertures et faux clics : Apple, Gmail et les bots</a></li><li><a href="/fr/guias/return-path-verp/">Return-Path et VERP : où vont vos rebonds</a></li><li><a href="/fr/guias/dkim2/">DKIM2 : ce qui vient après DKIM</a></li><li><a href="/fr/guias/helo-ptr-nat/">HELO, PTR et NAT : les nouvelles exigences de Spamhaus</a></li><li><a href="/fr/guias/bloqueo-microsoft/">Comment sortir du blocage de Microsoft (Outlook et Hotmail)</a></li><li><a href="/fr/guias/spam-gmail/">Pourquoi vos emails arrivent en spam dans Gmail (et comment l&#39;éviter)</a></li><li><a href="/fr/guias/warmup-ip/">Comment faire le warm-up d&#39;une IP ou d&#39;un domaine neufs</a></li><li><a href="/fr/glosario/">Glossaire</a></li><li><a href="/fr/recursos/">Ressources</a></li></ul></div>
+    <div><h4>Outils</h4><ul><li><a href="/?lang=fr#auditoria">Auditer un email</a></li><li><a href="/?lang=fr#dominio">Vérifier mon domaine</a></li><li><a href="/?lang=fr#rebotes">Traduire un rebond</a></li><li><a href="/?lang=fr#generador">Générer mes enregistrements</a></li><li><a href="/?lang=fr#campana">Tester ma campagne</a></li><li><a href="/?lang=fr#bbdd">Nettoyer ma base</a></li><li><a href="/?lang=fr#dmarc">Analyser des rapports DMARC</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/?lang=fr#sobre-mi">À propos</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Mis à jour: 2026-11-17</span></div>
+</footer>
+</body>
+</html>

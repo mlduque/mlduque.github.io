@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Porque é que os seus emails vão para spam no Gmail (e como evitar) · Email Seguro</title>
+<meta name="description" content="Os verdadeiros motivos pelos quais o Gmail envia os seus emails para spam ou os rejeita, o que ver no Postmaster Tools e uma checklist para voltar à caixa de entrada.">
+<link rel="canonical" href="https://mlduque.github.io/pt/guias/spam-gmail/">
+<link rel="alternate" hreflang="es" href="https://mlduque.github.io/guias/spam-gmail/">
+<link rel="alternate" hreflang="en" href="https://mlduque.github.io/en/guias/spam-gmail/">
+<link rel="alternate" hreflang="it" href="https://mlduque.github.io/it/guias/spam-gmail/">
+<link rel="alternate" hreflang="fr" href="https://mlduque.github.io/fr/guias/spam-gmail/">
+<link rel="alternate" hreflang="pt" href="https://mlduque.github.io/pt/guias/spam-gmail/">
+<link rel="alternate" hreflang="x-default" href="https://mlduque.github.io/guias/spam-gmail/">
+<meta name="author" content="María Luisa Duque">
+<meta name="theme-color" content="#1D4ED8">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Email Seguro">
+<meta property="og:url" content="https://mlduque.github.io/pt/guias/spam-gmail/">
+<meta property="og:title" content="Porque é que os seus emails vão para spam no Gmail (e como evitar) · Email Seguro">
+<meta property="og:description" content="Os verdadeiros motivos pelos quais o Gmail envia os seus emails para spam ou os rejeita, o que ver no Postmaster Tools e uma checklist para voltar à caixa de entrada.">
+<meta property="og:image" content="https://mlduque.github.io/og-image.png">
+<meta property="og:locale" content="pt_PT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="stylesheet" href="/assets/guias.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Porque é que os seus emails vão para spam no Gmail (e como evitar)","description":"Os verdadeiros motivos pelos quais o Gmail envia os seus emails para spam ou os rejeita, o que ver no Postmaster Tools e uma checklist para voltar à caixa de entrada.","inLanguage":"pt","datePublished":"2026-11-17","dateModified":"2026-11-17","author":{"@type":"Person","@id":"https://mlduque.github.io/#maria-luisa-duque","name":"María Luisa Duque","jobTitle":"Email Deliverability Manager","url":"https://mlduque.github.io/#sobre-mi","sameAs":["https://www.linkedin.com/in/marialuisaduque/","https://github.com/mlduque"]},"publisher":{"@id":"https://mlduque.github.io/#maria-luisa-duque"},"mainEntityOfPage":"https://mlduque.github.io/pt/guias/spam-gmail/","image":"https://mlduque.github.io/og-image.png"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://mlduque.github.io/?lang=pt"},{"@type":"ListItem","position":2,"name":"Guias","item":"https://mlduque.github.io/pt/guias/"},{"@type":"ListItem","position":3,"name":"Porque é que os seus emails vão para spam no Gmail (e como evitar)","item":"https://mlduque.github.io/pt/guias/spam-gmail/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar para o conteúdo</a>
+<header class="sh"><div class="wide sh-in">
+  <a class="brand" href="/?lang=pt"><span class="brand-ico"><svg width="20" height="22" viewBox="0 0 26 28" aria-hidden="true"><path d="M13 2l10 4v7c0 6.5-4.3 11.3-10 13-5.7-1.7-10-6.5-10-13V6z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8.5 14l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email Seguro</a>
+  <nav aria-label="Ferramentas">
+    <a href="/pt/guias/" aria-current="page">Guias</a>
+    <a href="/pt/glosario/">Glossário</a>
+    <a href="/pt/recursos/">Recursos</a>
+    <a href="/?lang=pt#sobre-mi">Sobre mim</a>
+    <a class="btn btn-primary" href="/?lang=pt">Ferramentas</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="wrap guide">
+  <p class="crumbs"><a href="/?lang=pt">Início</a> › <a href="/pt/guias/">Guias</a></p>
+  <span class="kicker"><i></i><span>Guias de entregabilidade · 3 min de leitura</span></span>
+  <h1>Porque é que os seus emails vão para spam no Gmail (e como evitar)</h1>
+  <p class="lead">Os verdadeiros motivos pelos quais o Gmail envia os seus emails para spam ou os rejeita, o que ver no Postmaster Tools e uma checklist para voltar à caixa de entrada.</p>
+  <p class="gd-by">Por <a href="/?lang=pt#sobre-mi">María Luisa Duque</a> · Email Deliverability Manager · <time datetime="2026-11-17">Atualizado 2026-11-17</time></p>
+  <nav class="toc" aria-label="Neste guia"><strong>Neste guia</strong><ol><li><a href="#o-gmail-decide-pela-reputacao">O Gmail decide pela reputação</a></li><li><a href="#as-6-causas-mais-habituais">As 6 causas mais habituais</a></li><li><a href="#veja-os-dados-no-postmaster-tools">Veja os dados no Postmaster Tools</a></li><li><a href="#se-o-gmail-rejeitar-os-seus-emails">Se o Gmail rejeitar os seus emails</a></li><li><a href="#como-recuperar-a-caixa-de-entrada">Como recuperar a caixa de entrada</a></li><li><a href="#mitos-que-nao-ajudam">Mitos que não ajudam</a></li><li><a href="#checklist">Checklist</a></li></ol></nav>
+  <section id="o-gmail-decide-pela-reputacao"><h2>O Gmail decide pela reputação</h2><p>O Gmail não tem uma lista negra pública nem um formulário para pedir que o tirem do spam. Decide com base no que os utilizadores fazem com os seus emails: se os abrem, respondem, movem para a caixa de entrada ou marcam como spam. É a sua <strong>reputação</strong>, e tanto o domínio como o IP têm uma.</p><p>Por isso, com o Gmail não funciona «pedir desculpa», mas sim mostrar durante algumas semanas que as pessoas querem receber os seus emails.</p></section>
+  <section id="as-6-causas-mais-habituais"><h2>As 6 causas mais habituais</h2><ol><li><strong>Autenticação incompleta</strong>: sem SPF, DKIM e DMARC alinhados, o Gmail desconfia. Se envia mais de 5.000 emails por dia para o Gmail, é também obrigatório.</li><li><strong>Demasiadas queixas</strong>: o Gmail pede que fique abaixo de 0,1% e nunca chegue a 0,3%. Acima disso, os emails vão para spam ou são rejeitados.</li><li><strong>Sem cancelamento num clique</strong>: os emails comerciais têm de incluir os cabeçalhos <code>List-Unsubscribe</code> e <code>List-Unsubscribe-Post</code>.</li><li><strong>Lista de má qualidade</strong>: contactos comprados, antigos ou inativos. Muitos envios para caixas que ninguém abre baixam a reputação.</li><li><strong>Mudanças bruscas</strong>: um domínio ou IP novos que enviam muito de uma vez, ou um pico de volume sem aquecimento.</li><li><strong>Conteúdo suspeito</strong>: links encurtados, domínios de links com má reputação, muita imagem e pouco texto ou assuntos enganadores.</li></ol></section>
+  <section id="veja-os-dados-no-postmaster-tools"><h2>Veja os dados no Postmaster Tools</h2><p>O <strong>Google Postmaster Tools</strong> é gratuito e é a única forma de ver o que o Gmail pensa de si. Verifique o seu domínio (com um registo TXT) e reveja:</p><ul><li><strong>Taxa de spam</strong>: a percentagem de emails que os utilizadores marcam como spam. É o dado mais importante.</li><li><strong>Estado de conformidade</strong>: se o seu domínio cumpre os requisitos para remetentes em massa (autenticação, DMARC, cancelamento num clique, taxa de spam).</li><li><strong>Autenticação e encriptação</strong>: que parte do seu correio passa SPF, DKIM e DMARC e chega com TLS.</li></ul><p>O Postmaster só mostra dados se enviar um volume diário suficiente para o Gmail. Se não vir nada, não quer dizer que algo esteja mal.</p></section>
+  <section id="se-o-gmail-rejeitar-os-seus-emails"><h2>Se o Gmail rejeitar os seus emails</h2><p>Além de enviar para spam, o Gmail rejeita correio que não cumpre os requisitos. Os bounces mais habituais são:</p><ul><li><strong>550 5.7.26</strong>: o email falha a autenticação (DMARC, SPF ou DKIM).</li><li><strong>421 4.7.28</strong> ou <strong>550 5.7.1</strong> com um texto sobre «unusual rate» ou spam: o Gmail trava ou rejeita por reputação ou por volume invulgar.</li><li><strong>421 4.7.0</strong> relacionado com o TLS ou com o DNS inverso do IP.</li></ul><p>Cole o bounce no <a href="/?lang=pt#rebotes">tradutor de bounces</a> para saber exatamente o que pede.</p></section>
+  <section id="como-recuperar-a-caixa-de-entrada"><h2>Como recuperar a caixa de entrada</h2><ol><li>Corrija a parte técnica: verifique o seu domínio em <a href="/?lang=pt#requisitos">Requisitos do Gmail, Yahoo e Microsoft</a>.</li><li>Durante 2 a 4 semanas, envie apenas para contactos que abriram ou clicaram nos últimos 60 a 90 dias.</li><li>Baixe o volume e volte a subi-lo aos poucos.</li><li>Ponha o link de cancelamento bem visível: é melhor alguém cancelar do que marcá-lo como spam.</li><li>Reveja cada campanha em <a href="/?lang=pt#campana">Minha campanha</a> antes de a enviar.</li><li>Acompanhe a taxa de spam no Postmaster Tools de poucos em poucos dias.</li></ol><p>A reputação no Gmail melhora devagar: é normal demorar várias semanas a ver resultados.</p></section>
+  <section id="mitos-que-nao-ajudam"><h2>Mitos que não ajudam</h2><ul><li><strong>«Se mudar de domínio, resolve-se»</strong>: um domínio novo começa sem reputação e o Gmail desconfia na mesma. E se repetir os mesmos hábitos, o novo acabará igual.</li><li><strong>«As palavras proibidas mandam-me para spam»</strong>: o conteúdo pesa muito menos do que a reputação. Um email impecável de um remetente com má reputação vai para spam na mesma.</li><li><strong>«Mais volume é mais vendas»</strong>: enviar para quem não abre baixa a reputação e prejudica todos os outros envios.</li></ul></section>
+  <section id="checklist"><h2>Checklist</h2><ul><li>☐ SPF, DKIM e DMARC alinhados com o domínio do remetente.</li><li>☐ Cancelamento num clique (List-Unsubscribe e List-Unsubscribe-Post).</li><li>☐ Taxa de spam no Postmaster Tools abaixo de 0,1%.</li><li>☐ Só envio para contactos ativos que deram autorização.</li><li>☐ IP com DNS inverso correto e envio com TLS.</li><li>☐ Revi o conteúdo e os links da campanha.</li></ul></section>
+  <div class="todo gd-tools"><h3>Ponha em prática</h3><div class="actions"><a class="btn btn-primary" href="/?lang=pt#requisitos">Verificar requisitos</a><a class="btn btn-primary" href="/?lang=pt#campana">Testar a minha campanha</a></div></div>
+  <div class="gd-next"><span class="minor">Mais guias</span><ul><li><a href="/pt/guias/autenticacion/"><strong>SPF, DKIM e DMARC explicados sem tecnicismos</strong></a></li><li><a href="/pt/guias/requisitos/"><strong>Requisitos do Gmail, Yahoo e Microsoft para envios em massa</strong></a></li><li><a href="/pt/guias/spam/"><strong>Porque é que os seus emails vão para spam: 10 causas e como corrigi-las</strong></a></li><li><a href="/pt/glosario/">Ver o glossário completo →</a></li></ul></div>
+  <div class="gd-cta"><h2>Experimente as ferramentas grátis</h2><p>Verifique o seu domínio, audite um email, traduza um bounce ou gere os seus registos SPF, DMARC e BIMI. Grátis e sem registo.</p><a class="btn btn-yellow" href="/?lang=pt">Ferramentas →</a></div>
+</article>
+</main>
+<footer>
+  <div class="wide foot">
+    <div><span class="brand">Email Seguro</span><p>Ferramentas gratuitas e indicativas de entregabilidade de email. Nenhuma análise automática é infalível.</p>
+      <p class="langs" aria-label="Idioma"><a href="/guias/spam-gmail/" hreflang="es" lang="es">ES</a><a href="/en/guias/spam-gmail/" hreflang="en" lang="en">EN</a><a href="/it/guias/spam-gmail/" hreflang="it" lang="it">IT</a><a href="/fr/guias/spam-gmail/" hreflang="fr" lang="fr">FR</a><a href="/pt/guias/spam-gmail/" hreflang="pt" lang="pt" aria-current="true">PT</a></p></div>
+    <div><h4>Guias</h4><ul><li><a href="/pt/guias/autenticacion/">SPF, DKIM e DMARC explicados sem tecnicismos</a></li><li><a href="/pt/guias/requisitos/">Requisitos do Gmail, Yahoo e Microsoft para envios em massa</a></li><li><a href="/pt/guias/spam/">Porque é que os seus emails vão para spam: 10 causas e como corrigi-las</a></li><li><a href="/pt/guias/listas-negras/">Listas negras: como saber se está numa e como sair</a></li><li><a href="/pt/guias/rebotes/">Bounces: hard, soft e o que fazer com cada um</a></li><li><a href="/pt/guias/bimi/">BIMI: como mostrar o seu logótipo na caixa de entrada</a></li><li><a href="/pt/guias/aperturas-falsas/">Aberturas e cliques falsos: Apple, Gmail e os bots</a></li><li><a href="/pt/guias/return-path-verp/">Return-Path e VERP: para onde vão os seus bounces</a></li><li><a href="/pt/guias/dkim2/">DKIM2: o que vem depois do DKIM</a></li><li><a href="/pt/guias/helo-ptr-nat/">HELO, PTR e NAT: os novos requisitos da Spamhaus</a></li><li><a href="/pt/guias/bloqueo-microsoft/">Como sair do bloqueio da Microsoft (Outlook e Hotmail)</a></li><li><a href="/pt/guias/spam-gmail/">Porque é que os seus emails vão para spam no Gmail (e como evitar)</a></li><li><a href="/pt/guias/warmup-ip/">Como fazer o aquecimento (warm-up) de um IP ou domínio novos</a></li><li><a href="/pt/glosario/">Glossário</a></li><li><a href="/pt/recursos/">Recursos</a></li></ul></div>
+    <div><h4>Ferramentas</h4><ul><li><a href="/?lang=pt#auditoria">Auditar um email</a></li><li><a href="/?lang=pt#dominio">Verificar o meu domínio</a></li><li><a href="/?lang=pt#rebotes">Traduzir um bounce</a></li><li><a href="/?lang=pt#generador">Gerar os meus registos</a></li><li><a href="/?lang=pt#campana">Testar a minha campanha</a></li><li><a href="/?lang=pt#bbdd">Limpar a minha base de dados</a></li><li><a href="/?lang=pt#dmarc">Analisar relatórios DMARC</a></li></ul></div>
+    <div><h4>María Luisa Duque</h4><p>Email Deliverability Manager</p><ul style="margin-top:.6rem"><li><a href="/?lang=pt#sobre-mi">Sobre mim</a></li><li><a href="https://www.linkedin.com/in/marialuisaduque/" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="wide foot-bottom"><span>© 2026 María Luisa Duque</span><span>Atualizado: 2026-11-17</span></div>
+</footer>
+</body>
+</html>
